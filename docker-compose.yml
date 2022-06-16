@@ -2,6 +2,7 @@ version: "3.9"
 volumes:
   db-store:
   psysh-store:
+  pma-session-store:
 services:
   app:
     build:
@@ -45,6 +46,17 @@ services:
         source: ./src
         target: /data
 
+  pma:
+      image: phpmyadmin/phpmyadmin
+      environment:
+        - PMA_HOST=db
+        - PMA_USER=phper
+        - PMA_PASSWORD=secret
+      ports:
+        - 8080:80
+      volumes:
+        - pma-session-store:/sessions
+
   db:
     build:
       context: .
@@ -65,6 +77,23 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
+
+  db-test:
+    image: mysql:8.0
+    container_name: db-test
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: db-user
+      MYSQL_PASSWORD: db-pass
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./docker/db-test/data:/var/lib/mysql
+      - ./docker/db-test/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./docker/db-test/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3000:3306
 
   mailhog:
     image: mailhog/mailhog
