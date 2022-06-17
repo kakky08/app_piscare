@@ -4,5 +4,191 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+/* ============================
+* カラー
+============================ */
+
+// 白
+$primary-color: #FFF;
+
+// 黄色
+$secondary-color: #FFE162;
+
+// グレー
+$sub-color: #EEE;
+
+// 緑
+$green-color: #91C483;
+
+// 赤
+$red-color: #FF6464;
+
+// 青
+$blue-color: #628eff;
+
+
+/* ============================
+* フォントカラー
+============================ */
+
+// 黒
+$font-color: #333;
+// 白
+$white-color: #fff;
+
+
+/* ============================
+* ブランドカラー
+============================ */
+
+// twitter
+$twitter-color: #1DA1F2;
+
+// google
+$google-color: #DB4437;
+
+// github
+$github-color: #161415;
+
+
+/* ============================
+* 文字の大きさ
+============================ */
+$fontsize-nav: 1rem;
+
+
+/* ============================
+* 全称セレクター
+============================ */
+
+* {
+    // color: $font-color;
+    box-sizing: border-box;
+}
+
+
+/* ============================
+* Header
+============================ */
+.nav {
+    &-header {
+        background-color: $secondary-color;
+        padding: 0px 24px;
+    }
+
+    &-height {
+        height: 64px;
+
+    }
+
+    &-list {
+        height: 100%;
+
+        li {
+            a {
+                font-size: $fontsize-nav;
+                color: $font-color;
+                display: block;
+                padding: calc((64px - 18px) / 2) 1rem;
+
+                &:hover {
+                    color: $green-color;
+                }
+            }
+        }
+    }
+}
+
+/* ============================
+* Auth関連
+============================ */
+
+.auth {
+    &-header {
+        margin-bottom: 4rem;
+    }
+
+    &-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    &-card {
+        &-body {
+            padding: 3rem;
+        }
+    }
+
+    &-form {
+
+        &-group {
+            margin-bottom: 2rem;
+
+            &:last-child {
+                margin-bottom: 3rem;
+            }
+        }
+
+    }
+
+    &-button {
+        padding: 0.5rem 0;
+        color: $white-color;
+        background-color: $green-color;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+
+        &-social {
+            margin-bottom: 2rem;
+
+            &:hover {
+                background-color: $secondary-color;
+                color: $font-color;
+            }
+
+            &-link {
+                padding: 0.5rem 0;
+                color: $white-color;
+
+                &:hover {
+                    background-color: $secondary-color;
+                }
+            }
+
+            &-icon {
+                margin-right: 1rem;
+            }
+
+        }
+
+        &-google {
+            background-color: $google-color;
+
+            &:hover {
+                color: $google-color;
+            }
+        }
+
+        &-github {
+            background-color: $github-color;
+
+            &:hover {
+                color: $github-color;
+            }
+        }
+
+        &-twitter {
+            background-color: $twitter-color;
+
+            &:hover {
+                color: $twitter-color;
+            }
+        }
+    }
+
+}
