@@ -1,25 +1,20 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 /* ============================
 * カラー
 ============================ */
-
 /* ============================
 * フォントカラー
 ============================ */
-
 /* ============================
 * ブランドカラー
 ============================ */
-
 /* ============================
 * 文字の大きさ
 ============================ */
-
 /* ============================
 * 全称セレクター
 ============================ */
-
 * {
   box-sizing: border-box;
 }
@@ -27,27 +22,22 @@
 /* ============================
 * Header
 ============================ */
-
 .nav-header {
   background-color: #FFE162;
   padding: 0px 24px;
 }
-
 .nav-height {
   height: 64px;
 }
-
 .nav-list {
   height: 100%;
 }
-
 .nav-list li a {
   font-size: 1rem;
   color: #333;
   display: block;
   padding: 23px 1rem;
 }
-
 .nav-list li a:hover {
   color: #91C483;
 }
@@ -55,83 +45,65 @@
 /* ============================
 * Auth関連
 ============================ */
-
 .auth-header {
   margin-bottom: 4rem;
 }
-
 .auth-title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
 }
-
 .auth-card-body {
   padding: 3rem;
 }
-
 .auth-form-group {
   margin-bottom: 2rem;
 }
-
 .auth-form-group:last-child {
   margin-bottom: 3rem;
 }
-
 .auth-button {
   padding: 0.5rem 0;
   color: #fff;
   background-color: #91C483;
 }
-
 .auth-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .auth-button-social {
   margin-bottom: 2rem;
 }
-
 .auth-button-social:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .auth-button-social-link {
   padding: 0.5rem 0;
   color: #fff;
 }
-
 .auth-button-social-link:hover {
   background-color: #FFE162;
 }
-
 .auth-button-social-icon {
   margin-right: 1rem;
 }
-
 .auth-button-google {
   background-color: #DB4437;
 }
-
 .auth-button-google:hover {
   color: #DB4437;
 }
-
 .auth-button-github {
   background-color: #161415;
 }
-
 .auth-button-github:hover {
   color: #161415;
 }
-
 .auth-button-twitter {
   background-color: #1DA1F2;
 }
-
 .auth-button-twitter:hover {
   color: #1DA1F2;
 }
-
+/*# sourceMappingURL=app.css.map */
