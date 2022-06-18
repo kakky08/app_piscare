@@ -16,12 +16,10 @@ class HomeControllerTest extends TestCase
      */
     public function testExample()
     {
-       /*  $user = factory(User::class)->create();
+        $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)
-            ->get(route('home.index')); */
-
-        $response = $this->get(route('home.index'));
+            ->get(route('home.index'));
 
         $response->assertStatus(200)
             ->assertViewIs('mypage.home.index');
