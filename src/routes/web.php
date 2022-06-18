@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+//  Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+/* ====================
+    Auth認証
+==================== */
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* ====================
+    Mypage
+==================== */
+
+/* --------------------
+    Home
+-------------------- */
+Route::prefix('home')->name('home.')->group(function(){
+    Route::get('/', 'HomeController@index')->name('index');
+});
