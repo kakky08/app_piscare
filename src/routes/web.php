@@ -34,3 +34,10 @@ Auth::routes();
 Route::prefix('home')->name('home.')->group(function(){
     Route::get('/', 'HomeController@index')->name('index');
 });
+
+/* --------------------
+    Home
+-------------------- */
+Route::prefix('setting')->name('setting.')->group(function () {
+    Route::get('/', 'SettingController@index')->name('index');
+});
