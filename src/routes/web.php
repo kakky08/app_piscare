@@ -36,8 +36,15 @@ Route::prefix('home')->name('home.')->group(function(){
 });
 
 /* --------------------
-    Home
+    Setting
 -------------------- */
 Route::prefix('setting')->name('setting.')->group(function () {
     Route::get('/', 'SettingController@index')->name('index');
+});
+
+/* --------------------
+    Profile
+-------------------- */
+Route::prefix('profile')->name('profile.')->group(function () {
+    Route::get('/', 'ProfileController@index')->name('index');
 });
