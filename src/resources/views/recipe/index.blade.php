@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('header')
+    @include('components.header.app')
+@endsection
+@section('aside')
+@endsection
+@section('main')
+    <h1>recipe</h1>
+@endsection
