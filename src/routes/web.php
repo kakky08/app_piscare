@@ -56,3 +56,11 @@ Route::prefix('profile')->name('profile.')->group(function () {
 Route::prefix('recipe')->name('recipe.')->group(function () {
     Route::get('/', 'RecipeController@index')->name('index');
 });
+
+/* ====================
+    Shop Page
+==================== */
+
+Route::prefix('shop')->name('shop.')->group(function () {
+    Route::get('/', 'ShopController@index')->name('index');
+});
