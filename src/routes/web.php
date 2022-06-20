@@ -58,6 +58,14 @@ Route::prefix('recipe')->name('recipe.')->group(function () {
 });
 
 /* ====================
+    Post Page
+==================== */
+
+Route::prefix('post')->name('post.')->group(function () {
+    Route::get('/', 'PostController@index')->name('index');
+});
+
+/* ====================
     Shop Page
 ==================== */
 
