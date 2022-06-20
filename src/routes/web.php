@@ -48,3 +48,11 @@ Route::prefix('setting')->name('setting.')->group(function () {
 Route::prefix('profile')->name('profile.')->group(function () {
     Route::get('/', 'ProfileController@index')->name('index');
 });
+
+/* ====================
+    Recipe Page
+==================== */
+
+Route::prefix('recipe')->name('recipe.')->group(function () {
+    Route::get('/', 'RecipeController@index')->name('index');
+});
