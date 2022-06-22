@@ -16,4 +16,8 @@ class PostController extends Controller
         return view('post.pages.create');
     }
 
+    public function edit($post)
+    {
+        return view('post.pages.edit');
+    }
 }
