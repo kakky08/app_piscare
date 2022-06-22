@@ -9,34 +9,34 @@
             <a class="btn button-back" href="{{-- {{ route('materialCreate.back', ['materialCreate' => $postId]) }} --}}">>>戻る</a>
             <br />
             {{-- 登録完了メッセージ --}}
-            {{-- @include('postRecipe.create.material.successMessage') --}}
+            @include('post.pages.material.components.successMessage')
 
             {{-- 人数の登録フォーム --}}
-            {{-- @include('postRecipe.create.material.peopleUpdate') --}}
+            @include('post.pages.material.components.registerPeople')
 
             {{-- 区切り線 --}}
-            {{-- <p class="border-bottom boundary-line"></p> --}}
+            <p class="border-bottom boundary-line"></p>
 
             {{-- 材料の新規登録フォーム --}}
-            {{-- @include('postRecipe.create.material.materialRegister') --}}
+            @include('post.pages.material.components.registerMaterial')
 
             {{-- 区切り線 --}}
-            {{-- <p class="border-bottom boundary-line"></p> --}}
+            <p class="border-bottom boundary-line"></p>
 
             {{-- 材料の更新フォーム --}}
-            {{-- @include('postRecipe.create.material.materialUpdate') --}}
+            @include('post.pages.material.components.updateMaterial')
 
             {{-- 区切り線 --}}
-            {{-- <p class="border-bottom boundary-line"></p> --}}
+            <p class="border-bottom boundary-line"></p>
 
             {{-- 調味料の新規登録フォーム --}}
-            {{-- @include('postRecipe.create.material.seasoningRegister') --}}
+            @include('post.pages.material.components.registerSeasoning')
 
             {{-- 区切り線 --}}
-            {{-- <p class="border-bottom boundary-line"></p> --}}
+            <p class="border-bottom boundary-line"></p>
 
             {{-- 調味料の更新フォーム --}}
-            {{-- @include('postRecipe.create.material.seasoningUpdate') --}}
+            @include('post.pages.material.components.updateSeasoning')
 
         </div>
     </div>
