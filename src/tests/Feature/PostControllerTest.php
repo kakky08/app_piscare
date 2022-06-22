@@ -22,7 +22,7 @@ class PostControllerTest extends TestCase
             ->get(route('post.index'));
 
         $response->assertStatus(200)
-            ->assertViewIs('post.index');
+            ->assertViewIs('post.pages.index');
     }
 
     public function testCreate()
@@ -33,6 +33,6 @@ class PostControllerTest extends TestCase
             ->get(route('post.create'));
 
         $response->assertStatus(200)
-            ->assertViewIs('post.create');
+            ->assertViewIs('post.pages.create');
     }
 }

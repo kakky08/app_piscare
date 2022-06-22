@@ -63,6 +63,7 @@ Route::prefix('recipe')->name('recipe.')->group(function () {
 
 Route::prefix('post')->name('post.')->group(function () {
     Route::get('/', 'PostController@index')->name('index');
+    Route::get('/create', 'PostController@create')->name('create');
 });
 
 /* ====================
