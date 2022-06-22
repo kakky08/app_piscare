@@ -20,4 +20,9 @@ class PostController extends Controller
     {
         return view('post.pages.edit');
     }
+
+    public function materialEdit($post)
+    {
+        return view('post.pages.material.edit');
+    }
 }
