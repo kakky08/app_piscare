@@ -25,4 +25,9 @@ class PostController extends Controller
     {
         return view('post.pages.material.edit');
     }
+
+    public function procedureEdit($post)
+    {
+        return view('post.pages.procedure.edit');
+    }
 }
