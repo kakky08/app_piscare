@@ -65,7 +65,7 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::get('/', 'PostController@index')->name('index');
     Route::get('/create', 'PostController@create')->name('create');
     Route::get('/{post}/edit', 'PostController@edit')->name('edit');
-
+    Route::get('/{post}/material/edit', 'PostController@materialEdit')->name('material');
 });
 
 /* ====================
