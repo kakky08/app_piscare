@@ -14,7 +14,7 @@ class PostControllerTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testIndex()
     {
         $user = factory(User::class)->create();
 
@@ -23,5 +23,16 @@ class PostControllerTest extends TestCase
 
         $response->assertStatus(200)
             ->assertViewIs('post.index');
+    }
+
+    public function testCreate()
+    {
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)
+            ->get(route('post.create'));
+
+        $response->assertStatus(200)
+            ->assertViewIs('post.create');
     }
 }
