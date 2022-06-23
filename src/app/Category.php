@@ -8,7 +8,8 @@ class Category extends Model
 {
     protected $fillable = [
         'id',
-        'name',
+        'parentCategoryId',
+        'categoryName',
     ];
 
     public function subCategory()

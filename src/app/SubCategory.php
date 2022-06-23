@@ -9,7 +9,7 @@ class SubCategory extends Model
     protected $fillable = [
         'id',
         'categoryId',
-        'name',
+        'categoryName',
     ];
 
     public function category()
