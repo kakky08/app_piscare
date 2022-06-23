@@ -45,6 +45,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function () {
     Route::post('/logout', 'Admin\LoginController@logout')->name('logout');
     Route::get('/home', 'Admin\HomeController@index')->name('home');
+    Route::get('/register', 'RakutenController@register')->name('register');
 });
 
 
