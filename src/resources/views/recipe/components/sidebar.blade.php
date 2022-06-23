@@ -6,28 +6,28 @@
             <button class="btn button-basic" type="submit" id="button-addon2">検索</button>
         </form>
 
-       {{--  <div class="accordion" id="accordionExample">
-            @foreach ($subcategories as $subcategory)
+        <div class="accordion" id="accordionExample">
+            @foreach ($categories as $category)
                 <div class="accordion-item recipe-aside-category-item">
                     <h2 class="accordion-header recipe-aside-category-title" id="headingOne">
-                        <button class="accordion-button collapsed recipe-aside-color" type="button" data-bs-toggle="collapse" data-bs-target="#{{ 'category' . $subcategory->categoryId}}" aria-expanded="false" aria-controls="{{ 'category' . $subcategory->categoryId}}">
-                            {{ $subcategory->categoryName }}
+                        <button class="accordion-button collapsed recipe-aside-color" type="button" data-bs-toggle="collapse" data-bs-target="#{{ 'category' . $category->id}}" aria-expanded="false" aria-controls="{{ 'category' . $category->id}}">
+                            {{ $category->categoryName }}
                         </button>
                     </h2>
-                    <div id="{{ 'category' . $subcategory->categoryId}}" class="accordion-collapse collapse recipe-aside-color" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="{{ 'category' . $category->id}}" class="accordion-collapse collapse recipe-aside-color" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul>
                                 <li class="ms-3">
-                                    <a href="{{ route('recipe.category', ['recipe' => $subcategory->searchCategoryId] )}}">
-                                        {{ $subcategory->categoryName . '一覧'}}
+                                    <a href="{{-- {{ route('recipe.category', ['recipe' => $category->searchCategoryId] )}} --}}">
+                                        {{ $category->categoryName . '一覧'}}
                                     </a>
                                 </li>
-                                @foreach ($subsubcategories as $subsubcategory)
-                                    @if ($subcategory->categoryId === $subsubcategory->parentCategoryId &&
-                                            $subcategory->categoryName !== $subsubcategory->categoryName)
+                                @foreach ($subCategories as $subCategory)
+                                    @if ($category->id === $subCategory->categoryId &&
+                                            $category->categoryName !== $subCategory->categoryName)
                                         <li class="ms-3">
-                                            <a href="{{ route('recipe.category', ['recipe' => $subsubcategory->searchCategoryId] )}}">
-                                                {{ $subsubcategory->categoryName }}
+                                            <a href="{{-- {{ route('recipe.category', ['recipe' => $subCategory->searchCategoryId] )}} --}}">
+                                                {{ $subCategory->categoryName }}
                                             </a>
                                         </li>
                                     @endif
@@ -38,6 +38,5 @@
                 </div>
             @endforeach
         </div>
- --}}
     </div>
 </nav>
