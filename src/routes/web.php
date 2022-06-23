@@ -24,6 +24,30 @@
 ==================== */
 Auth::routes();
 
+
+/* ====================
+    Admin 認証不要
+==================== */
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return redirect('admin/home');
+    });
+    Route::get('/login', 'Admin\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Admin\LoginController@login')->name('login');
+});
+
+
+/* ====================
+    Admin ログイン後
+==================== */
+
+Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function () {
+    Route::post('/logout', 'Admin\LoginController@logout')->name('logout');
+    Route::get('/home', 'Admin\HomeController@index')->name('home');
+});
+
+
 /* ====================
     Mypage
 ==================== */
