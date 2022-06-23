@@ -31,8 +31,8 @@
         </div>
     </div>
 </div>
-{{-- <a class="btn auth-button" href="{{ route('admin.shops') }}">ショップ登録</a>
-<a class="btn auth-button" href="{{ route('admin.shopsArea') }}">エリア登録</a>
-<a class="btn auth-button" href="{{ route('admin.recipes') }}">レシピ登録</a> --}}
+{{-- <a class="btn auth-button" href="{{ route('admin.shops') }}">ショップ登録</a> --}}
+{{-- <a class="btn auth-button" href="{{ route('admin.shopsArea') }}">エリア登録</a> --}}
+<a class="btn auth-button" href="{{ route('admin.register') }}">レシピ登録</a>
 
 @endsection
