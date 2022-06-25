@@ -16,4 +16,13 @@ class RecipeController extends Controller
         $subCategories = SubCategory::all()->sortBy('id');
         return view('recipe.index', compact('recipes', 'categories', 'subCategories'));
     }
+
+    public function search(Request $request)
+    {
+        $recipes = Recipe::where('recipeTitle', 'LIKE', "%$request->search%")->orWhere('recipeDescription', 'LIKE', "%$request->search%")->orderBy('created_at', 'desc')->paginate(20);
+        $categories = Category::all()->sortBy('id');
+        $subCategories = SubCategory::all()->sortBy('id');
+        return view('recipe.index', compact('recipes', 'categories', 'subCategories'));
+
+    }
 }
