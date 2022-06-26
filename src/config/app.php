@@ -130,6 +130,7 @@ return [
     */
     'rakuten' => env('RAKUTEN_APPLICATION_ID', 'error'),
 
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
