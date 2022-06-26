@@ -21,7 +21,7 @@ class RakutenController extends Controller
     public function updateRecipe()
     {
         $client = new RakutenRws_Client();
-        $client->setApplicationId(config('app.rakuten'));
+        $client->setApplicationId(config('rakuten.api_key'));
 
 
         /* ==============================

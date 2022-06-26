@@ -22,6 +22,9 @@
 /* ====================
     Auth認証
 ==================== */
+
+use App\Http\Controllers\HotpepperController;
+
 Auth::routes();
 
 
@@ -47,7 +50,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::get('/home', 'Admin\HomeController@index')->name('home');
     Route::get('/recipe', 'RakutenController@updateRecipe')->name('recipe');
     Route::get('/category', 'RakutenController@updateCategory')->name('category');
-
+    Route::get('/shop', 'HotpepperController@updateShop')->name('shop');
 });
 
 
