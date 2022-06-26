@@ -18,7 +18,7 @@
                         <div class="accordion-body">
                             <ul>
                                 <li class="ms-3">
-                                    <a href="{{-- {{ route('recipe.category', ['recipe' => $category->searchCategoryId] )}} --}}">
+                                    <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id] )}}">
                                         {{ $category->categoryName . '一覧'}}
                                     </a>
                                 </li>
@@ -26,7 +26,7 @@
                                     @if ($category->id === $subCategory->categoryId &&
                                             $category->categoryName !== $subCategory->categoryName)
                                         <li class="ms-3">
-                                            <a href="{{-- {{ route('recipe.category', ['recipe' => $subCategory->searchCategoryId] )}} --}}">
+                                            <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id . $subCategory->id] )}}">
                                                 {{ $subCategory->categoryName }}
                                             </a>
                                         </li>
