@@ -34,7 +34,7 @@
                         <i class="fas fa-heart"></i><p>{{-- {{ $recipe->count_likes}} --}}</p>
                     </div>
                     <div class="d-grid">
-                        <a href="{{-- {{ route('recipe.show', $recipe->id) }} --}}" class="btn stretched-link card-style-button">詳細</a>
+                        <a href="{{ route('recipe.show', $recipe->id) }}" class="btn stretched-link card-style-button">詳細</a>
                     </div>
                 </div>
             </div>
