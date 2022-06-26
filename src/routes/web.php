@@ -83,6 +83,7 @@ Route::prefix('profile')->name('profile.')->group(function () {
 Route::prefix('recipe')->name('recipe.')->group(function () {
     Route::get('/', 'RecipeController@index')->name('index');
     Route::get('/search', 'RecipeController@search')->name('search');
+    Route::get('/category/{id}', 'RecipeController@category')->name('category');
 });
 
 /* ====================
