@@ -109,4 +109,5 @@ Route::prefix('post')->name('post.')->group(function () {
 
 Route::prefix('shop')->name('shop.')->group(function () {
     Route::get('/', 'ShopController@index')->name('index');
+    Route::get('/search', 'ShopController@search')->name('search');
 });

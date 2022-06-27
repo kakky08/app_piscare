@@ -18,7 +18,7 @@
         <p class="col alert-message-error">※{{ $errors->first('area') }}</p>
     </div>
 @endif --}}
-<form method="GET" action="{{-- {{ route('shops.search') }} --}}" class="row shop-search-form" >
+<form method="GET" action="{{ route('shop.search') }}" class="row shop-search-form" >
     <div class="col-4">
         <input type="text" name="keyword" class="form-control"  placeholder="店名">
     </div>
