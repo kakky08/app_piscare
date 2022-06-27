@@ -32,7 +32,7 @@
     </div>
 </div>
 <a class="btn auth-button" href="{{ route('admin.shop') }}">ショップ登録</a>
-{{-- <a class="btn auth-button" href="{{ route('admin.shopsArea') }}">エリア登録</a> --}}
+<a class="btn auth-button" href="{{ route('admin.area') }}">エリア登録</a>
 <a class="btn auth-button" href="{{ route('admin.recipe') }}">レシピ登録</a>
 <a class="btn auth-button" href="{{ route('admin.category') }}">カテゴリ登録</a>
 

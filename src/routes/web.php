@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Route::get('/recipe', 'RakutenController@updateRecipe')->name('recipe');
     Route::get('/category', 'RakutenController@updateCategory')->name('category');
     Route::get('/shop', 'HotpepperController@updateShop')->name('shop');
+    Route::get('/area', 'HotpepperController@updateArea')->name('area');
 });
 
 
