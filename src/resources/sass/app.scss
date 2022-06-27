@@ -267,6 +267,50 @@ $fontsize-nav: 1rem;
 }
 
 /* ----------------------------
+* Home
+---------------------------- */
+/* ----------------------------
+* Calendar
+---------------------------- */
+.calender {
+    &-button-group {
+        margin-bottom: 2rem;
+
+        p {
+            margin-bottom: 0;
+            font-size: 1.4rem;
+        }
+    }
+
+    &-button {
+        background-color: $green-color;
+        color: $white-color;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+    }
+
+    &-table-row {
+        height: 80px
+    }
+
+    &-table-header {
+        text-align: center;
+        margin-bottom: none;
+    }
+
+    &-table-data {
+        min-width: 80px;
+    }
+
+    &-fish-icon {
+        text-align: center;
+    }
+}
+
+/* ----------------------------
 * Setting
 ---------------------------- */
 .setting{

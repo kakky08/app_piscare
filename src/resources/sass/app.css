@@ -172,6 +172,41 @@
 }
 
 /* ----------------------------
+* Home
+---------------------------- */
+/* ----------------------------
+* Calendar
+---------------------------- */
+.calender-button-group {
+  margin-bottom: 2rem;
+}
+.calender-button-group p {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+}
+.calender-button {
+  background-color: #91C483;
+  color: #fff;
+}
+.calender-button:hover {
+  background-color: #FFE162;
+  color: #333;
+}
+.calender-table-row {
+  height: 80px;
+}
+.calender-table-header {
+  text-align: center;
+  margin-bottom: none;
+}
+.calender-table-data {
+  min-width: 80px;
+}
+.calender-fish-icon {
+  text-align: center;
+}
+
+/* ----------------------------
 * Setting
 ---------------------------- */
 .setting-email {
