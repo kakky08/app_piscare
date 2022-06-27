@@ -14,4 +14,18 @@ class ShopController extends Controller
         $areas = Area::orderBy('id', 'asc')->get();
         return view('shop.index', compact('shops', 'areas'));
     }
+
+    public function search(Request $request)
+    {
+
+        $shops = Shop::when(isset($request->name), function ($query) use ($request)
+        {
+            return $query->where('name', 'LIKE', "%$request->keyword%")->orwhere('catch', 'LIKE', "%$request->keyword%");
+        })
+        ->orderBy('created_at', 'desc')->paginate(20);
+
+        $areas = Area::orderBy('id', 'asc')->get();
+
+        return view('shop.index', compact('shops', 'areas'));
+    }
 }
