@@ -37,21 +37,20 @@
 
 {{-- カード --}}
 <div class="row justify-content-between spacing-reset">
-    {{-- @foreach ($shops as $shop)
+    @foreach ($shops as $shop)
         <div class="card col-lg-3 card-style">
-            <img src="{{ $shop->shop_image }}" class="card-img-top card-style-image" alt="...">
+            <img src="{{ $shop->photo }}" class="card-img-top card-style-image" alt="...">
             <div class="card-body card-style-body">
                 <h5 class="card-title card-style-title">{{ $shop->name }}</h5>
                 <p class="card-text card-style-text">{{ $shop->catch }}</p>
-                <a href="{{ $shop->shop_url }}" class="btn stretched-link card-style-button">店舗詳細</a>
+                <a href="{{ $shop->url }}" class="btn stretched-link card-style-button">店舗詳細</a>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
 
 </div>
 {{-- ページネーション --}}
 <nav class="pagination justify-content-center">
-    {{-- {{ $shops->appends(request()->query())->links() }} --}}
+    {{ $shops->appends(request()->query())->links() }}
 </nav>
-{{-- @include('shops.pagination') --}}
 @endsection
