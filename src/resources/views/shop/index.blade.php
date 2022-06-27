@@ -26,7 +26,7 @@
         <select class="form-select" name='area'>
             <option selected value="">エリアを選択する</option>
             @foreach ($areas as $area)
-                <option value="{{ $area->code }}">{{ $area->name }}</option>
+                <option value="{{ $area->id }}">{{ $area->name }}</option>
             @endforeach
             </select>
     </div>
