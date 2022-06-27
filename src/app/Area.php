@@ -11,4 +11,6 @@ class Area extends Model
         'id',
         'name',
     ];
+
+    public $incrementing = false;
 }
