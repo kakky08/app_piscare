@@ -25,9 +25,9 @@
     <div class="col-4">
         <select class="form-select" name='area'>
             <option selected value="">エリアを選択する</option>
-            {{-- @foreach ($areas as $area)
+            @foreach ($areas as $area)
                 <option value="{{ $area->code }}">{{ $area->name }}</option>
-            @endforeach --}}
+            @endforeach
             </select>
     </div>
     <div class="col-auto">
