@@ -23,6 +23,7 @@
     Auth認証
 ==================== */
 
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\HotpepperController;
 
 Auth::routes();
@@ -65,6 +66,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 Route::prefix('home')->name('home.')->group(function(){
     Route::get('/', 'HomeController@index')->name('index');
     Route::get('/{move}', 'HomeController@moveMonth')->name('move');
+    Route::post('/record', 'HomeController@record')->name('record');
 });
 
 /* --------------------
