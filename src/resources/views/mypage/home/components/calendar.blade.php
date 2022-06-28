@@ -1,3 +1,9 @@
+<div class="row justify-content-around align-items-center spacing-reset calender-button-group">
+    <a href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}" class="btn col-md-3 calender-button">前の月へ</a>
+    <p class="col-lg-3 text-center">{{ $year }}年 {{ $month }}月</p>
+    <a href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}" class="btn col-md-3 calender-button">次の月へ</a>
+</div>
+
 <table class="table table-bordered">
     <thead>
         <tr>

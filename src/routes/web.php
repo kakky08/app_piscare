@@ -64,6 +64,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 -------------------- */
 Route::prefix('home')->name('home.')->group(function(){
     Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/{move}', 'HomeController@moveMonth')->name('move');
 });
 
 /* --------------------
