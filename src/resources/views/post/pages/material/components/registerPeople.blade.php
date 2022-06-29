@@ -1,4 +1,4 @@
-<form method="POST" action="{{-- {{ route('materialCreate.updatePeople') }} --}}" id="number-of-people-register-form">
+<form method="POST" action="{{ route('post.people.store') }}" id="number-of-people-register-form">
     @csrf
     <div class="row cols-3 material-register-form-tag">
         <div class="col-1"></div>
@@ -17,29 +17,29 @@
         <input
             type="hidden"
             name="post_id"
-            {{-- value="{{ $postId }}" --}}
+            value="{{ $postId }}"
         >
         <input
             type="hidden"
             name="user"
             {{-- value="{{ $user->id }}" --}}
         >
-       {{--  @if (empty($peoples))
+        @if (empty($people))
             <input
                 type="text"
                 class="form-control col"
-                name="update_people"
+                name="people"
                 placeholder="何人分"
             >
         @else
             <input
                 type="text"
                 class="form-control col"
-                name="update_people"
+                name="people"
                 placeholder="何人分"
-                value={{ $peoples->people }}
+                value={{ $people->people }}
             >
-        @endif --}}
+        @endif
         <button type="submit" form="number-of-people-register-form" class="btn col-1 button-default">人数を登録</button>
     </div>
 </form>
