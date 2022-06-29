@@ -5,7 +5,7 @@
 @section('main')
     <div class="card">
         <div class="card-body recipe-register-form-body">
-            <h2 class="recipe-register-form-title">{{-- {{ $title }} --}}編集画面</h2>
+            <h2 class="recipe-register-form-title">{{ $post->title }}</h2>
             {{-- post Id のインプット --}}
             <input type="hidden" name="postId" value="{{ $postId }}">
             <div class="row row-cols-2 spacing-reset recipe-register-form-section border-bottom">
@@ -20,10 +20,10 @@
                             @if (count($materials) !== 0)
                                     <h3 class="recipe-register-form-material">
                                         材料名
-                                        @if (empty($peoples))
+                                        @if (empty($post->people))
                                             <small class="recipe-register-form-people">（人分）</small>
                                         @else
-                                            <small class="recipe-register-form-people">（{{ $peoples }}人分）</small>
+                                            <small class="recipe-register-form-people">（{{ $post->people }}人分）</small>
                                         @endif
                                     </h3>
                                     <ul>
@@ -107,7 +107,7 @@
                 </a>
             @endif
             <div class="d-grid gap-2 col-6 recipe-register-form-button-layout">
-                <button class="btn recipe-register-form-button" type="button">レシピを登録</button>
+                <a href="{{ route('post.index')}}" class="btn recipe-register-form-button">レシピを登録</a>
             </div>
         </div>
     </div>
