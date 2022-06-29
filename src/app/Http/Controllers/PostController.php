@@ -33,7 +33,8 @@ class PostController extends Controller
     {
         $postId = $post;
         $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
-        return view('post.pages.edit', compact('postId', 'procedures'));
+        $materials = Material::where('post_id', $post)->select('name', 'quantity')->get();
+        return view('post.pages.edit', compact('postId', 'procedures', 'materials'));
     }
 
     public function materialShow($post)
