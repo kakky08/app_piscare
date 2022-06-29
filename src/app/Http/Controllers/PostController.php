@@ -34,11 +34,12 @@ class PostController extends Controller
     public function edit($post)
     {
         $postId = $post;
+        $post = Post::where('id', $post)->select('title', 'people')->first();
         $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
         $materials = Material::where('post_id', $post)->select('name', 'quantity')->get();
         $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
-        dd($people);
-        return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings'));
+
+        return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings', 'post'));
     }
 
     public function materialShow($post)
