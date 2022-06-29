@@ -7,7 +7,7 @@
         <h2 class="page-title">レシピ名の登録</h2>
         <div class="card recipe-register-form">
             <div class="card-body">
-                <form method="POST" action="{{-- {{ route('registerName.store')}} --}}">
+                <form method="POST" action="{{ route('post.store')}}">
                     @csrf
                     <label for="postRecipeName" class="form-label recipe-register-form-label">レシピ名を入力してください</label>
                     <input type="text" class="form-control recipe-register-form-input" id="postRecipeName" name="title" placeholder="レシピ名">
