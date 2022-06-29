@@ -60,7 +60,7 @@ class HomeController extends Controller
         $today = new Carbon('today');
         $day = $today->day;
 
-        // $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
+        $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
         /* $action = 'store';
         if ($record) {
@@ -68,7 +68,7 @@ class HomeController extends Controller
         } */
 
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record_year_month', 'record_day'));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day'));
     }
 
     public function moveMonth($move)
@@ -133,18 +133,18 @@ class HomeController extends Controller
         {
             if (isset($request->breakfast))
             {
-                $record->is_breakfast ?  $record->is_breakfast = false : $record->is_breakfast = true;
                 $record->is_breakfast ?   $record->count -= 1 : $record->count += 1;
+                $record->is_breakfast ?  $record->is_breakfast = false : $record->is_breakfast = true;
             }
             if (isset($request->lunch))
             {
-                $record->is_lunch ?  $record->is_lunch = false : $record->is_lunch = true;
                 $record->is_lunch ?   $record->count -= 1 : $record->count += 1;
+                $record->is_lunch ?  $record->is_lunch = false : $record->is_lunch = true;
             }
             if (isset($request->dinner))
             {
-                $record->is_dinner ?  $record->is_dinner = false : $record->is_dinner = true;
                 $record->is_dinner ?   $record->count -= 1 : $record->count += 1;
+                $record->is_dinner ?  $record->is_dinner = false : $record->is_dinner = true;
             }
             if ($record->count === 0)
             {
@@ -174,5 +174,50 @@ class HomeController extends Controller
             $record->save();
         }
         return redirect()->route('home.select', $request->year_month . '-' . $request->day);
+    }
+
+    public function selectDay($select)
+    {
+        $user = Auth::user();
+
+        $dateStr = Carbon::now()->format("Y-m-01");
+        $date = new Carbon($dateStr);
+        $year_month = substr($select, 0, 7);
+        $year = $date->year;
+        $month = $date->month;
+
+        $record_year_month = substr($select, 0, 7);
+        $record_day = substr($select, 8);
+
+
+        // カレンダーを四角形にするため、前月となる左上の隙間用のデータを入れるためずらす
+        $date->subDay($date->dayOfWeek);
+
+        // 同上。右下の隙間のための計算。
+        $count = 31 + $date->dayOfWeek;
+        $count = ceil($count / 7) * 7;
+        $dates = [];
+
+        for ($i = 0; $i < $count; $i++, $date->addDay()) {
+            // copyしないと全部同じオブジェクトを入れてしまうことになる
+            $dates[] = $date->copy();
+        }
+
+        // 表示されている月の記録を取得
+        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
+        // dd($records);
+        $array = array_column($records, 'count', 'day');
+
+        // その日の記録があるかを検索
+
+        $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
+
+        $action = 'store';
+        if ($record) {
+            $action =  'update';
+        }
+
+
+        return view('mypage.home.index', compact('dates', 'user', 'date', 'year_month', 'year', 'month', 'record_year_month', 'record_day', 'action', 'array', 'select', 'record'));
     }
 }

@@ -8,34 +8,46 @@
                 type="submit"
                 class="btn m-0 p-1 shadow-none col-2"
                 name="breakfast"
-                {{-- value="{{ $record->is_breakfast }}" --}}
+                value="{{ isset($record->is_breakfast) ? $record->is_breakfast : 0 }}"
                 form="form-record"
                 formaction="{{ route('home.record')}}"
                 formmethod="POST"
             >
-                <i class="fa fa-fish fa-5x {{ $record->is_breakfast ? 'fish-color-first' : 'fish-color' }}"></i>
+                @if (isset($record))
+                    <i class="fa fa-fish fa-5x {{ $record->is_breakfast ? 'fish-color-first' : 'fish-color' }}"></i>
+                @else
+                    <i class="fa fa-fish fa-5x fish-color"></i>
+                @endif
             </button>
             <button
                 type="submit"
                 class="btn m-0 p-1 shadow-none col-2"
                 name="lunch"
-                {{-- value="{{ $record->is_lunch }}" --}}
+                value="{{ isset($record->is_lunch) ? $record->is_lunch : 0 }}"
                 form="form-record"
                 formaction="{{ route('home.record')}}"
                 formmethod="POST"
             >
-                <i class="fa fa-fish fa-5x {{ $record->is_lunch ? 'fish-color-first' : 'fish-color' }}"></i>
+                @if (isset($record))
+                    <i class="fa fa-fish fa-5x {{ $record->is_lunch ? 'fish-color-first' : 'fish-color' }}"></i>
+                @else
+                    <i class="fa fa-fish fa-5x fish-color"></i>
+                @endif
             </button>
             <button
                 type="submit"
                 class="btn m-0 p-1 shadow-none col-2"
                 name="dinner"
-                {{-- value="{{ $record->is_dinner }}" --}}
+                value="{{ isset($record->is_dinner) ? $record->is_dinner : 0 }}"
                 form="form-record"
                 formaction="{{ route('home.record')}}"
                 formmethod="POST"
             >
-                <i class="fa fa-fish fa-5x {{ $record->is_dinner ? 'fish-color-first' : 'fish-color' }}"></i>
+                @if (isset($record))
+                    <i class="fa fa-fish fa-5x {{ $record->is_dinner ? 'fish-color-first' : 'fish-color' }}"></i>
+                @else
+                    <i class="fa fa-fish fa-5x fish-color"></i>
+                @endif
             </button>
         </div>
     </form>

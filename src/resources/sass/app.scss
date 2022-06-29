@@ -53,6 +53,14 @@ $github-color: #161415;
 
 
 /* ============================
+* 魚の色
+============================ */
+$fish-first-color: #62daff;
+$fish-second-color: #628eff;
+$fish-third-color: #ff6262;
+
+
+/* ============================
 * 文字の大きさ
 ============================ */
 $fontsize-nav: 1rem;
@@ -307,6 +315,25 @@ $fontsize-nav: 1rem;
 
     &-fish-icon {
         text-align: center;
+    }
+}
+
+/* ----------------------------
+* Record
+---------------------------- */
+.fish-color {
+    color: #ccc;
+
+    &-first {
+        color: $fish-first-color;
+    }
+
+    &-second {
+        color: $fish-second-color;
+    }
+
+    &-third {
+        color: $fish-third-color;
     }
 }
 
