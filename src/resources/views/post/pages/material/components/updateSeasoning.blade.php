@@ -25,18 +25,19 @@
         <div class="col-1"></div>
     </div>
 @endif --}}
-<form method="POST" action="{{-- {{ route('materialCreate.updateSeasoning')}} --}}" id="edit-seasoning">
+<form method="POST" action="{{ route('post.seasoning.update')}}" id="edit-seasoning">
+    @method('PUT')
     @csrf
     <input
         type="hidden"
-        {{-- value="{{ $postId }}" --}}
+        value="{{ $postId }}"
         name="edit_postId"
     >
-    {{-- <seasoning-edit
+    <edit-seasoning
         :post-id={{ $postId }}
         :seasonings="{{ json_encode($seasonings) }}"
     >
-    </seasoning-edit> --}}
+    </edit-seasoning>
     <div class="d-grid gap-2 col-6 mx-auto">
         <button type="submit" class="btn col-auto button-default material-form-button-margin" form="edit-seasoning">調味料についての情報を更新する</button>
     </div>
