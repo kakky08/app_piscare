@@ -25,19 +25,19 @@
         <div class="col-1"></div>
     </div>
 @endif --}}
-<form method="POST" action="{{-- {{ route('materialCreate.update', ['materialCreate' => $postId])}} --}}" id="edit-material">
+<form method="POST" action="{{ route('post.material.update', ['post' => $postId])}}" id="edit-material">
     @method('PUT')
     @csrf
     <input
         type="hidden"
-        {{-- value="{{ $postId }}" --}}
+        value="{{ $postId }}"
         name="edit_postId"
     >
-    {{-- <material-edit
+    <edit-material
         :post-id={{ $postId }}
         :materials="{{ json_encode($materials) }}"
     >
-    </material-edit> --}}
+    </edit-material>
     <div class="d-grid gap-2 col-6 mx-auto">
         <button type="submit" class="btn col-auto button-default material-form-button-margin" form="edit-material">材料についての情報を更新する</button>
     </div>

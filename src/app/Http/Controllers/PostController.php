@@ -42,7 +42,8 @@ class PostController extends Controller
     public function materialShow($post)
     {
         $postId = $post;
-        return view('post.pages.material.edit', compact('postId'));
+        $materials = Material::where('post_id', $postId)->select('name', 'quantity')->get();
+        return view('post.pages.material.edit', compact('postId', 'materials'));
     }
 
     public function materialStore(Request $request)
@@ -56,6 +57,24 @@ class PostController extends Controller
 
         return redirect()->route('post.material.show', ['post' => $request->store_postId]);
         // ->with('completion-of-registration-material', '登録が完了しました。');
+    }
+
+    public function  materialUpdate(Request $request, Material $material)
+    {
+
+        Material::where('post_id', $request->edit_postId)->delete();
+        $materials = $request->materials;
+        if (!empty($materials)) {
+            foreach ($materials as $material) {
+                Material::create([
+                    'post_id' => $request->edit_postId,
+                    'name' => $material['materialName'],
+                    'quantity' => $material['quantity'],
+                ]);
+            }
+        }
+        return redirect()->route('post.material.show', ['post' => $request->edit_postId]);
+        // ->with('completion-of-registration-material', '更新が完了しました。');
     }
 
     public function seasoningStore(Request $request)
