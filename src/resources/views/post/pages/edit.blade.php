@@ -29,7 +29,7 @@
                                     <ul>
                                         @foreach ($materials as $material)
                                             <li class="row row-cols-2 border-bottom recipe-register-form-material-list">
-                                                    <h4 class="col recipe-register-form-material-name">{{ $material->material_name }}</h4>
+                                                    <h4 class="col recipe-register-form-material-name">{{ $material->name }}</h4>
                                                     <p class="col recipe-register-form-material-quantity">{{ $material->quantity }}</p>
                                             </li>
                                         @endforeach
@@ -49,7 +49,6 @@
                                     @endfor
                                 </ul>
                             @endif
-                        </div>
                             @if (count($seasonings) !== 0)
                                 <h3 class="recipe-register-form-material">◼️調味料</h3>
                                 <ul>

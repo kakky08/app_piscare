@@ -110,6 +110,7 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::post('/seasoning/store', 'PostController@seasoningStore')->name('seasoning.store');
     Route::get('/{post}/procedure/edit', 'PostController@procedureShow')->name('procedure.show');
     Route::post('/procedure/store', 'PostController@procedureStore')->name('procedure.store');
+    Route::put('/procedure/{post}/update', 'PostController@procedureUpdate')->name('procedure.update');
 });
 
 /* ====================
