@@ -8,7 +8,7 @@ require('./bootstrap');
 
 import Vue from 'vue'
 import DatepickerComponent from './components/DatepickerComponent'
-
+import ProcedureComponent from './components/ProcedureComponent'
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,5 +33,6 @@ const app = new Vue({
     el: '#app',
     components: {
         DatepickerComponent,
+        ProcedureComponent,
     },
 });

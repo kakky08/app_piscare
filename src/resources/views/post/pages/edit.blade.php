@@ -97,7 +97,7 @@
             </div>
 
             <h2 class="recipe-register-form-title">作り方</h2>
-            <a href="{{-- {{ route('procedure.edit', ['procedure' => $postId])}} --}}">
+            <a href="{{ route('post.procedure', ['post' => $postId])}}">
                 <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                     <p class="col-1 spacing-reset recipe-register-form-order">1.</p>
                     {{-- 料理画像 --}}
