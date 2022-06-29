@@ -50,12 +50,12 @@
                                 </ul>
                             @endif
                         </div>
-                            {{-- @if (count($seasonings) !== 0)
+                            @if (count($seasonings) !== 0)
                                 <h3 class="recipe-register-form-material">◼️調味料</h3>
                                 <ul>
                                     @foreach ($seasonings as $seasoning)
                                         <li class="row row-cols-2 border-bottom recipe-register-form-material-list">
-                                                <h4 class="col recipe-register-form-material-name">{{ $seasoning->seasoning_name }}</h4>
+                                                <h4 class="col recipe-register-form-material-name">{{ $seasoning->name }}</h4>
                                                 <p class="col recipe-register-form-material-quantity">{{ $seasoning->quantity }}</p>
                                         </li>
                                     @endforeach
@@ -70,7 +70,7 @@
                                         </li>
                                     @endfor
                                 </ul>
-                            @endif --}}
+                            @endif
                         </div>
                     </a>
                 </div>
