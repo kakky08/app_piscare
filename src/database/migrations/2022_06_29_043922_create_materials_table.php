@@ -17,7 +17,7 @@ class CreateMaterialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $table->text('material_name');
+            $table->text('name');
             $table->text('quantity');
             $table->timestamps();
         });

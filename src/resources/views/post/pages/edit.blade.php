@@ -7,7 +7,7 @@
         <div class="card-body recipe-register-form-body">
             <h2 class="recipe-register-form-title">{{-- {{ $title }} --}}編集画面</h2>
             {{-- post Id のインプット --}}
-            {{-- <input type="hidden" name="postId" value="{{ $postId }}"> --}}
+            <input type="hidden" name="postId" value="{{ $postId }}">
             <div class="row row-cols-2 spacing-reset recipe-register-form-section border-bottom">
                 {{-- 料理画像 --}}
                 <div class="col spacing-reset">
@@ -15,7 +15,7 @@
                 </div>
                 {{-- 材料リスト --}}
                 <div class="col spacing-reset">
-                    <a href="{{-- {{ route('materialCreate.edit', ['materialCreate' => $postId])}} --}}">
+                    <a href="{{ route('post.material.show', ['post' => $postId])}}">
                         <div class="recipe-register-form-link">
                             <h3 class="recipe-register-form-material">
                                     材料名
@@ -98,7 +98,7 @@
 
             <h2 class="recipe-register-form-title">作り方</h2>
             @if (empty($procedures))
-                <a href="{{ route('post.procedure', ['post' => $postId])}}">
+                <a href="{{ route('post.procedure.show', ['post' => $postId])}}">
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                         <p class="col-1 spacing-reset recipe-register-form-order">1.</p>
                         {{-- 料理画像 --}}
@@ -113,7 +113,7 @@
                     </div>
                 </a>
             @else
-                <a href="{{ route('post.procedure', ['post' => $postId])}}">編集する</a>
+                <a href="{{ route('post.procedure.show', ['post' => $postId])}}">編集する</a>
                 @foreach ($procedures as $procedure)
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                         <p class="col-1 spacing-reset recipe-register-form-order">{{ $procedure->order . '.'}}</p>

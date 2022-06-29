@@ -9,7 +9,7 @@ class Material extends Model
 {
     protected $fillable = [
         'post_id',
-        'material_name',
+        'name',
         'quantity',
     ];
 
