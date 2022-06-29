@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Material;
 use App\Post;
 use App\Procedure;
 use Illuminate\Http\Request;
@@ -35,9 +36,24 @@ class PostController extends Controller
         return view('post.pages.edit', compact('postId', 'procedures'));
     }
 
-    public function materialEdit($post)
+    public function materialShow($post)
     {
-        return view('post.pages.material.edit');
+        $postId = $post;
+        return view('post.pages.material.edit', compact('postId'));
+    }
+
+    public function materialStore(Request $request)
+    {
+        Material::create([
+            'post_id' => $request->store_postId,
+            'name' => $request->store_material,
+            'quantity' => $request->store_material_quantity,
+        ]);
+
+
+        return redirect()->route('post.material.show', ['post' => $request->store_postId]);
+        // ->with('completion-of-registration-material', '登録が完了しました。');
+
     }
 
     public function procedureShow($post)
