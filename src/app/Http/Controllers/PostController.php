@@ -12,7 +12,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('post.pages.index');
+        $recipes = Post::orderBy('updated_at', 'desc')->paginate(20);
+        return view('post.pages.index', compact('recipes'));
     }
 
     public function create()
