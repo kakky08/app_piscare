@@ -35,7 +35,8 @@ class PostController extends Controller
         $postId = $post;
         $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
         $materials = Material::where('post_id', $post)->select('name', 'quantity')->get();
-        return view('post.pages.edit', compact('postId', 'procedures', 'materials'));
+        $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
+        return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings'));
     }
 
     public function materialShow($post)
