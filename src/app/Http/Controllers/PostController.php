@@ -94,22 +94,48 @@ class PostController extends Controller
     public function procedureShow($post)
     {
         $postId = $post;
-        return view('post.pages.procedure.edit', compact(('postId')));
+        $procedures = Procedure::where('post_id', $post)->get();
+        $path = asset('storage/');
+        return view('post.pages.procedure.edit', compact('postId', 'procedures', 'path'));
     }
 
     public function procedureStore(Request $request)
     {
         $path = $request->file->store('public');
 
+        $order = Procedure::where('post_id', $request->postId)->select('order')->get();
         Procedure::create([
             'post_id' => $request->postId,
-            'order' => 1,
+            'order' => count($order),
             'photo' => basename($path),
             /* 'photo' => asset('storage/' . basename($path)), */
             'procedure' => $request['procedure'],
         ]);
 
-        return redirect()->route('post.procedure', ['post' => $request->postId]);
+        return redirect()->route('post.procedure.show', ['post' => $request->postId]);
         // ->with('completion-of-registration-material', '登録が完了しました。');
+    }
+
+    public function procedureUpdate(Request $request)
+    {
+        // Procedure::where('post_recipe_id' , $procedure)->delete();
+        $procedures = $request->procedures;
+        if (!empty($procedures)) {
+
+            foreach ($procedures as $procedure) {
+                dd($procedure);
+                $path = $procedure['path']->store('public');
+
+                Procedure::create([
+                    'post_id' => $request->edit_postId,
+                    'photo' => basename($path),
+                    'procedure' => $procedure['procedure'],
+                    'order' => 1
+                ]);
+            }
+        }
+        return redirect()->route('post.procedure.show', ['post' => $request->edit_postId]);
+        // ->with('completion-of-registration-material', '更新が完了しました。');
+
     }
 }

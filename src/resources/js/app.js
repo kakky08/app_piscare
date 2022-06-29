@@ -10,6 +10,7 @@ import Vue from 'vue'
 import DatepickerComponent from './components/DatepickerComponent'
 import ProcedureComponent from './components/ProcedureComponent'
 import EditMaterial from './components/EditMaterial'
+import EditProcedure from './components/EditProcedure'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,5 +36,6 @@ const app = new Vue({
         DatepickerComponent,
         ProcedureComponent,
         EditMaterial,
+        EditProcedure,
     },
 });
