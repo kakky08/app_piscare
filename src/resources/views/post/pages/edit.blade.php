@@ -17,7 +17,7 @@
                 <div class="col spacing-reset">
                     <a href="{{ route('post.material.show', ['post' => $postId])}}">
                         <div class="recipe-register-form-link">
-                            @if (isset($materials))
+                            @if (count($materials) !== 0)
                                     <h3 class="recipe-register-form-material">
                                         材料名
                                         @if (empty($peoples))
@@ -29,7 +29,7 @@
                                     <ul>
                                         @foreach ($materials as $material)
                                             <li class="row row-cols-2 border-bottom recipe-register-form-material-list">
-                                                    <h4 class="col recipe-register-form-material-name">{{ $material->name }}</h4>
+                                                    <h4 class="col recipe-register-form-material-name">{{ $material->material_name }}</h4>
                                                     <p class="col recipe-register-form-material-quantity">{{ $material->quantity }}</p>
                                             </li>
                                         @endforeach
@@ -49,6 +49,7 @@
                                     @endfor
                                 </ul>
                             @endif
+                        </div>
                             {{-- @if (count($seasonings) !== 0)
                                 <h3 class="recipe-register-form-material">◼️調味料</h3>
                                 <ul>
@@ -76,7 +77,7 @@
             </div>
 
             <h2 class="recipe-register-form-title">作り方</h2>
-            @if (isset($procedures))
+            @if (count($procedures) !== 0)
                 <a href="{{ route('post.procedure.show', ['post' => $postId])}}">編集する</a>
                 @foreach ($procedures as $procedure)
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
