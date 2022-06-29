@@ -37,6 +37,7 @@ class PostController extends Controller
         $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
         $materials = Material::where('post_id', $post)->select('name', 'quantity')->get();
         $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
+        dd($people);
         return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings'));
     }
 
@@ -45,8 +46,9 @@ class PostController extends Controller
         $postId = $post;
         $materials = Material::where('post_id', $postId)->select('name', 'quantity')->get();
         $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
+        $people = Post::where('id', $postId)->select('people')->first();
 
-        return view('post.pages.material.edit', compact('postId', 'materials', 'seasonings'));
+        return view('post.pages.material.edit', compact('postId', 'materials', 'seasonings', 'people'));
     }
 
     public function materialStore(Request $request)
@@ -109,6 +111,17 @@ class PostController extends Controller
         }
         return redirect()->route('post.material.show', ['post' => $request->edit_postId]);
         // ->with('completion-of-registration-seasoning', '更新が完了しました。');
+    }
+
+    public function peopleStore(Request $request)
+    {
+
+        $postRecipe =  Post::where('id', $request->post_id)->first();
+        // ->where('user_id', $request->user)->first();
+        $postRecipe->people = $request->people;
+        $postRecipe->save();
+        return redirect()->route('post.material.show', ['post' => $request->post_id]);
+        // ->with('completion-of-registration-people', '登録が完了しました。');
     }
 
     public function procedureShow($post)
