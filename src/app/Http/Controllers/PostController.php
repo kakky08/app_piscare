@@ -43,7 +43,9 @@ class PostController extends Controller
     {
         $postId = $post;
         $materials = Material::where('post_id', $postId)->select('name', 'quantity')->get();
-        return view('post.pages.material.edit', compact('postId', 'materials'));
+        $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
+
+        return view('post.pages.material.edit', compact('postId', 'materials', 'seasonings'));
     }
 
     public function materialStore(Request $request)
@@ -89,6 +91,23 @@ class PostController extends Controller
         return redirect()->route('post.material.show', ['post' => $request->store_postId]);
         // ->with('completion-of-registration-material', '登録が完了しました。');
 
+    }
+
+    public function seasoningUpdate(Request $request)
+    {
+        Seasoning::where('post_id', $request->edit_postId)->delete();
+        $seasonings = $request->seasonings;
+        if (!empty($seasonings)) {
+            foreach ($seasonings as $seasoning) {
+                Seasoning::create([
+                    'post_id' => $request->edit_postId,
+                    'name' => $seasoning['seasoningName'],
+                    'quantity' => $seasoning['quantity'],
+                ]);
+            }
+        }
+        return redirect()->route('post.material.show', ['post' => $request->edit_postId]);
+        // ->with('completion-of-registration-seasoning', '更新が完了しました。');
     }
 
     public function procedureShow($post)
