@@ -31,7 +31,8 @@ class PostController extends Controller
     public function edit($post)
     {
         $postId = $post;
-        return view('post.pages.edit', compact('postId'));
+        $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
+        return view('post.pages.edit', compact('postId', 'procedures'));
     }
 
     public function materialEdit($post)
