@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Material;
 use App\Post;
 use App\Procedure;
+use App\Seasoning;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -49,6 +50,19 @@ class PostController extends Controller
             'post_id' => $request->store_postId,
             'name' => $request->store_material,
             'quantity' => $request->store_material_quantity,
+        ]);
+
+
+        return redirect()->route('post.material.show', ['post' => $request->store_postId]);
+        // ->with('completion-of-registration-material', '登録が完了しました。');
+    }
+
+    public function seasoningStore(Request $request)
+    {
+        Seasoning::create([
+            'post_id' => $request->store_postId,
+            'name' => $request->store_seasoning,
+            'quantity' => $request->store_seasoning_quantity,
         ]);
 
 

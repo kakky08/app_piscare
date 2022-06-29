@@ -17,14 +17,14 @@
         <div class="col-1"></div>
     </div>
 @endif --}}
-<form method="POST" action="{{-- {{ route('materialCreate.storeSeasoning') }} --}}" id="store-seasoning">
+<form method="POST" action="{{ route('post.seasoning.store') }}" id="store-seasoning">
     @csrf
     <div class="material">
         <div class="row cols-4 spacing-reset material-form">
             <div class="col-1"></div>
             <input
                 type="hidden"
-                {{-- value={{ $postId }} --}}
+                value={{ $postId }}
                 name="store_postId">
             <input
                 type="text"

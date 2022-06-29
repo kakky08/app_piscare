@@ -106,6 +106,7 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::get('/{post}/edit', 'PostController@edit')->name('edit');
     Route::get('/{post}/material/edit', 'PostController@materialShow')->name('material.show');
     Route::post('/material/store', 'PostController@materialStore')->name('material.store');
+    Route::post('/seasoning/store', 'PostController@seasoningStore')->name('seasoning.store');
     Route::get('/{post}/procedure/edit', 'PostController@procedureShow')->name('procedure.show');
     Route::post('/procedure/store', 'PostController@procedureStore')->name('procedure.store');
 });

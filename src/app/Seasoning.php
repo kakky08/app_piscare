@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Seasoning extends Model
 {
     protected $fillable = [
-        'post_recipe_id',
-        'seasoning_name',
+        'post_id',
+        'name',
         'quantity',
     ];
 
