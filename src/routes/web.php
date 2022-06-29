@@ -105,7 +105,8 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::post('/store', 'PostController@store')->name('store');
     Route::get('/{post}/edit', 'PostController@edit')->name('edit');
     Route::get('/{post}/material/edit', 'PostController@materialEdit')->name('material');
-    Route::get('/{post}/procedure/edit', 'PostController@procedureEdit')->name('procedure');
+    Route::get('/{post}/procedure/edit', 'PostController@procedureShow')->name('procedure');
+    Route::post('/procedure/store', 'PostController@procedureStore')->name('procedure.store');
 });
 
 /* ====================

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Procedure;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,7 +30,8 @@ class PostController extends Controller
 
     public function edit($post)
     {
-        return view('post.pages.edit');
+        $postId = $post;
+        return view('post.pages.edit', compact('postId'));
     }
 
     public function materialEdit($post)
@@ -37,8 +39,25 @@ class PostController extends Controller
         return view('post.pages.material.edit');
     }
 
-    public function procedureEdit($post)
+    public function procedureShow($post)
     {
-        return view('post.pages.procedure.edit');
+        $postId = $post;
+        return view('post.pages.procedure.edit', compact(('postId')));
+    }
+
+    public function procedureStore(Request $request)
+    {
+        $path = $request->file->store('public');
+
+        Procedure::create([
+            'post_id' => $request->postId,
+            'order' => 1,
+            'photo' => basename($path),
+            /* 'photo' => asset('storage/' . basename($path)), */
+            'procedure' => $request['procedure'],
+        ]);
+
+        return redirect()->route('post.procedure', ['post' => $request->postId]);
+        // ->with('completion-of-registration-material', '登録が完了しました。');
     }
 }
