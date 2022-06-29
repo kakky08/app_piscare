@@ -117,11 +117,9 @@
                 @foreach ($procedures as $procedure)
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                         <p class="col-1 spacing-reset recipe-register-form-order">{{ $procedure->order . '.'}}</p>
-                        {{-- 料理画像 --}}
                         <div class="col spacing-reset">
                             <img src="{{ $procedure->photo }}" alt="" class="recipe-register-form-procedure-image">
                         </div>
-                        {{-- 作り方の説明 --}}
                         <div class="col spacing-reset">
                             <p class="form-label recipe-register-form-label">作り方の説明</p>
                             <div class="form-control spacing-reset recipe-register-form-explanation">{{ $procedure->procedure }}</div>
