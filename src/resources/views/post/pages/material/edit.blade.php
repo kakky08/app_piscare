@@ -6,7 +6,7 @@
     <div class="card col-md-auto col-lg-auto material-register-form">
         <div class="card-body">
             {{-- 戻るボタン --}}
-            <a class="btn button-back" href="{{-- {{ route('materialCreate.back', ['materialCreate' => $postId]) }} --}}">>>戻る</a>
+            <a class="btn button-back" href="{{ route('post.edit', ['post' => $postId]) }}">>>戻る</a>
             <br />
             {{-- 登録完了メッセージ --}}
             @include('post.pages.material.components.successMessage')
