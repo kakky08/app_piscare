@@ -20,20 +20,20 @@
 
     {{-- カード --}}
     <div class="row justify-content-around mb-4">
-       {{--  @foreach ($recipes as $recipe)
+        @foreach ($recipes as $recipe)
         <div class="card mb-4" style="width: 18rem;">
             <img src="" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ $recipe->user->name }}</h5>
                 <p class="card-text">{{ $recipe->people }}</p>
                 <p></p>
-                <a href="{{ route('postRecipe.show', ['postRecipe' => $recipe->id ])}}" class="btn btn-primary">詳細</a>
+                <a href="{{-- {{ route('postRecipe.show', ['postRecipe' => $recipe->id ])}} --}}" class="btn btn-primary">詳細</a>
             </div>
         </div>
-        @endforeach --}}
+        @endforeach
     </div>
     {{-- ページネーション --}}
-    {{-- <nav class="pagination justify-content-center">
-        {{ $recipes->links() }}
-    </nav> --}}
+    <nav class="pagination justify-content-center">
+        {{ $recipes->appends(request()->query())->links() }}
+    </nav>
 @endsection
