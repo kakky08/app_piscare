@@ -113,6 +113,8 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::get('/{post}/procedure/edit', 'PostController@procedureShow')->name('procedure.show');
     Route::post('/procedure/store', 'PostController@procedureStore')->name('procedure.store');
     Route::put('/procedure/{post}/update', 'PostController@procedureUpdate')->name('procedure.update');
+    Route::put('/{post}/like', 'PostController@like')->name('like');
+    Route::delete('/{post}/like', 'PostController@unlike')->name('unlike');
 });
 
 /* ====================
