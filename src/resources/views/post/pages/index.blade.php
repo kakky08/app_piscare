@@ -27,6 +27,13 @@
                 <h5 class="card-title">{{ $recipe->user->name }}</h5>
                 <p class="card-text">{{ $recipe->people }}</p>
                 <p></p>
+                <post-like
+                    :initial-is-liked-by='@json($recipe->isLikedBy(Auth::user()))'
+                    :initial-count-likes='@json($recipe->count_likes)'
+                    :authorized='@json(Auth::check())'
+                    endpoint="{{ route('post.like', ['post' => $recipe->id]) }}"
+                >
+                </post-like>
                 <a href="{{-- {{ route('postRecipe.show', ['postRecipe' => $recipe->id ])}} --}}" class="btn btn-primary">詳細</a>
             </div>
         </div>

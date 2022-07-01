@@ -172,4 +172,28 @@ class PostController extends Controller
         // ->with('completion-of-registration-material', '更新が完了しました。');
 
     }
+
+    /**
+     * いいね機能
+     */
+    public function like(Request $request, Post $post)
+    {
+        $post->likes()->detach($request->user()->id);
+        $post->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $post->id,
+            'countLikes' => $post->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Post $post)
+    {
+        $post->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $post->id,
+            'countLikes' => $post->count_likes,
+        ];
+    }
 }
