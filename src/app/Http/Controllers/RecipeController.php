@@ -41,4 +41,28 @@ class RecipeController extends Controller
         $subCategories = SubCategory::all()->sortBy('id');
         return view('recipe.index', compact('recipes', 'categories', 'subCategories'));
     }
+
+    /**
+     * いいね機能
+     */
+    public function like(Request $request, Recipe $recipe)
+    {
+        $recipe->likes()->detach($request->user()->id);
+        $recipe->likes()->attach($request->user()->id);
+
+        return [
+            'id' => $recipe->id,
+            'countLikes' => $recipe->count_likes,
+        ];
+    }
+
+    public function unlike(Request $request, Recipe $recipe)
+    {
+        $recipe->likes()->detach($request->user()->id);
+
+        return [
+            'id' => $recipe->id,
+            'countLikes' => $recipe->count_likes,
+        ];
+    }
 }
