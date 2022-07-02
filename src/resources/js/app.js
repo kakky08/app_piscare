@@ -13,6 +13,7 @@ import EditMaterial from './components/EditMaterial'
 import EditProcedure from './components/EditProcedure'
 import EditSeasoning from './components/EditSeasoning'
 import PostLike from './components/PostLike'
+import RecipeLike from './components/RecipeLike'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41,5 +42,6 @@ const app = new Vue({
         EditProcedure,
         EditSeasoning,
         PostLike,
+        RecipeLike,
     },
 });
