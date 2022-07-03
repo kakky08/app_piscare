@@ -16,9 +16,9 @@
                 >
                 </follow-button>
         @endif
-    @include('mypage.profile.profile')
-    @include('mypage.profile.tabs', ['isPosts' => true, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => false])
-    {{-- @foreach($posts as $post)
+    @include('mypage.profile.components.profile')
+    @include('mypage.profile.components.tabs', ['isPosts' => true, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => false])
+    @foreach($posts as $post)
         {{ $post->id }}
-    @endforeach --}}
+    @endforeach
 @endsection

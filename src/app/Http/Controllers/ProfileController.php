@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function show($name)
     {
-        $user = User::where('id', 1)->first();
-        return view('mypage.profile.index', compact('user'));
+        $user = User::where('name', $name)->first();
+        $posts = $user->posts->sortByDesc('created_at');
+        return view('mypage.profile.show', compact('user', 'posts'));
     }
-
 
 }

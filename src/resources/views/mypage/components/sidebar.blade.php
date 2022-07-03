@@ -5,7 +5,7 @@
         </a>
     </li>
     <li>
-        <a class="nav-link {{-- {{  $page === 'mypage' ? 'active' : '' }} --}}" aria-current="page" href="{{-- {{ route('profile.show', ['name' => $user->name]) }} --}}">
+        <a class="nav-link {{-- {{  $page === 'mypage' ? 'active' : '' }} --}}" aria-current="page" href="{{ route('profile.show', ['name' => $user->name]) }}">
             <h3 class="ml-2"><i class="fas fa-user mypage-sidebar-icon"></i>Profile</h3>
         </a>
     </li>
