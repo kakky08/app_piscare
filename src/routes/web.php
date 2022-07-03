@@ -84,6 +84,15 @@ Route::prefix('profile')->name('profile.')->group(function () {
     Route::get('/', 'ProfileController@index')->name('index');
 });
 
+
+Route::prefix('user')->name('user.')->middleware('auth')->group(function () {
+    Route::get('/{id}', 'UserController@show')->name('show');
+    Route::get('/{id}/followings', 'UserController@followings')->name('followings');
+    Route::get('/{id}/followers', 'UserController@followers')->name('followers');
+    Route::put('/{id}/follow', 'UserController@follow')->name('follow');
+    Route::delete('/{id}/follow', 'UserController@follow')->name('follow');
+});
+
 /* ====================
     Recipe Page
 ==================== */
