@@ -83,15 +83,8 @@ Route::prefix('setting')->name('setting.')->group(function () {
 Route::prefix('profile')->name('profile.')->group(function () {
     Route::get('/{name}', 'ProfileController@show')->name('show');
     Route::get('/{name}/likes', 'ProfileController@likes')->name('likes');
-});
-
-
-Route::prefix('user')->name('user.')->middleware('auth')->group(function () {
-    Route::get('/{id}', 'UserController@show')->name('show');
-    Route::get('/{id}/followings', 'UserController@followings')->name('followings');
-    Route::get('/{id}/followers', 'UserController@followers')->name('followers');
-    Route::put('/{id}/follow', 'UserController@follow')->name('follow');
-    Route::delete('/{id}/follow', 'UserController@follow')->name('follow');
+    Route::get('/{name}/followings', 'ProfileController@followings')->name('followings');
+    Route::get('/{name}/followers', 'ProfileController@followers')->name('followers');
 });
 
 /* ====================
@@ -136,4 +129,15 @@ Route::prefix('post')->name('post.')->group(function () {
 Route::prefix('shop')->name('shop.')->group(function () {
     Route::get('/', 'ShopController@index')->name('index');
     Route::get('/search', 'ShopController@search')->name('search');
+});
+
+
+/* ====================
+    follow action
+==================== */
+
+Route::prefix('user')->name('user.')->middleware('auth')->group(function () {
+    Route::get('/{id}', 'UserController@show')->name('show');
+    Route::put('/{id}/follow', 'UserController@follow')->name('follow');
+    Route::delete('/{id}/follow', 'UserController@follow')->name('follow');
 });
