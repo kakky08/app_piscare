@@ -13,13 +13,13 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-muted {{ $isFollowings ? 'active' : '' }}"
-        href="{{-- {{ route('profile.followings', ['name' => $user->name]) }} --}}">
+        href="{{ route('profile.followings', ['name' => $user->name]) }}">
         フォロー
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-muted {{ $isFollowers ? 'active' : '' }}"
-        href="{{-- {{ route('profile.followers', ['name' => $user->name]) }} --}}">
+        href="{{ route('profile.followers', ['name' => $user->name]) }}">
         フォロワー
         </a>
     </li>

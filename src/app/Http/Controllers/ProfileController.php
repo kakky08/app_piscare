@@ -23,4 +23,18 @@ class ProfileController extends Controller
         $recipes = $user->recipeLikes->sortByDesc('created_at');
         return view('mypage.profile.pages.likes', compact('user', 'posts', 'recipes'));
     }
+
+    public function followings($name)
+    {
+        $user = User::where('name', $name)->first();
+        $followings = $user->followings->sortByDesc('created_at');
+        return view('mypage.profile.pages.followings', compact('user', 'followings'));
+    }
+
+    public function followers($name)
+    {
+        $user = User::where('name', $name)->first();
+        $followers = $user->followers->sortByDesc('created_at');
+        return view('mypage.profile.pages.followers', compact('user', 'followers'));
+    }
 }
