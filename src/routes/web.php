@@ -82,6 +82,7 @@ Route::prefix('setting')->name('setting.')->group(function () {
 -------------------- */
 Route::prefix('profile')->name('profile.')->group(function () {
     Route::get('/{name}', 'ProfileController@show')->name('show');
+    Route::get('/{name}/likes', 'ProfileController@likes')->name('likes');
 });
 
 
