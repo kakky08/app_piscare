@@ -44,6 +44,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+
+    public function recipeLikes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Recipe', 'recipeLikes')->withTimestamps();
+    }
+
+
+    public function postLikes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Post', 'postLikes')->withTimestamps();
+    }
+
     /**
      * フォロワーであるユーザーにアクセス
      *
