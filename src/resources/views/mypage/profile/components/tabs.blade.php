@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs nav-justified mt-3">
     <li class="nav-item">
         <a class="nav-link text-muted {{ $isPosts ? 'active' : '' }}"
-        href="{{-- {{ route('profile.show', ['name' => $user->name]) }} --}}">
+        href="{{ route('profile.show', ['name' => $user->name]) }}">
         投稿レシピ
         </a>
     </li>

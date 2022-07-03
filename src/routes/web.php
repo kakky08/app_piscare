@@ -81,7 +81,7 @@ Route::prefix('setting')->name('setting.')->group(function () {
     Profile
 -------------------- */
 Route::prefix('profile')->name('profile.')->group(function () {
-    Route::get('/', 'ProfileController@index')->name('index');
+    Route::get('/{name}', 'ProfileController@show')->name('show');
 });
 
 
