@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProviderUserRequest;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -82,5 +83,22 @@ class RegisterController extends Controller
         $email = $providerUser->getEmail();
 
         return view('auth.social_register', compact('provider', 'email', 'token'));
+    }
+
+
+    public function registerProviderUser(ProviderUserRequest $request, $provider)
+    {
+        $token = $request->token;
+        $providerUser = Socialite::driver($provider)->userFromToken($token);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $providerUser->getEmail(),
+            'password' => null,
+        ]);
+
+        $this->guard()->login($user, true);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }
