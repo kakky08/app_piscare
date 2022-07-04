@@ -28,7 +28,12 @@ use App\Http\Controllers\HotpepperController;
 
 Auth::routes();
 
-
+/* ====================
+    ソーシャルログイン
+==================== */
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('{provider}');
+});
 /* ====================
     Admin 認証不要
 ==================== */
