@@ -2,11 +2,11 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/php:7.2-node-browsers
+      - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
       - run: sudo composer self-update --2
-      - run: composer install -n --prefer-dist --working-dir=./src
+      - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
       - run:
