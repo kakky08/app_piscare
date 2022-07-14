@@ -25,6 +25,10 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\HotpepperController;
+use App\Http\Middleware\AuthMiddleware;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 Auth::routes();
 
@@ -67,6 +71,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 });
 
 
+
 /* ====================
     Mypage
 ==================== */
@@ -75,7 +80,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     Home
 -------------------- */
 Route::prefix('home')->name('home.')->group(function(){
-    Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/', 'HomeController@index')->name('index')->middleware('auth');
     Route::get('/{move}', 'HomeController@moveMonth')->name('move');
     Route::post('/record', 'HomeController@record')->name('record');
     Route::get('/select/{select}', 'HomeController@selectDay')->name('select');
@@ -84,14 +89,14 @@ Route::prefix('home')->name('home.')->group(function(){
 /* --------------------
     Setting
 -------------------- */
-Route::prefix('setting')->name('setting.')->group(function () {
+Route::prefix('setting')->name('setting.')->middleware('auth')->group(function () {
     Route::get('/', 'SettingController@index')->name('index');
 });
 
 /* --------------------
     Profile
 -------------------- */
-Route::prefix('profile')->name('profile.')->group(function () {
+Route::prefix('profile')->name('profile.')->middleware('auth')->group(function () {
     Route::get('/{name}', 'ProfileController@show')->name('show');
     Route::get('/{name}/likes', 'ProfileController@likes')->name('likes');
     Route::get('/{name}/followings', 'ProfileController@followings')->name('followings');
@@ -102,7 +107,7 @@ Route::prefix('profile')->name('profile.')->group(function () {
     Recipe Page
 ==================== */
 
-Route::prefix('recipe')->name('recipe.')->group(function () {
+Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () {
     Route::get('/', 'RecipeController@index')->name('index');
     Route::get('/{id}', 'RecipeController@show')->name('show');
     Route::get('/search', 'RecipeController@search')->name('search');
@@ -115,7 +120,7 @@ Route::prefix('recipe')->name('recipe.')->group(function () {
     Post Page
 ==================== */
 
-Route::prefix('post')->name('post.')->group(function () {
+Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::get('/', 'PostController@index')->name('index');
     Route::get('/create', 'PostController@create')->name('create');
     Route::post('/store', 'PostController@store')->name('store');
@@ -133,11 +138,12 @@ Route::prefix('post')->name('post.')->group(function () {
     Route::delete('/{post}/like', 'PostController@unlike')->name('unlike');
 });
 
+
 /* ====================
     Shop Page
 ==================== */
 
-Route::prefix('shop')->name('shop.')->group(function () {
+Route::prefix('shop')->name('shop.')->middleware('auth')->group(function () {
     Route::get('/', 'ShopController@index')->name('index');
     Route::get('/search', 'ShopController@search')->name('search');
 });
