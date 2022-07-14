@@ -3,7 +3,7 @@
     @include('components.header.app', ['page' => 'home'])
 @endsection
 @section('aside')
-    {{-- @include('components.sidebar.mypage') --}}
+    @include('mypage.components.sidebar')
 @endsection
 @section('main')
     <h2>カレンダー</h2>
