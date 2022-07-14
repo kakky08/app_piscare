@@ -104,7 +104,6 @@ $fontsize-nav: 1rem;
 .aside-layout {
     background-color: $sub-color;
     padding: 3rem 1rem;
-    height: calc(100vh - 64px);
 }
 
 .main-layout {
@@ -268,9 +267,9 @@ $fontsize-nav: 1rem;
     }
     &-subtitle{
         font-size: 1.5rem;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid #eee
+        padding-bottom: 1rem;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid $green-color
     }
 }
 
@@ -286,18 +285,19 @@ $fontsize-nav: 1rem;
             margin-right: 0.5rem;
         }
     }
-}
 
-.mypage-menu{
-    color: $font-color;
-    margin-bottom: 4rem;
-    &:hover{
-        color: $secondary-color;
-        box-sizing: border-box;
-        margin-bottom: 3.8rem;
-        border-bottom: solid 0.2rem $green-color;
+    &-menu{
+        color: $font-color;
+        margin-bottom: 4rem;
+        &:hover{
+            color: $secondary-color;
+            box-sizing: border-box;
+            margin-bottom: 3.8rem;
+            border-bottom: solid 0.2rem $green-color;
+        }
     }
 }
+
 /* ----------------------------
 * Home
 ---------------------------- */
@@ -365,21 +365,38 @@ $fontsize-nav: 1rem;
 * Setting
 ---------------------------- */
 .setting{
+    &-block{
+        margin-bottom: 2rem;
+    }
     &-email{
         margin-bottom: 4rem;
     }
     &-password{
         margin-bottom: 4rem;
     }
+    &-title{
+        margin: 0 2rem 2rem;
+        font-size: 1.2rem;
+    }
     &-text{
-        margin-left: 2rem;
-        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        margin-left: 4rem;
     }
     &-input{
-        margin: 0 2rem;
+        margin-left: 4rem;
+        width: 50%;
     }
     &-button{
-        margin-right: 2rem;
+        margin-left: 4rem;
+        width: 20%;
+        background-color: $green-color;
+        color: $white-color;
+        border: none;
+
+        &:hover{
+            color: $white-color;
+            background-color: $secondary-color;
+        }
     }
 }
 
