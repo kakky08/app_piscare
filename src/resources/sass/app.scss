@@ -115,9 +115,15 @@ $fontsize-nav: 1rem;
 * Header
 ============================ */
 .nav {
+    &-icon {
+        color: $font-color;
+        &:hover{
+            color: $white-color;
+        }
+    }
     &-header {
         background-color: $secondary-color;
-        padding: 0px 24px;
+        padding: 0px 48px;
     }
 
     &-height {
@@ -136,8 +142,20 @@ $fontsize-nav: 1rem;
                 padding: calc((64px - 18px) / 2) 1rem;
 
                 &:hover {
-                    color: $green-color;
+                    color: $white-color;
                 }
+            }
+        }
+    }
+}
+
+.dropdown-menu {
+    li {
+        a{
+            text-align: center;
+            &:hover{
+                background-color: $secondary-color;
+                color: $white-color;
             }
         }
     }
