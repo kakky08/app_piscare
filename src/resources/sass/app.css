@@ -58,9 +58,15 @@
 /* ============================
 * Header
 ============================ */
+.nav-icon {
+  color: #333;
+}
+.nav-icon:hover {
+  color: #fff;
+}
 .nav-header {
   background-color: #FFE162;
-  padding: 0px 24px;
+  padding: 0px 48px;
 }
 .nav-height {
   height: 64px;
@@ -75,7 +81,15 @@
   padding: 23px 1rem;
 }
 .nav-list li a:hover {
-  color: #91C483;
+  color: #fff;
+}
+
+.dropdown-menu li a {
+  text-align: center;
+}
+.dropdown-menu li a:hover {
+  background-color: #FFE162;
+  color: #fff;
 }
 
 /* ============================
