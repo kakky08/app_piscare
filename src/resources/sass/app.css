@@ -180,12 +180,20 @@
 .mypage-sidebar {
   list-style: none;
 }
-.mypage-sidebar li {
-  margin-bottom: 2rem;
-}
 .mypage-sidebar-icon {
   width: 30px;
   margin-right: 0.5rem;
+}
+
+.mypage-menu {
+  color: #333;
+  margin-bottom: 4rem;
+}
+.mypage-menu:hover {
+  color: #FFE162;
+  box-sizing: border-box;
+  margin-bottom: 3.8rem;
+  border-bottom: solid 0.2rem #91C483;
 }
 
 /* ----------------------------
