@@ -48,10 +48,12 @@
 .aside-layout {
   background-color: #EEE;
   padding: 3rem 1rem;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .main-layout {
-  padding: 3rem 1.5rem 2rem;
+  padding: 3rem;
 }
 
 /* ============================
@@ -277,6 +279,50 @@
   border: none;
 }
 .setting-button:hover {
+  color: #fff;
+  background-color: #FFE162;
+}
+
+/* ----------------------------
+* Profile
+---------------------------- */
+.profile-section {
+  margin: 0 2rem 4rem;
+  align-items: center;
+}
+.profile-block {
+  display: inline-block;
+  max-width: 20%;
+  margin-right: 1rem;
+}
+.profile-name {
+  font-size: 2rem;
+  color: #333;
+}
+.profile-name > a {
+  border: none;
+}
+.profile-nav {
+  margin-bottom: 3rem;
+}
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.profile-card-item {
+  width: 18rem;
+  margin-bottom: 3rem;
+}
+.profile-card-item-image {
+  width: 214px;
+}
+.profile-card-item-button {
+  color: #fff;
+  background-color: #91C483;
+  border: none;
+}
+.profile-card-item-button:hover {
   color: #fff;
   background-color: #FFE162;
 }

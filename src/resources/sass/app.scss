@@ -104,10 +104,12 @@ $fontsize-nav: 1rem;
 .aside-layout {
     background-color: $sub-color;
     padding: 3rem 1rem;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .main-layout {
-    padding: 3rem 1.5rem 2rem;
+    padding: 3rem;
 }
 
 /* ============================
@@ -400,6 +402,57 @@ $fontsize-nav: 1rem;
     }
 }
 
+/* ----------------------------
+* Profile
+---------------------------- */
+
+.profile{
+    &-section{
+        margin: 0 2rem 4rem;
+        align-items: center;
+    }
+    &-block{
+        display: inline-block;
+        max-width: 20%;
+        margin-right: 1rem;
+    }
+    &-name{
+        font-size: 2rem;
+        color: $font-color;
+        >a{
+            border: none;
+        }
+    }
+    &-nav{
+        margin-bottom: 3rem;
+    }
+    &-card{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &-item{
+            width: 18rem;
+            margin-bottom: 3rem;
+
+            &-image{
+                width: 214px;
+            }
+            &-button{
+                color: $white-color;
+                background-color: $green-color;
+                border: none;
+
+                &:hover{
+                    color: $white-color;
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+
+
+}
 /* ============================
 * Post
 ============================ */

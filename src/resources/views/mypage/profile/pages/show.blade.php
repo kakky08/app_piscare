@@ -6,19 +6,21 @@
     @include('mypage.components.sidebar')
 @endsection
 @section('main')
-    <h1 class="mypage-title">Profile</h1>
-        @if(Auth::id() !== $user->id)
-                <follow-button
-                class="ml-auto"
-                :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
-                :authorized='@json(Auth::check())'
-                endpoint='{{ route('user.follow', ['id' => $user->id]) }}'
-                >
-                </follow-button>
-        @endif
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => true, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => false])
-    @foreach($posts as $post)
-        {{ $post->id }}
-    @endforeach
+    <div class="profile-card">
+        @foreach($posts as $post)
+            <div class="card profile-card-item">
+                <img src="https://placehold.jp/214x214.png" class="card-img-top profile-card-item-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $post->title}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn profile-card-item-button stretched-link">レシピを見る</a>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    {{-- <nav class="pagination justify-content-center">
+        {{ $posts->appends(request()->query())->links() }}
+    </nav> --}}
 @endsection
