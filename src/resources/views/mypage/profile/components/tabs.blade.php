@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs nav-justified mt-3">
+<ul class="nav  nav-justified profile-nav nav-tabs">
     <li class="nav-item">
         <a class="nav-link text-muted {{ $isPosts ? 'active' : '' }}"
         href="{{ route('profile.show', ['name' => $user->name]) }}">
