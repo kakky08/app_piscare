@@ -93,6 +93,80 @@ $fontsize-nav: 1rem;
     margin-bottom: 2rem;
 }
 
+/* ----------------------------
+* Card
+---------------------------- */
+.common{
+    &-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &-item {
+            width: 18rem;
+            margin-bottom: 3rem;
+        }
+
+        &-title{
+            height: 65px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+
+        }
+
+        &-text{
+            height: 90px;
+            margin-bottom: 1rem;
+
+        }
+
+        &-image {
+            width: 214px;
+            height: 214px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        &-like{
+            color: $red-color;
+        }
+
+        &-button {
+            color: $white-color;
+            background-color: $green-color;
+            border: none;
+
+            &:hover {
+                color: $white-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+/* ----------------------------
+* Search
+---------------------------- */
+
+.common{
+    &-search{
+        &-form{
+            margin-bottom: 3rem;
+        }
+        &-button{
+            color: $white-color;
+            background-color: $green-color;
+            border: none;
+
+            &:hover {
+                color: $white-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+
 /* ============================
 * レイアウト
 ============================ */
@@ -434,33 +508,53 @@ $fontsize-nav: 1rem;
     &-nav{
         margin-bottom: 3rem;
     }
-    &-card{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        &-item{
-            width: 18rem;
-            margin-bottom: 3rem;
-
-            &-image{
-                width: 214px;
-            }
-            &-button{
-                color: $white-color;
-                background-color: $green-color;
-                border: none;
-
-                &:hover{
-                    color: $white-color;
-                    background-color: $secondary-color;
-                }
-            }
-        }
-    }
 
 
 }
+/* ============================
+* Recipe
+============================ */
+
+/* ----------------------------
+* sidebar
+---------------------------- */
+
+.recipe{
+    &-category{
+        &-list{
+            margin: 1rem 0;
+        }
+        &-item{
+            list-style: none;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+
+            a {
+                display: block;
+                color: $font-color;
+                text-decoration: none;
+                border-bottom: 1px solid transparent;
+                &:hover{
+                    border-bottom: 1px solid $green-color;
+                }
+            }
+
+        }
+        &-accordion{
+            border-bottom: 1px solid $white-color;
+        }
+        &-button{
+            background-color: #eee;
+        }
+    }
+}
+
+.accordion-button:not(.collapsed) {
+    color: $font-color;
+    background-color: #eee;
+    box-shadow: inset 0 -1px 0 $white-color;
+}
+
 /* ============================
 * Post
 ============================ */

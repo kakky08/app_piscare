@@ -8,7 +8,7 @@
 @section('main')
     @include('recipe.components.title')
 {{-- ソート --}}
-    @include('recipe.components.tabs', ['isNew' => false, 'isPopular' => true,])
+    @include('recipe.components.tabs', ['isNew' => true, 'isPopular' => false,])
 
 {{-- カード --}}
 <div class="common-card">
