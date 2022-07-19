@@ -1,6 +1,8 @@
 <nav id="sidebar" class="d-md-block sidebar collapse">
     <div class="position-sticky">
-
+        @if($errors->has('keyword'))
+            <p class="alert-message-error">※{{ $errors->first('keyword') }}</p>
+        @endif
         <form method="GET" action="{{ route('recipe.search')}}" class="input-group common-search-form">
             <input type="text" name="keyword" class="form-control" placeholder="キーワードを入力してください" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn common-search-button" type="submit" id="button-addon2">検索</button>
