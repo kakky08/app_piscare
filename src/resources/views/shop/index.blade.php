@@ -18,32 +18,19 @@
         <p class="col alert-message-error">※{{ $errors->first('area') }}</p>
     </div>
 @endif --}}
-<form method="GET" action="{{ route('shop.search') }}" class="row shop-search-form" >
-    <div class="col-4">
-        <input type="text" name="keyword" class="form-control"  placeholder="店名">
-    </div>
-    <div class="col-4">
-        <select class="form-select" name='area'>
-            <option selected value="">エリアを選択する</option>
-            @foreach ($areas as $area)
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
-            @endforeach
-            </select>
-    </div>
-    <div class="col-auto">
-        <button type="submit" class="btn mb-4 shop-search-button">検索</button>
-    </div>
-</form>
+@include('shop.components.form')
 
 {{-- カード --}}
-<div class="row justify-content-between spacing-reset">
+<div class="common-card">
     @foreach ($shops as $shop)
-        <div class="card col-lg-3 card-style">
-            <img src="{{ $shop->photo }}" class="card-img-top card-style-image" alt="...">
-            <div class="card-body card-style-body">
-                <h5 class="card-title card-style-title">{{ $shop->name }}</h5>
-                <p class="card-text card-style-text">{{ $shop->catch }}</p>
-                <a href="{{ $shop->url }}" class="btn stretched-link card-style-button">店舗詳細</a>
+        <div class="card common-card-item">
+            <img src="{{ $shop->photo }}" class="card-img-top common-card-image" alt="...">
+            <div class="card-body">
+                <h5 class="common-card-title">{{ $shop->name }}</h5>
+                <p class="common-card-text">{{ $shop->catch }}</p>
+                <div class="d-grid">
+                    <a href="{{ $shop->url }}" class="btn  common-card-button stretched-link">店舗詳細</a>
+                </div>
             </div>
         </div>
     @endforeach
