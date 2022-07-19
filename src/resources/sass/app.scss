@@ -128,7 +128,13 @@ $fontsize-nav: 1rem;
         }
 
         &-like{
-            color: $red-color;
+            display: flex;
+            align-items: baseline;
+            &-icon{
+                color: $red-color;
+                margin-right: 1rem;
+
+            }
         }
 
         &-button {
@@ -563,6 +569,29 @@ $fontsize-nav: 1rem;
     margin: 0 auto;
 }
 
+.post{
+    &-page{
+        &-title{
+            margin-bottom: 2rem;
+
+            .page-title{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-create{
+        &-button{
+            color: $white-color;
+            background-color: $green-color;
+            border: none;
+
+            &:hover {
+                color: $white-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
 .recipe-register-form {
     margin-bottom: 1rem;
     padding: 1rem;

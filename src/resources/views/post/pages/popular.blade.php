@@ -4,7 +4,7 @@
 @endsection
 @section('main')
     @include('post.components.title')
-    @include('post.components.tabs', ['isNew' => true, 'isPopular' => false,])
+    @include('post.components.tabs', ['isNew' => false, 'isPopular' => true,])
 
     {{-- カード --}}
     <div class="common-card">
