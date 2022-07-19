@@ -19,7 +19,7 @@
             <h5 class="common-card-title">{{ $recipe->recipeTitle }}</h5>
             <p class="common-card-text">{{ $recipe->recipeDescription }}</p>
             <div class="common-card-like">
-                <i class="fas fa-heart"></i><p>{{-- {{ $recipe->count_likes}} --}}</p>
+                <i class="fas fa-heart common-card-like-icon"></i><p>{{ $recipe->count_likes}}</p>
             </div>
             <div class="d-grid">
                 <a href="{{ route('recipe.show', $recipe->id) }}" class="btn common-card-button stretched-link">詳細</a>

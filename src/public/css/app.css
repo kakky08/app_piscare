@@ -81,7 +81,13 @@
 }
 
 .common-card-like {
+  display: flex;
+  align-items: baseline;
+}
+
+.common-card-like-icon {
   color: #FF6464;
+  margin-right: 1rem;
 }
 
 .common-card-button {
@@ -501,6 +507,25 @@
 
 .content-center {
   margin: 0 auto;
+}
+
+.post-page-title {
+  margin-bottom: 2rem;
+}
+
+.post-page-title .page-title {
+  margin-bottom: 0;
+}
+
+.post-create-button {
+  color: #fff;
+  background-color: #91C483;
+  border: none;
+}
+
+.post-create-button:hover {
+  color: #fff;
+  background-color: #FFE162;
 }
 
 .recipe-register-form {
