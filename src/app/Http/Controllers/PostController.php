@@ -16,6 +16,12 @@ class PostController extends Controller
         return view('post.pages.index', compact('recipes'));
     }
 
+    public function popular()
+    {
+        $recipes = Post::withCount('likes')->orderBy('likes_count', 'desc')->paginate(20);
+        return view('post.pages.popular', compact('recipes'));
+    }
+
     public function create()
     {
         return view('post.pages.create');
