@@ -2,7 +2,7 @@
     <div class="position-sticky">
 
         <form method="GET" action="{{ route('recipe.search')}}" class="input-group mb-3">
-            <input type="text" name="search" class="form-control" placeholder="キーワードを入力してください" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" name="keyword" class="form-control" placeholder="キーワードを入力してください" aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn button-basic" type="submit" id="button-addon2">検索</button>
         </form>
 

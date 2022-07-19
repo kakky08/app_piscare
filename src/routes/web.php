@@ -109,8 +109,8 @@ Route::prefix('profile')->name('profile.')->middleware('auth')->group(function (
 
 Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () {
     Route::get('/', 'RecipeController@index')->name('index');
-    Route::get('/{id}', 'RecipeController@show')->name('show');
     Route::get('/search', 'RecipeController@search')->name('search');
+    Route::get('/{id}', 'RecipeController@show')->name('show');
     Route::get('/category/{id}', 'RecipeController@category')->name('category');
     Route::put('/{recipe}/like', 'RecipeController@like')->name('like');
     Route::delete('/{recipe}/like', 'RecipeController@unlike')->name('unlike');
