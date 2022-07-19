@@ -416,6 +416,14 @@ $fontsize-nav: 1rem;
         max-width: 20%;
         margin-right: 1rem;
     }
+    &-icon{
+        width: 160px;
+        height: 155px;
+        object-fit: scale-down;
+        background-position: center;
+        border-radius: 50%;
+        border: 1px solid $secondary-color;
+    }
     &-name{
         font-size: 2rem;
         color: $font-color;

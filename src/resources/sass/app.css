@@ -295,6 +295,15 @@
   max-width: 20%;
   margin-right: 1rem;
 }
+.profile-icon {
+  width: 160px;
+  height: 155px;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid #FFE162;
+}
 .profile-name {
   font-size: 2rem;
   color: #333;

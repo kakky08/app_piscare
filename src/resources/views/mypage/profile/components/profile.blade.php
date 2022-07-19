@@ -2,9 +2,11 @@
 
 <div class="profile-section row">
     <div class="profile-block">
-        <a href="" class="text-dark">
+        @if (empty($user->icon))
+            <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
+        @else
             <i class="fas fa-user-circle fa-10x"></i>
-        </a>
+        @endif
     </div>
 
     <div class="profile-block">
