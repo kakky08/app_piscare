@@ -20,7 +20,6 @@ class RecipeController extends Controller
 
     public function popular()
     {
-        // $recipes = Recipe::orderBy('created_at', 'desc')->paginate(20);
         $recipes = Recipe::withCount('likes')->orderBy('likes_count', 'desc')->paginate(20);
         $categories = Category::all()->sortBy('id');
         $subCategories = SubCategory::all()->sortBy('id');

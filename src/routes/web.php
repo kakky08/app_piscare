@@ -123,6 +123,7 @@ Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () 
 
 Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::get('/', 'PostController@index')->name('index');
+    Route::get('/popular', 'PostController@popular')->name('popular');
     Route::get('/create', 'PostController@create')->name('create');
     Route::post('/store', 'PostController@store')->name('store');
     Route::get('/{post}/edit', 'PostController@edit')->name('edit');
