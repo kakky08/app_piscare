@@ -109,6 +109,7 @@ Route::prefix('profile')->name('profile.')->middleware('auth')->group(function (
 
 Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () {
     Route::get('/', 'RecipeController@index')->name('index');
+    Route::get('/popular', 'RecipeController@popular')->name('popular');
     Route::get('/search', 'RecipeController@search')->name('search');
     Route::get('/{id}', 'RecipeController@show')->name('show');
     Route::get('/category/{id}', 'RecipeController@category')->name('category');

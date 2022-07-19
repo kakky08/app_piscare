@@ -11,7 +11,7 @@
     <h1 class="h2 col-10 mb-0">レシピ</h1>
 </div>
 {{-- ソート --}}
-    @include('recipe.components.tabs', ['isNew' => true, 'isPopular' => false,])
+    @include('recipe.components.tabs', ['isNew' => false, 'isPopular' => true,])
 
 {{-- カード --}}
 @foreach ($recipes as $key => $recipe)
