@@ -150,6 +150,7 @@ $fontsize-nav: 1rem;
     }
 }
 
+
 /* ----------------------------
 * Search
 ---------------------------- */
@@ -168,6 +169,18 @@ $fontsize-nav: 1rem;
                 color: $white-color;
                 background-color: $secondary-color;
             }
+        }
+    }
+}
+
+
+/* ----------------------------
+* Alert
+---------------------------- */
+.alert {
+    &-message {
+        &-error {
+            color: $red-color;
         }
     }
 }
