@@ -18,6 +18,15 @@ class RecipeController extends Controller
         return view('recipe.index', compact('recipes', 'categories', 'subCategories'));
     }
 
+    public function popular()
+    {
+        // $recipes = Recipe::orderBy('created_at', 'desc')->paginate(20);
+        $recipes = Recipe::withCount('likes')->orderBy('likes_count', 'desc')->paginate(20);
+        $categories = Category::all()->sortBy('id');
+        $subCategories = SubCategory::all()->sortBy('id');
+        return view('recipe.pages.popular', compact('recipes', 'categories', 'subCategories'));
+    }
+
     public function show($id)
     {
         $recipe = Recipe::where('id', $id)->first();
