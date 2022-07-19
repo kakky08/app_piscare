@@ -1,16 +1,16 @@
 <template>
-    <div>
+    <div class="recipe-card-like">
         <button
             type="button"
             class="btn m-0 p-1 shadow-none"
         >
             <i
-                class="fas fa-heart mr-1"
+                class="fas fa-heart mr-1 fa-2x recipe-card-icon"
                 :class="{'text-danger':this.isLikedBy}"
                 @click="clickLike"
             />
         </button>
-        {{ countLikes }}
+        <span class="recipe-card-icon-count">{{ countLikes }}</span>
     </div>
 </template>
 <script>
