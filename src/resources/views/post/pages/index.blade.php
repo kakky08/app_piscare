@@ -9,7 +9,7 @@
     {{-- カード --}}
     <div class="common-card">
         @foreach ($recipes as $recipe)
-        <div class="card common-card-item" style="width: 18rem;">
+        <div class="card common-card-item">
             <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="{{ $recipe->user->name }}が投稿したレシピの画像">
             <div class="card-body">
                 <h5 class="common-card-title">{{ $recipe->user->name }}</h5>

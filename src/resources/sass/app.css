@@ -38,6 +38,11 @@
   margin-bottom: 2rem;
 }
 
+.separator {
+  margin-bottom: 2rem;
+  background-color: #888;
+}
+
 /* ----------------------------
 * Card
 ---------------------------- */
@@ -46,8 +51,19 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.common-card::after {
+  content: "";
+  display: block;
+  width: 23%;
+}
+.common-card::before {
+  content: "";
+  display: block;
+  width: 23%;
+  order: 1;
+}
 .common-card-item {
-  width: 18rem;
+  width: 23%;
   margin-bottom: 3rem;
 }
 .common-card-title {
@@ -56,11 +72,10 @@
   margin-bottom: 1rem;
 }
 .common-card-text {
-  height: 90px;
+  height: 100px;
   margin-bottom: 1rem;
 }
 .common-card-image {
-  width: 214px;
   height: 214px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -98,6 +113,23 @@
 .common-search-button:hover {
   color: #fff;
   background-color: #FFE162;
+}
+
+/* ----------------------------
+* Pagination
+---------------------------- */
+.page-link {
+  color: #333;
+}
+.page-link:hover {
+  color: #fff;
+  background-color: #FFE162;
+}
+
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #FFE162;
+  border-color: #FFE162;
 }
 
 /* ----------------------------
@@ -506,5 +538,12 @@
 }
 .recipe-register-form-explanation {
   padding: 7rem;
+}
+
+/* ============================
+* Shop
+============================ */
+.shop-search-button {
+  margin-left: 2rem;
 }
 /*# sourceMappingURL=app.css.map */
