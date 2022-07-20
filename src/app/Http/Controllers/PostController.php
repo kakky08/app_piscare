@@ -134,11 +134,11 @@ class PostController extends Controller
     public function peopleStore(PeopleRequest $request)
     {
 
-        $postRecipe =  Post::where('id', $request->post_id)->first();
-        // ->where('user_id', $request->user)->first();
+        $postRecipe =  Post::where('id', $request->post_id)->where('user_id', $request->user)->first();
+
         $postRecipe->people = $request->people;
         $postRecipe->save();
-        return redirect()->route('post.material.show', ['post' => $request->post_id])->with('completion-of-registration-people', '登録が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->post_id])->with('completion-of-registration-people', '登録が完了しました');
     }
 
     public function procedureShow($post)

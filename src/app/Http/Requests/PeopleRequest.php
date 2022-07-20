@@ -26,14 +26,14 @@ class PeopleRequest extends FormRequest
         return [
             'post_id' => 'required',
             'user' => 'required',
-            'update_people' => 'required|numeric|max:20',
+            'people' => 'required|numeric|max:20',
         ];
     }
 
     public function attributes()
     {
         return [
-            'update_people' => '人数'
+            'people' => '人数'
         ];
     }
 }
