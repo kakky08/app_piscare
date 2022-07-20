@@ -939,6 +939,81 @@ $fontsize-nav: 1rem;
 }
 
 
+.recipe-register-form{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    &-body{
+        padding: 3rem;
+    }
+    &-section{
+        margin-bottom: 3rem;
+        padding-bottom: 1.5rem;
+
+    }
+    &-title{
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    &-image{
+        width: 298px;
+        height: 447px;
+        margin: 0 auto;
+    }
+    &-procedure-image{
+        width: 144px;
+        height: 144px;
+    }
+    &-label{
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+    &-input{
+        margin-bottom: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    &-button{
+        background-color: $green-color;
+        color: $white-color;
+        padding: 0.5rem 1rem;
+
+        &-layout {
+            margin: 0 auto;
+        }
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+    }
+    &-order{
+        font-size: 2rem;
+        margin: auto 0;
+    }
+    &-material{
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+
+        &-list{
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+
+        }
+    }
+    &-link{
+        &:hover {
+            background-color: rgba(255, 255, 98, 0.2);
+            transition: background-color 1s;
+        }
+    }
+    &-explanation{
+        padding: 7rem;
+    }
+
+}
+
+
 /* ----------------------------
 * show
 ---------------------------- */

@@ -706,6 +706,71 @@
   margin-right: 0;
 }
 
+.recipe-register-form {
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.recipe-register-form-body {
+  padding: 3rem;
+}
+.recipe-register-form-section {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+}
+.recipe-register-form-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.recipe-register-form-image {
+  width: 298px;
+  height: 447px;
+  margin: 0 auto;
+}
+.recipe-register-form-procedure-image {
+  width: 144px;
+  height: 144px;
+}
+.recipe-register-form-label {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+.recipe-register-form-input {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+}
+.recipe-register-form-button {
+  background-color: #91C483;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.recipe-register-form-button-layout {
+  margin: 0 auto;
+}
+.recipe-register-form-button:hover {
+  background-color: #FFE162;
+  color: #333;
+}
+.recipe-register-form-order {
+  font-size: 2rem;
+  margin: auto 0;
+}
+.recipe-register-form-material {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+.recipe-register-form-material-list {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+.recipe-register-form-link:hover {
+  background-color: rgba(255, 255, 98, 0.2);
+  transition: background-color 1s;
+}
+.recipe-register-form-explanation {
+  padding: 7rem;
+}
+
 /* ----------------------------
 * show
 ---------------------------- */
