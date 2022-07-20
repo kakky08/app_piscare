@@ -27,4 +27,11 @@ class PostNameRequest extends FormRequest
             'title' => 'required|max:30',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'レシピの名前',
+        ];
+    }
 }
