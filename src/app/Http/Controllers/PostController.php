@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
+use App\Http\Requests\PeopleRequest;
 use App\Http\Requests\PostNameRequest;
 use App\Http\Requests\SeasoningStoreRequest;
 use App\Http\Requests\SeasoningUpdateRequest;
@@ -130,15 +131,14 @@ class PostController extends Controller
         return redirect()->route('post.material.show', ['post' => $request->edit_postId])->with('completion-of-registration-seasoning', '更新が完了しました。');
     }
 
-    public function peopleStore(Request $request)
+    public function peopleStore(PeopleRequest $request)
     {
 
         $postRecipe =  Post::where('id', $request->post_id)->first();
         // ->where('user_id', $request->user)->first();
         $postRecipe->people = $request->people;
         $postRecipe->save();
-        return redirect()->route('post.material.show', ['post' => $request->post_id]);
-        // ->with('completion-of-registration-people', '登録が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->post_id])->with('completion-of-registration-people', '登録が完了しました。');
     }
 
     public function procedureShow($post)
