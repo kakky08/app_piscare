@@ -3,7 +3,7 @@
         @csrf
         <input type="hidden" value="{{ $record_year_month }}" name="year_month">
         <input type="hidden" value="{{ $record_day }}" name="day">
-        <div class="row justify-content-center spacing-reset record-button-group">
+        <div class="record-button-group">
             <button
                 type="submit"
                 class="btn m-0 p-1 shadow-none col-2"

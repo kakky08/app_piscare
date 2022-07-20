@@ -238,7 +238,7 @@
 .aside-layout {
   background-color: #EEE;
   padding: 3rem 1rem;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
@@ -389,6 +389,21 @@
 /* ----------------------------
 * Home
 ---------------------------- */
+.select {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.select-message {
+  margin-bottom: 0;
+  margin-right: 2rem;
+  font-size: 1.3rem;
+}
+.select-form {
+  width: 40%;
+}
+
 /* ----------------------------
 * Calendar
 ---------------------------- */
@@ -424,6 +439,15 @@
 /* ----------------------------
 * Record
 ---------------------------- */
+.record-button {
+  display: flex;
+}
+.record-button-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
 .fish-color {
   color: #ccc;
 }
