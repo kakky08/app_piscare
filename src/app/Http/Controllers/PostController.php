@@ -6,6 +6,7 @@ use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Http\Requests\PostNameRequest;
 use App\Http\Requests\SeasoningStoreRequest;
+use App\Http\Requests\SeasoningUpdateRequest;
 use App\Material;
 use App\Post;
 use App\Procedure;
@@ -115,7 +116,7 @@ class PostController extends Controller
 
     }
 
-    public function seasoningUpdate(Request $request)
+    public function seasoningUpdate(SeasoningUpdateRequest $request)
     {
         Seasoning::where('post_id', $request->edit_postId)->delete();
         $seasonings = $request->seasonings;
