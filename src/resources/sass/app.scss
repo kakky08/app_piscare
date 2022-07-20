@@ -326,11 +326,27 @@ $fontsize-nav: 1rem;
 ---------------------------- */
 .alert {
     &-message {
+
+        &-success {
+            background-color: $green-color;
+            opacity: 0.8;
+            color: $white-color;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
         &-error {
-            color: $red-color;
+            background-color: $red-color;
+            color: $white-color;
+            position: relative;
+            padding: 0.5rem 1rem;
+            margin: 0 1rem 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
         }
     }
 }
+
 
 /* ============================
 * レイアウト
