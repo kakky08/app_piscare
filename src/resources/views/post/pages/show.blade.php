@@ -38,7 +38,7 @@
             <div class="show-card-text">
                 {{--  <p><span>所要時間</span> : {{ $recipe->recipeIndication }}</p>
                 <p><span>費用</span> : {{ $recipe->recipeCost }}</p> --}}
-                <p><span>投稿者</span> : {{ $recipe->user->name }}</p>
+                <p><span>投稿者</span> : <a href="{{ route('information.show', ['name' => $recipe->user->name ])}}">{{ $recipe->user->name }}</a></p>
                 {{-- <p><span>コメント</span> :</p>
                 <p>{{ $recipe->recipeDescription }}</p> --}}
             </div>
