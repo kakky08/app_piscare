@@ -39,6 +39,6 @@
     >
     </edit-seasoning>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn col-auto button-default material-form-button-margin" form="edit-seasoning">調味料についての情報を更新する</button>
+        <button type="submit" class="btn col-auto post-edit-button material-form-button-margin" form="edit-seasoning">調味料についての情報を更新する</button>
     </div>
 </form>
