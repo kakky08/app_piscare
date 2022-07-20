@@ -22,7 +22,7 @@
         <input
             type="hidden"
             name="user"
-            {{-- value="{{ $user->id }}" --}}
+            value="{{ $user->id }}"
         >
         @if (empty($people))
             <input
@@ -40,6 +40,6 @@
                 value={{ $people->people }}
             >
         @endif
-        <button type="submit" form="number-of-people-register-form" class="btn col-1 button-default">人数を登録</button>
+        <button type="submit" form="number-of-people-register-form" class="btn col-1 post-edit-button">人数を登録</button>
     </div>
 </form>

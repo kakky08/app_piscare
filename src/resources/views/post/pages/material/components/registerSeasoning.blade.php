@@ -25,7 +25,7 @@
                 placeholder="調味料の分量を入力してください"
                 name="store_seasoning_quantity"
             >
-            <button type="submit" form="store-seasoning" class="btn col-1 button-default">調味料を登録</button>
+            <button type="submit" form="store-seasoning" class="btn col-1 post-edit-button">調味料を登録</button>
         </div>
     </div>
 </form>

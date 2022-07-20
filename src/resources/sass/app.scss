@@ -840,6 +840,106 @@ $fontsize-nav: 1rem;
 }
 
 /* ----------------------------
+* Edit Material / Seasoning
+---------------------------- */
+
+.post{
+    &-edit{
+        &-button{
+            background-color: $green-color;
+            color: $white-color;
+
+            &:hover {
+                background-color: $secondary-color;
+                color: $font-color;
+            }
+        }
+    }
+}
+.material {
+    margin-bottom: 2rem;
+
+
+    &-form {
+        margin-bottom: 3rem;
+
+        :nth-child(n) {
+            margin-right: 1rem;
+        }
+
+        :last-child {
+            margin-right: 0;
+        }
+
+        &-icon {
+            text-align: center;
+            margin: auto 0;
+        }
+
+        &-button {
+            background-color: $red-color;
+            color: $white-color;
+
+            &:hover {
+                opacity: 0.7;
+                color: $white-color;
+            }
+            &-margin {
+                margin-bottom: 3rem;
+            }
+
+            &-back {
+                width: 80px;
+                color: $white-color;
+                background-color: $green-color;
+                margin-bottom: 4rem;
+
+                &:hover {
+                    color: $white-color;
+                    background-color: $secondary-color;
+                }
+            }
+        }
+        &-boundary-line {
+            margin-bottom: 4rem;
+            background-color: #888;
+        }
+    }
+
+    &-register{
+        &-form {
+                padding: 1rem;
+
+                &-label {
+                    margin-bottom: 1.5rem;
+                    font-size: 1rem;
+                }
+
+                &-tag {
+                    margin-bottom: 3rem;
+
+                    >p {
+                        background-color: $secondary-color;
+                        color: $font-color;
+                        padding: 0.5rem;
+                        text-align: center;
+                        border-radius: 0.8rem;
+                    }
+
+                    :nth-child(n) {
+                        margin-right: 1rem;
+                    }
+
+                    :last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+    }
+}
+
+
+/* ----------------------------
 * show
 ---------------------------- */
 

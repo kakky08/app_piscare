@@ -25,7 +25,7 @@
                 placeholder="材料の分量を入力してください"
                 name="store_material_quantity"
             >
-            <button type="submit" form="store-material" class="btn col-1 button-default">材料を登録</button>
+            <button type="submit" form="store-material" class="btn col-1 post-edit-button">材料を登録</button>
         </div>
     </div>
 </form>
