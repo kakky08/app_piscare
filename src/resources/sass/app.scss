@@ -190,6 +190,117 @@ $fontsize-nav: 1rem;
 }
 
 
+/* ----------------------------
+* show
+---------------------------- */
+.show {
+    &-card {
+        padding: 3rem;
+
+        &-section {
+            margin-bottom: 2rem;
+        }
+
+        &-item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &-title {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        &-image {
+            width: 360px;
+            object-fit: cover;
+            background-position: center;
+            margin-right: 3rem;
+        }
+
+        &-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            &-action {
+                display: flex;
+                align-items: center;
+            }
+
+            &-follow {
+                margin-left: 4rem;
+            }
+        }
+
+        &-back {
+            width: 80px;
+            color: $white-color;
+            background-color: $green-color;
+
+            &:hover {
+                color: $white-color;
+                background-color: $secondary-color;
+            }
+        }
+
+        &-text {
+            padding: 2rem;
+
+            p {
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+
+                span {
+                    font-weight: bold;
+                }
+
+                &:last-child {
+                    margin-left: 1rem;
+                    margin-bottom: 0;
+                    width: 300px;
+                }
+            }
+        }
+
+        &-like {
+            display: flex;
+            align-items: center;
+        }
+
+        &-icon {
+            margin-right: 0.5rem;
+            color: #bbb;
+
+            &-count {
+                font-size: 1.3rem;
+                margin-left: 0.5rem;
+            }
+        }
+
+        &-separator {
+            margin-bottom: 2rem;
+        }
+
+        &-subheading {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        &-link {
+            color: $white-color;
+            background-color: $green-color;
+
+            &:hover {
+                color: $white-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+}
+
+
 
 /* ----------------------------
 * Pagination
@@ -569,88 +680,7 @@ $fontsize-nav: 1rem;
 * Recipe
 ============================ */
 
-.recipe{
-    &-card{
-        padding: 3rem;
-        &-section{
-            margin-bottom: 2rem;
-        }
-        &-item{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        &-title{
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-        }
-        &-image{
-            width: 360px;
-            object-fit: cover;
-            background-position: center;
-            margin-right: 3rem;
-        }
-        &-button{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-        }
-        &-back{
-            width: 80px;
-            color: $white-color;
-            background-color: $green-color;
 
-            &:hover{
-                color: $white-color;
-                background-color: $secondary-color;
-            }
-        }
-        &-text{
-            padding: 2rem;
-
-            p{
-                font-size: 1.3rem;
-                margin-bottom: 1.5rem;
-
-                span{
-                    font-weight: bold;
-                }
-
-                &:last-child{
-                    margin-left: 1rem;
-                    margin-bottom: 0;
-                    width: 300px;
-                }
-            }
-        }
-        &-like{
-            display: flex;
-            align-items: center;
-        }
-        &-icon{
-            margin-right: 0.5rem;
-            color: #bbb;
-            &-count{
-                font-size: 1.5rem;
-            }
-        }
-        &-separator{
-            margin-bottom: 2rem;
-        }
-        &-subheading{
-            font-size: 1.75rem;
-            margin-bottom: 2rem;
-        }
-        &-link{
-            color: $white-color;
-                background-color: $green-color;
-
-            &:hover {
-                color: $white-color;
-                background-color: $secondary-color;
-            }
-        }
-    }
-}
 
 /* ----------------------------
 * sidebar
@@ -723,6 +753,7 @@ $fontsize-nav: 1rem;
         }
     }
 }
+
 .recipe-register-form {
     margin-bottom: 1rem;
     padding: 1rem;
@@ -808,6 +839,13 @@ $fontsize-nav: 1rem;
 
 }
 
+/* ----------------------------
+* show
+---------------------------- */
+
+.post-show-card{
+    padding: 3rem 10rem;
+}
 
 /* ============================
 * Shop

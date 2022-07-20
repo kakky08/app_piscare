@@ -22,6 +22,15 @@ class PostController extends Controller
         return view('post.pages.popular', compact('recipes'));
     }
 
+    public function show($id)
+    {
+        $recipe = Post::where('id', $id)->first();
+        $materials = Material::where('post_id', $id)->orderBy('created_at', 'desc')->get();
+        $seasonings = Seasoning::where('post_id', $id)->orderBy('created_at', 'desc')->get();
+        $procedures = Procedure::where('post_id', $id)->orderBy('order', 'desc')->get();
+        return view('post.pages.show', compact('recipe', 'materials', 'seasonings', 'procedures'));
+    }
+
     public function create()
     {
         return view('post.pages.create');

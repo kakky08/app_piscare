@@ -124,6 +124,7 @@ Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () 
 Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::get('/', 'PostController@index')->name('index');
     Route::get('/popular', 'PostController@popular')->name('popular');
+    Route::get('/{id}', 'PostController@show')->name('show');
     Route::get('/create', 'PostController@create')->name('create');
     Route::post('/store', 'PostController@store')->name('store');
     Route::get('/{post}/edit', 'PostController@edit')->name('edit');
@@ -158,5 +159,5 @@ Route::prefix('shop')->name('shop.')->middleware('auth')->group(function () {
 Route::prefix('user')->name('user.')->middleware('auth')->group(function () {
     Route::get('/{id}', 'UserController@show')->name('show');
     Route::put('/{id}/follow', 'UserController@follow')->name('follow');
-    Route::delete('/{id}/follow', 'UserController@follow')->name('follow');
+    Route::delete('/{id}/follow', 'UserController@unfollow')->name('follow');
 });

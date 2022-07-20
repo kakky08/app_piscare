@@ -64237,19 +64237,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "show-card-like" }, [
     _c(
       "button",
       { staticClass: "btn m-0 p-1 shadow-none", attrs: { type: "button" } },
       [
         _c("i", {
-          staticClass: "fas fa-heart mr-1",
+          staticClass: "fas fa-heart mr-1 fa-2x show-card-icon",
           class: { "text-danger": this.isLikedBy },
           on: { click: _vm.clickLike },
         }),
       ]
     ),
-    _vm._v("\n    " + _vm._s(_vm.countLikes) + "\n"),
+    _vm._v(" "),
+    _c("span", { staticClass: "show-card-icon-count" }, [
+      _vm._v(_vm._s(_vm.countLikes)),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -64326,20 +64329,20 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "recipe-card-like" }, [
+  return _c("div", { staticClass: "show-card-like" }, [
     _c(
       "button",
       { staticClass: "btn m-0 p-1 shadow-none", attrs: { type: "button" } },
       [
         _c("i", {
-          staticClass: "fas fa-heart mr-1 fa-2x recipe-card-icon",
+          staticClass: "fas fa-heart mr-1 fa-2x show-card-icon",
           class: { "text-danger": this.isLikedBy },
           on: { click: _vm.clickLike },
         }),
       ]
     ),
     _vm._v(" "),
-    _c("span", { staticClass: "recipe-card-icon-count" }, [
+    _c("span", { staticClass: "show-card-icon-count" }, [
       _vm._v(_vm._s(_vm.countLikes)),
     ]),
   ])
