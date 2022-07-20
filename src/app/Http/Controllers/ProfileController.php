@@ -10,6 +10,11 @@ class ProfileController extends Controller
 {
     public function show($name)
     {
+        // アクセス設定
+        $user = User::where('name', $name)->first();
+        $this->authorize('ctrlMyPage', $user);
+
+
         $user = User::where('name', $name)->first();
         $posts = $user->posts->sortByDesc('created_at');
         return view('mypage.profile.pages.show', compact('user', 'posts'));
@@ -18,6 +23,10 @@ class ProfileController extends Controller
 
     public function likes($name)
     {
+        // アクセス設定
+        $user = User::where('name', $name)->first();
+        $this->authorize('ctrlMyPage', $user);
+
         $user = User::where('name', $name)->first();
         $posts = $user->postLikes->sortByDesc('created_at');
         $recipes = $user->recipeLikes->sortByDesc('created_at');
@@ -26,6 +35,10 @@ class ProfileController extends Controller
 
     public function followings($name)
     {
+        // アクセス設定
+        $user = User::where('name', $name)->first();
+        $this->authorize('ctrlMyPage', $user);
+
         $user = User::where('name', $name)->first();
         $followings = $user->followings->sortByDesc('created_at');
         return view('mypage.profile.pages.followings', compact('user', 'followings'));
@@ -33,6 +46,10 @@ class ProfileController extends Controller
 
     public function followers($name)
     {
+        // アクセス設定
+        $user = User::where('name', $name)->first();
+        $this->authorize('ctrlMyPage', $user);
+
         $user = User::where('name', $name)->first();
         $followers = $user->followers->sortByDesc('created_at');
         return view('mypage.profile.pages.followers', compact('user', 'followers'));
