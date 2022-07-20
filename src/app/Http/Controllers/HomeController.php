@@ -52,9 +52,12 @@ class HomeController extends Controller
         }
 
         // 表示されている月の記録を取得
+        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
+
         // $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'flag_count')->get()->toArray();
         // dd($records);
         // $array = array_column($records, 'flag_count', 'day');
+        $array = array_column($records, 'count', 'day');
 
         // その日の記録があるかを検索
         $today = new Carbon('today');
@@ -68,7 +71,7 @@ class HomeController extends Controller
         } */
 
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day'));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day', 'array'));
     }
 
     public function moveMonth($move)
