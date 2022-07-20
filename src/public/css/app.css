@@ -270,8 +270,22 @@
 * Alert
 ---------------------------- */
 
+.alert-message-success {
+  background-color: #91C483;
+  opacity: 0.8;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 .alert-message-error {
-  color: #FF6464;
+  background-color: #FF6464;
+  color: #fff;
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
 }
 
 /* ============================
