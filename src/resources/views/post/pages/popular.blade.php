@@ -26,7 +26,7 @@
                     </post-like> --}}
                 </div>
                 <div class="d-grid">
-                    <a href="{{-- {{ route('postRecipe.show', ['postRecipe' => $recipe->id ])}} --}}" class="btn common-card-button stretched-link">詳細</a>
+                    <a href="{{ route('post.show', ['id' => $recipe->id ])}}" class="btn common-card-button stretched-link">詳細</a>
                 </div>
             </div>
         </div>
