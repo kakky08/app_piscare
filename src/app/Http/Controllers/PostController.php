@@ -81,8 +81,7 @@ class PostController extends Controller
         ]);
 
 
-        return redirect()->route('post.material.show', ['post' => $request->store_postId])
-        ->with('completion-of-registration-material', '登録が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->store_postId])->with('completion-of-registration-material', '登録が完了しました。');
     }
 
     public function  materialUpdate(MaterialUpdateRequest $request, Material $material)
@@ -111,8 +110,7 @@ class PostController extends Controller
         ]);
 
 
-        return redirect()->route('post.material.show', ['post' => $request->store_postId]);
-        // ->with('completion-of-registration-material', '登録が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->store_postId])->with('completion-of-registration-material', '登録が完了しました。');
 
     }
 
@@ -129,8 +127,7 @@ class PostController extends Controller
                 ]);
             }
         }
-        return redirect()->route('post.material.show', ['post' => $request->edit_postId]);
-        // ->with('completion-of-registration-seasoning', '更新が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->edit_postId])->with('completion-of-registration-seasoning', '更新が完了しました。');
     }
 
     public function peopleStore(Request $request)
