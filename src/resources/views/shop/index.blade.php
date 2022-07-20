@@ -8,16 +8,7 @@
 <h2 class="page-title">お店検索</h2>
 
 {{-- 検索フォーム --}}
-{{-- @if($errors->has('keyword'))
-    <div class="row cols-3 spacing-reset">
-        <p class="col alert-message-error">※{{ $errors->first('keyword') }}</p>
-    </div>
-@endif
-@if($errors->has('area'))
-    <div class="row cols-3 spacing-reset">
-        <p class="col alert-message-error">※{{ $errors->first('area') }}</p>
-    </div>
-@endif --}}
+@include('shop.message.searchError')
 @include('shop.components.form')
 
 {{-- カード --}}
