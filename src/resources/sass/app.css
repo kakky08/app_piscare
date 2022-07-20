@@ -34,8 +34,8 @@
 * 全体共通
 ============================ */
 .page-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
 }
 
 .separator {
@@ -586,7 +586,9 @@
 }
 
 .post-page-title {
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
 }
 .post-page-title .page-title {
   margin-bottom: 0;
