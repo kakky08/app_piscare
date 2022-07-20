@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MaterialStoreRequest;
+use App\Http\Requests\MaterialUpdateRequest;
 use App\Http\Requests\PostNameRequest;
 use App\Http\Requests\SeasoningStoreRequest;
 use App\Material;
@@ -83,7 +84,7 @@ class PostController extends Controller
         ->with('completion-of-registration-material', '登録が完了しました。');
     }
 
-    public function  materialUpdate(Request $request, Material $material)
+    public function  materialUpdate(MaterialUpdateRequest $request, Material $material)
     {
 
         Material::where('post_id', $request->edit_postId)->delete();
@@ -97,8 +98,7 @@ class PostController extends Controller
                 ]);
             }
         }
-        return redirect()->route('post.material.show', ['post' => $request->edit_postId]);
-        // ->with('completion-of-registration-material', '更新が完了しました。');
+        return redirect()->route('post.material.show', ['post' => $request->edit_postId])->with('completion-of-registration-material', '更新が完了しました。');
     }
 
     public function seasoningStore(SeasoningStoreRequest $request)
