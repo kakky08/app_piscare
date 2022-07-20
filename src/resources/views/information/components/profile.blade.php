@@ -18,11 +18,11 @@
             </h2>
         </div>
         <div class="card-text">
-            <a href="{{ route('profile.followings', ['name' => $user->name]) }}" class="text-muted">
+            <a href="{{ route('information.followings', ['name' => $user->name]) }}" class="text-muted">
                 @if ( empty($information->count_followings))
                     0 フォロー
                 @else
-                    {{ $information->count_followings }}フォロー
+                    {{ $user->count_followings }}フォロー
                 @endif
             </a>
             <a href="{{ route('profile.followers', ['name' => $information->name]) }}" class="text-muted">
