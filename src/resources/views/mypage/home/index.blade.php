@@ -6,7 +6,7 @@
     @include('mypage.components.sidebar')
 @endsection
 @section('main')
-    <h2>カレンダー</h2>
+    <h2 class="mypage-title">カレンダー</h2>
     @include('mypage.home.components.selectDay')
     @include('mypage.home.components.recordButton')
     @include('mypage.home.components.calendar')

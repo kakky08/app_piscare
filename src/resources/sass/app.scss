@@ -343,7 +343,7 @@ $fontsize-nav: 1rem;
 .aside-layout {
     background-color: $sub-color;
     padding: 3rem 1rem;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -542,6 +542,22 @@ $fontsize-nav: 1rem;
 /* ----------------------------
 * Home
 ---------------------------- */
+
+.select{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 4rem;
+
+    &-message{
+        margin-bottom: 0;
+        margin-right: 2rem;
+        font-size: 1.3rem;
+    }
+    &-form{
+        width: 40%;
+    }
+}
 /* ----------------------------
 * Calendar
 ---------------------------- */
@@ -586,6 +602,17 @@ $fontsize-nav: 1rem;
 /* ----------------------------
 * Record
 ---------------------------- */
+.record{
+    &-button{
+        display: flex;
+
+        &-group{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+    }
+}
 .fish-color {
     color: #ccc;
 
