@@ -3,20 +3,7 @@
     <p class="col">材料の新規登録</p>
     <div class="col-1"></div>
 </div>
-{{-- @if($errors->has('store_material'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('store_material') }}</p>
-        <div class="col-1"></div>
-    </div>
-@endif
-@if($errors->has('store_material_quantity'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('store_material_quantity') }}</p>
-        <div class="col-1"></div>
-    </div>
-@endif --}}
+@include('post.pages.material.message.registerMaterialError')
 <form method="POST" action="{{ route('post.material.store') }}" id="store-material">
     @csrf
     <div class="material">
