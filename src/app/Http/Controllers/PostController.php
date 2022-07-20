@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostNameRequest;
 use App\Material;
 use App\Post;
 use App\Procedure;
@@ -36,7 +37,7 @@ class PostController extends Controller
         return view('post.pages.create');
     }
 
-    public function store(Request $request, Post $post)
+    public function store(PostNameRequest $request, Post $post)
     {
         $post->fill($request->all());
         $post->user_id = $request->user()->id;
