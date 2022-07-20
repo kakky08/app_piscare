@@ -9,7 +9,7 @@
             <a class="btn button-back" href="{{ route('post.edit', ['post' => $postId]) }}">>>戻る</a>
             <br />
             {{-- 登録完了メッセージ --}}
-            @include('post.pages.material.components.successMessage')
+            @include('post.pages.material.message.successMessage')
 
             {{-- 人数の登録フォーム --}}
             @include('post.pages.material.components.registerPeople')
