@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\PostNameRequest;
 use App\Material;
 use App\Post;
@@ -68,7 +69,7 @@ class PostController extends Controller
         return view('post.pages.material.edit', compact('postId', 'materials', 'seasonings', 'people'));
     }
 
-    public function materialStore(Request $request)
+    public function materialStore(MaterialStoreRequest $request)
     {
         Material::create([
             'post_id' => $request->store_postId,
