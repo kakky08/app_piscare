@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\PostNameRequest;
+use App\Http\Requests\SeasoningStoreRequest;
 use App\Material;
 use App\Post;
 use App\Procedure;
@@ -100,7 +101,7 @@ class PostController extends Controller
         // ->with('completion-of-registration-material', '更新が完了しました。');
     }
 
-    public function seasoningStore(Request $request)
+    public function seasoningStore(SeasoningStoreRequest $request)
     {
         Seasoning::create([
             'post_id' => $request->store_postId,
