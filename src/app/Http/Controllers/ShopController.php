@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Area;
+use App\Http\Requests\SearchShopRequest;
 use App\Shop;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ShopController extends Controller
         return view('shop.index', compact('shops', 'areas'));
     }
 
-    public function search(Request $request)
+    public function search(SearchShopRequest $request)
     {
 
         $shops = Shop::when(isset($request->area), function ($query) use ($request)
