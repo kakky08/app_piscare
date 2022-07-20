@@ -153,10 +153,21 @@ Route::prefix('shop')->name('shop.')->middleware('auth')->group(function () {
 
 
 /* ====================
+    Information Page
+==================== */
+
+Route::prefix('information')->name('information.')->group(function () {
+    Route::get('/{name}', 'InformationController@show')->name('show');
+    Route::get('/{name}/likes', 'InformationController@likes')->name('likes');
+    Route::get('/{name}/followings', 'InformationController@followings')->name('followings');
+    Route::get('/{name}/followers', 'InformationController@followers')->name('followers');
+});
+
+/* ====================
     follow action
 ==================== */
 
-Route::prefix('user')->name('user.')->middleware('auth')->group(function () {
+Route::prefix('user')->name('user.')->group(function () {
     Route::get('/{id}', 'UserController@show')->name('show');
     Route::put('/{id}/follow', 'UserController@follow')->name('follow');
     Route::delete('/{id}/follow', 'UserController@unfollow')->name('follow');
