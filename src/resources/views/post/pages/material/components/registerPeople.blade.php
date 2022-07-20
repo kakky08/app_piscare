@@ -5,13 +5,9 @@
         <p class="col">何人分の材料か登録</p>
         <div class="col-1"></div>
     </div>
-    {{-- @if($errors->has('update_people'))
-        <div class="row cols-3 spacing-reset">
-            <div class="col-1"></div>
-            <p class="col alert-message-error">※{{ $errors->first('update_people') }}</p>
-            <div class="col-1"></div>
-        </div>
-    @endif --}}
+    @include('post.pages.material.message.registerPeopleError')
+
+
     <div class="row cols-3 spacing-reset material-form">
         <div class="col-1"></div>
         <input
