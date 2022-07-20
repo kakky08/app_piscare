@@ -61,4 +61,9 @@ class LoginController extends Controller
 
         return redirect()->route('register.{provider}', compact('provider', 'email', 'token'));
     }
+
+    public function loggedOut(Request $request)
+    {
+        return redirect()->route('login');
+    }
 }
