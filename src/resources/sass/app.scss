@@ -16,7 +16,7 @@ $primary-color: #FFF;
 $secondary-color: #FFE162;
 
 // グレー
-$sub-color: #EEE;
+$sub-color: #fafafa;
 
 // 緑
 $green-color: #91C483;
@@ -547,7 +547,7 @@ $fontsize-nav: 1rem;
         color: $font-color;
         margin-bottom: 4rem;
         &:hover{
-            color: $secondary-color;
+            color: rgba(51, 51, 51, 0.7);
             box-sizing: border-box;
             margin-bottom: 3.8rem;
             border-bottom: solid 0.2rem $green-color;
@@ -751,18 +751,18 @@ $fontsize-nav: 1rem;
 
         }
         &-accordion{
-            border-bottom: 1px solid $white-color;
+            border-bottom: 1px solid #ddd;
         }
         &-button{
-            background-color: #eee;
+            background-color: $sub-color;
         }
     }
 }
 
 .accordion-button:not(.collapsed) {
     color: $font-color;
-    background-color: #eee;
-    box-shadow: inset 0 -1px 0 $white-color;
+    background-color: $sub-color;
+    box-shadow: inset 0 -1px 0 #ddd;
 }
 
 /* ============================
