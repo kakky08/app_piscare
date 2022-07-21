@@ -20,7 +20,7 @@
                 <h5 class="common-card-title">{{ $shop->name }}</h5>
                 <p class="common-card-text">{{ $shop->catch }}</p>
                 <div class="d-grid">
-                    <a href="{{ $shop->url }}" class="btn  common-card-button stretched-link">店舗詳細</a>
+                    <a href="{{ $shop->url }}" target="_blank" rel="noopener noreferrer" class="btn common-card-button stretched-link">店舗詳細</a>
                 </div>
             </div>
         </div>
