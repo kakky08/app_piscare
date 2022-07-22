@@ -28,12 +28,5 @@
                 </a>
             </li>
         @endforeach
-         <li class="follow-item">
-                <a href="" class="follow-item-link">
-                    <img src="" class="follow-item-image" alt="初期アイコン">
-                    <p class="follow-item-name">あいうえおあいうえお</p>
-                    <button>test</button>
-                </a>
-            </li>
     </ul>
 @endsection

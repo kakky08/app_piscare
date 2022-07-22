@@ -8,18 +8,17 @@
 @section('main')
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => false, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => true])
+    <ul class="follow-list">
     @foreach($followers as $follower)
-        <div>
-            <div>
+        <li class="follow-item">
+            <a href="{{route('information.show', ['name' => $follower->name ])}}" class="follow-item-link">
                 @if (empty($follower->icon))
-                    <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
+                    <img src="{{ asset('images/yellowtail.png') }}" class="follow-item-image" alt="{{$user->name}}の初期アイコン">
                 @else
                     <i class="fas fa-user-circle fa-10x"></i>
                 @endif
-            </div>
-            <div>
-                {{ $follower->name }}
-            </div>
-        </div>
+                <p class="follow-item-name">{{ $follower->name }}</p>
+            </a>
+        </li>
     @endforeach
 @endsection
