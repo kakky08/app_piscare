@@ -716,9 +716,52 @@ $fontsize-nav: 1rem;
     &-nav{
         margin-bottom: 3rem;
     }
-
-
 }
+
+/* ----------------------------
+* Follow
+---------------------------- */
+
+.follow{
+    &-list{
+        list-style: none;
+    }
+    &-item{
+        margin-left: 4rem;
+        margin-bottom: 2rem;
+
+        &:hover {
+            margin-bottom: 18px;
+            padding-bottom: 5px;
+                border-bottom: 1px solid $green-color;
+            }
+
+        &-link{
+            display: flex;
+            align-items: center;
+            color: $font-color;
+            text-decoration: none;
+
+        }
+        &-image{
+            width: 50px;
+            height: 50px;
+            object-fit: scale-down;
+            background-position: center;
+            border-radius: 50%;
+            border: 1px solid $secondary-color;
+            margin-right: 6rem;
+        }
+
+        &-name{
+            margin-right: 4rem;
+            margin-bottom: 0;
+            min-width: 200px;
+            font-size: 1.2rem;
+        }
+    }
+}
+
 /* ============================
 * Recipe
 ============================ */
