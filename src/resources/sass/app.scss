@@ -727,8 +727,8 @@ $fontsize-nav: 1rem;
         list-style: none;
     }
     &-item{
-        margin-left: 4rem;
-        margin-bottom: 2rem;
+        margin: 0 4rem 2rem;
+        list-style: none;
 
         &:hover {
             margin-bottom: 18px;
