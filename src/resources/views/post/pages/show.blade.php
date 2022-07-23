@@ -9,6 +9,7 @@
         <div class="show-card-button">
             <button type="button" onClick="history.back()" class="btn show-card-back">>>戻る</button>
             <div class="show-card-button-action">
+                @if(Auth::id() !== $recipe->user_id)
                 <post-like
                     :initial-is-liked-by='@json($recipe->isLikedBy(Auth::user()))'
                     :initial-count-likes='@json($recipe->count_likes)'
@@ -16,7 +17,10 @@
                     endpoint="{{ route('recipe.like', ['recipe' => $recipe->id]) }}"
                 >
                 </post-like>
-                <p>{{$recipe->user->isFollowedBy(Auth::user())}}</p>
+                @else
+                <i class="fas fa-heart mr-1 fa-2x show-card-icon show-card-heart"></i>
+                <span class="show-card-icon-count">{{ $recipe->countLikes }}</span>
+                @endif
                 @if(Auth::id() !== $recipe->user_id)
                     <follow-button
                         class="ml-auto show-card-button-follow"
@@ -93,9 +97,5 @@
         <a href="{{ $recipe->recipeUrl }}" class="btn show-card-link">作り方はこちらから</a>
     </div> --}}
 </div>
-
-
-
-
 
 @endsection
