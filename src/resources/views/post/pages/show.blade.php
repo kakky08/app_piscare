@@ -20,12 +20,14 @@
                 @else
                 <i class="fas fa-heart mr-1 fa-2x show-card-icon show-card-heart"></i>
                 <span class="show-card-icon-count">{{ $recipe->countLikes }}</span>
+                <form action="{{ route('post.edit', ['post' => $recipe->id]) }}" method="GET">
+                    <button type="submit" class="btn button-edit">編集</button>
+                </form>
                 <form action="{{ route('post.destroy', ['id' => $recipe->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn button-delete">削除</button>
                 </form>
-                <a class="btn" href="{{route('post.destroy', ['id' => $recipe->id ])}}"></a>
                 @endif
                 @if(Auth::id() !== $recipe->user_id)
                     <follow-button
