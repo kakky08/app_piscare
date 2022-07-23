@@ -352,6 +352,18 @@ $fontsize-nav: 1rem;
     }
 }
 
+/* ----------------------------
+* Button
+---------------------------- */
+.button{
+    &-delete{
+        color: $white-color;
+        background-color: $red-color;
+        border-color: $red-color;
+        margin-left: 4rem;
+    }
+}
+
 
 /* ============================
 * レイアウト

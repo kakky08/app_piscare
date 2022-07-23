@@ -292,6 +292,17 @@
   border-radius: 0.25rem;
 }
 
+/* ----------------------------
+* Button
+---------------------------- */
+
+.button-delete {
+  color: #fff;
+  background-color: #FF6464;
+  border-color: #FF6464;
+  margin-left: 4rem;
+}
+
 /* ============================
 * レイアウト
 ============================ */
