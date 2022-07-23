@@ -253,6 +253,20 @@
   border-color: #FF6464;
   margin-left: 4rem;
 }
+.button-delete:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+.button-edit {
+  color: #fff;
+  background-color: #91C483;
+  border-color: #91C483;
+  margin-left: 4rem;
+}
+.button-edit:hover {
+  opacity: 0.8;
+  color: #fff;
+}
 
 /* ============================
 * レイアウト

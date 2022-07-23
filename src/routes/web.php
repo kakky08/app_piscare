@@ -128,7 +128,7 @@ Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::post('/store', 'PostController@store')->name('store');
     Route::get('/{id}', 'PostController@show')->name('show');
     Route::delete('/{id}', 'PostController@destroy')->name('destroy');
-    Route::get('/{post}/edit', 'PostController@edit')->name('edit');
+    Route::get('edit/{post}', 'PostController@edit')->name('edit');
     Route::get('/{post}/material/edit', 'PostController@materialShow')->name('material.show');
     Route::post('/material/store', 'PostController@materialStore')->name('material.store');
     Route::put('/material/{post}/update', 'PostController@materialUpdate')->name('material.update');

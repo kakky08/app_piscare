@@ -361,6 +361,23 @@ $fontsize-nav: 1rem;
         background-color: $red-color;
         border-color: $red-color;
         margin-left: 4rem;
+
+        &:hover {
+                opacity: 0.8;
+                color: $white-color;
+        }
+    }
+
+    &-edit{
+        color: $white-color;
+        background-color: $green-color;
+        border-color: $green-color;
+        margin-left: 4rem;
+
+        &:hover{
+            opacity: 0.8;
+            color: $white-color;
+        }
     }
 }
 
