@@ -662,8 +662,8 @@
 }
 
 .follow-item {
-  margin-left: 4rem;
-  margin-bottom: 2rem;
+  margin: 0 4rem 2rem;
+  list-style: none;
 }
 
 .follow-item:hover {
