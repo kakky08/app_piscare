@@ -279,6 +279,10 @@ $fontsize-nav: 1rem;
             }
         }
 
+        &-heart {
+            color: $red-color;
+        }
+
         &-separator {
             margin-bottom: 2rem;
         }
@@ -297,6 +301,7 @@ $fontsize-nav: 1rem;
                 background-color: $secondary-color;
             }
         }
+
     }
 }
 

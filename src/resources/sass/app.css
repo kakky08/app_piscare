@@ -188,6 +188,9 @@
   font-size: 1.3rem;
   margin-left: 0.5rem;
 }
+.show-card-heart {
+  color: #FF6464;
+}
 .show-card-separator {
   margin-bottom: 2rem;
 }
