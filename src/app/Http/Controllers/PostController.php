@@ -120,7 +120,6 @@ class PostController extends Controller
 
 
         return redirect()->route('post.material.show', ['post' => $request->store_postId])->with('completion-of-registration-material', '登録が完了しました。');
-
     }
 
     public function seasoningUpdate(SeasoningUpdateRequest $request)
