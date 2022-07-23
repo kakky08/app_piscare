@@ -13,6 +13,7 @@ use App\Post;
 use App\Procedure;
 use App\Seasoning;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -61,6 +62,13 @@ class PostController extends Controller
         $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
 
         return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings', 'post'));
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::where('id', $id)->where('user_id', Auth::id())->first();
+        $post->delete();
+        return redirect()->route('post.index');
     }
 
     public function materialShow($post)
