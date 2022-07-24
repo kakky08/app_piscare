@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\SearchRecipeRequest;
 use App\Recipe;
+use App\RecipeMaterial;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,8 @@ class RecipeController extends Controller
         $recipe = Recipe::where('id', $id)->first();
         $categories = Category::all()->sortBy('id');
         $subCategories = SubCategory::all()->sortBy('id');
-        return view('recipe.show', compact('recipe', 'categories', 'subCategories'));
+        $materials = RecipeMaterial::where('recipeId', $id)->orderBy('order', 'asc')->get();
+        return view('recipe.show', compact('recipe', 'categories', 'subCategories', 'materials'));
     }
 
     public function search(SearchRecipeRequest $request)

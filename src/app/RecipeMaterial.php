@@ -13,7 +13,7 @@ class RecipeMaterial extends Model
     }
 
     protected $fillable = [
-        'recipe_id',
+        'recipeId',
         'order',
         'name',
     ];

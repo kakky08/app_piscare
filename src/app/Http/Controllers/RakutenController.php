@@ -23,7 +23,7 @@ class RakutenController extends Controller
         $client = new RakutenRws_Client();
         $client->setApplicationId(config('rakuten.api_key'));
 
-
+        $client->setApplicationId('1012872856628443358');
         /* ==============================
         |
         | 中カテゴリのレシピを取得
@@ -55,7 +55,7 @@ class RakutenController extends Controller
                     {
                         $recipeId = $result['recipeId'];
                         Recipe::create([
-                            'id' => $result['recipeId'],
+                            'id' => $recipeId,
                             'categoryId' =>  $category->parentCategoryId . $category->id,
                             'recipeTitle' => $result['recipeTitle'],
                             'recipeUrl' => $result['recipeUrl'],
@@ -68,17 +68,17 @@ class RakutenController extends Controller
                             'recipeCost' => $result['recipeCost'],
                         ]);
 
-                        /* foreach ($result['recipeMaterial'] as $key => $material) {
+                        foreach ($result['recipeMaterial'] as $key => $material) {
                             RecipeMaterial::create([
                                 'recipeId' => $result['recipeId'],
                                 'order' => $key,
                                 'name' => $material,
                             ]);
-                        } */
+                        }
                     }
                 }
-                sleep(1);
             }
+            sleep(1);
         }
 
         /* ==============================
@@ -87,48 +87,48 @@ class RakutenController extends Controller
         |
         ============================== */
 
-        $subCategories = SubCategory::select('id', 'categoryId')->get();
-        foreach ($subCategories as $subCategory) {
-            $parent = Category::where('id', $subCategory->categoryId)->select('parentCategoryId')->first();
-            $categoryId = $parent->parentCategoryId . '-' . $subCategory->categoryId . '-' . $subCategory->id;
-            $response = $client->execute('RecipeCategoryRanking', array(
-                'categoryId' => $categoryId,
-            ));
+        // $subCategories = SubCategory::select('id', 'categoryId')->get();
+        // foreach ($subCategories as $subCategory) {
+        //     $parent = Category::where('id', $subCategory->categoryId)->select('parentCategoryId')->first();
+        //     $categoryId = $parent->parentCategoryId . '-' . $subCategory->categoryId . '-' . $subCategory->id;
+        //     $response = $client->execute('RecipeCategoryRanking', array(
+        //         'categoryId' => $categoryId,
+        //     ));
 
-            if (!$response->isOk()) {
-                return 'Error:' . $response->getMessage();
-            } else {
-                $results = $response['result'];
-                foreach ($results as $result) {
-                    $recipeId = Recipe::where('id', $result['recipeId'])->first();
+        //     if (!$response->isOk()) {
+        //         return 'Error:' . $response->getMessage();
+        //     } else {
+        //         $results = $response['result'];
+        //         foreach ($results as $result) {
+        //             $recipeId = Recipe::where('id', $result['recipeId'])->first();
 
-                    if (empty($recipeId)) {
-                        $recipeId = $result['recipeId'];
-                        Recipe::create(['id' => $result['recipeId'],
-                            'categoryId' =>  $parent->parentCategoryId . $subCategory->categoryId . $subCategory->id,
-                            'recipeTitle' => $result['recipeTitle'],
-                            'recipeUrl' => $result['recipeUrl'],
-                            'foodImageUrl' => $result['foodImageUrl'],
-                            'mediumImageUrl' => $result['mediumImageUrl'],
-                            'smallImageUrl' => $result['smallImageUrl'],
-                            'nickname' => $result['nickname'],
-                            'recipeDescription' => $result['recipeDescription'],
-                            'recipeIndication' => $result['recipeIndication'],
-                            'recipeCost' => $result['recipeCost'],
-                        ]);
+        //             if (empty($recipeId)) {
+        //                 $recipeId = $result['recipeId'];
+        //                 Recipe::create(['id' => $result['recipeId'],
+        //                     'categoryId' =>  $parent->parentCategoryId . $subCategory->categoryId . $subCategory->id,
+        //                     'recipeTitle' => $result['recipeTitle'],
+        //                     'recipeUrl' => $result['recipeUrl'],
+        //                     'foodImageUrl' => $result['foodImageUrl'],
+        //                     'mediumImageUrl' => $result['mediumImageUrl'],
+        //                     'smallImageUrl' => $result['smallImageUrl'],
+        //                     'nickname' => $result['nickname'],
+        //                     'recipeDescription' => $result['recipeDescription'],
+        //                     'recipeIndication' => $result['recipeIndication'],
+        //                     'recipeCost' => $result['recipeCost'],
+        //                 ]);
 
-                        /* foreach ($result['recipeMaterial'] as $key => $material) {
-                            RecipeMaterial::create([
-                                'recipeId' => $result['recipeId'],
-                                'order' => $key,
-                                'name' => $material,
-                            ]);
-                        } */
-                    }
-                }
-            }
-            sleep(1);
-        }
+        //                 foreach ($result['recipeMaterial'] as $key => $material) {
+        //                     RecipeMaterial::create([
+        //                         'recipeId' => $result['recipeId'],
+        //                         'order' => $key,
+        //                         'name' => $material,
+        //                     ]);
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     sleep(1);
+        // }
 
         return redirect()->route('admin.home')->with('successMessage', '登録に成功しました。');
     }
