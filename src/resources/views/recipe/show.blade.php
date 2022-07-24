@@ -33,9 +33,9 @@
     </div>
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">材料・調味料</h3>
-        <ul>
+        <ul class="show-card-material-list">
             @foreach ($materials as $material)
-                <li>{{ $material->name }}</li>
+                <li class="show-card-material-item">{{ $material->name }}<span class="show-card-material-span">/</span> </li>
             @endforeach
         </ul>
     <div class="d-grid">

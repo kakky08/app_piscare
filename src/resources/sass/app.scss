@@ -27,6 +27,9 @@ $red-color: #FF6464;
 // 青
 $blue-color: #628eff;
 
+//グレー2
+$gray-color: #ddd;
+
 
 /* ============================
 * フォントカラー
@@ -271,7 +274,7 @@ $fontsize-nav: 1rem;
 
         &-icon {
             margin-right: 0.5rem;
-            color: #bbb;
+            color: $gray-color;
 
             &-count {
                 font-size: 1.3rem;
@@ -284,6 +287,7 @@ $fontsize-nav: 1rem;
         }
 
         &-separator {
+            color: $gray-color;
             margin-bottom: 2rem;
         }
 
@@ -299,6 +303,26 @@ $fontsize-nav: 1rem;
             &:hover {
                 color: $white-color;
                 background-color: $secondary-color;
+            }
+        }
+
+        &-material{
+
+            &-list{
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 4rem;
+            }
+
+            &-item{
+                list-style: none;
+                font-size: 1.2rem;
+                margin-left: 2rem;
+            }
+
+            &-span{
+                color: $gray-color;
+                padding-left: 2rem;
             }
         }
 
@@ -664,7 +688,7 @@ $fontsize-nav: 1rem;
     }
 }
 .fish-color {
-    color: #ccc;
+    color: $gray-color;
 
     &-first {
         color: $fish-first-color;
@@ -828,7 +852,7 @@ $fontsize-nav: 1rem;
 
         }
         &-accordion{
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid $gray-color;
         }
         &-button{
             background-color: $sub-color;
@@ -839,7 +863,7 @@ $fontsize-nav: 1rem;
 .accordion-button:not(.collapsed) {
     color: $font-color;
     background-color: $sub-color;
-    box-shadow: inset 0 -1px 0 #ddd;
+    box-shadow: inset 0 -1px 0 $gray-color;
 }
 
 /* ============================
