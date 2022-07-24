@@ -294,6 +294,11 @@ $fontsize-nav: 1rem;
         &-subheading {
             font-size: 1.75rem;
             margin-bottom: 2rem;
+
+            &-span{
+                margin-left: 1rem;
+                font-size: 1.5rem;
+            }
         }
 
         &-link {
@@ -324,6 +329,23 @@ $fontsize-nav: 1rem;
                 color: $gray-color;
                 padding-left: 2rem;
             }
+        }
+
+        &-post{
+            list-style: none;
+                &-list{
+                    &-group{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px 2rem 1rem;
+                        margin-bottom: 1rem;
+                        border-bottom: 1px solid $gray-color;
+                    }
+                    &-item{
+                        list-style: none;
+                        font-size: 1.2rem;
+                    }
+                }
         }
 
     }

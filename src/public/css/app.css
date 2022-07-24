@@ -242,6 +242,11 @@
   margin-bottom: 2rem;
 }
 
+.show-card-subheading-span {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
 .show-card-link {
   color: #fff;
   background-color: #91C483;
@@ -267,6 +272,23 @@
 .show-card-material-span {
   color: #ddd;
   padding-left: 2rem;
+}
+
+.show-card-post {
+  list-style: none;
+}
+
+.show-card-post-list-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.show-card-post-list-item {
+  list-style: none;
+  font-size: 1.2rem;
 }
 
 /* ----------------------------
