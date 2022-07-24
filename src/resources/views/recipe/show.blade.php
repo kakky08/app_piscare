@@ -33,6 +33,11 @@
     </div>
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">材料・調味料</h3>
+        <ul>
+            @foreach ($materials as $material)
+                <li>{{ $material->name }}</li>
+            @endforeach
+        </ul>
     <div class="d-grid">
         <a href="{{ $recipe->recipeUrl }}" class="btn show-card-link">作り方はこちらから</a>
     </div>
