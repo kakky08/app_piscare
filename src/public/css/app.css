@@ -220,7 +220,7 @@
 
 .show-card-icon {
   margin-right: 0.5rem;
-  color: #bbb;
+  color: #ddd;
 }
 
 .show-card-icon-count {
@@ -233,6 +233,7 @@
 }
 
 .show-card-separator {
+  color: #ddd;
   margin-bottom: 2rem;
 }
 
@@ -249,6 +250,23 @@
 .show-card-link:hover {
   color: #fff;
   background-color: #FFE162;
+}
+
+.show-card-material-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.show-card-material-item {
+  list-style: none;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
+
+.show-card-material-span {
+  color: #ddd;
+  padding-left: 2rem;
 }
 
 /* ----------------------------
@@ -588,7 +606,7 @@
 }
 
 .fish-color {
-  color: #ccc;
+  color: #ddd;
 }
 
 .fish-color-first {
