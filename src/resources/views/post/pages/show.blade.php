@@ -57,14 +57,14 @@
         </div>
     </div>
     <hr class="show-card-separator">
-    <h3 class="show-card-subheading">材料 <span>{{$recipe->people}}人前</span></h3>
+    <h3 class="show-card-subheading">材料 <span class="show-card-subheading-span">{{$recipe->people}}人前</span></h3>
         @if (isset($materials))
-            <ul>
+            <ul class="show-card-post">
                 @foreach ($materials as $material)
-                    <li>
-                        <ul>
-                            <li>{{ $material->name }}</li>
-                            <li>{{ $material->quantity }}</li>
+                    <li class="show-card-post-list">
+                        <ul class="show-card-post-list-group">
+                            <li class="show-card-post-list-item">{{ $material->name }}</li>
+                            <li class="show-card-post-list-item">{{ $material->quantity }}</li>
                         </ul>
                     </li>
                 @endforeach
@@ -72,12 +72,12 @@
         @endif
     <h3 class="show-card-subheading">調味料</h3>
         @if (isset($seasonings))
-            <ul>
+            <ul class="show-card-post">
                 @foreach ($seasonings as $seasoning)
-                    <li>
-                        <ul>
-                            <li>{{ $seasoning->name }}</li>
-                            <li>{{ $seasoning->quantity }}</li>
+                    <li class="show-card-post-list">
+                        <ul class="show-card-post-list-group">
+                            <li class="show-card-post-list-item">{{ $seasoning->name }}</li>
+                            <li class="show-card-post-list-item">{{ $seasoning->quantity }}</li>
                         </ul>
                     </li>
                 @endforeach
