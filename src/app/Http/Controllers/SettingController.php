@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateEmailRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class SettingController extends Controller
         return view('mypage.setting.index');
     }
 
-    public function updateEmail(Request $request, User $user)
+    public function updateEmail(UpdateEmailRequest $request, User $user)
     {
 
         $user->fill($request->all())->save();
