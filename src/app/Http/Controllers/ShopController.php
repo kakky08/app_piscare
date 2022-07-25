@@ -11,7 +11,7 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $shops = Shop::orderBy('created_at', 'desc')->paginate(20);
+        $shops = Shop::orderBy('created_at', 'desc')->paginate(8);
         $areas = Area::orderBy('id', 'asc')->get();
         return view('shop.index', compact('shops', 'areas'));
     }
@@ -27,7 +27,7 @@ class ShopController extends Controller
         {
             return $query->where('name', 'LIKE', "%$request->keyword%")->orwhere('catch', 'LIKE', "%$request->keyword%");
         })
-        ->orderBy('created_at', 'desc')->paginate(20);
+        ->orderBy('created_at', 'desc')->paginate(8);
 
 
         $areas = Area::orderBy('id', 'asc')->get();
