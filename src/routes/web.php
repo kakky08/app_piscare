@@ -91,6 +91,7 @@ Route::prefix('home')->name('home.')->group(function(){
 -------------------- */
 Route::prefix('setting')->name('setting.')->middleware('auth')->group(function () {
     Route::get('/', 'SettingController@index')->name('index');
+    Route::patch('/{user}', 'SettingController@updateEmail')->name('updateEmail');
 });
 
 /* --------------------

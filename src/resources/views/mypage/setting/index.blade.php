@@ -15,9 +15,13 @@
         </div>
         <div class="setting-block">
             <p class="setting-title">新しいメールアドレス</p>
-            <input type="email" class="setting-input" placeholder="新しいメールアドレス">
+            <form id="updateEmail" method="POST" action="{{ route('setting.updateEmail', ['user' => $user ]) }}">
+                @method("PATCH")
+                @csrf
+                <input type="email" class="setting-input" name="email" placeholder="新しいメールアドレス">
+            </form>
         </div>
-        <button type="submit" class="btn setting-button">メールアドレスを変更する</button>
+        <button type="submit" form="updateEmail" class="btn setting-button">メールアドレスを変更する</button>
     </div>
     <h2 class="mypage-subtitle">パスワードの変更</h2>
     <div class="setting-password">
