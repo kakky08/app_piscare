@@ -19,13 +19,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        $recipes = Post::orderBy('updated_at', 'desc')->paginate(20);
+        $recipes = Post::orderBy('updated_at', 'desc')->paginate(8);
         return view('post.pages.index', compact('recipes'));
     }
 
     public function popular()
     {
-        $recipes = Post::withCount('likes')->orderBy('likes_count', 'desc')->paginate(20);
+        $recipes = Post::withCount('likes')->orderBy('likes_count', 'desc')->paginate(8);
         return view('post.pages.popular', compact('recipes'));
     }
 

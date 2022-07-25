@@ -13,7 +13,7 @@ class RecipeController extends Controller
 {
     public function index()
     {
-        $recipes = Recipe::orderBy('created_at', 'desc')->paginate(20);
+        $recipes = Recipe::orderBy('created_at', 'desc')->paginate(8);
         $categories = Category::all()->sortBy('id');
         $subCategories = SubCategory::all()->sortBy('id');
         return view('recipe.pages.index', compact('recipes', 'categories', 'subCategories'));
@@ -21,7 +21,7 @@ class RecipeController extends Controller
 
     public function popular()
     {
-        $recipes = Recipe::withCount('likes')->orderBy('likes_count', 'desc')->paginate(20);
+        $recipes = Recipe::withCount('likes')->orderBy('likes_count', 'desc')->paginate(8);
         $categories = Category::all()->sortBy('id');
         $subCategories = SubCategory::all()->sortBy('id');
         return view('recipe.pages.popular', compact('recipes', 'categories', 'subCategories'));
