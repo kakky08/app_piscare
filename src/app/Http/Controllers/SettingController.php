@@ -17,6 +17,6 @@ class SettingController extends Controller
     {
 
         $user->fill($request->all())->save();
-        return redirect()->route('setting.index');
+        return redirect()->route('setting.index')->with('completion-of-update-email', 'メールアドレスの更新が完了しました。');
     }
 }

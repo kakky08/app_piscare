@@ -8,6 +8,8 @@
 @section('main')
     <h1 class="mypage-title">Setting</h1>
     <h2 class="mypage-subtitle">メールアドレスの変更</h2>
+    @include('mypage.setting.message.updateEmailError')
+    @include('mypage.setting.message.successMessage')
     <div class="setting-email">
         <div class="setting-block">
             <p class="setting-title">現在のメールアドレス</p>
