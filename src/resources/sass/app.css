@@ -686,6 +686,7 @@
 .post-page-title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 4rem;
 }
 .post-page-title .page-title {
@@ -695,6 +696,7 @@
   color: #fff;
   background-color: #91C483;
   border: none;
+  padding: 0.5rem 1rem;
 }
 .post-create-button:hover {
   color: #fff;

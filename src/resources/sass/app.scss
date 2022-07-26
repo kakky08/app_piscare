@@ -901,6 +901,7 @@ $fontsize-nav: 1rem;
         &-title{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 4rem;
 
             .page-title{
@@ -913,6 +914,7 @@ $fontsize-nav: 1rem;
             color: $white-color;
             background-color: $green-color;
             border: none;
+            padding: 0.5rem 1rem;
 
             &:hover {
                 color: $white-color;
