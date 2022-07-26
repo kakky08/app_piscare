@@ -39,7 +39,7 @@
             @endforeach
         </ul>
     <div class="d-grid">
-        <a href="{{ $recipe->recipeUrl }}" class="btn show-card-link">作り方はこちらから</a>
+        <a href="{{ $recipe->recipeUrl }}" target="_blank" rel="noopener noreferrer" class="btn show-card-link">作り方はこちらから</a>
     </div>
 </div>
 
