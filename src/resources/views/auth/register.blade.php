@@ -87,7 +87,7 @@
                         </a>
                     </div>
                     <div class="d-grid gap-2 col-8 mx-auto auth-button-social">
-                        <a href="{{-- {{ route('login.{provider}', ['provider' => 'github']) }} --}}" class="btn btn-block auth-button-github auth-button-social-link">
+                        <a href="{{ route('login.{provider}', ['provider' => 'github']) }}" class="btn btn-block auth-button-github auth-button-social-link">
                             <i class="fab fa-github auth-button-social-icon"></i>GitHubで登録
                         </a>
                     </div>
