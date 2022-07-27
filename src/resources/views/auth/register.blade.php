@@ -92,7 +92,7 @@
                         </a>
                     </div>
                     <div class="d-grid gap-2 col-8 mx-auto auth-button-social">
-                        <a href="{{-- {{ route('login.{provider}', ['provider' => 'twitter']) }} --}}" class="btn btn-block auth-button-twitter auth-button-social-link">
+                        <a href="{{ route('login.{provider}', ['provider' => 'twitter']) }}" class="btn btn-block auth-button-twitter auth-button-social-link">
                             <i class="fab fa-twitter auth-button-social-icon"></i>Twitterで登録
                         </a>
                     </div>
