@@ -82,7 +82,7 @@
                         </div>
                     </form>
                     <div class="d-grid gap-2 col-8 mx-auto auth-button-social">
-                        <a href="{{-- {{ route('login.{provider}', ['provider' => 'google']) }} --}}" class="btn btn-block auth-button-google auth-button-social-link">
+                        <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-block auth-button-google auth-button-social-link">
                             <i class="fab fa-google auth-button-social-icon"></i>Googleで登録
                         </a>
                     </div>
