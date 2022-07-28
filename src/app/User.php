@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Mail\BareMail;
+use App\Notifications\PasswordResetNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -99,4 +101,11 @@ class User extends Authenticatable
         return $this->followings()->count();
     }
 
+    /**
+     * カスタマイズしたテキストメールをパスワード再設定メールで送信
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token, new BareMail()));
+    }
 }
