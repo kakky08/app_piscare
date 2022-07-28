@@ -21,23 +21,22 @@ class RakutenController extends Controller
     public function updateRecipe()
     {
         $client = new RakutenRws_Client();
-        $client->setApplicationId(config('rakuten.api_key'));
+        define("RAKUTEN_APPLICATION_ID", config('rakuten.api_key'));
+        $client->setApplicationId(RAKUTEN_APPLICATION_ID);
 
-        $client->setApplicationId('1012872856628443358');
         /* ==============================
         |
         | 中カテゴリのレシピを取得
         |
         ============================== */
 
-        $categories = Category::select('id', 'parentCategoryId')->get();
+        $categories = Category::select('id', 'parentCategoryId', 'search_recipe')->get();
 
         foreach ($categories as $category)
         {
-            $categoryId = $category->parentCategoryId . "-" . $category->id;
+            sleep(1);
             $response = $client->execute('RecipeCategoryRanking', array(
-                'categoryId' => $categoryId,
-
+                'categoryId' => $category->search_recipe,
             ));
 
             if (!$response->isOk())
@@ -49,8 +48,7 @@ class RakutenController extends Controller
                 $results = $response['result'];
                 foreach ($results as $result)
                 {
-                    $recipe = Recipe::where('id', $result['recipeId'])->first();
-
+                    $recipe = Recipe::find($result['recipeId']);/* where('id', $result['recipeId'])->first(); */
                     if (empty($recipe))
                     {
                         $recipeId = $result['recipeId'];
@@ -76,6 +74,7 @@ class RakutenController extends Controller
                             ]);
                         }
                     }
+                    sleep(1);
                 }
             }
             sleep(1);
@@ -87,12 +86,12 @@ class RakutenController extends Controller
         |
         ============================== */
 
-        $subCategories = SubCategory::select('id', 'category_id')->get();
+        $subCategories = SubCategory::select('id', 'category_id',  'search_recipe')->get();
         foreach ($subCategories as $subCategory) {
+            sleep(10);
             $parent = Category::where('id', $subCategory->category_id)->select('parentCategoryId')->first();
-            $categoryId = $parent->parentCategoryId . '-' . $subCategory->category_id . '-' . $subCategory->id;
             $response = $client->execute('RecipeCategoryRanking', array(
-                'categoryId' => $categoryId,
+                'categoryId' => $subCategory->search_recipe,
             ));
 
             if (!$response->isOk()) {
@@ -130,7 +129,7 @@ class RakutenController extends Controller
             sleep(1);
         }
 
-        return redirect()->route('admin.home')->with('successMessage', '登録に成功しました。');
+        return redirect()->route('admin.home')->with('successMessage', '登録に成功しました');
     }
 
     public function updateCategory()
@@ -160,6 +159,7 @@ class RakutenController extends Controller
                             'id' => $result['categoryId'],
                             'categoryName' => $result['categoryName'],
                             'parentCategoryId' => $result['parentCategoryId'],
+                            'search_recipe' => $result['parentCategoryId'] . '-' . $result['categoryId']
                         ]);
                     }
                 }
@@ -176,9 +176,9 @@ class RakutenController extends Controller
         } else {
             $results = $response['result'];
             foreach ($results['small'] as $key => $result) {
-                $is_category = Category::where('id', $result['parentCategoryId'])->first();
+                $category = Category::where('id', $result['parentCategoryId'])->first();
                 // 中カテゴリにあれば実行
-                if (isset($is_category)) {
+                if (isset($category)) {
                     $is_subcategory = SubCategory::where('id', $result['categoryId'])->first();
                     // 小カテゴリになければ実行
                     if (empty($$is_subcategory)) {
@@ -186,6 +186,7 @@ class RakutenController extends Controller
                             'id' => $result['categoryId'],
                             'category_id' => $result['parentCategoryId'],
                             'categoryName' => $result['categoryName'],
+                            'search_recipe' => $category->parentCategoryId . '-' .  $result['parentCategoryId'] . '-' .$result['categoryId']
                         ]);
                     }
                 }
