@@ -38,11 +38,11 @@ class RecipeController extends Controller
 
     }
 
-    public function category($id)
+    public function category($id, $name)
     {
         $recipes = Recipe::where('categoryId', 'LIKE', "$id%")->orderBy('created_at', 'desc')->paginate(8);
         $categories = Category::all()->load('subCategories')->sortBy('id');
-        return view('recipe.pages.index', compact('recipes', 'categories'));
+        return view('recipe.pages.index', compact('recipes', 'categories', 'name'));
     }
 
     /**

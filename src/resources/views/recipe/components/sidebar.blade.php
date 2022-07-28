@@ -20,7 +20,7 @@
                         <div class="accordion-body">
                             <ul class="recipe-category-list">
                                 <li class="recipe-category-item">
-                                    <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id] )}}">
+                                    <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id, 'name' => $category->categoryName . '一覧'] )}}">
                                         {{ $category->categoryName . '一覧'}}
                                     </a>
                                 </li>
@@ -28,7 +28,7 @@
                                     @if ($category->id === $subCategory->category_id &&
                                             $category->categoryName !== $subCategory->categoryName)
                                         <li class="recipe-category-item">
-                                            <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id . $subCategory->id] )}}">
+                                            <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id . $subCategory->id, 'name' => $subCategory->categoryName] )}}">
                                                 {{ $subCategory->categoryName }}
                                             </a>
                                         </li>
