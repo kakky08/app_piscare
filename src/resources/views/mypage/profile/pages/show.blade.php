@@ -9,7 +9,7 @@
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => true, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => false])
     <div class="common-card">
-        @foreach($posts as $post)
+        @foreach($user->posts as $post)
             <div class="card common-card-item">
                 <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="...">
                 <div class="card-body">

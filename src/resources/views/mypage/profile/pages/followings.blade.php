@@ -9,7 +9,7 @@
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => false, 'isLikes' => false, 'isFollowings' => true, 'isFollowers' => false])
     <ul class="follow-list">
-        @foreach($followings as $following)
+        @foreach($user->followings as $following)
             <li class="follow-item">
                 <a href="{{route('information.show', ['name' => $following->name ])}}" class="follow-item-link">
                     @if (empty($following->icon))
