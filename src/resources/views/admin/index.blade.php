@@ -5,36 +5,22 @@
 @endsection
 
 @section('main')
-<!-- フラッシュメッセージ -->
-        @if (session('successMessage'))
-            <div class="successMessage">
-                {{ session('successMessage') }}
-            </div>
-        @endif
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    Admin You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+<h1 class="admin-title">管理ページ</h1>
+<h2 class="admin-subtitle">レシピカテゴリの登録</h2>
+<div class="d-grid">
+    <a class="btn admin-button" href="{{ route('admin.category') }}">レシピカテゴリを登録する</a>
 </div>
-<a class="btn auth-button" href="{{ route('admin.shop') }}">ショップ登録</a>
-<a class="btn auth-button" href="{{ route('admin.area') }}">エリア登録</a>
-<a class="btn auth-button" href="{{ route('admin.recipe') }}">レシピ登録</a>
-<a class="btn auth-button" href="{{ route('admin.category') }}">カテゴリ登録</a>
-
+<h2 class="admin-subtitle">レシピの登録</h2>
+<div class="d-grid">
+    <a class="btn admin-button" href="{{ route('admin.recipe') }}">レシピを登録する</a>
+</div>
+<h2 class="admin-subtitle">ショップエリアの登録</h2>
+<div class="d-grid">
+    <a class="btn admin-button" href="{{ route('admin.area') }}">ショップエリアを登録する</a>
+</div>
+<h2 class="admin-subtitle">ショップの登録</h2>
+<div class="d-grid">
+    <a class="btn admin-button" href="{{ route('admin.shop') }}">ショップを登録する</a>
+</div>
 
 @endsection

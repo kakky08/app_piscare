@@ -357,6 +357,47 @@
 }
 
 /* ============================
+* Admin関連
+============================ */
+.admin-title {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+.admin-subtitle {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #91C483;
+}
+.admin-button {
+  padding: 0.5rem 0;
+  color: #fff;
+  background-color: #91C483;
+  margin-bottom: 4rem;
+}
+.admin-button:hover {
+  background-color: #FFE162;
+  color: #333;
+}
+.admin-sidebar {
+  list-style: none;
+}
+.admin-sidebar-icon {
+  width: 30px;
+  margin-right: 0.5rem;
+}
+.admin-menu {
+  color: #333;
+  margin-bottom: 4rem;
+}
+.admin-menu:hover {
+  color: rgba(51, 51, 51, 0.7);
+  box-sizing: border-box;
+  margin-bottom: 3.8rem;
+  border-bottom: solid 0.2rem #91C483;
+}
+
+/* ============================
 * Auth関連
 ============================ */
 .auth-header {
