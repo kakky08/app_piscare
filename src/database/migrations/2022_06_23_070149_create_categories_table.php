@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->BigInteger('id')->unsigned()->primary();
             $table->text('categoryName');
             $table->integer('parentCategoryId');
+            $table->text('search_recipe');
             $table->timestamps();
         });
     }

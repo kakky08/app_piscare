@@ -10,6 +10,7 @@ class SubCategory extends Model
         'id',
         'category_id',
         'categoryName',
+        'search_recipe'
     ];
 
     public function category()

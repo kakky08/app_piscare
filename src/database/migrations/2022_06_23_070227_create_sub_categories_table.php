@@ -18,6 +18,7 @@ class CreateSubCategoriesTable extends Migration
             $table->BigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->text('categoryName');
+            $table->text('search_recipe');
             $table->timestamps();
         });
     }

@@ -1,4 +1,8 @@
-@extends('layouts.admin')
+@extends('layouts.auth.app')
+
+@section('header')
+    @include('components.header.auth.app', ['page' => 'admin'])
+@endsection
 
 @section('main')
 <div class="container">
