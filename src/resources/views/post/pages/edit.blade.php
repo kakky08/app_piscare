@@ -7,7 +7,7 @@
         <div class="card-body recipe-register-form-body">
             <h2 class="recipe-register-form-title">{{ $post->title }}</h2>
             {{-- post Id のインプット --}}
-            <input type="hidden" name="postId" value="{{ $postId }}">
+            <input type="hidden" name="postId" value="{{ $post->id }}">
             <div class="row row-cols-2 spacing-reset recipe-register-form-section border-bottom">
                 {{-- 料理画像 --}}
                 <div class="col spacing-reset">
@@ -15,9 +15,9 @@
                 </div>
                 {{-- 材料リスト --}}
                 <div class="col spacing-reset">
-                    <a href="{{ route('post.material.show', ['post' => $postId])}}">
+                    <a href="{{ route('post.material.show', ['post' => $post->id])}}">
                         <div class="recipe-register-form-link">
-                            @if (count($materials) !== 0)
+                            @if (count($post->materials) !== 0)
                                     <h3 class="recipe-register-form-material">
                                         材料名
                                         @if (empty($post->people))
@@ -27,7 +27,7 @@
                                         @endif
                                     </h3>
                                     <ul>
-                                        @foreach ($materials as $material)
+                                        @foreach ($post->materials as $material)
                                             <li class="row row-cols-2 border-bottom recipe-register-form-material-list">
                                                     <h4 class="col recipe-register-form-material-name">{{ $material->name }}</h4>
                                                     <p class="col recipe-register-form-material-quantity">{{ $material->quantity }}</p>
@@ -49,10 +49,10 @@
                                     @endfor
                                 </ul>
                             @endif
-                            @if (count($seasonings) !== 0)
+                            @if (count($post->seasonings) !== 0)
                                 <h3 class="recipe-register-form-material">◼️調味料</h3>
                                 <ul>
-                                    @foreach ($seasonings as $seasoning)
+                                    @foreach ($post->seasonings as $seasoning)
                                         <li class="row row-cols-2 border-bottom recipe-register-form-material-list">
                                                 <h4 class="col recipe-register-form-material-name">{{ $seasoning->name }}</h4>
                                                 <p class="col recipe-register-form-material-quantity">{{ $seasoning->quantity }}</p>
@@ -76,9 +76,9 @@
             </div>
 
             <h2 class="recipe-register-form-title">作り方</h2>
-            @if (count($procedures) !== 0)
-                <a href="{{ route('post.procedure.show', ['post' => $postId])}}">編集する</a>
-                @foreach ($procedures as $procedure)
+            @if (count($post->procedures) !== 0)
+                <a href="{{ route('post.procedure.show', ['post' => $post->id])}}">編集する</a>
+                @foreach ($post->procedures as $procedure)
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                         <p class="col-1 spacing-reset recipe-register-form-order">{{ $procedure->order . '.'}}</p>
                         <div class="col spacing-reset">
@@ -91,7 +91,7 @@
                     </div>
                 @endforeach
             @else
-                <a href="{{ route('post.procedure.show', ['post' => $postId])}}">
+                <a href="{{ route('post.procedure.show', ['post' => $post->id])}}">
                     <div class="row cols-3 spacing-reset recipe-register-form-section recipe-register-form-link border-bottom">
                         <p class="col-1 spacing-reset recipe-register-form-order">1.</p>
                         {{-- 料理画像 --}}

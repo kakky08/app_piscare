@@ -58,9 +58,9 @@
     </div>
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">材料 <span class="show-card-subheading-span">{{$recipe->people}}人前</span></h3>
-        @if (isset($materials))
+        @if (isset($recipe->materials))
             <ul class="show-card-post">
-                @foreach ($materials as $material)
+                @foreach ($recipe->materials as $material)
                     <li class="show-card-post-list">
                         <ul class="show-card-post-list-group">
                             <li class="show-card-post-list-item">{{ $material->name }}</li>
@@ -71,9 +71,9 @@
             </ul>
         @endif
     <h3 class="show-card-subheading">調味料</h3>
-        @if (isset($seasonings))
+        @if (isset($recipe->seasonings))
             <ul class="show-card-post">
-                @foreach ($seasonings as $seasoning)
+                @foreach ($recipe->seasonings as $seasoning)
                     <li class="show-card-post-list">
                         <ul class="show-card-post-list-group">
                             <li class="show-card-post-list-item">{{ $seasoning->name }}</li>
@@ -85,9 +85,9 @@
         @endif
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">手順</h3>
-        @if (isset($procedures))
+        @if (isset($recipe->procedures))
             <ul>
-                @foreach ($procedures as $procedure)
+                @foreach ($recipe->procedures as $procedure)
                     <li>
                         <ul>
                             @if (isset($procedure->photo))

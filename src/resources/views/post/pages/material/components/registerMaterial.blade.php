@@ -11,7 +11,7 @@
             <div class="col-1"></div>
             <input
                 type="hidden"
-                value={{ $postId }}
+                value={{ $post->id }}
                 name="store_postId">
             <input
                 type="text"

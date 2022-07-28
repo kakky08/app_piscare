@@ -21,6 +21,23 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function materials()
+    {
+        return $this->hasMany('App\Material')->orderBy('created_at', 'desc');
+    }
+
+    public function seasonings()
+    {
+        return $this->hasMany('App\Seasoning')->orderBy('created_at', 'desc');
+    }
+
+
+    public function procedures()
+    {
+        return $this->hasMany('App\Procedure')->orderBy('order', 'desc');
+    }
+
+
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'postLikes')->withTimestamps();

@@ -13,14 +13,14 @@
         <input
             type="hidden"
             name="post_id"
-            value="{{ $postId }}"
+            value="{{ $post->id }}"
         >
         <input
             type="hidden"
             name="user"
             value="{{ $user->id }}"
         >
-        @if (empty($people))
+        @if (empty($post->people))
             <input
                 type="text"
                 class="form-control col"
@@ -33,7 +33,7 @@
                 class="form-control col"
                 name="people"
                 placeholder="何人分"
-                value={{ $people->people }}
+                value={{ $post->people }}
             >
         @endif
         <button type="submit" form="number-of-people-register-form" class="btn col-1 post-edit-button">人数を登録</button>
