@@ -3,37 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 
 class InformationController extends Controller
 {
     public function show($name)
     {
-        $information = User::where('name', $name)->first();
-        $posts = $information->posts->sortByDesc('created_at');
-        return view('information.pages.show', compact('information', 'posts'));
+        $information = User::where('name', $name)->first()->load('posts');
+
+        return view('information.pages.show', compact('information'));
     }
 
     public function likes($name)
     {
-        $information = User::where('name', $name)->first();
-        $posts = $information->postLikes->sortByDesc('created_at');
-        $recipes = $information->recipeLikes->sortByDesc('created_at');
-        return view('information.pages.likes', compact('information', 'posts', 'recipes'));
+        $information = User::where('name', $name)->first()->load('postLikes', 'recipeLikes');
+
+        return view('information.pages.likes', compact('information'));
     }
 
     public function followings($name)
     {
-        $information = User::where('name', $name)->first();
-        $followings = $information->followings->sortByDesc('created_at');
-        return view('information.pages.followings', compact('information', 'followings'));
+        $information = User::where('name', $name)->first()->load('followings');
+
+        return view('information.pages.followings', compact('information'));
     }
 
     public function followers($name)
     {
-        $information = User::where('name', $name)->first();
-        $followers = $information->followers->sortByDesc('created_at');
-        return view('information.pages.followers', compact('information', 'followers'));
+        $information = User::where('name', $name)->first()->load('followers');
+
+        return view('information.pages.followers', compact('information'));
     }
 
 }

@@ -5,7 +5,7 @@
 @section('main')
     @include('information.components.profile')
     @include('information.components.tabs', ['isPosts' => false, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => true])
-    @foreach($followers as $follower)
+    @foreach($information->followers as $follower)
         <li class="follow-item">
             <a href="{{route('information.show', ['name' => $follower->name ])}}" class="follow-item-link">
                 @if (empty($follower->icon))

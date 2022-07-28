@@ -6,7 +6,7 @@
     @include('information.components.profile')
     @include('information.components.tabs', ['isPosts' => false, 'isLikes' => true, 'isFollowings' => false, 'isFollowers' => false])
     <div class="common-card">
-        @foreach($posts as $post)
+        @foreach($information->postLikes as $post)
             <div class="card common-card-item">
                 <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="...">
                 <div class="card-body">
@@ -16,7 +16,7 @@
                 </div>
             </div>
         @endforeach
-        @foreach($recipes as $recipe)
+        @foreach($information->recipeLikes as $recipe)
             <div class="card common-card-item">
                 <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="...">
                 <div class="card-body">
