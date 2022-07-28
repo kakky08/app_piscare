@@ -24,8 +24,8 @@
                                         {{ $category->categoryName . '一覧'}}
                                     </a>
                                 </li>
-                                @foreach ($subCategories as $subCategory)
-                                    @if ($category->id === $subCategory->categoryId &&
+                                @foreach ($category->subCategories as $subCategory)
+                                    @if ($category->id === $subCategory->category_id &&
                                             $category->categoryName !== $subCategory->categoryName)
                                         <li class="recipe-category-item">
                                             <a href="{{ route('recipe.category', ['id' => $category->parentCategoryId . $category->id . $subCategory->id] )}}">

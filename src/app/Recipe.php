@@ -22,9 +22,9 @@ class Recipe extends Model
         'recipeCost',
     ];
 
-    public function user(): BelongsTo
+    public function materials()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\RecipeMaterial')->orderBy('order', 'asc');
     }
 
     public function likes(): BelongsToMany

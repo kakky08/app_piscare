@@ -10,6 +10,7 @@ class Category extends Model
         'id',
         'parentCategoryId',
         'categoryName',
+
     ];
 
     public function subCategories()
