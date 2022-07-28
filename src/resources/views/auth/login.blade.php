@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('login') }}" class="aurh-form">
+                    <form method="POST" action="{{ route('login') }}" class="auth-form">
                         @csrf
 
                         <div class="form-group row auth-form-group">
