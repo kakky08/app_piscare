@@ -3,7 +3,7 @@
         @include('components.header.app', ['page' => 'setting'])
 @endsection
 @section('aside')
-    @include('mypage.components.sidebar')
+    @include('mypage.components.sidebar',  ['page' => 'setting'])
 @endsection
 @section('main')
     <h1 class="mypage-title">Setting</h1>

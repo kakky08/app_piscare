@@ -499,6 +499,10 @@
   margin-bottom: 3.8rem;
   border-bottom: solid 0.2rem #91C483;
 }
+.mypage-active {
+  margin-bottom: 3.8rem;
+  border-bottom: solid 0.2rem #FFE162;
+}
 
 /* ----------------------------
 * Home
