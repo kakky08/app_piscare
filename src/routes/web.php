@@ -113,7 +113,7 @@ Route::prefix('recipe')->name('recipe.')->middleware('auth')->group(function () 
     Route::get('/popular', 'RecipeController@popular')->name('popular');
     Route::get('/search', 'RecipeController@search')->name('search');
     Route::get('/{id}', 'RecipeController@show')->name('show');
-    Route::get('/category/{id}', 'RecipeController@category')->name('category');
+    Route::get('/category/{id}/{name}', 'RecipeController@category')->name('category');
     Route::put('/{recipe}/like', 'RecipeController@like')->name('like');
     Route::delete('/{recipe}/like', 'RecipeController@unlike')->name('unlike');
 });
