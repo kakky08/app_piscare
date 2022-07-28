@@ -11,12 +11,12 @@
     @csrf
     <input
         type="hidden"
-        value="{{ $postId }}"
+        value="{{ $post->id }}"
         name="edit_postId"
     >
     <edit-seasoning
-        :post-id={{ $postId }}
-        :seasonings="{{ json_encode($seasonings) }}"
+        :post-id={{ $post->id }}
+        :seasonings="{{ json_encode($post->seasonings) }}"
     >
     </edit-seasoning>
     <div class="d-grid gap-2 col-6 mx-auto">

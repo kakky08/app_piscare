@@ -31,11 +31,8 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $recipe = Post::where('id', $id)->first();
-        $materials = Material::where('post_id', $id)->orderBy('created_at', 'desc')->get();
-        $seasonings = Seasoning::where('post_id', $id)->orderBy('created_at', 'desc')->get();
-        $procedures = Procedure::where('post_id', $id)->orderBy('order', 'desc')->get();
-        return view('post.pages.show', compact('recipe', 'materials', 'seasonings', 'procedures'));
+        $recipe = Post::find($id)->load('materials', 'seasonings', 'procedures');
+        return view('post.pages.show', compact('recipe'));
     }
 
     public function create()
@@ -55,13 +52,8 @@ class PostController extends Controller
 
     public function edit($post)
     {
-        $postId = $post;
-        $post = Post::where('id', $post)->select('title', 'people')->first();
-        $procedures = Procedure::where('post_id', $post)->orderBy('order', 'desc')->get();
-        $materials = Material::where('post_id', $post)->select('name', 'quantity')->get();
-        $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
-
-        return view('post.pages.edit', compact('postId', 'procedures', 'materials', 'seasonings', 'post'));
+        $post = Post::find($post)->load('materials', 'seasonings', 'procedures');
+        return view('post.pages.edit', compact('post'));
     }
 
     public function destroy($id)
@@ -73,12 +65,9 @@ class PostController extends Controller
 
     public function materialShow($post)
     {
-        $postId = $post;
-        $materials = Material::where('post_id', $postId)->select('name', 'quantity')->get();
-        $seasonings = Seasoning::where('post_id', $postId)->select('name', 'quantity')->get();
-        $people = Post::where('id', $postId)->select('people')->first();
+        $post = Post::find($post)->load('materials', 'seasonings');
 
-        return view('post.pages.material.edit', compact('postId', 'materials', 'seasonings', 'people'));
+        return view('post.pages.material.edit', compact('post'));
     }
 
     public function materialStore(MaterialStoreRequest $request)

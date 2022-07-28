@@ -6,17 +6,17 @@
 </div>
 @include('post.pages.material.message.updateMaterialError')
 
-<form method="POST" action="{{ route('post.material.update', ['post' => $postId])}}" id="edit-material">
+<form method="POST" action="{{ route('post.material.update', ['post' => $post->id])}}" id="edit-material">
     @method('PUT')
     @csrf
     <input
         type="hidden"
-        value="{{ $postId }}"
+        value="{{ $post->id }}"
         name="edit_postId"
     >
     <edit-material
-        :post-id={{ $postId }}
-        :materials="{{ json_encode($materials) }}"
+        :post-id={{ $post->id }}
+        :materials="{{ json_encode($post->materials) }}"
     >
     </edit-material>
     <div class="d-grid gap-2 col-6 mx-auto">
