@@ -3,55 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
     public function show($name)
     {
         // アクセス設定
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('posts');
         $this->authorize('ctrlMyPage', $user);
 
-
-        $user = User::where('name', $name)->first();
-        $posts = $user->posts->sortByDesc('created_at');
-        return view('mypage.profile.pages.show', compact('user', 'posts'));
+        return view('mypage.profile.pages.show', compact('user'));
     }
 
 
     public function likes($name)
     {
         // アクセス設定
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('postLikes', 'recipeLikes');
         $this->authorize('ctrlMyPage', $user);
 
-        $user = User::where('name', $name)->first();
-        $posts = $user->postLikes->sortByDesc('created_at');
-        $recipes = $user->recipeLikes->sortByDesc('created_at');
-        return view('mypage.profile.pages.likes', compact('user', 'posts', 'recipes'));
+        return view('mypage.profile.pages.likes', compact('user'));
     }
 
     public function followings($name)
     {
         // アクセス設定
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('followings');
         $this->authorize('ctrlMyPage', $user);
 
-        $user = User::where('name', $name)->first();
-        $followings = $user->followings->sortByDesc('created_at');
-        return view('mypage.profile.pages.followings', compact('user', 'followings'));
+        return view('mypage.profile.pages.followings', compact('user'));
     }
 
     public function followers($name)
     {
         // アクセス設定
-        $user = User::where('name', $name)->first();
+        $user = User::where('name', $name)->first()->load('followers');
         $this->authorize('ctrlMyPage', $user);
 
-        $user = User::where('name', $name)->first();
-        $followers = $user->followers->sortByDesc('created_at');
-        return view('mypage.profile.pages.followers', compact('user', 'followers'));
+        return view('mypage.profile.pages.followers', compact('user'));
     }
 }
