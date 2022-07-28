@@ -70,7 +70,7 @@ class RakutenController extends Controller
 
                         foreach ($result['recipeMaterial'] as $key => $material) {
                             RecipeMaterial::create([
-                                'recipeId' => $result['recipeId'],
+                                'recipe_id' => $result['recipeId'],
                                 'order' => $key,
                                 'name' => $material,
                             ]);
@@ -87,48 +87,48 @@ class RakutenController extends Controller
         |
         ============================== */
 
-        // $subCategories = SubCategory::select('id', 'categoryId')->get();
-        // foreach ($subCategories as $subCategory) {
-        //     $parent = Category::where('id', $subCategory->categoryId)->select('parentCategoryId')->first();
-        //     $categoryId = $parent->parentCategoryId . '-' . $subCategory->categoryId . '-' . $subCategory->id;
-        //     $response = $client->execute('RecipeCategoryRanking', array(
-        //         'categoryId' => $categoryId,
-        //     ));
+        $subCategories = SubCategory::select('id', 'category_id')->get();
+        foreach ($subCategories as $subCategory) {
+            $parent = Category::where('id', $subCategory->category_id)->select('parentCategoryId')->first();
+            $categoryId = $parent->parentCategoryId . '-' . $subCategory->category_id . '-' . $subCategory->id;
+            $response = $client->execute('RecipeCategoryRanking', array(
+                'categoryId' => $categoryId,
+            ));
 
-        //     if (!$response->isOk()) {
-        //         return 'Error:' . $response->getMessage();
-        //     } else {
-        //         $results = $response['result'];
-        //         foreach ($results as $result) {
-        //             $recipeId = Recipe::where('id', $result['recipeId'])->first();
+            if (!$response->isOk()) {
+                return 'Error:' . $response->getMessage();
+            } else {
+                $results = $response['result'];
+                foreach ($results as $result) {
+                    $recipeId = Recipe::where('id', $result['recipeId'])->first();
 
-        //             if (empty($recipeId)) {
-        //                 $recipeId = $result['recipeId'];
-        //                 Recipe::create(['id' => $result['recipeId'],
-        //                     'categoryId' =>  $parent->parentCategoryId . $subCategory->categoryId . $subCategory->id,
-        //                     'recipeTitle' => $result['recipeTitle'],
-        //                     'recipeUrl' => $result['recipeUrl'],
-        //                     'foodImageUrl' => $result['foodImageUrl'],
-        //                     'mediumImageUrl' => $result['mediumImageUrl'],
-        //                     'smallImageUrl' => $result['smallImageUrl'],
-        //                     'nickname' => $result['nickname'],
-        //                     'recipeDescription' => $result['recipeDescription'],
-        //                     'recipeIndication' => $result['recipeIndication'],
-        //                     'recipeCost' => $result['recipeCost'],
-        //                 ]);
+                    if (empty($recipeId)) {
+                        $recipeId = $result['recipeId'];
+                        Recipe::create(['id' => $result['recipeId'],
+                            'categoryId' =>  $parent->parentCategoryId . $subCategory->category_id . $subCategory->id,
+                            'recipeTitle' => $result['recipeTitle'],
+                            'recipeUrl' => $result['recipeUrl'],
+                            'foodImageUrl' => $result['foodImageUrl'],
+                            'mediumImageUrl' => $result['mediumImageUrl'],
+                            'smallImageUrl' => $result['smallImageUrl'],
+                            'nickname' => $result['nickname'],
+                            'recipeDescription' => $result['recipeDescription'],
+                            'recipeIndication' => $result['recipeIndication'],
+                            'recipeCost' => $result['recipeCost'],
+                        ]);
 
-        //                 foreach ($result['recipeMaterial'] as $key => $material) {
-        //                     RecipeMaterial::create([
-        //                         'recipeId' => $result['recipeId'],
-        //                         'order' => $key,
-        //                         'name' => $material,
-        //                     ]);
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     sleep(1);
-        // }
+                        foreach ($result['recipeMaterial'] as $key => $material) {
+                            RecipeMaterial::create([
+                                'recipe_id' => $result['recipeId'],
+                                'order' => $key,
+                                'name' => $material,
+                            ]);
+                        }
+                    }
+                }
+            }
+            sleep(1);
+        }
 
         return redirect()->route('admin.home')->with('successMessage', '登録に成功しました。');
     }
@@ -184,7 +184,7 @@ class RakutenController extends Controller
                     if (empty($$is_subcategory)) {
                         SubCategory::create([
                             'id' => $result['categoryId'],
-                            'categoryId' => $result['parentCategoryId'],
+                            'category_id' => $result['parentCategoryId'],
                             'categoryName' => $result['categoryName'],
                         ]);
                     }

@@ -34,7 +34,7 @@
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">材料・調味料</h3>
         <ul class="show-card-material-list">
-            @foreach ($materials as $material)
+            @foreach ($recipe->materials as $material)
                 <li class="show-card-material-item">{{ $material->name }}<span class="show-card-material-span">/</span> </li>
             @endforeach
         </ul>
