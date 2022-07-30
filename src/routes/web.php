@@ -79,8 +79,9 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 /* --------------------
     Home
 -------------------- */
+Route::resource('home', 'HomeController', ['only' => ['index']]);
+
 Route::prefix('home')->name('home.')->group(function(){
-    Route::get('/', 'HomeController@index')->name('index')->middleware('auth');
     Route::get('/{move}', 'HomeController@moveMonth')->name('move');
     Route::post('/record', 'HomeController@record')->name('record');
     Route::get('/select/{select}', 'HomeController@selectDay')->name('select');
