@@ -7,8 +7,10 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -17,17 +19,15 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
     }
 
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
         $dateStr = Carbon::now()->format("Y-m-01");
         $date = new Carbon($dateStr);
         $year_month = substr($dateStr, 0, 7);
@@ -72,7 +72,56 @@ class HomeController extends Controller
 
 
         return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day', 'array'));
+
     }
+
+
+    /**
+     * 記録機能
+     */
+    public function record(Request $request)
+    {
+        $year_month = $request->year_month;
+        $day = $request->day;
+        $record = Record::where('user_id', Auth::id())->where('year_month', $year_month)->where('day', $day)->first();
+        //更新処理
+        if (isset($record)) {
+            if (isset($request->breakfast)) {
+                $record->is_breakfast ?   $record->count -= 1 : $record->count += 1;
+                $record->is_breakfast ?  $record->is_breakfast = false : $record->is_breakfast = true;
+            }
+            if (isset($request->lunch)) {
+                $record->is_lunch ?   $record->count -= 1 : $record->count += 1;
+                $record->is_lunch ?  $record->is_lunch = false : $record->is_lunch = true;
+            }
+            if (isset($request->dinner)) {
+                $record->is_dinner ?   $record->count -= 1 : $record->count += 1;
+                $record->is_dinner ?  $record->is_dinner = false : $record->is_dinner = true;
+            }
+            if ($record->count === 0) {
+                $record->destroy($record->id);
+            }
+            $record->save();
+        } else {
+            $record = new Record();
+            $record->user_id = Auth::id();
+            $record->year_month = $year_month;
+            $record->day = $day;
+            if (isset($request->breakfast)) {
+                $record->is_breakfast = true;
+            }
+            if (isset($request->lunch)) {
+                $record->is_lunch = true;
+            }
+            if (isset($request->dinner)) {
+                $record->is_dinner = true;
+            }
+            $record->count = 1;
+            $record->save();
+        }
+        return redirect()->route('home.select', $request->year_month . '-' . $request->day);
+    }
+
 
     public function moveMonth($move)
     {
@@ -118,65 +167,9 @@ class HomeController extends Controller
         if ($record) {
             $action =  'update';
         }
- */
+    */
 
         return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month',));
-    }
-
-    /**
-     * 朝食の新規登録
-     */
-    public function record(Request $request)
-    {
-        $year_month = $request->year_month;
-        $day = $request->day;
-        $record = Record::where('user_id', Auth::id())->where('year_month', $year_month)->where('day', $day)->first();
-        //更新処理
-        if(isset($record))
-        {
-            if (isset($request->breakfast))
-            {
-                $record->is_breakfast ?   $record->count -= 1 : $record->count += 1;
-                $record->is_breakfast ?  $record->is_breakfast = false : $record->is_breakfast = true;
-            }
-            if (isset($request->lunch))
-            {
-                $record->is_lunch ?   $record->count -= 1 : $record->count += 1;
-                $record->is_lunch ?  $record->is_lunch = false : $record->is_lunch = true;
-            }
-            if (isset($request->dinner))
-            {
-                $record->is_dinner ?   $record->count -= 1 : $record->count += 1;
-                $record->is_dinner ?  $record->is_dinner = false : $record->is_dinner = true;
-            }
-            if ($record->count === 0)
-            {
-                $record->destroy($record->id);
-            }
-            $record->save();
-        }
-        else
-        {
-            $record = new Record();
-            $record->user_id = Auth::id();
-            $record->year_month = $year_month;
-            $record->day = $day;
-            if(isset($request->breakfast))
-            {
-                $record->is_breakfast = true;
-            }
-            if (isset($request->lunch))
-            {
-                $record->is_lunch = true;
-            }
-            if (isset($request->dinner))
-            {
-                $record->is_dinner = true;
-            }
-            $record->count = 1;
-            $record->save();
-        }
-        return redirect()->route('home.select', $request->year_month . '-' . $request->day);
     }
 
     public function selectDay($select)
@@ -223,4 +216,5 @@ class HomeController extends Controller
 
         return view('mypage.home.index', compact('dates', 'user', 'date', 'year_month', 'year', 'month', 'record_year_month', 'record_day', 'action', 'array', 'select', 'record'));
     }
+
 }
