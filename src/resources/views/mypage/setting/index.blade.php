@@ -25,27 +25,29 @@
         </div>
         <button type="submit" form="updateEmail" class="btn setting-button">メールアドレスを変更する</button>
     </div>
-    <h2 class="mypage-subtitle">パスワードの変更</h2>
-    @include('mypage.setting.message.updatePasswordError')
-    <form id="updatePassword" action="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
-        @method("PATCH")
-        @csrf
-        <div class="setting-password">
-            <div class="setting-block">
-                <p class="setting-title">以前のパスワード</p>
-                <input type="password" class="setting-input" name="current_password" placeholder="以前のパスワード">
+    @if (isset($user->password))
+        <h2 class="mypage-subtitle">パスワードの変更</h2>
+        @include('mypage.setting.message.updatePasswordError')
+        <form id="updatePassword" action="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
+            @method("PATCH")
+            @csrf
+            <div class="setting-password">
+                <div class="setting-block">
+                    <p class="setting-title">以前のパスワード</p>
+                    <input type="password" class="setting-input" name="current_password" placeholder="以前のパスワード">
+                </div>
+                <div class="setting-block">
+                    <p class="setting-title">新しいパスワード</p>
+                    <input type="password" class="setting-input" name="new_password" placeholder="新しいパスワード">
+                </div>
+                <div class="setting-block">
+                    <p class="setting-title">パスワードの確認</p>
+                    <input type="password" class="setting-input" name="new_password_confirmation" placeholder="パスワードの確認">
+                </div>
+                <button type="submit" form="updatePassword" class="btn setting-button">パスワードを変更する</button>
             </div>
-            <div class="setting-block">
-                <p class="setting-title">新しいパスワード</p>
-                <input type="password" class="setting-input" name="new_password" placeholder="新しいパスワード">
-            </div>
-            <div class="setting-block">
-                <p class="setting-title">パスワードの確認</p>
-                <input type="password" class="setting-input" name="new_password_confirmation" placeholder="パスワードの確認">
-            </div>
-            <button type="submit" form="updatePassword" class="btn setting-button">パスワードを変更する</button>
-        </div>
-    </form>
+        </form>
+    @endif
     {{-- <icon-register
         endpoint="{{ route('setting.icon')}}"
     >
