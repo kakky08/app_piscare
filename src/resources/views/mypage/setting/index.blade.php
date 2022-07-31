@@ -27,7 +27,7 @@
     </div>
     <h2 class="mypage-subtitle">パスワードの変更</h2>
     @include('mypage.setting.message.updatePasswordError')
-    <form action="POST" action="{{ route('setting.updatePassword', ['user' => $user->id ])}}">
+    <form id="updatePassword" action="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
         @method("PATCH")
         @csrf
         <div class="setting-password">
@@ -43,7 +43,7 @@
                 <p class="setting-title">パスワードの確認</p>
                 <input type="password" class="setting-input" name="new_password_confirmation" placeholder="パスワードの確認">
             </div>
-            <button type="submit" class="btn setting-button">パスワードを変更する</button>
+            <button type="submit" form="updatePassword" class="btn setting-button">パスワードを変更する</button>
         </div>
     </form>
     {{-- <icon-register

@@ -17,14 +17,16 @@ class SettingController extends Controller
 
     public function updateEmail(UpdateEmailRequest $request, User $user)
     {
+        dd('test');
 
         $user->fill($request->all())->save();
         return redirect()->route('setting.index')->with('completion-of-update-email', 'メールアドレスの更新が完了しました。');
     }
 
-    public function updatePassword(UpdatePasswordRequest $request, User $user)
+    public function updatePassword(UpdatePasswordRequest $request)
     {
-
+dd('test');
+$usre = Auth::user();
         if(!password_verify($request->current_password, $user->password))
         {
             return redirect()->route('setting.index')->with('warning-password', 'パスワードが違います');
