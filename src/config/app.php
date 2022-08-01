@@ -184,6 +184,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\ViewComposerServiceProvider::class,
+        Aws\Laravel\AwsServiceProvider::class,
 
     ],
 
@@ -236,6 +237,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'AWS' => Aws\Laravel\AwsFacade::class,
     ],
 
 

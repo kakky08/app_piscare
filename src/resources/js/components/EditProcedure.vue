@@ -5,6 +5,7 @@
                 <p class="border-bottom boundary-line">{{index + 1}}</p>
                 <div class="row cols-4 spacing-reset material-form">
                     <i class="fas fa-bars fa-xs col-1 handler material-form-icon" />
+                    <img src="'procedures[path]'">
                     <image-update
                         :name="'procedures[' + index + '][path]'"
                         :path="`${path}/${text.photo}`"
