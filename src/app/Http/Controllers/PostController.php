@@ -14,6 +14,7 @@ use App\Procedure;
 use App\Seasoning;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 
 class PostController extends Controller
 {
@@ -147,13 +148,16 @@ class PostController extends Controller
 
     public function procedureStore(Request $request)
     {
-        $path = $request->file->store('public');
+        // $path = $request->file->store('public');
+        $image = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $image, 'public');
 
         $order = Procedure::where('post_id', $request->postId)->select('order')->get();
         Procedure::create([
             'post_id' => $request->postId,
             'order' => count($order),
-            'photo' => basename($path),
+            /*  'photo' => basename($path), */
+            'photo' => Storage::disk('s3')->url($path),
             /* 'photo' => asset('storage/' . basename($path)), */
             'procedure' => $request['procedure'],
         ]);
