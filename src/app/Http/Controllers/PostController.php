@@ -138,12 +138,13 @@ class PostController extends Controller
         return redirect()->route('post.material.show', ['post' => $request->post_id])->with('completion-of-registration-people', '登録が完了しました');
     }
 
-    public function procedureShow($post)
+    public function procedureShow(Post $post)
     {
-        $postId = $post;
+        $post->load('procedures');
+        /* $postId = $post;
         $procedures = Procedure::where('post_id', $post)->get();
-        $path = asset('storage/');
-        return view('post.pages.procedure.edit', compact('postId', 'procedures', 'path'));
+        $path = asset('storage/'); */
+        return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */ 'post'));
     }
 
     public function procedureStore(Request $request)
@@ -157,7 +158,7 @@ class PostController extends Controller
             'post_id' => $request->postId,
             'order' => count($order),
             /*  'photo' => basename($path), */
-            'photo' => Storage::disk('s3')->url($path),
+            'photo' => $path,
             /* 'photo' => asset('storage/' . basename($path)), */
             'procedure' => $request['procedure'],
         ]);
@@ -168,12 +169,18 @@ class PostController extends Controller
 
     public function procedureUpdate(Request $request)
     {
-        // Procedure::where('post_recipe_id' , $procedure)->delete();
+        $images = Procedure::where('post_id', $request->id)->select('photo')->get();
+
+        foreach ($images as $image)
+        {
+            Storage::disk('s3')->delete($image);
+        }
+        Procedure::where('post_id' , $request->id)->delete();
+
         $procedures = $request->procedures;
         if (!empty($procedures)) {
 
             foreach ($procedures as $procedure) {
-                dd($procedure);
                 $path = $procedure['path']->store('public');
 
                 Procedure::create([

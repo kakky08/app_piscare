@@ -1238,6 +1238,95 @@ $fontsize-nav: 1rem;
 
 }
 
+/* ----------------------------
+* Edit Procedure
+---------------------------- */
+
+.image{
+    &-input{
+        &-box{
+            background-color: #eee;
+            width: 250px;
+            height: 250px;
+        }
+
+        &-field{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            >input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 100;
+            }
+
+            >p {
+                color: #aaa;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        }
+
+        &-text{
+            display: block;
+        }
+    }
+}
+
+
+.preview{
+    &-box{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &-image{
+        width: 250px;
+    }
+}
+
+
+.procedure{
+    &-form{
+        margin-bottom: 4rem;
+
+        &-group{
+            margin-bottom: 4rem;
+        }
+
+        &-update{
+            display: flex;
+        }
+    }
+
+    &-texarea {
+        padding: 1.5rem;
+    }
+
+    &-button{
+        background-color: $green-color;
+        color: $white-color;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $font-color;
+        }
+
+    }
+}
 
 /* ----------------------------
 * show
