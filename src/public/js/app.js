@@ -2126,6 +2126,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -63996,6 +63997,8 @@ var render = function () {
                   staticClass:
                     "fas fa-bars fa-xs col-1 handler material-form-icon",
                 }),
+                _vm._v(" "),
+                _c("img", { attrs: { src: "'procedures[path]'" } }),
                 _vm._v(" "),
                 _c("image-update", {
                   attrs: {
