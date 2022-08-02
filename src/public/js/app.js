@@ -2126,6 +2126,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2587,6 +2589,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -63990,11 +63996,27 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "row cols-4 spacing-reset material-form" },
+              { staticClass: "procedure-form-update" },
               [
                 _c("i", {
                   staticClass:
                     "fas fa-bars fa-xs col-1 handler material-form-icon",
+                }),
+                _vm._v(" "),
+                _c("img", {
+                  staticStyle: { width: "200px" },
+                  attrs: {
+                    src:
+                      "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" +
+                      text.photo,
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "file",
+                    name: "procedures[" + index + "][photo]",
+                  },
                 }),
                 _vm._v(" "),
                 _c("image-update", {
@@ -64277,7 +64299,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row cols-2" }, [
+  return _c("div", { staticClass: "row cols-2 procedure-form-group" }, [
     _c("div", { staticClass: "col-4 image-input-block" }, [
       _c("div", { staticClass: " image-input-box" }, [
         _c("div", { staticClass: "image-input-field" }, [
@@ -64287,7 +64309,7 @@ var render = function () {
             on: { change: _vm.onChange },
           }),
           _vm._v(" "),
-          _c("p", [_vm._v("クリックでファイル選択")]),
+          _vm._m(0),
           _vm._v(" "),
           _vm.url
             ? _c("div", { staticClass: "preview-box" }, [
@@ -64307,7 +64329,22 @@ var render = function () {
     }),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("span", { staticClass: "image-input-text" }, [
+        _vm._v("クリックして料理の写真を載せる"),
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-camera fa-2x" }),
+    ])
+  },
+]
 render._withStripped = true
 
 
