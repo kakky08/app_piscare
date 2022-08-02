@@ -12,6 +12,7 @@ import ProcedureComponent from './components/ProcedureComponent'
 import EditMaterial from './components/EditMaterial'
 import EditProcedure from './components/EditProcedure'
 import EditSeasoning from './components/EditSeasoning'
+import IconComponent from './components/IconComponent'
 import PostLike from './components/PostLike'
 import RecipeLike from './components/RecipeLike'
 import FollowButton from './components/FollowButton'
@@ -42,8 +43,10 @@ const app = new Vue({
         EditMaterial,
         EditProcedure,
         EditSeasoning,
+        IconComponent,
         PostLike,
         RecipeLike,
         FollowButton,
+
     },
 });

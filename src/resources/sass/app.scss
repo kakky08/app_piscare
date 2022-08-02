@@ -817,6 +817,46 @@ $fontsize-nav: 1rem;
             background-color: $secondary-color;
         }
     }
+
+    &-icon{
+        &-group{
+            display: flex;
+            padding: 0 2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-text{
+            background-color: $secondary-color;
+            color: $font-color;
+            border-radius: 0.25rem;
+            text-align: center;
+            padding: 0.25rem;
+            margin-bottom: 2rem;
+        }
+
+        &-button{
+            min-width: 200px;
+            margin-left: 0;
+        }
+
+    }
+}
+
+div .icon-input-box{
+    border-radius: 50%;
+    width: 160px;
+    height: 155px;
+}
+
+
+.preview-box .icon-preview-image{
+    width: 160px;
+    height: 155px;
+    object-fit: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid #FFE162;
 }
 
 /* ----------------------------
