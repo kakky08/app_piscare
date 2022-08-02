@@ -52,5 +52,26 @@
         endpoint="{{ route('setting.icon')}}"
     >
     </icon-register> --}}
-    {{-- <image-component></image-component> --}}
+    <h2 class="mypage-subtitle">アイコンの変更</h2>
+    <form id="updateIcon" action="POST">
+        @method("PATCH")
+        @csrf
+        <div class="setting-icon-group">
+            <div class="setting-icon-old">
+                <p class="setting-icon-text">現在のアイコン</p>
+                @if (empty($user->icon))
+                    <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
+                @else
+                    <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}" alt="{{$user->name}}のアイコン">
+                @endif
+            </div>
+            <div class="setting-icon-new">
+                <p class="setting-icon-text">新しいアイコン</p>
+                <icon-component></icon-component>
+            </div>
+            <div>
+                <button type="submit" form="updateIcon" class="btn setting-button setting-icon-button">アイコンを変更する</button>
+            </div>
+        </div>
+    </form>
 @endsection
