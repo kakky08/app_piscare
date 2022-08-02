@@ -28,7 +28,7 @@
     @if (isset($user->password))
         <h2 class="mypage-subtitle">パスワードの変更</h2>
         @include('mypage.setting.message.updatePasswordError')
-        <form id="updatePassword" action="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
+        <form id="updatePassword" method="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
             @method("PATCH")
             @csrf
             <div class="setting-password">
@@ -53,7 +53,7 @@
     >
     </icon-register> --}}
     <h2 class="mypage-subtitle">アイコンの変更</h2>
-    <form id="updateIcon" action="POST">
+    <form id="updateIcon" method="POST"  action="{{ route('setting.updateIcon', ['user' => $user->id ]) }}" enctype="multipart/form-data">
         @method("PATCH")
         @csrf
         <div class="setting-icon-group">
@@ -62,7 +62,7 @@
                 @if (empty($user->icon))
                     <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
                 @else
-                    <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}" alt="{{$user->name}}のアイコン">
+                    <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}" class="profile-icon" alt="{{$user->name}}のアイコン">
                 @endif
             </div>
             <div class="setting-icon-new">

@@ -94,6 +94,7 @@ Route::prefix('setting')->name('setting.')->middleware('auth')->group(function (
     Route::get('/', 'SettingController@index')->name('index');
     Route::patch('/password/{user}', 'SettingController@updatePassword')->name('updatePassword');
     Route::patch('/email/{user}', 'SettingController@updateEmail')->name('updateEmail');
+    Route::patch('/icon/{user}', 'SettingController@updateIcon')->name('updateIcon');
 });
 
 /* --------------------
