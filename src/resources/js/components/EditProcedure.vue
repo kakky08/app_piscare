@@ -3,9 +3,10 @@
         <draggable v-model="texts" :options="options" hendle=".handle" @end="onSort">
             <div v-for="(text, index) in texts" :key="text.id">
                 <p class="border-bottom boundary-line">{{index + 1}}</p>
-                <div class="row cols-4 spacing-reset material-form">
+                <div class="procedure-form-update">
                     <i class="fas fa-bars fa-xs col-1 handler material-form-icon" />
-                    <img src="'procedures[path]'">
+                    <img :src="'https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/' + text.photo" style="width:200px" >
+                    <input type="file" :name="'procedures[' + index + '][photo]'">
                     <image-update
                         :name="'procedures[' + index + '][path]'"
                         :path="`${path}/${text.photo}`"
