@@ -169,7 +169,7 @@ class HomeController extends Controller
         }
     */
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month',));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month',));
     }
 
     public function selectDay($select)
