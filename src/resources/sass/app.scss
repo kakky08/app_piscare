@@ -550,6 +550,10 @@ $fontsize-nav: 1rem;
                 border-bottom: solid 0.2rem $green-color;
             }
         }
+            &-active {
+                margin-bottom: 3.8rem;
+                border-bottom: solid 0.2rem $secondary-color;
+            }
 }
 
 /* ============================
