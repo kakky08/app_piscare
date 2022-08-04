@@ -16,6 +16,9 @@ import IconComponent from './components/IconComponent'
 import PostLike from './components/PostLike'
 import RecipeLike from './components/RecipeLike'
 import FollowButton from './components/FollowButton'
+import UpdateImage from './components/UpdateImage'
+import UpdateProcedure from './components/UpdateProcedure'
+import SortProcedure from './components/SortProcedure'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -47,6 +50,8 @@ const app = new Vue({
         PostLike,
         RecipeLike,
         FollowButton,
-
+        UpdateImage,
+        UpdateProcedure,
+        SortProcedure
     },
 });

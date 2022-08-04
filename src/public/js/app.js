@@ -2087,6 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _UpdateImage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateImage.vue */ "./resources/js/components/UpdateImage.vue");
+/* harmony import */ var _ProcedureComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProcedureComponent.vue */ "./resources/js/components/ProcedureComponent.vue");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2128,12 +2129,47 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a,
-    UpdateImage: _UpdateImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    UpdateImage: _UpdateImage_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ProcedureComponent: _ProcedureComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     postId: {
@@ -2151,6 +2187,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       postId: this.postId,
       texts: _toConsumableArray(this.procedures),
       // texts:[],
+      url: '',
       maxTextCount: 30,
       options: {
         animation: 200
@@ -2158,6 +2195,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   methods: {
+    onChange: function onChange() {
+      var file = this.$refs.preview.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+
+    /*  file(url){
+         this.url = url
+     }, */
     onInput: function onInput(event) {
       // console.log(this.texts[index].quantity);
       console.log(this.$ref.input.value);
@@ -2791,10 +2836,181 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SortProcedure.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SortProcedure.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
+/* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    draggable: vuedraggable__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: {
+    postId: {
+      type: Number
+    },
+    procedures: {
+      type: Object
+    }
+  },
+  data: function data() {
+    return {
+      postId: this.postId,
+      texts: _toConsumableArray(this.procedures),
+      // texts:[],
+      maxTextCount: 30,
+      options: {
+        animation: 200
+      }
+    };
+  },
+  methods: {
+    onInput: function onInput(event) {
+      // console.log(this.texts[index].quantity);
+      console.log(this.$ref.input.value);
+    },
+    onSort: function onSort(event) {
+      console.log(event);
+    },
+    del: function del(index) {
+      this.texts.splice(index, 1);
+    },
+    onSubmit: function onSubmit() {
+      var _this = this;
+
+      var url = this.endpoint;
+      var formData = new f();
+      formData.appned('texts', this.texts);
+      var params = {
+        texts: this.texts
+      };
+      axios.patch(url, formData).then(function (response) {
+        location.href = _this.endpoint;
+      })["catch"](function (error) {//  失敗時
+      });
+    }
+  },
+  computed: {
+    isTextMax: function isTextMax() {
+      return this.texts.length >= this.maxTextCount;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateImage.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UpdateImage.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ProfileImagePreviewComponent",
+  props: {
+    url: {
+      type: String
+    }
+    /* name: {
+        type: String
+    } */
+
+  },
+  data: function data() {
+    return {
+      url: this.url // name: this.name,
+
+    };
+  },
+  methods: {
+    onChange: function onChange() {
+      var file = this.$refs.preview.files[0];
+      this.url = URL.createObjectURL(file);
+    }
+  },
+  mounted: function mounted() {
+    this.$emit('file', this.url);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2834,26 +3050,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ProfileImagePreviewComponent",
   props: {
-    name: {
-      type: String
-    },
-    path: {
-      type: String
+    procedure: {
+      type: Object
     }
   },
   data: function data() {
     return {
-      url: "",
-      path: this.$refs.preview.files[0]
+      procedure: this.procedure,
+      url: '',
+      maxTextCount: 30
     };
   },
   methods: {
     onChange: function onChange() {
       var file = this.$refs.preview.files[0];
       this.url = URL.createObjectURL(file);
+    }
+  },
+  computed: {
+    isTextMax: function isTextMax() {
+      return this.texts.length >= this.maxTextCount;
     }
   }
 });
@@ -64038,64 +64262,103 @@ var render = function () {
               _vm._v(_vm._s(index + 1)),
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "procedure-form-update" },
-              [
-                _c("i", {
-                  staticClass:
-                    "fas fa-bars fa-xs col-1 handler material-form-icon",
-                }),
-                _vm._v(" "),
-                _c("img", {
-                  staticStyle: { width: "200px" },
-                  attrs: {
-                    src:
-                      "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" +
-                      text.photo,
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "file",
-                    name: "procedures[" + index + "][photo]",
-                  },
-                }),
-                _vm._v(" "),
-                _c("image-update", {
-                  attrs: {
-                    name: "procedures[" + index + "][path]",
-                    path: _vm.path + "/" + text.photo,
-                  },
-                }),
-                _vm._v(" "),
-                _c("textarea", {
-                  staticClass: "form-control col",
-                  attrs: {
-                    type: "text",
-                    placeholder: "材料の分量を入力してください",
-                    name: "procedures[" + index + "][procedure]",
-                  },
-                  domProps: { value: text.procedure },
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn col-1 material-form-button",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.del(index)
-                      },
+            _c("div", { staticClass: "procedure-form-update" }, [
+              _c("i", {
+                staticClass:
+                  "fas fa-bars fa-xs col-1 handler material-form-icon",
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: {
+                  type: "hidden",
+                  name: "procedures[" + index + "][order]",
+                },
+                domProps: { value: index },
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: {
+                  type: "hidden",
+                  name: "procedures[" + index + "][old_file]",
+                },
+                domProps: { value: text.photo },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row cols-2 procedure-form-group" }, [
+                _c("div", { staticClass: "col-4 image-input-block" }, [
+                  _c("div", { staticClass: " image-input-box" }, [
+                    _c("div", { staticClass: "image-input-field" }, [
+                      _c("input", {
+                        ref: "preview",
+                        refInFor: true,
+                        attrs: {
+                          type: "file",
+                          name: "procedures[" + index + "][file]",
+                          title: "",
+                        },
+                        on: { change: _vm.onChange },
+                      }),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c("span", { staticClass: "image-input-text" }, [
+                          _vm._v("クリックして料理の写真を載せる"),
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fas fa-camera fa-2x" }),
+                      ]),
+                      _vm._v(" "),
+                      _vm.url
+                        ? _c("div", [
+                            _c("div", { staticClass: "preview-box" }, [
+                              _c("img", {
+                                staticClass: "preview-image",
+                                attrs: { src: _vm.url },
+                              }),
+                            ]),
+                          ])
+                        : _c("div", [
+                            _c("div", { staticClass: "preview-box" }, [
+                              _c("img", {
+                                staticClass: "preview-image",
+                                attrs: {
+                                  src:
+                                    "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" +
+                                    text.photo,
+                                },
+                              }),
+                            ]),
+                          ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass: "form-control col",
+                attrs: {
+                  type: "text",
+                  placeholder: "材料の分量を入力してください",
+                  name: "procedures[" + index + "][procedure]",
+                },
+                domProps: { value: text.procedure },
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn col-1 material-form-button",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.del(index)
                     },
                   },
-                  [_vm._v("×")]
-                ),
-              ],
-              1
-            ),
+                },
+                [_vm._v("×")]
+              ),
+            ]),
           ])
         }),
         0
@@ -64497,6 +64760,98 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "material" },
+    [
+      _c(
+        "draggable",
+        {
+          attrs: { options: _vm.options, hendle: ".handle" },
+          on: { end: _vm.onSort },
+          model: {
+            value: _vm.texts,
+            callback: function ($$v) {
+              _vm.texts = $$v
+            },
+            expression: "texts",
+          },
+        },
+        _vm._l(_vm.texts, function (text, index) {
+          return _c("div", { key: text.id }, [
+            _c(
+              "div",
+              { staticClass: "row cols-4 spacing-reset material-form" },
+              [
+                _c("i", {
+                  staticClass:
+                    "fas fa-bars fa-xs col-1 handler material-form-icon",
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "hidden",
+                    name: "procedures[" + index + "][id]",
+                  },
+                  domProps: { value: text.id },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    type: "hidden",
+                    name: "procedures[" + index + "][order]",
+                  },
+                  domProps: { value: index },
+                }),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "preview-image",
+                  attrs: {
+                    src:
+                      "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" +
+                      text.photo,
+                  },
+                }),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(text.procedure) +
+                      "\n                "
+                  ),
+                ]),
+              ]
+            ),
+          ])
+        }),
+        0
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateImage.vue?vue&type=template&id=03c39012&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UpdateImage.vue?vue&type=template&id=03c39012& ***!
@@ -64512,40 +64867,134 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-4 image-input-block" }, [
-    _c("div", { staticClass: " image-input-box" }, [
-      _c("div", { staticClass: "image-input-field" }, [
-        _c("input", {
-          attrs: { type: "file", name: this.name },
-          domProps: { value: this.path },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          ref: "preview",
-          attrs: { type: "file", name: "file", title: "" },
-          on: { change: _vm.onChange },
-        }),
-        _vm._v(" "),
-        _c("p", [_vm._v("クリックでファイル選択")]),
-        _vm._v(" "),
-        _vm.url
-          ? _c("div", { staticClass: "preview-box" }, [
-              _c("img", {
-                staticClass: "preview-image",
-                attrs: { src: _vm.url },
-              }),
-            ])
-          : _c("div", { staticClass: "preview-box" }, [
-              _c("img", {
-                staticClass: "preview-image",
-                attrs: { src: this.path },
-              }),
-            ]),
+  return _c("div", { staticClass: "row cols-2 procedure-form-group" }, [
+    _c("div", { staticClass: "col-4 image-input-block" }, [
+      _c("div", { staticClass: " image-input-box" }, [
+        _c("div", { staticClass: "image-input-field" }, [
+          _c("input", {
+            ref: "preview",
+            attrs: { type: "file", name: "file", title: "" },
+            on: { change: _vm.onChange },
+          }),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _vm.url
+            ? _c("div", { staticClass: "preview-box" }, [
+                _c("img", {
+                  staticClass: "preview-image",
+                  attrs: { src: _vm.url },
+                }),
+              ])
+            : _vm._e(),
+        ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("span", { staticClass: "image-input-text" }, [
+        _vm._v("クリックして料理の写真を載せる"),
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-camera fa-2x" }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row cols-2 procedure-form-group" }, [
+      _c("div", { staticClass: "col-4 image-input-block" }, [
+        _c("div", { staticClass: " image-input-box" }, [
+          _c("div", { staticClass: "image-input-field" }, [
+            _c("input", {
+              ref: "preview",
+              attrs: { type: "file", name: "file", title: "" },
+              on: { change: _vm.onChange },
+            }),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.url
+              ? _c("div", [
+                  _c("div", { staticClass: "preview-box" }, [
+                    _c("img", {
+                      staticClass: "preview-image",
+                      attrs: { src: _vm.url },
+                    }),
+                  ]),
+                ])
+              : _c("div", [
+                  _c("div", { staticClass: "preview-box" }, [
+                    _c("img", {
+                      staticClass: "preview-image",
+                      attrs: {
+                        src:
+                          "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" +
+                          _vm.procedure.photo,
+                      },
+                    }),
+                  ]),
+                ]),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("textarea", {
+      staticClass: "form-control col",
+      attrs: {
+        type: "text",
+        placeholder: "材料の分量を入力してください",
+        name: "procedure",
+      },
+      domProps: { value: _vm.procedure.procedure },
+    }),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("span", { staticClass: "image-input-text" }, [
+        _vm._v("クリックして料理の写真を載せる"),
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("i", { staticClass: "fas fa-camera fa-2x" }),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -81710,12 +82159,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PostLike__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/PostLike */ "./resources/js/components/PostLike.vue");
 /* harmony import */ var _components_RecipeLike__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/RecipeLike */ "./resources/js/components/RecipeLike.vue");
 /* harmony import */ var _components_FollowButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/FollowButton */ "./resources/js/components/FollowButton.vue");
+/* harmony import */ var _components_UpdateImage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/UpdateImage */ "./resources/js/components/UpdateImage.vue");
+/* harmony import */ var _components_UpdateProcedure__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/UpdateProcedure */ "./resources/js/components/UpdateProcedure.vue");
+/* harmony import */ var _components_SortProcedure__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/SortProcedure */ "./resources/js/components/SortProcedure.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+
 
 
 
@@ -81755,7 +82210,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     IconComponent: _components_IconComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
     PostLike: _components_PostLike__WEBPACK_IMPORTED_MODULE_7__["default"],
     RecipeLike: _components_RecipeLike__WEBPACK_IMPORTED_MODULE_8__["default"],
-    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_9__["default"]
+    FollowButton: _components_FollowButton__WEBPACK_IMPORTED_MODULE_9__["default"],
+    UpdateImage: _components_UpdateImage__WEBPACK_IMPORTED_MODULE_10__["default"],
+    UpdateProcedure: _components_UpdateProcedure__WEBPACK_IMPORTED_MODULE_11__["default"],
+    SortProcedure: _components_SortProcedure__WEBPACK_IMPORTED_MODULE_12__["default"]
   }
 });
 
@@ -82496,6 +82954,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SortProcedure.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/SortProcedure.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SortProcedure.vue?vue&type=template&id=5d78c7fa& */ "./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa&");
+/* harmony import */ var _SortProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SortProcedure.vue?vue&type=script&lang=js& */ "./resources/js/components/SortProcedure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SortProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SortProcedure.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SortProcedure.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/SortProcedure.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SortProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SortProcedure.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SortProcedure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SortProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SortProcedure.vue?vue&type=template&id=5d78c7fa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SortProcedure.vue?vue&type=template&id=5d78c7fa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SortProcedure_vue_vue_type_template_id_5d78c7fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/UpdateImage.vue":
 /*!*************************************************!*\
   !*** ./resources/js/components/UpdateImage.vue ***!
@@ -82560,6 +83087,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateImage_vue_vue_type_template_id_03c39012___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateImage_vue_vue_type_template_id_03c39012___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/UpdateProcedure.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/UpdateProcedure.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateProcedure.vue?vue&type=template&id=fa839922& */ "./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922&");
+/* harmony import */ var _UpdateProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateProcedure.vue?vue&type=script&lang=js& */ "./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UpdateProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/UpdateProcedure.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./UpdateProcedure.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateProcedure.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProcedure_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./UpdateProcedure.vue?vue&type=template&id=fa839922& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/UpdateProcedure.vue?vue&type=template&id=fa839922&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateProcedure_vue_vue_type_template_id_fa839922___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
