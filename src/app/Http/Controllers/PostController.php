@@ -150,6 +150,7 @@ class PostController extends Controller
     public function procedureStore(Request $request)
     {
         // $path = $request->file->store('public');
+
         $image = $request->file('file');
         $path = Storage::disk('s3')->putFile('/', $image, 'public');
 
@@ -169,32 +170,43 @@ class PostController extends Controller
 
     public function procedureUpdate(Request $request)
     {
-        $images = Procedure::where('post_id', $request->id)->select('photo')->get();
+        $procedure = Procedure::find($request->procedure);
+        $path = $procedure->photo;
 
-        foreach ($images as $image)
+        if(isset($request->file))
         {
-            Storage::disk('s3')->delete($image);
+            Storage::disk('s3')->delete($procedure->photo);
+            $image = $request->file('file');
+            $path = Storage::disk('s3')->putFile('/', $image, 'public');
         }
-        Procedure::where('post_id' , $request->id)->delete();
 
-        $procedures = $request->procedures;
-        if (!empty($procedures)) {
-
-            foreach ($procedures as $procedure) {
-                $path = $procedure['path']->store('public');
-
-                Procedure::create([
-                    'post_id' => $request->edit_postId,
-                    'photo' => basename($path),
-                    'procedure' => $procedure['procedure'],
-                    'order' => 1
-                ]);
-            }
-        }
-        return redirect()->route('post.procedure.show', ['post' => $request->edit_postId]);
+        $procedure->photo = $path;
+        $procedure->procedure = $request->procedure;
+        $procedure->save();
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
         // ->with('completion-of-registration-material', '更新が完了しました。');
 
     }
+
+    public function procedureDestroy(Request $request)
+    {
+        $procedure = Procedure::find($request->procedure);
+        Storage::disk('s3')->delete($procedure->photo);
+        $procedure->delete();
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
+    }
+
+    public function procedureSort(Request $request)
+    {
+        foreach ($request->procedures as $procedure)
+        {
+            $value = Procedure::find($procedure['id']);
+            $value->order = $procedure['order'];
+            $value->save();
+        }
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
+    }
+
 
     /**
      * いいね機能

@@ -34,7 +34,7 @@ class Post extends Model
 
     public function procedures()
     {
-        return $this->hasMany('App\Procedure')->orderBy('order', 'desc');
+        return $this->hasMany('App\Procedure')->orderBy('order', 'asc');
     }
 
 
