@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('aside')
-    @include('admin.components.sidebar')
+    @include('admin.components.sidebar', ['page' => 'registration'])
 @endsection
 
 @section('main')
