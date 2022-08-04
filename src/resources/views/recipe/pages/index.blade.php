@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('header')
-    @include('components.header.app')
+    @include('components.header.app',  ['page' => 'recipe'])
 @endsection
 @section('aside')
     @include('recipe.components.sidebar')

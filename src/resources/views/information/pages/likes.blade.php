@@ -1,6 +1,6 @@
 @extends('layouts.single')
 @section('header')
-        @include('components.header.app')
+        @include('components.header.app', ['page' => 'information'])
 @endsection
 @section('main')
     @include('information.components.profile')
