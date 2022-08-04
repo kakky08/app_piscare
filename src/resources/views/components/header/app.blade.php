@@ -9,13 +9,13 @@
 
             <ul class="nav justify-content-end nav-list">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('recipe.index') }}">レシピ検索</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('recipe.index') }}"><span class="{{  $page === 'recipe' ? 'header-active' : '' }}">レシピ検索</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post.index') }}">投稿レシピ</a>
+                    <a class="nav-link" href="{{ route('post.index') }}"><span class="{{  $page === 'post' ? 'header-active' : '' }}">投稿レシピ</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('shop.index') }}">お店検索</a>
+                    <a class="nav-link" href="{{ route('shop.index') }}"><span class="{{  $page === 'shop' ? 'header-active' : '' }}">お店検索</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

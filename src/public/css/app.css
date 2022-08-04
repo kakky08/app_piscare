@@ -424,6 +424,11 @@
   color: #fff;
 }
 
+.nav-list .header-active {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 8px;
+}
+
 /* ============================
 * Admin関連
 ============================ */

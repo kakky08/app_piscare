@@ -497,6 +497,11 @@ $fontsize-nav: 1rem;
     }
 }
 
+.nav-list .header-active {
+    border-bottom: 2px solid $white-color;
+    padding-bottom: 8px
+}
+
 /* ============================
 * Admin関連
 ============================ */
