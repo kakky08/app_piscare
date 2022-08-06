@@ -10,10 +10,14 @@
     <div class="common-card">
         @foreach ($recipes as $recipe)
         <div class="card common-card-item">
-            <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="{{ $recipe->user->name }}が投稿したレシピの画像">
+            @if($recipe->image)
+                <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recipe->image }}" class="card-img-top common-card-image" alt="{{ $recipe->user->name }}が投稿したレシピの画像">
+            @else
+                <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="レシピの画像が存在しません。">
+            @endif
             <div class="card-body">
                 <h5 class="common-card-title">{{ $recipe->user->name }}</h5>
-                <p class="common-card-text">{{ $recipe->people }}</p>
+                <p class="common-card-text">{{ $recipe->description }}</p>
                 <p></p>
                 <div class="common-card-like">
                     <i class="fas fa-heart common-card-like-icon"></i><p>{{ $recipe->count_likes}}</p>
