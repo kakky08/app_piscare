@@ -13,6 +13,17 @@
                 <div class="col spacing-reset">
                     <img src="https://placehold.jp/298x447.png" alt="" class="recipe-register-form-image">
                 </div>
+                //TODO rootを設定と処理の追加
+                <form method="POST" action="{{ route('post.mainImage.update', ['post' => $post->id])}}"  id="main-image-update" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <main-image
+                        :image={{ json_encode( $post->image) }}
+                    >
+                    </main-image>
+                    <button type="submit" form="main-image-update" class="btn">画像を変更</button>
+                </form>
+
                 {{-- 材料リスト --}}
                 <div class="col spacing-reset">
                     <a href="{{ route('post.material.show', ['post' => $post->id])}}">
