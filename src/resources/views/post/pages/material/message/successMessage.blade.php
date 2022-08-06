@@ -18,7 +18,7 @@
     <div class="row cols-4 spacing-reset">
         <div class="col-1"></div>
         <div class="alert alert-message-success col" role="alert">
-            {{ session('completion-of-registration-material') }}
+            {{ session('ompletion-of-update-material') }}
         </div>
         <div class="col-1"></div>
     </div>

@@ -5,6 +5,7 @@
 @section('main')
     <div class="card">
         <div class="card-body recipe-register-form-body">
+            @include('post.message.successMessage')
             <h2 class="recipe-register-form-title">{{ $post->title }}</h2>
             {{-- post Id のインプット --}}
             <input type="hidden" name="postId" value="{{ $post->id }}">
@@ -13,6 +14,7 @@
                 <div class="col spacing-reset">
                     <img src="https://placehold.jp/298x447.png" alt="" class="recipe-register-form-image">
                 </div>
+                @include('post.message.mainImageError')
                 <form method="POST" action="{{ route('post.mainImage.update', ['post' => $post->id])}}"  id="main-image-update" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -23,6 +25,7 @@
                     <button type="submit" form="main-image-update" class="btn">画像を更新する</button>
                 </form>
                 {{-- コメント --}}
+                @include('post.message.descriptionError')
                 <form id="description-update" method="POST" action="{{ route('post.description.update', ['post' => $post->id])}}">
                     @csrf
                     @method('PUT')
