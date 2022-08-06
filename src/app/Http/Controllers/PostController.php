@@ -59,9 +59,23 @@ class PostController extends Controller
         return view('post.pages.edit', compact('post'));
     }
 
-    public function destroy($id)
+    public function destroy($post)
     {
-        $post = Post::where('id', $id)->where('user_id', Auth::id())->first();
+        $post = Post::find($post)->load('procedures');
+
+        if (isset($post->image))
+        {
+            Storage::disk('s3')->delete($post->image);
+        }
+
+        foreach ($post->procedures as $procedure)
+        {
+            if(isset($procedure->photo))
+            {
+                Storage::disk('s3')->delete($procedure->photo);
+            }
+        }
+
         $post->delete();
         return redirect()->route('post.index');
     }

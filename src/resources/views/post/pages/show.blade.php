@@ -23,7 +23,7 @@
                 <form action="{{ route('post.edit', ['post' => $recipe->id]) }}" method="GET">
                     <button type="submit" class="btn button-edit">編集</button>
                 </form>
-                <form action="{{ route('post.destroy', ['id' => $recipe->id]) }}" method="POST">
+                <form action="{{ route('post.destroy', ['post' => $recipe->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn button-delete">削除</button>

@@ -131,7 +131,7 @@ Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::get('/create', 'PostController@create')->name('create');
     Route::post('/store', 'PostController@store')->name('store');
     Route::get('/{id}', 'PostController@show')->name('show');
-    Route::delete('/{id}', 'PostController@destroy')->name('destroy');
+    Route::delete('/{post}', 'PostController@destroy')->name('destroy');
     Route::get('edit/{post}', 'PostController@edit')->name('edit');
     Route::put('/mainImage/{post}/update', 'PostController@mainImageUpdate')->name('mainImage.update');
     Route::put('/description/{post}/update', 'PostController@descriptionUpdate')->name('description.update');
