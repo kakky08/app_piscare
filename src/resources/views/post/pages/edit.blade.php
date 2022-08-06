@@ -13,7 +13,6 @@
                 <div class="col spacing-reset">
                     <img src="https://placehold.jp/298x447.png" alt="" class="recipe-register-form-image">
                 </div>
-                //TODO rootを設定と処理の追加
                 <form method="POST" action="{{ route('post.mainImage.update', ['post' => $post->id])}}"  id="main-image-update" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -21,9 +20,21 @@
                         :image={{ json_encode( $post->image) }}
                     >
                     </main-image>
-                    <button type="submit" form="main-image-update" class="btn">画像を変更</button>
+                    <button type="submit" form="main-image-update" class="btn">画像を更新する</button>
                 </form>
-
+                {{-- コメント --}}
+                <form id="description-update" method="POST" action="{{ route('post.description.update', ['post' => $post->id])}}">
+                    @csrf
+                    @method('PUT')
+                    <label for="description-textarea" class="form-label">料理コメント</label>
+                    <textarea name="description" class="form-control" id="description-textarea" rows="5">
+                        @if (isset($post->description))
+                            {{ $post->description }}
+                        @endif
+                    </textarea>
+                    <button type="submit" form="description-update">コメントを更新する</button>
+                </form>
+                </div>
                 {{-- 材料リスト --}}
                 <div class="col spacing-reset">
                     <a href="{{ route('post.material.show', ['post' => $post->id])}}">
