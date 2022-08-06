@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DescriptionRequest;
+use App\Http\Requests\MainImageRequest;
 use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Http\Requests\PeopleRequest;
@@ -64,7 +66,7 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-    public function mainImageUpdate(Request $request, $post)
+    public function mainImageUpdate(MainImageRequest $request, $post)
     {
         $post = Post::find($post);
 
@@ -79,18 +81,18 @@ class PostController extends Controller
 
         $post->image = $path;
         $post->save();
-        return redirect()->route('post.edit', ['post' => $post->id]);
+        return redirect()->route('post.edit', ['post' => $post->id])->with('completion-of-registration-main-image', '登録が完了しました');
 
     }
 
 
-    public function descriptionUpdate(Request $request, $post)
+    public function descriptionUpdate(DescriptionRequest $request, $post)
     {
         $post = Post::find($post);
         $post->description = $request->description;
         $post->save();
 
-        return redirect()->route('post.edit', ['post' => $post->id]);
+        return redirect()->route('post.edit', ['post' => $post->id])->with('completion-of-registration-description', '登録が完了しました');
     }
 
     public function materialShow($post)
