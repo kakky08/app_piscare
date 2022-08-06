@@ -83,6 +83,16 @@ class PostController extends Controller
 
     }
 
+
+    public function descriptionUpdate(Request $request, $post)
+    {
+        $post = Post::find($post);
+        $post->description = $request->description;
+        $post->save();
+
+        return redirect()->route('post.edit', ['post' => $post->id]);
+    }
+
     public function materialShow($post)
     {
         $post = Post::find($post)->load('materials', 'seasonings');
