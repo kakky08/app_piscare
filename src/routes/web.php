@@ -81,7 +81,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 -------------------- */
 Route::resource('home', 'HomeController', ['only' => ['index']]);
 
-Route::prefix('home')->name('home.')->group(function(){
+Route::prefix('home')->name('home.')->group(function () {
     Route::get('/{move}', 'HomeController@moveMonth')->name('move');
     Route::post('/record', 'HomeController@record')->name('record');
     Route::get('/select/{select}', 'HomeController@selectDay')->name('select');
