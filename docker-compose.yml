@@ -1,104 +1,45 @@
-version: "3.9"
+version: '3.8'
+
 volumes:
-  db-store:
-  psysh-store:
-  pma-session-store:
+  mysql-volume:
+
 services:
   app:
     build:
       context: .
-      dockerfile: ./infra/docker/php/Dockerfile
-      target: ${APP_BUILD_TARGET:-development}
+      dockerfile: ./docker/php/Dockerfile
     volumes:
-      - type: bind
-        source: ./src
-        target: /data
-      - type: volume
-        source: psysh-store
-        target: /root/.config/psysh
-        volume:
-          nocopy: true
+      - ./src/:/var/www/html
     environment:
-      - APP_DEBUG=${APP_DEBUG:-true}
-      - APP_KEY=${APP_KEY:-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
-      - APP_ENV=${APP_ENV:-local}
-      - APP_URL=${APP_URL:-http://localhost}
-      - LOG_CHANNEL=${LOG_CHANNEL:-stderr}
-      - LOG_STDERR_FORMATTER=${LOG_STDERR_FORMATTER:-Monolog\Formatter\JsonFormatter}
-      - DB_CONNECTION=${DB_CONNECTION:-mysql}
-      - DB_HOST=${DB_HOST:-db}
-      - DB_PORT=${DB_PORT:-3306}
-      - DB_DATABASE=${DB_DATABASE:-laravel}
-      - DB_USERNAME=${DB_USERNAME:-phper}
-      - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_NAME}
+      - DB_USERNAME=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
 
   web:
     build:
       context: .
-      dockerfile: ./infra/docker/nginx/Dockerfile
+      dockerfile: ./docker/nginx/Dockerfile
     ports:
-      - target: 80
-        published: ${WEB_PUBLISHED_PORT:-80}
-        protocol: tcp
-        mode: host
+      - ${WEB_PORT}:80
+    depends_on:
+      - app
     volumes:
-      - type: bind
-        source: ./src
-        target: /data
-
-  pma:
-      image: phpmyadmin/phpmyadmin
-      environment:
-        - PMA_HOST=db
-        - PMA_USER=phper
-        - PMA_PASSWORD=secret
-      ports:
-        - 8080:80
-      volumes:
-        - pma-session-store:/sessions
+      - ./src/:/var/www/html
 
   db:
     build:
       context: .
-      dockerfile: ./infra/docker/mysql/Dockerfile
+      dockerfile: ./docker/mysql/Dockerfile
     ports:
-      - target: 3306
-        published: ${DB_PUBLISHED_PORT:-3306}
-        protocol: tcp
-        mode: host
-    volumes:
-      - type: volume
-        source: db-store
-        target: /var/lib/mysql
-        volume:
-          nocopy: true
+      - ${DB_PORT}:3306
     environment:
-      - MYSQL_DATABASE=${DB_DATABASE:-laravel}
-      - MYSQL_USER=${DB_USERNAME:-phper}
-      - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
-
-  db-test:
-    image: mysql:8.0
-    container_name: db-test
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: database
-      MYSQL_USER: db-user
-      MYSQL_PASSWORD: db-pass
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       TZ: 'Asia/Tokyo'
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - ./docker/db-test/data:/var/lib/mysql
-      - ./docker/db-test/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./docker/db-test/sql:/docker-entrypoint-initdb.d
-    ports:
-      - 3000:3306
-
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - target: 8025
-        published: ${MAILHOG_PUBLISHED_PORT:-8025}
-        protocol: tcp
-        mode: host
+      - mysql-volume:/var/lib/mysql

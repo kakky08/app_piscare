@@ -1,7 +1,7 @@
 <template>
     <div class="row cols-2 procedure-form-group">
         <div class="col-4 image-input-block" >
-            <div class=" image-input-box">
+            <div class=" image-input-box main-image">
                 <div class="image-input-field">
                     <input type="file" name="file" title ref="preview" @change="onChange">
                     <p>
@@ -10,10 +10,10 @@
                         <i class="fas fa-camera fa-2x"></i>
                     </p>
                     <div class="preview-box" v-if="image">
-                        <img class="preview-image" :src="'https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/' + image">
+                        <img class="preview-image main-image" :src="'https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/' + image">
                     </div>
                     <div class="preview-box" v-if="url">
-                        <img class="preview-image" :src="url">
+                        <img class="preview-image main-image" :src="url">
                     </div>
                 </div>
             </div>
