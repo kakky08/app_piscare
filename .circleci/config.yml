@@ -34,8 +34,7 @@ jobs:
           working_directory: src
       - run:
           name: php test
-          command:
+          command: |
             mkdir /tests/Unit
-          command:
             vendor/bin/phpunit
           working_directory: src
