@@ -6,7 +6,11 @@ jobs:
       - image: circleci/php:7.4-node-browsers
     steps:
       - checkout
-      - run: sudo apt update
+      - run:
+          name: Install depencies
+          command: |
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
+            sudo apt-get update --allow-releaseinfo-change
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update --2
       - restore_cache:
