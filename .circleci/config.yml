@@ -6,6 +6,8 @@ jobs:
       - image: circleci/php:7.4-node-browsers
     steps:
       - checkout
+      - run: sudo apt update
+      - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update --2
       - restore_cache:
           key: composer-v1-{{ checksum "./src/composer.lock" }}
