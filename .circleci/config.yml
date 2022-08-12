@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  working_directory: ~/backend
+  working_directory: ~/src
   docker:
     - image: circleci/php:7.4-node-browsers
   steps:
