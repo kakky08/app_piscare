@@ -24,4 +24,5 @@ jobs:
           working_directory: src
       - run:
           name: php test
-          command: vendor/bin/phpunit --configuration=./src/phpunit.xml
+          command: vendor/bin/phpunit --migrate-configuration
+          working_directory: src
