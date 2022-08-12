@@ -36,5 +36,5 @@ jobs:
           name: php test
           command: |
             mkdir tests/Unit
-            vendor/bin/phpunit --migrate-configuration
+            vendor/bin/phpunit
           working_directory: src
