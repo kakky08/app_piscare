@@ -345,7 +345,7 @@
   font-size: 2rem;
   box-sizing: border-box;
   width: 100%;
-  padding: 0.3em;
+  padding: 0.3rem 0.3rem 0.3rem 1.5rem;
   transition: 0.3s;
   letter-spacing: 1px;
   color: #333;
@@ -1027,84 +1027,96 @@ div .icon-input-box {
   background-color: #FFE162;
 }
 
-.recipe-register-form {
+.recipe-form {
   margin-bottom: 1rem;
   padding: 1rem;
 }
 
-.recipe-register-form-body {
+.recipe-form-body {
   padding: 3rem;
 }
 
-.recipe-register-form-section {
+.recipe-form-section {
   margin-bottom: 3rem;
   padding-bottom: 1.5rem;
 }
 
-.recipe-register-form-title {
+.recipe-form-title {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.recipe-register-form-image {
+.recipe-form-title-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.recipe-form-title-group h2 {
+  margin-bottom: 0;
+}
+
+.recipe-form-image {
   width: 298px;
   height: 447px;
   margin: 0 auto;
 }
 
-.recipe-register-form-procedure-image {
+.recipe-form-procedure-image {
   width: 144px;
   height: 144px;
 }
 
-.recipe-register-form-label {
+.recipe-form-label {
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
 
-.recipe-register-form-input {
+.recipe-form-input {
   margin-bottom: 1.5rem;
   padding: 0.5rem;
 }
 
-.recipe-register-form-button {
+.recipe-form-button {
   background-color: #91C483;
   color: #fff;
   padding: 0.5rem 1rem;
 }
 
-.recipe-register-form-button-layout {
+.recipe-form-button-layout {
   margin: 0 auto;
 }
 
-.recipe-register-form-button:hover {
+.recipe-form-button:hover {
   background-color: #FFE162;
   color: #333;
 }
 
-.recipe-register-form-order {
+.recipe-form-order {
   font-size: 2rem;
   margin: auto 0;
 }
 
-.recipe-register-form-material {
+.recipe-form-list {
   margin-bottom: 2rem;
-  font-size: 1.5rem;
 }
 
-.recipe-register-form-material-list {
+.recipe-form-list-item {
   margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #dee2e6;
+  font-size: 1.2rem;
 }
 
-.recipe-register-form-link:hover {
-  background-color: rgba(255, 255, 98, 0.2);
-  transition: background-color 1s;
+.recipe-form-list-item h4 span {
+  padding-right: 1rem;
 }
 
-.recipe-register-form-explanation {
+.recipe-form-explanation {
   padding: 7rem;
+}
+
+.recipe-form-flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-image {
@@ -1116,6 +1128,14 @@ div .icon-input-box {
   display: flex;
   align-items: end;
   margin-bottom: 4rem;
+}
+
+.title-update-input {
+  padding-left: 2rem;
+}
+
+.title-update-button {
+  margin-left: 2rem;
 }
 
 /* ----------------------------
