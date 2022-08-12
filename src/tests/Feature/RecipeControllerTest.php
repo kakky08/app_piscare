@@ -22,6 +22,6 @@ class RecipeControllerTest extends TestCase
             ->get(route('recipe.index'));
 
         $response->assertStatus(200)
-            ->assertViewIs('recipe.index');
+            ->assertViewIs('recipe.pages.index');
     }
 }

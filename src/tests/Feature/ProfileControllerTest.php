@@ -19,9 +19,9 @@ class ProfileControllerTest extends TestCase
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)
-            ->get(route('profile.index'));
+            ->get(route('profile.show', ['name' => $user->name ]));
 
         $response->assertStatus(200)
-            ->assertViewIs('mypage.profile.index');
+            ->assertViewIs('mypage.profile.pages.show');
     }
 }
