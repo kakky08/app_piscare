@@ -6,8 +6,8 @@ jobs:
       - image: circleci/php:7.4-node-browsers
       - image: circleci/mysql:5.7
         environment:
-          - MYSQL_DATABASE: piscare_testing
-          - MYSQL_ROOT_PASSWORD: password
+          - MYSQL_DATABASE: laravel
+
     environment:
       - DB_HOST: 127.0.0.1
     steps:
