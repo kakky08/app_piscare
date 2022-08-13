@@ -17,15 +17,15 @@ jobs:
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update --2
       - restore_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "./src/composer.lock" }}
       - run:
           command: composer install -n --prefer-dist
       - save_cache:
-          key: composer-v1-{{ checksum "composer.lock" }}
+          key: composer-v1-{{ checksum "./src/composer.lock" }}
           paths:
             - vendor
       - restore_cache:
-          key: npm-v1-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ checksum "./src/package-lock.json" }}
       - run:
           name: npm ci
           command: |
@@ -33,7 +33,7 @@ jobs:
               npm ci
             fi
       - save_cache:
-          key: npm-v1-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ checksum "./src/package-lock.json" }}
           paths:
             - node_modules
       - run:
