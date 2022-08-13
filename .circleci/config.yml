@@ -7,7 +7,7 @@ jobs:
       - image: circleci/mysql:5.6.39-ram
         environment:
         - DB_CONNECTION: mysql
-    working_directory: src
+    working_directory: ~/src
     steps:
       - checkout
       - run:
