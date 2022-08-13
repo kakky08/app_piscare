@@ -38,9 +38,3 @@ jobs:
       - run:
           command: npm run dev
           working_directory: src
-      - run:
-          name: php test
-          command: |
-            mkdir tests/Unit
-            vendor/bin/phpunit
-          working_directory: src
