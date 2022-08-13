@@ -4,18 +4,10 @@ jobs:
     working_directory: ~/src
     docker:
       - image: circleci/php:7.4-node-browsers
-        environment:
-          - DB_HOST=127.0.0.1
-          - DB_PORT=3306
-          - DB_DATABASE=circleci
-          - DB_USERNAME=circleci
-          - DB_PASSWORD=circleci
       - image: circleci/mysql:5.6.39-ram
         environment:
-        - MYSQL_ROOT_PASSWORD=circleci
-        - MYSQL_DATABASE=circleci
-        - MYSQL_USER=circleci
-        - MYSQL_PASSWORD=circleci
+        - DB_CONNECTION: mysql
+    working_directory: src
     steps:
       - checkout
       - run:
@@ -26,33 +18,28 @@ jobs:
       - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update --2
       - restore_cache:
-          key: composer-v1-{{ checksum "./src/composer.lock" }}
+          key: composer-v1-{{ checksum "composer.lock" }}
       - run:
           command: composer install -n --prefer-dist
-          working_directory: src
       - save_cache:
-          key: composer-v1-{{ checksum "./src/composer.lock" }}
+          key: composer-v1-{{ checksum "composer.lock" }}
           paths:
             - vendor
       - restore_cache:
-          key: npm-v1-{{ checksum "./src/package-lock.json" }}
+          key: npm-v1-{{ checksum "package-lock.json" }}
       - run:
           name: npm ci
           command: |
             if [ ! -d node_modules ]; then
               npm ci
             fi
-          working_directory: src
       - save_cache:
-          key: npm-v1-{{ checksum "./src/package-lock.json" }}
+          key: npm-v1-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
       - run:
           command: npm run dev
-          working_directory: src
       - run:
           name: php test
-          command: |
-            mkdir tests/Unit
+          command:
             vendor/bin/phpunit
-          working_directory: src
