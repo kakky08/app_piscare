@@ -6,8 +6,7 @@ jobs:
       - image: circleci/php:7.4-node-browsers
       - image: circleci/mysql:5.6.39-ram
         environment:
-        - DB_CONNECTION: mysql
-    steps:
+          - DB_CONNECTION: mysql    steps:
       - checkout
       - run:
           name: Install depencies
@@ -20,6 +19,7 @@ jobs:
           key: composer-v1-{{ checksum "./src/composer.lock" }}
       - run:
           command: composer install -n --prefer-dist
+          working_directory: src
       - save_cache:
           key: composer-v1-{{ checksum "./src/composer.lock" }}
           paths:
@@ -32,13 +32,17 @@ jobs:
             if [ ! -d node_modules ]; then
               npm ci
             fi
+          working_directory: src
       - save_cache:
           key: npm-v1-{{ checksum "./src/package-lock.json" }}
           paths:
             - node_modules
       - run:
           command: npm run dev
+          working_directory: src
       - run:
           name: php test
-          command:
+          command: |
+            mkdir tests/Unit
             vendor/bin/phpunit
+          working_directory: src
