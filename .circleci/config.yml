@@ -4,6 +4,13 @@ jobs:
     working_directory: ~/src
     docker:
       - image: circleci/php:7.4-node-browsers
+        environment:
+            APP_ENV: testing
+            DB_CONNECTION: mysql
+            DB_HOST: 127.0.0.1
+            DB_DATABASE: testing
+            DB_USERNAME: 'root'
+            DB_PASSWORD: ''
       - image: circleci/mysql:8.0
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
