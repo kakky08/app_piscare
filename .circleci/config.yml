@@ -4,14 +4,18 @@ jobs:
     working_directory: ~/src
     docker:
       - image: circleci/php:7.4-node-browsers
-      - image: circleci/mysql:8.0
         environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: true
-          - MYSQL_ROOT_HOST: '%'
-          - DB_CONNECTION: laravel
-
-    environment:
-      - DB_HOST: 127.0.0.1
+          - DB_HOST=127.0.0.1
+          - DB_PORT=3306
+          - DB_DATABASE=circleci
+          - DB_USERNAME=circleci
+          - DB_PASSWORD=circleci
+      - image: circleci/mysql:5.6.39-ram
+        environment:
+        - MYSQL_ROOT_PASSWORD=circleci
+        - MYSQL_DATABASE=circleci
+        - MYSQL_USER=circleci
+        - MYSQL_PASSWORD=circleci
     steps:
       - checkout
       - run:
