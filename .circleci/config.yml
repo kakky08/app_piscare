@@ -6,7 +6,7 @@ jobs:
       - image: circleci/php:7.4-node-browsers
       - image: circleci/mysql:5.6.39-ram
         environment:
-          - DB_CONNECTION: mysql
+          - DB_CONNECTION: circle_testing
     steps:
       - checkout
       - run:
