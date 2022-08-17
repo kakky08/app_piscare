@@ -8,7 +8,7 @@ jobs:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:sVmOl8ai5AaTf+Qe32/V+iawu1PZL78LmgdWjsgJbQg=
-      - DB_CONNECTION: circle_testing
+      - DB_CONNECTION: mysql
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
     working_directory: ~/repo
     #
