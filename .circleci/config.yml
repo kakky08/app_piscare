@@ -11,6 +11,7 @@ jobs:
       - DB_CONNECTION: mysql
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
     working_directory: ~/repo
+    #
     steps:
       - checkout
       - run:
