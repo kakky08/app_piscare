@@ -16,9 +16,6 @@ RUN apt-get update && \
     zip \
     unzip \
     vim \
-    autoconf gcc g++ make && \
-    docker-php-ext-install pdo_mysql bcmath && \
-    pecl install xdebug && \
-    docker-php-ext-enable xdebug
+    && docker-php-ext-install pdo_mysql bcmath
 
 WORKDIR /var/www/html
