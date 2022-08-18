@@ -1,11 +1,25 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/src
     docker:
       - image: circleci/php:7.4-node-browsers
+      - image: circleci/mysql:5.7
+    environment:
+      - APP_DEBUG: true
+      - APP_ENV: testing
+      - APP_KEY: base64:sVmOl8ai5AaTf+Qe32/V+iawu1PZL78LmgdWjsgJbQg=
+      - DB_CONNECTION: mysql
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+    working_directory: ~/repo
+    #
     steps:
       - checkout
+      - run:
+          name: Install depencies
+          command: |
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
+            sudo apt-get update --allow-releaseinfo-change
+      - run: sudo docker-php-ext-install zip pdo_mysql
       - run: sudo composer self-update --2
       - restore_cache:
           key: composer-v1-{{ checksum "./src/composer.lock" }}
@@ -16,13 +30,23 @@ jobs:
           key: composer-v1-{{ checksum "./src/composer.lock" }}
           paths:
             - vendor
+      - restore_cache:
+          key: npm-v1-{{ checksum "./src/package-lock.json" }}
       - run:
-          command: npm ci
+          name: npm ci
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi
           working_directory: src
+      - save_cache:
+          key: npm-v1-{{ checksum "./src/package-lock.json" }}
+          paths:
+            - node_modules
       - run:
           command: npm run dev
           working_directory: src
       - run:
           name: php test
-          command: vendor/bin/phpunit --migrate-configuration
+          command: vendor/bin/phpunit
           working_directory: src
