@@ -61,7 +61,7 @@ jobs:
           name: deploy
           command: |
             ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd app_piscare && \
-              git pull origin master && \
+              git pull origin main && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               npm run prod && \
