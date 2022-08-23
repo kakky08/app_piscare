@@ -63,6 +63,7 @@ jobs:
       - restore_cache:
           key: composer-no-dev-v1-{{ checksum "./src/composer.lock" }}
       - run: composer install -n --no-dev --prefer-dist
+          working_directory: src
       - save_cache:
           key: composer-no-dev-v1-{{ checksum "./src/composer.lock" }}
           paths:
@@ -80,6 +81,7 @@ jobs:
           paths:
             - node_modules
       - run: npm run prod
+          working_directory: src
       - run:
           name: archive artifacts
           command: zip -ryq laravel-ci.zip .
