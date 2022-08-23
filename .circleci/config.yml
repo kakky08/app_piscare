@@ -77,6 +77,7 @@ jobs:
             if [ ! -d node_modules ]; then
               npm ci
             fi
+          working_directory: src
       - save_cache:
           key: npm-v1-{{ checksum "./src/package-lock.json" }}
           paths:
