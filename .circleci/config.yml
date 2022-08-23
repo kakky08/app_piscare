@@ -62,7 +62,8 @@ jobs:
       - run: sudo composer self-update --1
       - restore_cache:
           key: composer-no-dev-v1-{{ checksum "./src/composer.lock" }}
-      - run: composer install -n --no-dev --prefer-dist
+      - run:
+          command: composer install -n --no-dev --prefer-dist
           working_directory: src
       - save_cache:
           key: composer-no-dev-v1-{{ checksum "./src/composer.lock" }}
@@ -80,7 +81,8 @@ jobs:
           key: npm-v1-{{ checksum "./src/package-lock.json" }}
           paths:
             - node_modules
-      - run: npm run prod
+      - run:
+          command: npm run prod
           working_directory: src
       - run:
           name: archive artifacts
