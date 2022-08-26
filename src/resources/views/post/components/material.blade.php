@@ -1,7 +1,7 @@
-<div class="col spacing-reset">
+<div class="col spacing-reset border-bottom recipe-register-form-section">
     <div class="recipe-form-title-group">
         <h2 class="recipe-form-title">材料・調味料<span>(人分)</span></h2>
-        <a href="" class="btn post-edit-button">材料・調味料を編集する</a>
+        <a href="{{ route('post.material.show', ['post' => $post->id]) }}" class="btn post-edit-button">材料・調味料を編集する</a>
     </div>
     <div class="recipe-form-list-group">
         @if (count($post->materials) !== 0)
