@@ -5,7 +5,7 @@
         @if (empty($user->icon))
             <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
         @else
-            <i class="fas fa-user-circle fa-10x"></i>
+            <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
         @endif
     </div>
 
