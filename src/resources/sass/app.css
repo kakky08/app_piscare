@@ -1005,13 +1005,13 @@ div .icon-input-box {
 }
 
 .material {
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 .material-form {
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
 }
 .material-form :nth-child(n) {
-  margin-right: 1rem;
+  margin-right: 4rem;
 }
 .material-form :last-child {
   margin-right: 0;
@@ -1090,8 +1090,8 @@ div .icon-input-box {
   margin: 0 auto;
 }
 .recipe-register-form-procedure-image {
-  width: 144px;
-  height: 144px;
+  width: 250px;
+  height: 250px;
 }
 .recipe-register-form-label {
   margin-bottom: 1.5rem;
@@ -1127,7 +1127,9 @@ div .icon-input-box {
   border-bottom: 1px solid #dee2e6;
 }
 .recipe-register-form-explanation {
-  padding: 7rem;
+  width: 500px;
+  min-height: 200px;
+  padding: 1.5rem;
 }
 
 /* ----------------------------
@@ -1153,6 +1155,61 @@ div .icon-input-box {
 .procedure-button:hover {
   background-color: #FFE162;
   color: #333;
+}
+
+.edit-procedure-number {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.edit-procedure-number-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 0.5rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+.edit-procedure-form-group {
+  justify-content: center;
+}
+.edit-procedure-form-textarea {
+  width: 600px;
+}
+.edit-procedure-button-group {
+  display: flex;
+  align-items: center;
+}
+.edit-procedure-button-update {
+  background-color: #91C483;
+  color: #fff;
+  margin-right: 2rem;
+  min-width: 100px;
+}
+.edit-procedure-button-update :hover {
+  opacity: 0.8;
+}
+.edit-procedure-button-delete {
+  background-color: #FF6464;
+  color: #fff;
+  min-width: 100px;
+}
+.edit-procedure-button-delete :hover {
+  opacity: 0.8;
+}
+
+.sort-procedure-group {
+  align-items: center;
+}
+.sort-procedure-image {
+  width: 250px;
+  height: 250px;
+}
+.sort-procedure-text-area {
+  width: 600px;
+  height: 200px;
+  padding: 1rem;
+  border: 1px solid #ced4da;
 }
 
 /* ----------------------------

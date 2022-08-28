@@ -7,9 +7,9 @@
 @if (count($post->procedures) !== 0)
     @foreach ($post->procedures as $procedure)
         <div class="row cols-3 spacing-reset align-items-center recipe-register-form-section border-bottom">
-            <p class="col-1 spacing-reset recipe-register-form-order">{{ $procedure->order . '.'}}</p>
+            <p class="col-1 spacing-reset recipe-register-form-order">{{ $procedure->order + 1 . '.'}}</p>
             <div class="col spacing-reset">
-                <img src="{{ $procedure->photo }}" alt="" class="recipe-register-form-procedure-image">
+                <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="画像が存在しません" class="recipe-register-form-procedure-image">
             </div>
             <div class="col spacing-reset">
                 <div class="form-control spacing-reset recipe-register-form-explanation">{{ $procedure->procedure }}</div>
@@ -21,7 +21,7 @@
         <p class="col-1 spacing-reset recipe-register-form-order">1.</p>
         {{-- 料理画像 --}}
         <div class="col spacing-reset">
-            <img src="https://placehold.jp/144x144.png" alt="" class="recipe-register-form-procedure-image">
+            <img src="{{ asset('images/noimage.jpeg') }}" alt="画像が存在しません" class="recipe-register-form-procedure-image">
         </div>
         {{-- 作り方の説明 --}}
         <div class="col spacing-reset">

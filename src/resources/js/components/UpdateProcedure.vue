@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="row cols-2 procedure-form-group">
+        <div class="row cols-2 procedure-form-group edit-procedure-form-group">
             <div class="col-4 image-input-block" >
-                <div class=" image-input-box">
+                <div class="image-input-box">
                     <div class="image-input-field">
                         <input type="file" name="file" title ref="preview" @change="onChange">
                         <p>
@@ -26,15 +26,8 @@
                     </div>
                 </div>
             </div>
+            <textarea type="text" class="form-control col-8  edit-procedure-form-textarea" cols="30" rows="10" placeholder="材料の分量を入力してください" name="procedure" :value="procedure.procedure"></textarea>
         </div>
-        <textarea
-            type="text"
-            class="form-control col"
-            placeholder="材料の分量を入力してください"
-            name="procedure"
-            :value="procedure.procedure"
-        >
-        </textarea>
     </div>
 </template>
 

@@ -2,7 +2,7 @@
     <div class="material">
         <draggable v-model="texts" :options="options" hendle=".handle" @end="onSort">
             <div v-for="(text, index) in texts" :key="text.id">
-                <div class="row cols-4 spacing-reset material-form">
+                <div class="row cols-3 spacing-reset material-form  sort-procedure-group">
                     <i class="fas fa-bars fa-xs col-1 handler material-form-icon" />
                     <input
                         type="hidden"
@@ -15,10 +15,10 @@
                         :value="index"
                     >
                     <img
-                        class="preview-image"
+                        class="preview-image sort-procedure-image"
                         :src="'https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/'+ text.photo"
                     >
-                    <p>
+                    <p class="sort-procedure-text-area">
                         {{text.procedure}}
                     </p>
                 </div>
