@@ -3,7 +3,7 @@
         @include('components.header.app', ['page' => 'profile'])
 @endsection
 @section('aside')
-    @include('mypage.components.sidebar')
+    @include('mypage.components.sidebar',  ['page' => 'profile'])
 @endsection
 @section('main')
     @include('mypage.profile.components.profile')
