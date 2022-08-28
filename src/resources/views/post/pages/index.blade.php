@@ -16,18 +16,11 @@
                 <img src="https://placehold.jp/214x214.png" class="card-img-top common-card-image" alt="レシピの画像が存在しません。">
             @endif
             <div class="card-body">
-                <h5 class="common-card-title">{{ $recipe->user->name }}</h5>
+                <h5 class="common-card-title">{{ $recipe->title }}</h5>
                 <p class="common-card-text">{{ $recipe->description }}</p>
                 <p></p>
                 <div class="common-card-like">
                     <i class="fas fa-heart common-card-like-icon"></i><p>{{ $recipe->count_likes}}</p>
-                    {{-- <post-like
-                        :initial-is-liked-by='@json($recipe->isLikedBy(Auth::user()))'
-                        :initial-count-likes='@json($recipe->count_likes)'
-                        :authorized='@json(Auth::check())'
-                        endpoint="{{ route('post.like', ['post' => $recipe->id]) }}"
-                    >
-                    </post-like> --}}
                 </div>
                 <div class="d-grid">
                     <a href="{{ route('post.show', ['id' => $recipe->id ])}}" class="btn common-card-button stretched-link">詳細</a>

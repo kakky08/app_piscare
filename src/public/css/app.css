@@ -152,6 +152,7 @@
 .show-card-item {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .show-card-title {
@@ -200,7 +201,7 @@
 
 .show-card-text p {
   font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .show-card-text p span {
@@ -234,7 +235,7 @@
 
 .show-card-separator {
   color: #ddd;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .show-card-subheading {
@@ -245,6 +246,14 @@
 .show-card-subheading-span {
   margin-left: 1rem;
   font-size: 1.5rem;
+}
+
+.show-card-description {
+  min-height: 200px;
+}
+
+.show-card-contributor {
+  margin-bottom: 4rem;
 }
 
 .show-card-link {
@@ -289,6 +298,38 @@
 .show-card-post-list-item {
   list-style: none;
   font-size: 1.2rem;
+}
+
+.show-card-procedure li {
+  margin-bottom: 3rem;
+}
+
+.show-card-procedure-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+}
+
+.show-card-procedure-image {
+  width: 250px;
+  height: 250px;
+}
+
+.show-card-procedure-item {
+  list-style: none;
+}
+
+.show-card-procedure-text {
+  width: 500px;
+  min-height: 150px;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.show-card-procedure-num {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* ----------------------------
@@ -371,7 +412,8 @@
   color: #fff;
   background-color: #FF6464;
   border-color: #FF6464;
-  margin-left: 4rem;
+  margin-left: 3rem;
+  min-width: 8rem;
 }
 
 .button-delete:hover {
@@ -383,7 +425,8 @@
   color: #fff;
   background-color: #91C483;
   border-color: #91C483;
-  margin-left: 4rem;
+  margin-left: 3rem;
+  min-width: 8rem;
 }
 
 .button-edit:hover {
@@ -1136,6 +1179,10 @@ div .icon-input-box {
 .title-update-button {
   margin-left: 2rem;
 }
+
+/* ----------------------------
+* Show
+---------------------------- */
 
 /* ----------------------------
 * Edit Material / Seasoning
