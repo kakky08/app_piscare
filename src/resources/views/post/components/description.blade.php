@@ -4,11 +4,7 @@
     @method('PUT')
     <h2 class="recipe-form-title">料理コメント</h2>
     <div class="">
-        <textarea name="description" class="form-control recipe-form-description" id="description-textarea" rows="5">
-            @if (isset($post->description))
-                {{ $post->description }}
-            @endif
-        </textarea>
+        <textarea name="description" class="form-control recipe-form-description" id="description-textarea" rows="5">@if (isset($post->description)){{ $post->description }}@endif</textarea>
         <button type="submit" form="description-update" class="btn post-edit-button">コメントを更新する</button>
     </div>
 </form>

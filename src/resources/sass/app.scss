@@ -1305,14 +1305,14 @@ div .icon-input-box{
     }
 }
 .material {
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
 
 
     &-form {
-        margin-bottom: 3rem;
+        margin-bottom: 6rem;
 
         :nth-child(n) {
-            margin-right: 1rem;
+            margin-right: 4rem;
         }
 
         :last-child {
@@ -1408,8 +1408,8 @@ div .icon-input-box{
         margin: 0 auto;
     }
     &-procedure-image{
-        width: 144px;
-        height: 144px;
+        width: 250px;
+        height: 250px;
     }
     &-label{
         margin-bottom: 1.5rem;
@@ -1450,7 +1450,9 @@ div .icon-input-box{
         }
     }
     &-explanation{
-        padding: 7rem;
+        width: 500px;
+        min-height: 200px;
+        padding: 1.5rem;
     }
 
 }
@@ -1490,6 +1492,72 @@ div .icon-input-box{
     }
 }
 
+
+.edit-procedure{
+    &-number{
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        &-group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem 0.5rem;
+            border-bottom: 1px solid $gray-color;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-form{
+        &-group{
+            justify-content: center;
+        }
+        &-textarea{
+            width: 600px;
+        }
+    }
+    &-button{
+
+        &-group{
+            display: flex;
+            align-items: center;
+        }
+        &-update{
+            background-color: $green-color;
+            color: $white-color;
+            margin-right: 2rem;
+            min-width: 100px;
+            :hover {
+                opacity: 0.8;
+            }
+        }
+        &-delete{
+            background-color: $red-color;
+            color: $white-color;
+            min-width: 100px;
+            :hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.sort-procedure{
+    &-group{
+        align-items: center;
+    }
+    &-image{
+        width: 250px;
+        height: 250px;
+    }
+    &-text-area{
+        width: 600px;
+        height: 200px;
+        padding: 1rem;
+        border: 1px solid #ced4da;
+    }
+}
 /* ----------------------------
 * show
 ---------------------------- */
