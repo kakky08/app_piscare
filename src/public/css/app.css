@@ -693,6 +693,88 @@
 }
 
 /* ============================
+* TopPage
+============================ */
+
+.main-container {
+  width: 1000px;
+  margin: 200px auto 0;
+}
+
+.top-section {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+.top-section-text {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  padding-bottom: 1.3rem;
+  line-height: 2.5rem;
+}
+
+.top-section-text-box {
+  width: 450px;
+}
+
+.top-section-image {
+  width: 400px;
+}
+
+.top-title {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
+.top-title-second {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+.top-title-third {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.top-sub-title {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.top-button {
+  display: block;
+  width: 300px;
+  margin: 0 auto 12rem;
+  padding: 1rem;
+  background-color: #FFE162;
+  color: #333;
+}
+
+.top-button:hover {
+  opacity: 0.8;
+}
+
+.top-sub-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+}
+
+.top-sub-section-reverse {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-bottom: 6rem;
+}
+
+.top-footer {
+  background-color: #FFE162;
+  padding: 3rem;
+}
+
+/* ============================
 * Mypage
 ============================ */
 
