@@ -1,29 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 /* ============================
 * カラー
 ============================ */
-
 /* ============================
 * フォントカラー
 ============================ */
-
 /* ============================
 * ブランドカラー
 ============================ */
-
 /* ============================
 * 魚の色
 ============================ */
-
 /* ============================
 * 文字の大きさ
 ============================ */
-
 /* ============================
 * 全称セレクター
 ============================ */
-
 * {
   box-sizing: border-box;
 }
@@ -31,7 +25,6 @@
 /* ============================
 * スペースのリセット
 ============================ */
-
 .spacing-reset {
   padding: 0;
   margin: 0;
@@ -40,7 +33,6 @@
 /* ============================
 * 全体共通
 ============================ */
-
 .page-title {
   font-size: 2.5rem;
   margin-bottom: 4rem;
@@ -54,65 +46,54 @@
 /* ----------------------------
 * Card
 ---------------------------- */
-
 .common-card {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .common-card::after {
   content: "";
   display: block;
   width: 23%;
 }
-
 .common-card::before {
   content: "";
   display: block;
   width: 23%;
   order: 1;
 }
-
 .common-card-item {
   width: 23%;
   margin-bottom: 3rem;
 }
-
 .common-card-title {
   height: 65px;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-
 .common-card-text {
   height: 100px;
   margin-bottom: 1rem;
 }
-
 .common-card-image {
   height: 214px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 1rem;
 }
-
 .common-card-like {
   display: flex;
   align-items: baseline;
 }
-
 .common-card-like-icon {
   color: #FF6464;
   margin-right: 1rem;
 }
-
 .common-card-button {
   color: #fff;
   background-color: #91C483;
   border: none;
 }
-
 .common-card-button:hover {
   color: #fff;
   background-color: #FFE162;
@@ -121,17 +102,14 @@
 /* ----------------------------
 * Search
 ---------------------------- */
-
 .common-search-form {
   margin-bottom: 3rem;
 }
-
 .common-search-button {
   color: #fff;
   background-color: #91C483;
   border: none;
 }
-
 .common-search-button:hover {
   color: #fff;
   background-color: #FFE162;
@@ -140,26 +118,21 @@
 /* ----------------------------
 * show
 ---------------------------- */
-
 .show-card {
   padding: 3rem;
 }
-
 .show-card-section {
   margin-bottom: 2rem;
 }
-
 .show-card-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .show-card-title {
   margin-bottom: 2rem;
   font-size: 2.5rem;
 }
-
 .show-card-image {
   width: 360px;
   -o-object-fit: cover;
@@ -167,126 +140,101 @@
   background-position: center;
   margin-right: 3rem;
 }
-
 .show-card-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
-
 .show-card-button-action {
   display: flex;
   align-items: center;
 }
-
 .show-card-button-follow {
   margin-left: 4rem;
 }
-
 .show-card-back {
   width: 80px;
   color: #fff;
   background-color: #91C483;
 }
-
 .show-card-back:hover {
   color: #fff;
   background-color: #FFE162;
 }
-
 .show-card-text {
   padding: 2rem;
 }
-
 .show-card-text p {
   font-size: 1.3rem;
   margin-bottom: 3rem;
 }
-
 .show-card-text p span {
   font-weight: bold;
 }
-
 .show-card-text p:last-child {
   margin-left: 1rem;
   margin-bottom: 0;
   width: 300px;
 }
-
 .show-card-like {
   display: flex;
   align-items: center;
 }
-
 .show-card-icon {
   margin-right: 0.5rem;
   color: #ddd;
 }
-
 .show-card-icon-count {
   font-size: 1.3rem;
   margin-left: 0.5rem;
 }
-
 .show-card-heart {
   color: #FF6464;
 }
-
 .show-card-separator {
   color: #ddd;
   margin-bottom: 3rem;
 }
-
 .show-card-subheading {
   font-size: 1.75rem;
   margin-bottom: 2rem;
 }
-
 .show-card-subheading-span {
   margin-left: 1rem;
   font-size: 1.5rem;
 }
-
 .show-card-description {
   min-height: 200px;
 }
-
 .show-card-contributor {
   margin-bottom: 4rem;
 }
-
 .show-card-link {
   color: #fff;
   background-color: #91C483;
 }
-
 .show-card-link:hover {
   color: #fff;
   background-color: #FFE162;
 }
-
 .show-card-material-list {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 4rem;
 }
-
 .show-card-material-item {
   list-style: none;
   font-size: 1.2rem;
   margin-left: 2rem;
 }
-
 .show-card-material-span {
   color: #ddd;
   padding-left: 2rem;
 }
-
 .show-card-post {
   list-style: none;
 }
-
 .show-card-post-list-group {
   display: flex;
   justify-content: space-between;
@@ -294,39 +242,32 @@
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
 }
-
 .show-card-post-list-item {
   list-style: none;
   font-size: 1.2rem;
 }
-
 .show-card-procedure li {
   margin-bottom: 3rem;
 }
-
 .show-card-procedure-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 0;
 }
-
 .show-card-procedure-image {
   width: 250px;
   height: 250px;
 }
-
 .show-card-procedure-item {
   list-style: none;
 }
-
 .show-card-procedure-text {
   width: 500px;
   min-height: 150px;
   padding: 1rem;
   font-size: 1.2rem;
 }
-
 .show-card-procedure-num {
   font-size: 1.2rem;
   font-weight: bold;
@@ -335,11 +276,9 @@
 /* ----------------------------
 * Pagination
 ---------------------------- */
-
 .page-link {
   color: #333;
 }
-
 .page-link:hover {
   color: #fff;
   background-color: #FFE162;
@@ -354,7 +293,6 @@
 /* ----------------------------
 * Alert
 ---------------------------- */
-
 .alert-message-success {
   background-color: #91C483;
   opacity: 0.8;
@@ -362,7 +300,6 @@
   text-align: center;
   margin-bottom: 3rem;
 }
-
 .alert-message-error {
   background-color: #FF6464;
   color: #fff;
@@ -376,12 +313,10 @@
 /* ----------------------------
 * input
 ---------------------------- */
-
 .common-input {
   position: relative;
   width: 80%;
 }
-
 .common-input input {
   font-size: 2rem;
   box-sizing: border-box;
@@ -394,11 +329,9 @@
   border-bottom: 2px solid #FFE162;
   background: transparent;
 }
-
 .common-input-label {
   display: block;
 }
-
 .common-input-label input:focus {
   border-bottom: 2px solid #91C483;
   outline: none;
@@ -407,7 +340,6 @@
 /* ----------------------------
 * Button
 ---------------------------- */
-
 .button-delete {
   color: #fff;
   background-color: #FF6464;
@@ -415,12 +347,10 @@
   margin-left: 3rem;
   min-width: 8rem;
 }
-
 .button-delete:hover {
   opacity: 0.8;
   color: #fff;
 }
-
 .button-edit {
   color: #fff;
   background-color: #91C483;
@@ -428,7 +358,6 @@
   margin-left: 3rem;
   min-width: 8rem;
 }
-
 .button-edit:hover {
   opacity: 0.8;
   color: #fff;
@@ -437,13 +366,11 @@
 /* ----------------------------
 * Image Upload
 ---------------------------- */
-
 .image-input-box {
   background-color: #eee;
   width: 250px;
   height: 250px;
 }
-
 .image-input-field {
   position: relative;
   width: 100%;
@@ -452,7 +379,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .image-input-field > input {
   position: absolute;
   width: 100%;
@@ -463,13 +389,11 @@
   cursor: pointer;
   z-index: 100;
 }
-
 .image-input-field > p {
   color: #aaa;
   text-align: center;
   margin-bottom: 0;
 }
-
 .image-input-text {
   display: block;
 }
@@ -481,7 +405,6 @@
   top: 0;
   left: 0;
 }
-
 .preview-image {
   width: 250px;
 }
@@ -489,7 +412,6 @@
 /* ============================
 * レイアウト
 ============================ */
-
 .container-spacing {
   padding-top: 1rem;
 }
@@ -508,35 +430,28 @@
 /* ============================
 * Header
 ============================ */
-
 .nav-icon {
   color: #333;
 }
-
 .nav-icon:hover {
   color: #fff;
 }
-
 .nav-header {
   background-color: #FFE162;
   padding: 0px 48px;
 }
-
 .nav-height {
   height: 64px;
 }
-
 .nav-list {
   height: 100%;
 }
-
 .nav-list li a {
   font-size: 1rem;
   color: #333;
   display: block;
   padding: 23px 1rem;
 }
-
 .nav-list li a:hover {
   color: #fff;
 }
@@ -544,7 +459,6 @@
 .dropdown-menu li a {
   text-align: center;
 }
-
 .dropdown-menu li a:hover {
   background-color: #FFE162;
   color: #fff;
@@ -558,52 +472,43 @@
 /* ============================
 * Admin関連
 ============================ */
-
 .admin-title {
   font-size: 2.5rem;
   margin-bottom: 4rem;
 }
-
 .admin-subtitle {
   font-size: 1.5rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid #91C483;
 }
-
 .admin-button {
   padding: 0.5rem 0;
   color: #fff;
   background-color: #91C483;
   margin-bottom: 4rem;
 }
-
 .admin-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .admin-sidebar {
   list-style: none;
 }
-
 .admin-sidebar-icon {
   width: 30px;
   margin-right: 0.5rem;
 }
-
 .admin-menu {
   color: #333;
   margin-bottom: 4rem;
 }
-
 .admin-menu:hover {
   color: rgba(51, 51, 51, 0.7);
   box-sizing: border-box;
   margin-bottom: 3.8rem;
   border-bottom: solid 0.2rem #91C483;
 }
-
 .admin-active {
   margin-bottom: 3.8rem;
   border-bottom: solid 0.2rem #FFE162;
@@ -612,82 +517,64 @@
 /* ============================
 * Auth関連
 ============================ */
-
 .auth-header {
   margin-bottom: 4rem;
 }
-
 .auth-title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
 }
-
 .auth-card-body {
   padding: 3rem;
 }
-
 .auth-form-group {
   margin-bottom: 2rem;
 }
-
 .auth-form-group:last-child {
   margin-bottom: 3rem;
 }
-
 .auth-button {
   padding: 0.5rem 0;
   color: #fff;
   background-color: #91C483;
 }
-
 .auth-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .auth-button-social {
   margin-bottom: 2rem;
 }
-
 .auth-button-social:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .auth-button-social-link {
   padding: 0.5rem 0;
   color: #fff;
 }
-
 .auth-button-social-link:hover {
   background-color: #FFE162;
 }
-
 .auth-button-social-icon {
   margin-right: 1rem;
 }
-
 .auth-button-google {
   background-color: #DB4437;
 }
-
 .auth-button-google:hover {
   color: #DB4437;
 }
-
 .auth-button-github {
   background-color: #161415;
 }
-
 .auth-button-github:hover {
   color: #161415;
 }
-
 .auth-button-twitter {
   background-color: #1DA1F2;
 }
-
 .auth-button-twitter:hover {
   color: #1DA1F2;
 }
@@ -695,7 +582,6 @@
 /* ============================
 * TopPage
 ============================ */
-
 .main-container {
   width: 1000px;
   margin: 200px auto 0;
@@ -705,42 +591,34 @@
   text-align: center;
   margin-bottom: 8rem;
 }
-
 .top-section-text {
   font-size: 1rem;
   letter-spacing: 4px;
   padding-bottom: 1.3rem;
   line-height: 2.5rem;
 }
-
 .top-section-text-box {
   width: 450px;
 }
-
 .top-section-image {
   width: 400px;
 }
-
 .top-title {
   font-size: 5rem;
   margin-bottom: 3rem;
 }
-
 .top-title-second {
   text-align: center;
   margin-bottom: 8rem;
 }
-
 .top-title-third {
   margin-bottom: 2rem;
   text-align: center;
 }
-
 .top-sub-title {
   font-size: 1.5rem;
   margin-bottom: 3rem;
 }
-
 .top-button {
   display: block;
   width: 300px;
@@ -749,18 +627,15 @@
   background-color: #FFE162;
   color: #333;
 }
-
 .top-button:hover {
   opacity: 0.8;
 }
-
 .top-sub-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 6rem;
 }
-
 .top-sub-section-reverse {
   display: flex;
   align-items: center;
@@ -768,7 +643,6 @@
   flex-direction: row-reverse;
   margin-bottom: 6rem;
 }
-
 .top-footer {
   background-color: #FFE162;
   padding: 3rem;
@@ -777,16 +651,13 @@
 /* ============================
 * Mypage
 ============================ */
-
 /* ----------------------------
 * 基本設定
 ---------------------------- */
-
 .mypage-title {
   font-size: 2.5rem;
   margin-bottom: 4rem;
 }
-
 .mypage-subtitle {
   font-size: 1.5rem;
   padding-bottom: 1rem;
@@ -797,28 +668,23 @@
 /* ----------------------------
 * sidebar
 ---------------------------- */
-
 .mypage-sidebar {
   list-style: none;
 }
-
 .mypage-sidebar-icon {
   width: 30px;
   margin-right: 0.5rem;
 }
-
 .mypage-menu {
   color: #333;
   margin-bottom: 4rem;
 }
-
 .mypage-menu:hover {
   color: rgba(51, 51, 51, 0.7);
   box-sizing: border-box;
   margin-bottom: 3.8rem;
   border-bottom: solid 0.2rem #91C483;
 }
-
 .mypage-active {
   margin-bottom: 3.8rem;
   border-bottom: solid 0.2rem #FFE162;
@@ -827,20 +693,17 @@
 /* ----------------------------
 * Home
 ---------------------------- */
-
 .select {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 4rem;
 }
-
 .select-message {
   margin-bottom: 0;
   margin-right: 2rem;
   font-size: 1.3rem;
 }
-
 .select-form {
   width: 40%;
 }
@@ -848,39 +711,31 @@
 /* ----------------------------
 * Calendar
 ---------------------------- */
-
 .calender-button-group {
   margin-bottom: 2rem;
 }
-
 .calender-button-group p {
   margin-bottom: 0;
   font-size: 1.4rem;
 }
-
 .calender-button {
   background-color: #91C483;
   color: #fff;
 }
-
 .calender-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .calender-table-row {
   height: 80px;
 }
-
 .calender-table-header {
   text-align: center;
   margin-bottom: none;
 }
-
 .calender-table-data {
   min-width: 80px;
 }
-
 .calender-fish-icon {
   text-align: center;
 }
@@ -888,11 +743,9 @@
 /* ----------------------------
 * Record
 ---------------------------- */
-
 .record-button {
   display: flex;
 }
-
 .record-button-group {
   display: flex;
   justify-content: center;
@@ -902,15 +755,12 @@
 .fish-color {
   color: #ddd;
 }
-
 .fish-color-first {
   color: #62daff;
 }
-
 .fish-color-second {
   color: #628eff;
 }
-
 .fish-color-third {
   color: #ff6262;
 }
@@ -918,34 +768,27 @@
 /* ----------------------------
 * Setting
 ---------------------------- */
-
 .setting-block {
   margin-bottom: 2rem;
 }
-
 .setting-email {
   margin-bottom: 4rem;
 }
-
 .setting-password {
   margin-bottom: 4rem;
 }
-
 .setting-title {
   margin: 0 2rem 2rem;
   font-size: 1.2rem;
 }
-
 .setting-text {
   font-size: 1.1rem;
   margin-left: 4rem;
 }
-
 .setting-input {
   margin-left: 4rem;
   width: 50%;
 }
-
 .setting-button {
   margin-left: 4rem;
   width: 20%;
@@ -953,19 +796,16 @@
   color: #fff;
   border: none;
 }
-
 .setting-button:hover {
   color: #fff;
   background-color: #FFE162;
 }
-
 .setting-icon-group {
   display: flex;
   padding: 0 2rem;
   justify-content: space-between;
   align-items: center;
 }
-
 .setting-icon-text {
   background-color: #FFE162;
   color: #333;
@@ -974,7 +814,6 @@
   padding: 0.25rem;
   margin-bottom: 2rem;
 }
-
 .setting-icon-button {
   min-width: 200px;
   margin-left: 0;
@@ -999,18 +838,15 @@ div .icon-input-box {
 /* ----------------------------
 * Profile
 ---------------------------- */
-
 .profile-section {
   margin: 0 2rem 4rem;
   align-items: center;
 }
-
 .profile-block {
   display: inline-block;
   max-width: 20%;
   margin-right: 1rem;
 }
-
 .profile-icon {
   width: 160px;
   height: 155px;
@@ -1020,16 +856,13 @@ div .icon-input-box {
   border-radius: 50%;
   border: 1px solid #FFE162;
 }
-
 .profile-name {
   font-size: 2rem;
   color: #333;
 }
-
 .profile-name > a {
   border: none;
 }
-
 .profile-nav {
   margin-bottom: 3rem;
 }
@@ -1037,29 +870,24 @@ div .icon-input-box {
 /* ----------------------------
 * Follow
 ---------------------------- */
-
 .follow-list {
   list-style: none;
 }
-
 .follow-item {
   margin: 0 4rem 2rem;
   list-style: none;
 }
-
 .follow-item:hover {
   margin-bottom: 18px;
   padding-bottom: 5px;
   border-bottom: 1px solid #91C483;
 }
-
 .follow-item-link {
   display: flex;
   align-items: center;
   color: #333;
   text-decoration: none;
 }
-
 .follow-item-image {
   width: 50px;
   height: 50px;
@@ -1070,7 +898,6 @@ div .icon-input-box {
   border: 1px solid #FFE162;
   margin-right: 6rem;
 }
-
 .follow-item-name {
   margin-right: 4rem;
   margin-bottom: 0;
@@ -1081,36 +908,29 @@ div .icon-input-box {
 /* ============================
 * Recipe
 ============================ */
-
 /* ----------------------------
 * sidebar
 ---------------------------- */
-
 .recipe-category-list {
   margin: 1rem 0;
 }
-
 .recipe-category-item {
   list-style: none;
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-
 .recipe-category-item a {
   display: block;
   color: #333;
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
-
 .recipe-category-item a:hover {
   border-bottom: 1px solid #91C483;
 }
-
 .recipe-category-accordion {
   border-bottom: 1px solid #ddd;
 }
-
 .recipe-category-button {
   background-color: #fafafa;
 }
@@ -1124,7 +944,6 @@ div .icon-input-box {
 /* ============================
 * Post
 ============================ */
-
 .content-center {
   margin: 0 auto;
 }
@@ -1135,18 +954,15 @@ div .icon-input-box {
   align-items: center;
   margin-bottom: 4rem;
 }
-
 .post-page-title .page-title {
   margin-bottom: 0;
 }
-
 .post-create-button {
   color: #fff;
   background-color: #91C483;
   border: none;
   padding: 0.5rem 1rem;
 }
-
 .post-create-button:hover {
   color: #fff;
   background-color: #FFE162;
@@ -1156,89 +972,71 @@ div .icon-input-box {
   margin-bottom: 1rem;
   padding: 1rem;
 }
-
 .recipe-form-body {
   padding: 3rem;
 }
-
 .recipe-form-section {
   margin-bottom: 3rem;
   padding-bottom: 3rem;
 }
-
 .recipe-form-title {
   font-size: 2rem;
   margin-bottom: 2rem;
 }
-
 .recipe-form-title-group {
   display: flex;
   justify-content: space-between;
   margin-bottom: 4rem;
 }
-
 .recipe-form-title-group h2 {
   margin-bottom: 0;
 }
-
 .recipe-form-image {
   width: 298px;
   height: 447px;
   margin: 0 auto;
 }
-
 .recipe-form-procedure-image {
   width: 144px;
   height: 144px;
 }
-
 .recipe-form-label {
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
-
 .recipe-form-input {
   margin-bottom: 1.5rem;
   padding: 0.5rem;
 }
-
 .recipe-form-button {
   background-color: #91C483;
   color: #fff;
   padding: 0.5rem 1rem;
 }
-
 .recipe-form-button-layout {
   margin: 0 auto;
 }
-
 .recipe-form-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .recipe-form-order {
   font-size: 2rem;
   margin: auto 0;
 }
-
 .recipe-form-list {
   margin-bottom: 2rem;
 }
-
 .recipe-form-list-item {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
 }
-
 .recipe-form-list-item h4 span {
   padding-right: 1rem;
 }
-
 .recipe-form-explanation {
   padding: 7rem;
 }
-
 .recipe-form-description {
   margin-bottom: 2rem;
 }
@@ -1253,11 +1051,9 @@ div .icon-input-box {
   align-items: center;
   margin-bottom: 4rem;
 }
-
 .title-update-input {
   padding-left: 2rem;
 }
-
 .title-update-button {
   margin-left: 2rem;
 }
@@ -1265,16 +1061,13 @@ div .icon-input-box {
 /* ----------------------------
 * Show
 ---------------------------- */
-
 /* ----------------------------
 * Edit Material / Seasoning
 ---------------------------- */
-
 .post-edit-button {
   background-color: #91C483;
   color: #fff;
 }
-
 .post-edit-button:hover {
   background-color: #FFE162;
   color: #333;
@@ -1283,68 +1076,54 @@ div .icon-input-box {
 .material {
   margin-bottom: 6rem;
 }
-
 .material-form {
   margin-bottom: 6rem;
 }
-
 .material-form :nth-child(n) {
   margin-right: 4rem;
 }
-
 .material-form :last-child {
   margin-right: 0;
 }
-
 .material-form-icon {
   text-align: center;
   margin: auto 0;
 }
-
 .material-form-button {
   background-color: #FF6464;
   color: #fff;
 }
-
 .material-form-button:hover {
   opacity: 0.7;
   color: #fff;
 }
-
 .material-form-button-margin {
   margin-bottom: 3rem;
 }
-
 .material-form-button-back {
   width: 80px;
   color: #fff;
   background-color: #91C483;
   margin-bottom: 4rem;
 }
-
 .material-form-button-back:hover {
   color: #fff;
   background-color: #FFE162;
 }
-
 .material-form-boundary-line {
   margin-bottom: 4rem;
   background-color: #888;
 }
-
 .material-register-form {
   padding: 1rem;
 }
-
 .material-register-form-label {
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
-
 .material-register-form-tag {
   margin-bottom: 3rem;
 }
-
 .material-register-form-tag > p {
   background-color: #FFE162;
   color: #333;
@@ -1352,11 +1131,9 @@ div .icon-input-box {
   text-align: center;
   border-radius: 0.8rem;
 }
-
 .material-register-form-tag :nth-child(n) {
   margin-right: 1rem;
 }
-
 .material-register-form-tag :last-child {
   margin-right: 0;
 }
@@ -1365,73 +1142,59 @@ div .icon-input-box {
   margin-bottom: 1rem;
   padding: 1rem;
 }
-
 .recipe-register-form-body {
   padding: 3rem;
 }
-
 .recipe-register-form-section {
   margin-bottom: 3rem;
   padding-bottom: 3rem;
 }
-
 .recipe-register-form-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
-
 .recipe-register-form-image {
   width: 298px;
   height: 447px;
   margin: 0 auto;
 }
-
 .recipe-register-form-procedure-image {
   width: 250px;
   height: 250px;
 }
-
 .recipe-register-form-label {
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
-
 .recipe-register-form-input {
   margin-bottom: 1.5rem;
   padding: 0.5rem;
 }
-
 .recipe-register-form-button {
   background-color: #91C483;
   color: #fff;
   padding: 0.5rem 1rem;
 }
-
 .recipe-register-form-button-layout {
   margin: 0 auto;
 }
-
 .recipe-register-form-button:hover {
   background-color: #FFE162;
   color: #333;
 }
-
 .recipe-register-form-order {
   font-size: 2rem;
   margin: auto 0;
 }
-
 .recipe-register-form-material {
   margin-bottom: 2rem;
   font-size: 1.5rem;
 }
-
 .recipe-register-form-material-list {
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #dee2e6;
 }
-
 .recipe-register-form-explanation {
   width: 500px;
   min-height: 200px;
@@ -1441,29 +1204,23 @@ div .icon-input-box {
 /* ----------------------------
 * Edit Procedure
 ---------------------------- */
-
 .procedure-form {
   margin-bottom: 4rem;
 }
-
 .procedure-form-group {
   margin-bottom: 4rem;
 }
-
 .procedure-form-update {
   display: flex;
 }
-
 .procedure-texarea {
   padding: 1.5rem;
 }
-
 .procedure-button {
   background-color: #91C483;
   color: #fff;
   padding: 0.5rem 1rem;
 }
-
 .procedure-button:hover {
   background-color: #FFE162;
   color: #333;
@@ -1474,7 +1231,6 @@ div .icon-input-box {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
 .edit-procedure-number-group {
   display: flex;
   justify-content: space-between;
@@ -1483,37 +1239,30 @@ div .icon-input-box {
   border-bottom: 1px solid #ddd;
   margin-bottom: 2rem;
 }
-
 .edit-procedure-form-group {
   justify-content: center;
 }
-
 .edit-procedure-form-textarea {
   width: 600px;
 }
-
 .edit-procedure-button-group {
   display: flex;
   align-items: center;
 }
-
 .edit-procedure-button-update {
   background-color: #91C483;
   color: #fff;
   margin-right: 2rem;
   min-width: 100px;
 }
-
 .edit-procedure-button-update :hover {
   opacity: 0.8;
 }
-
 .edit-procedure-button-delete {
   background-color: #FF6464;
   color: #fff;
   min-width: 100px;
 }
-
 .edit-procedure-button-delete :hover {
   opacity: 0.8;
 }
@@ -1521,12 +1270,10 @@ div .icon-input-box {
 .sort-procedure-group {
   align-items: center;
 }
-
 .sort-procedure-image {
   width: 250px;
   height: 250px;
 }
-
 .sort-procedure-text-area {
   width: 600px;
   height: 200px;
@@ -1537,7 +1284,6 @@ div .icon-input-box {
 /* ----------------------------
 * show
 ---------------------------- */
-
 .post-show-card {
   padding: 3rem 10rem;
 }
@@ -1545,8 +1291,7 @@ div .icon-input-box {
 /* ============================
 * Shop
 ============================ */
-
 .shop-search-button {
   margin-left: 2rem;
 }
-
+/*# sourceMappingURL=app.css.map */

@@ -3498,7 +3498,7 @@ var render = function render() {
     return _c("div", {
       key: text.id
     }, [_c("div", {
-      staticClass: "row cols-4 spacing-reset material-form"
+      staticClass: "row cols-3 spacing-reset material-form sort-procedure-group"
     }, [_c("i", {
       staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon"
     }), _vm._v(" "), _c("input", {
@@ -3518,11 +3518,13 @@ var render = function render() {
         value: index
       }
     }), _vm._v(" "), _c("img", {
-      staticClass: "preview-image",
+      staticClass: "preview-image sort-procedure-image",
       attrs: {
         src: "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" + text.photo
       }
-    }), _vm._v(" "), _c("p", [_vm._v("\n                    " + _vm._s(text.procedure) + "\n                ")])])]);
+    }), _vm._v(" "), _c("p", {
+      staticClass: "sort-procedure-text-area"
+    }, [_vm._v("\n                    " + _vm._s(text.procedure) + "\n                ")])])]);
   }), 0)], 1);
 };
 
@@ -3606,7 +3608,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "row cols-2 procedure-form-group"
+    staticClass: "row cols-2 procedure-form-group edit-procedure-form-group"
   }, [_c("div", {
     staticClass: "col-4 image-input-block"
   }, [_c("div", {
@@ -3637,17 +3639,19 @@ var render = function render() {
     attrs: {
       src: "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" + _vm.procedure.photo
     }
-  })])])])])])]), _vm._v(" "), _c("textarea", {
-    staticClass: "form-control col",
+  })])])])])]), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control col-8 edit-procedure-form-textarea",
     attrs: {
       type: "text",
+      cols: "30",
+      rows: "10",
       placeholder: "材料の分量を入力してください",
       name: "procedure"
     },
     domProps: {
       value: _vm.procedure.procedure
     }
-  })]);
+  })])]);
 };
 
 var staticRenderFns = [function () {

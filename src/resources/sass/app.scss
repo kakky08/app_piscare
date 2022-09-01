@@ -207,6 +207,7 @@ $fontsize-nav: 1rem;
         &-item {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         &-title {
@@ -253,7 +254,7 @@ $fontsize-nav: 1rem;
 
             p {
                 font-size: 1.3rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 3rem;
 
                 span {
                     font-weight: bold;
@@ -288,7 +289,7 @@ $fontsize-nav: 1rem;
 
         &-separator {
             color: $gray-color;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         &-subheading {
@@ -299,6 +300,14 @@ $fontsize-nav: 1rem;
                 margin-left: 1rem;
                 font-size: 1.5rem;
             }
+        }
+
+        &-description{
+            min-height: 200px;
+        }
+
+        &-contributor{
+            margin-bottom: 4rem;
         }
 
         &-link {
@@ -347,6 +356,40 @@ $fontsize-nav: 1rem;
                     }
                 }
         }
+
+        &-procedure{
+            li {
+                margin-bottom: 3rem;
+            }
+            &-list{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 0;
+            }
+            &-image{
+                width: 250px;
+                height: 250px;
+            }
+
+            &-item{
+                list-style: none;
+            }
+
+            &-text{
+                width: 500px;
+                min-height: 150px;
+                padding: 1rem;
+                font-size: 1.2rem;
+            }
+
+            &-num{
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+
+
 
     }
 }
@@ -441,7 +484,8 @@ $fontsize-nav: 1rem;
         color: $white-color;
         background-color: $red-color;
         border-color: $red-color;
-        margin-left: 4rem;
+        margin-left: 3rem;
+        min-width: 8rem;
 
         &:hover {
                 opacity: 0.8;
@@ -453,7 +497,8 @@ $fontsize-nav: 1rem;
         color: $white-color;
         background-color: $green-color;
         border-color: $green-color;
-        margin-left: 4rem;
+        margin-left: 3rem;
+        min-width: 8rem;
 
         &:hover{
             opacity: 0.8;
@@ -738,6 +783,87 @@ $fontsize-nav: 1rem;
                 color: $twitter-color;
             }
         }
+    }
+}
+
+/* ============================
+* TopPage
+============================ */
+.main-container{
+    width: 1000px;
+    margin: 200px auto 0;
+}
+
+.top{
+    &-section{
+        text-align: center;
+        margin-bottom: 8rem;
+
+        &-text{
+            font-size: 1rem;
+            letter-spacing: 4px;
+            padding-bottom: 1.3rem;
+            line-height: 2.5rem;
+
+            &-box{
+                width: 450px;
+            }
+        }
+
+        &-image{
+            width: 400px;
+        }
+    }
+    &-title{
+        font-size: 5rem;
+        margin-bottom: 3rem;
+
+        &-second{
+            text-align: center;
+            margin-bottom: 8rem;
+        }
+
+        &-third{
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    }
+    &-sub-title{
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    &-button{
+        display: block;
+        width: 300px;
+        margin: 0 auto 12rem;
+        padding: 1rem;
+        background-color: $secondary-color;
+        color: $font-color;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+
+    &-sub-section{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6rem;
+
+        &-reverse{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            margin-bottom: 6rem;
+        }
+    }
+
+    &-footer{
+        background-color: $secondary-color;
+        padding: 3rem;
     }
 }
 
@@ -1132,7 +1258,7 @@ div .icon-input-box{
 
     &-section {
         margin-bottom: 3rem;
-        padding-bottom: 1.5rem;
+        padding-bottom: 3rem;
 
     }
 
@@ -1209,9 +1335,8 @@ div .icon-input-box{
         padding: 7rem;
     }
 
-    &-flex-column{
-        display: flex;
-        flex-direction: column;
+    &-description{
+        margin-bottom: 2rem;
     }
 
 }
@@ -1225,7 +1350,7 @@ div .icon-input-box{
 
     &-form{
     display: flex;
-    align-items: end;
+    align-items: center;
     margin-bottom: 4rem;
     }
 
@@ -1234,9 +1359,14 @@ div .icon-input-box{
     }
 
     &-button{
+
         margin-left: 2rem;
     }
 }
+
+/* ----------------------------
+* Show
+---------------------------- */
 
 /* ----------------------------
 * Edit Material / Seasoning
@@ -1256,14 +1386,14 @@ div .icon-input-box{
     }
 }
 .material {
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
 
 
     &-form {
-        margin-bottom: 3rem;
+        margin-bottom: 6rem;
 
         :nth-child(n) {
-            margin-right: 1rem;
+            margin-right: 4rem;
         }
 
         :last-child {
@@ -1346,7 +1476,7 @@ div .icon-input-box{
     }
     &-section{
         margin-bottom: 3rem;
-        padding-bottom: 1.5rem;
+        padding-bottom: 3rem;
 
     }
     &-title{
@@ -1359,8 +1489,8 @@ div .icon-input-box{
         margin: 0 auto;
     }
     &-procedure-image{
-        width: 144px;
-        height: 144px;
+        width: 250px;
+        height: 250px;
     }
     &-label{
         margin-bottom: 1.5rem;
@@ -1400,14 +1530,10 @@ div .icon-input-box{
 
         }
     }
-    &-link{
-        &:hover {
-            background-color: rgba(255, 255, 98, 0.2);
-            transition: background-color 1s;
-        }
-    }
     &-explanation{
-        padding: 7rem;
+        width: 500px;
+        min-height: 200px;
+        padding: 1.5rem;
     }
 
 }
@@ -1447,6 +1573,72 @@ div .icon-input-box{
     }
 }
 
+
+.edit-procedure{
+    &-number{
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        &-group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem 0.5rem;
+            border-bottom: 1px solid $gray-color;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-form{
+        &-group{
+            justify-content: center;
+        }
+        &-textarea{
+            width: 600px;
+        }
+    }
+    &-button{
+
+        &-group{
+            display: flex;
+            align-items: center;
+        }
+        &-update{
+            background-color: $green-color;
+            color: $white-color;
+            margin-right: 2rem;
+            min-width: 100px;
+            :hover {
+                opacity: 0.8;
+            }
+        }
+        &-delete{
+            background-color: $red-color;
+            color: $white-color;
+            min-width: 100px;
+            :hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.sort-procedure{
+    &-group{
+        align-items: center;
+    }
+    &-image{
+        width: 250px;
+        height: 250px;
+    }
+    &-text-area{
+        width: 600px;
+        height: 200px;
+        padding: 1rem;
+        border: 1px solid #ced4da;
+    }
+}
 /* ----------------------------
 * show
 ---------------------------- */

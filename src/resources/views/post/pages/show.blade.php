@@ -43,16 +43,14 @@
         <h2 class="show-card-title">{{ $recipe->title }}</h2>
         <div class="show-card-item">
             @if (isset($recipe->image))
-                <img class="show-card-image" src="{{ $recipe->image }}" alt="{{ $recipe->title }}の料理画像">
+                <img class="show-card-image" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recipe->image }}" alt="{{ $recipe->title }}の料理画像">
             @else
                 <img class="show-card-image" src="https://placehold.jp/360x360.png" alt="イメージ画像はありません">
             @endif
             <div class="show-card-text">
-                {{--  <p><span>所要時間</span> : {{ $recipe->recipeIndication }}</p>
-                <p><span>費用</span> : {{ $recipe->recipeCost }}</p> --}}
-                <p><span>投稿者</span> : <a href="{{ route('information.show', ['name' => $recipe->user->name ])}}">{{ $recipe->user->name }}</a></p>
-                {{-- <p><span>コメント</span> :</p>
-                <p>{{ $recipe->recipeDescription }}</p> --}}
+                <p class="show-card-contributor"><span>投稿者</span> : <a href="{{ route('information.show', ['name' => $recipe->user->name ])}}">{{ $recipe->user->name }}</a></p>
+                <h3 class="show-card-subheading">コメント</h3>
+                <p class="show-card-description">{{ $recipe->description}}</p>
             </div>
         </div>
     </div>
@@ -86,16 +84,21 @@
     <hr class="show-card-separator">
     <h3 class="show-card-subheading">手順</h3>
         @if (isset($recipe->procedures))
-            <ul>
+            <ul class="show-card-procedure">
                 @foreach ($recipe->procedures as $procedure)
-                    <li>
-                        <ul>
+                    <li class="show-card-procedure-item">
+                        <ul class="show-card-procedure-list">
+                            <li class="show-card-procedure-item">
+                                <p class="show-card-procedure-num">{{ $procedure->order + 1 }}.</p>
+                            </li>
                             @if (isset($procedure->photo))
-                                <li><img src="{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像"></li>
+                                <li class="show-card-procedure-item"><img class="show-card-procedure-image" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像"></li>
                             @else
-                                <li><img src="https://placehold.jp/200x200.png" alt="手順の画像はありません"></li>
+                                <li class="show-card-procedure-item"><img src="https://placehold.jp/250x250.png" alt="手順の画像はありません"></li>
                             @endif
-                            <li>{{ $procedure->procedure }}</li>
+                            <li class="show-card-procedure-item">
+                                <p class="show-card-procedure-text">{{ $procedure->procedure }}</p>
+                            </li>
                         </ul>
                     </li>
                 @endforeach

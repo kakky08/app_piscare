@@ -11,14 +11,6 @@ use Illuminate\Http\Request;
 
 class HotpepperController extends Controller
 {
-    // HTTPリクエストを送るURL
-
-
-    // private const REQUEST_URL = config('hotpepper.request_url');
-
-    // private const REQUEST_URL_AREA = config('hotpepper.request_area');
-
-
     /**
      * ショップ情報の取得
      *

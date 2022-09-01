@@ -33,6 +33,11 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 /* ====================
+    トップページ
+==================== */
+Route::get('/','TopController@index')->name('top');
+
+/* ====================
     ソーシャルログイン
 ==================== */
 Route::prefix('login')->name('login.')->group(function () {
