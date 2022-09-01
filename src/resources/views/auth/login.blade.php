@@ -51,7 +51,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row auth-form-group">
+                       {{--  <div class="form-group row auth-form-group">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -61,7 +61,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row auth-form-group">
                             <div class="col-md-8  d-grid mx-auto">
@@ -69,11 +69,11 @@
                                     Login
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         パスワードを忘れた方はこちら
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>
@@ -87,11 +87,11 @@
                             <i class="fab fa-github auth-button-social-icon"></i>GitHubでログイン
                         </a>
                     </div>
-                    <div class="d-grid gap-2 col-8 mx-auto auth-button-social">
+                   {{--  <div class="d-grid gap-2 col-8 mx-auto auth-button-social">
                         <a href="{{ route('login.{provider}', ['provider' => 'twitter']) }}" class="btn btn-block auth-button-twitter auth-button-social-link">
                             <i class="fab fa-twitter auth-button-social-icon"></i>Twitterでログイン
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
