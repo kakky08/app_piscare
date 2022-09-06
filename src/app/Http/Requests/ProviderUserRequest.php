@@ -24,7 +24,7 @@ class ProviderUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|regex:/^[a-zA-Z0-9]+$/',
+            'name' => 'required|max:8|string|unique:users',
             'email' => 'required|max:255|email|unique:users',
         ];
     }
