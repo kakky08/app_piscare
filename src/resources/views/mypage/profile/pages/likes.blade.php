@@ -29,7 +29,7 @@
                     />
                 </a>
                 @endif
-                <div class="p-5">
+                <div class="p-5 w-80 2xl:w-96">
                     <a href="{{ route('post.show', ['id' => $post->id ])}}">
                         <h5 class="mb-3 h-28 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-80">
                             {{ $post->title}}
@@ -67,7 +67,7 @@
                     />
                 </a>
                 @endif
-                <div class="p-5">
+                <div class="p-5 w-80 2xl:w-96">
                     <a href="{{ route('recipe.show', $recipe->id) }}">
                         <h5 class="mb-3 h-28 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-80">
                             {{ $recipe->recipeTitle}}
