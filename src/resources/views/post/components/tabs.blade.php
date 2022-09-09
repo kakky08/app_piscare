@@ -1,14 +1,18 @@
-<ul class="nav  nav-justified profile-nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link text-muted {{ $isNew ? 'active' : '' }}"
-        href="{{ route('post.index') }}">
-        新着順
+<ul class="mb-12 flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200">
+    <li class=" w-6/12">
+        <a
+            href="{{ route('post.index') }}"
+            class="{{  $isNew  ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+        >
+            新着順
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-muted {{ $isPopular ? 'active' : '' }}"
-        href="{{ route('post.popular') }}">
-        人気順
+    <li class=" w-6/12">
+        <a
+            href="{{ route('post.popular') }}"
+            class="{{  $isPopular ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+        >
+            人気順
         </a>
     </li>
 </ul>
