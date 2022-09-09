@@ -1,8 +1,19 @@
-<div class="row justify-content-around align-items-center spacing-reset calender-button-group">
-    <a href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}" class="btn col-md-3 calender-button">前の月へ</a>
-    <p class="col-lg-3 text-center">{{ $year }}年 {{ $month }}月</p>
-    <a href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}" class="btn col-md-3 calender-button">次の月へ</a>
+<div class="flex justify-around items-center mb-8">
+    <a
+        href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}"
+        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
+    >
+        前の月へ
+    </a>
+    <p class="text-lg text-center">{{ $year }}年 {{ $month }}月</p>
+    <a
+        href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}"
+        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
+    >
+        次の月へ
+    </a>
 </div>
+
 
 <table class="table table-bordered">
     <thead>
@@ -26,13 +37,13 @@
                         @if (isset($array[sprintf('%02d', $date->day)]))
                             @switch($array[sprintf('%02d', $date->day)])
                                 @case(1)
-                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-first fa-3x"></i></p>
+                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-first text-4xl md:text-5xl mt-2"></i></p>
                                     @break
                                 @case(2)
-                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-second fa-3x"></i></p>
+                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-second text-4xl md:text-5xl mt-2"></i></p>
                                     @break
                                 @case(3)
-                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-third fa-3x"></i></p>
+                                    <p class="calender-fish-icon"><i class="fa fa-fish fish-color-third text-4xl md:text-5xl mt-2"></i></p>
                                     @break
                                 @default
 

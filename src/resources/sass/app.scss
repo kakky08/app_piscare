@@ -821,10 +821,7 @@ $fontsize-nav: 1rem;
 .mypage{
     &-sidebar {
         list-style: none;
-        &-icon{
-            width: 30px;
-            margin-right: 0.5rem;
-        }
+
     }
 
     &-menu{
@@ -896,7 +893,11 @@ $fontsize-nav: 1rem;
     }
 
     &-table-data {
-        min-width: 80px;
+        min-width: 60px;
+        /* @media screen and (min-width:768){
+            min-width: 60px;
+        } */
+
     }
 
     &-fish-icon {

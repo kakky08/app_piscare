@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('header')
-        @include('components.header.app', ['page' => 'setting'])
+        @include('common.navbar.app', ['page' => 'setting'])
 @endsection
 @section('aside')
-    @include('mypage.components.sidebar',  ['page' => 'setting'])
+    @include('common.aside.mypage',  ['page' => 'setting'])
 @endsection
 @section('main')
-    <h1 class="mypage-title">Setting</h1>
+    @include('common.tab.mypage',  ['page' => 'setting'])
+    <h1 class="text-5xl mb-16">Setting</h1>
     @include('mypage.setting.message.successMessage')
     <h2 class="mypage-subtitle">メールアドレスの変更</h2>
     @include('mypage.setting.message.updateEmailError')
@@ -15,36 +16,82 @@
             <p class="setting-title">現在のメールアドレス</p>
             <p class="setting-text">{{ $user->email }}</p>
         </div>
+
         <div class="setting-block">
             <p class="setting-title">新しいメールアドレス</p>
-            <form id="updateEmail" method="POST" action="{{ route('setting.updateEmail', ['user' => $user ]) }}">
+            <form
+                id="updateEmail"
+                method="POST"
+                action="{{ route('setting.updateEmail', ['user' => $user ]) }}"
+                class="flex md:flex-row w-3/4 w-full md:space-y-0"
+            >
                 @method("PATCH")
                 @csrf
-                <input type="email" class="setting-input" name="email" placeholder="新しいメールアドレス">
+                <div class="relative ml-16 mr-3 w-full">
+                    <input
+                        type="email"
+                        name="email"
+                        class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                        placeholder="新しく登録するメールアドレスを入力してください"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    form="updateEmail"
+                    class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+                >
+                    変更
+                </button>
             </form>
         </div>
-        <button type="submit" form="updateEmail" class="btn setting-button">メールアドレスを変更する</button>
     </div>
-    @if (isset($user->password))
+    @if (!isset($user->password))
         <h2 class="mypage-subtitle">パスワードの変更</h2>
         @include('mypage.setting.message.updatePasswordError')
         <form id="updatePassword" method="POST" action="{{ route('setting.updatePassword', ['user' => $user ])}}">
             @method("PATCH")
             @csrf
             <div class="setting-password">
-                <div class="setting-block">
+                <div class="mb-8">
                     <p class="setting-title">以前のパスワード</p>
-                    <input type="password" class="setting-input" name="current_password" placeholder="以前のパスワード">
+                    <div class="relative ml-16 mr-3 w-10/12">
+                        <input
+                            type="password"
+                            name="current_password"
+                            class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                            placeholder="以前のパスワードを入力してください"
+                        />
+                    </div>
                 </div>
-                <div class="setting-block">
+                <div class="mb-8">
                     <p class="setting-title">新しいパスワード</p>
-                    <input type="password" class="setting-input" name="new_password" placeholder="新しいパスワード">
+                    <div class="relative ml-16 mr-3 w-10/12">
+                        <input
+                            type="password"
+                            name="new_password"
+                            class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                            placeholder="新しいパスワードを8文字以上の英数字で入力してください"
+                        />
+                    </div>
                 </div>
-                <div class="setting-block">
+                <div class="mb-16">
                     <p class="setting-title">パスワードの確認</p>
-                    <input type="password" class="setting-input" name="new_password_confirmation" placeholder="パスワードの確認">
+                    <div class="relative ml-16 mr-3 w-10/12">
+                        <input
+                            type="password"
+                            name="new_password_confirmation"
+                            class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                            placeholder="確認のためもう一度新しいパスワードを入力してください"
+                        />
+                    </div>
                 </div>
-                <button type="submit" form="updatePassword" class="btn setting-button">パスワードを変更する</button>
+                <button
+                    type="submit"
+                    form="updatePassword"
+                    class="text-white ml-8 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
+                >
+                    パスワードを変更する
+                </button>
             </div>
         </form>
     @endif
@@ -56,22 +103,36 @@
     <form id="updateIcon" method="POST"  action="{{ route('setting.updateIcon', ['user' => $user->id ]) }}" enctype="multipart/form-data">
         @method("PATCH")
         @csrf
-        <div class="setting-icon-group">
-            <div class="setting-icon-old">
-                <p class="setting-icon-text">現在のアイコン</p>
+        <div class="flex p-x8 justify-between items-center">
+            <div>
+                <p class="bg-yellow-300 text-gray-700 rounded text-center p-1 mb-8">現在のアイコン</p>
                 @if (empty($user->icon))
-                    <img src="{{ asset('images/yellowtail.png') }}" class="profile-icon" alt="{{$user->name}}の初期アイコン">
+                    <img
+                        src="{{ asset('images/yellowtail.png') }}"
+                        class="w-40 h-40 lg:w-52 lg:h-52 object-scale-down bg-center rounded-full border-2 border-solid border-yellow-300"
+                        alt="{{$user->name}}の初期アイコン">
                 @else
-                    <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}" class="profile-icon" alt="{{$user->name}}のアイコン">
+                    <img
+                        src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}"
+                        class="w-40 h-40 lg:w-52 lg:h-52 object-scale-down bg-center rounded-full border-2 border-solid border-yellow-300"
+                        alt="{{$user->name}}のアイコン"
+                    >
                 @endif
             </div>
-            <div class="setting-icon-new">
-                <p class="setting-icon-text">新しいアイコン</p>
+            <div>
+                <p class="bg-yellow-300 text-gray-700 rounded text-center p-1 mb-8">新しいアイコン</p>
                 <icon-component></icon-component>
             </div>
-            <div>
-                <button type="submit" form="updateIcon" class="btn setting-button setting-icon-button">アイコンを変更する</button>
-            </div>
+            <button
+                type="submit"
+                form="updateIcon"
+                class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm mt-16 md:px-16 px-8 py-2.5 text-center"
+            >
+                アイコンを変更する
+            </button>
+            {{-- <button type="submit" form="updateIcon" class="btn setting-button setting-icon-button">アイコンを変更する</button> --}}
+           {{--  <div>
+            </div> --}}
         </div>
     </form>
 @endsection

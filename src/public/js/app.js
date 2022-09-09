@@ -3211,11 +3211,12 @@ var render = function render() {
   return _c("div", {
     staticClass: "col-4 image-input-block"
   }, [_c("div", {
-    staticClass: "image-input-box icon-input-box"
+    staticClass: "w-40 h-40 lg:w-52 lg:h-52 rounded-full bg-gray-200"
   }, [_c("div", {
-    staticClass: "image-input-field"
+    staticClass: "relative w-full h-full flex justify-center items-center"
   }, [_c("input", {
     ref: "preview",
+    staticClass: "absolute w-full h-full top-0 left-0 z-50 opacity-0 cursor-pointer",
     attrs: {
       type: "file",
       name: "file",
@@ -3225,9 +3226,9 @@ var render = function render() {
       change: _vm.onChange
     }
   }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.url ? _c("div", {
-    staticClass: "preview-box"
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image icon-preview-image",
+    staticClass: "w-40 h-40 lg:w-52 lg:h-52 object-cover bg-center rounded-full border-2 border-solid border-yellow-300",
     attrs: {
       src: _vm.url
     }
@@ -3238,8 +3239,10 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("p", [_c("span", {
-    staticClass: "image-input-text icon-input-text"
+  return _c("p", {
+    staticClass: "text-gray-400 text-center mb-0"
+  }, [_c("span", {
+    staticClass: "block"
   }, [_vm._v("クリックして"), _c("br"), _vm._v("アイコンを載せる")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("i", {
     staticClass: "fas fa-camera fa-2x"
   })]);

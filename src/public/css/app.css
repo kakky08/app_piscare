@@ -705,11 +705,6 @@
   list-style: none;
 }
 
-.mypage-sidebar-icon {
-  width: 30px;
-  margin-right: 0.5rem;
-}
-
 .mypage-menu {
   color: #333;
   margin-bottom: 4rem;
@@ -781,7 +776,10 @@
 }
 
 .calender-table-data {
-  min-width: 80px;
+  min-width: 60px;
+  /* @media screen and (min-width:768){
+      min-width: 60px;
+  } */
 }
 
 .calender-fish-icon {

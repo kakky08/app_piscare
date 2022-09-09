@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('header')
-    @include('components.header.app', ['page' => 'home'])
+    @include('common.navbar.app', ['page' => 'home'])
 @endsection
 @section('aside')
-    @include('mypage.components.sidebar',  ['page' => 'home'])
+    @include('common.aside.mypage',  ['page' => 'home'])
 @endsection
 @section('main')
+    @include('common.tab.mypage',  ['page' => 'home'])
     <h2 class="mypage-title">カレンダー</h2>
     @include('mypage.home.components.selectDay')
     @include('mypage.home.components.recordButton')
