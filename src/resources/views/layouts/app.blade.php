@@ -29,15 +29,13 @@
     <body>
         <div id="app">
             @yield('header')
-            <div class="container-fluid spacing-reset">
-                <div class="row spacing-reset">
-                    <aside class="col-md-3 aside-layout">
-                        @yield('aside')
-                    </aside>
-                    <main class="col-md-9 main-layout">
-                        @yield('main')
-                    </main>
-                </div>
+            <div class="md:flex">
+                {{-- <aside class="col-md-3 aside-layout"> --}}
+                    @yield('aside')
+                {{-- </aside> --}}
+                <main class="px-6 py-10 w-full">
+                    @yield('main')
+                </main>
             </div>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
@@ -45,5 +43,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap core JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- flowbite -->
+        <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
     </body>
 </html>
