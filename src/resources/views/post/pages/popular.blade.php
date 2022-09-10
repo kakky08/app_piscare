@@ -1,19 +1,19 @@
 @extends('layouts.single')
 @section('header')
-    @include('components.header.app',  ['page' => 'post'])
+    @include('common.navbar.app',  ['page' => 'post'])
 @endsection
 @section('main')
     @include('post.components.title')
     @include('post.components.tabs', ['isNew' => false, 'isPopular' => true,])
 
     {{-- カード --}}
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
         @foreach($recipes as $recipe)
             <div class="mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 @if (isset($recipe->image))
                 <a href="{{ route('post.show', ['id' => $recipe->id ])}}">
                     <img
-                        class="rounded-t-lg w-full h-64 object-cover"
+                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover"
                         src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recipe->image }}"
                         alt="{{ $recipe->user->name }}が投稿したレシピの画像
                     />
@@ -21,7 +21,7 @@
                 @else
                 <a href="{{ route('post.show', ['id' => $recipe->id ])}}">
                     <img
-                        class="rounded-t-lg w-full h-64 object-cover hover:opacity-80"
+                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover hover:opacity-80"
                         src="{{ asset('images/noimage.jpeg') }}"
                         alt="レシピの画像が存在しません。"
                     />

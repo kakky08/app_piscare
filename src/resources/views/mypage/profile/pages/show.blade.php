@@ -9,13 +9,13 @@
     @include('common.tab.mypage',  ['page' => 'profile'])
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => true, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => false])
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
         @foreach($user->posts as $post)
             <div class="mx-auto max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 @if (isset($post->image))
                 <a href="{{ route('post.show', ['id' => $post->id ])}}">
                     <img
-                        class="rounded-t-lg w-full h-64 object-cover"
+                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover"
                         src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $post->image }}"
                         alt="{{ $post->title }}
                     />
@@ -23,7 +23,7 @@
                 @else
                 <a href="{{ route('post.show', ['id' => $post->id ])}}">
                     <img
-                        class="rounded-t-lg w-full h-64 object-cover hover:opacity-80"
+                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover hover:opacity-80"
                         src="{{ asset('images/noimage.jpeg') }}"
                         alt="イメージが存在しません"
                     />
