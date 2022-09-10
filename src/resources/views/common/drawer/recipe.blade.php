@@ -2,35 +2,35 @@
 <!-- drawer init and show -->
 <div class="text-center block md:hidden mb-10">
     @if($errors->has('keyword'))
-                    <p class="alert-message-error">※{{ $errors->first('keyword') }}</p>
-                @endif
-                <form method="GET" action="{{ route('recipe.search')}}"class="flex  items-center mb-10">
-                    <div class="relative mr-3 w-full">
-                        <input
-                        type="text"
-                        name="keyword"
-                        class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                        placeholder="キーワードを入力してください"
-                        />
-                    </div>
-                    <button
-                    type="submit"
-                    form="updateEmail"
-                    class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
-                    >
-                        検索
-                    </button>
-                </form>
-                <button
-                    type="button"
-                    data-drawer-target="drawer-navigation"
-                    data-drawer-show="drawer-navigation"
-                    aria-controls="drawer-navigation"
-                    form="updateEmail"
-                    class="text-white w-full flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
-                >
-                    カテゴリ検索
-                </button>
+        <p class="alert-message-error">※{{ $errors->first('keyword') }}</p>
+    @endif
+    <form method="GET" action="{{ route('recipe.search')}}"class="flex  items-center mb-10">
+        <div class="relative mr-3 w-full">
+            <input
+            type="text"
+            name="keyword"
+            class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+            placeholder="キーワードを入力してください"
+            />
+        </div>
+        <button
+        type="submit"
+        form="updateEmail"
+        class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+        >
+            検索
+        </button>
+    </form>
+    <button
+        type="button"
+        data-drawer-target="drawer-navigation"
+        data-drawer-show="drawer-navigation"
+        aria-controls="drawer-navigation"
+        form="updateEmail"
+        class="text-white w-full flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+    >
+        カテゴリ検索
+    </button>
 </div>
 
 <!-- drawer component -->
