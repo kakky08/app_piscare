@@ -20,9 +20,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Styles -->
-        {{-- <link href="{{ asset('css/reboot.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('css/reboot.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+        <!-- flowbite -->
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     </head>
@@ -31,7 +32,7 @@
             @yield('header')
             <div class="container-fluid spacing-reset">
                 <div class="row spacing-reset justify-content-center">
-                    <main class="col-md-11 main-layout">
+                    <main class="p-12">
                         @yield('main')
                     </main>
                 </div>
@@ -43,6 +44,6 @@
         <!-- Bootstrap core JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <!-- flowbite -->
-        <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     </body>
 </html>
