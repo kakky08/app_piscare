@@ -1,6 +1,6 @@
 @extends('layouts.single')
 @section('header')
-    @include('components.header.app',  ['page' => 'post-edit'])
+    @include('common.navbar.app',  ['page' => 'post-edit'])
 @endsection
 @section('main')
     <div class="card col-md-auto col-lg-auto material-register-form">
