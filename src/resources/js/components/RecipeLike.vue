@@ -1,12 +1,9 @@
 <template>
     <div class="show-card-like">
-        <button
-            type="button"
-            class="btn m-0 p-1 shadow-none"
-        >
+        <button type="button" class="m-0 p-1 shadow-none">
             <i
-                class="fas fa-heart mr-1 fa-2x show-card-icon"
-                :class="{'text-danger':this.isLikedBy}"
+                class="fas fa-heart mr-1 fa-2x text-gray-300"
+                :class="{ 'text-red-500': this.isLikedBy }"
                 @click="clickLike"
             />
         </button>
@@ -14,55 +11,52 @@
     </div>
 </template>
 <script>
-    export default {
-        props: {
-            initialIsLikedBy: {
-                type: Boolean,
-                default: false,
-            },
-            initialCountLikes: {
-                type: Number,
-                default: 0,
-            },
-            authorized: {
-                type: Boolean,
-                default: false,
-            },
-            endpoint: {
-                type: String,
-            },
+export default {
+    props: {
+        initialIsLikedBy: {
+            type: Boolean,
+            default: false,
         },
-        data(){
-            return {
-                isLikedBy: this.initialIsLikedBy,
-                countLikes: this.initialCountLikes,
-            }
+        initialCountLikes: {
+            type: Number,
+            default: 0,
         },
-        methods: {
-            clickLike(){
-                if(!this.authorized){
-                    alert('いいね機能はログイン中のみ使用できます')
-                    return
-                }
-
-                this.isLikedBy
-                    ? this.unlike()
-                    : this.like()
-            },
-
-            async like(){
-                const response = await axios.put(this.endpoint)
-
-                this.isLikedBy = true
-                this.countLikes = response.data.countLikes
-            },
-            async unlike(){
-                const response = await axios.delete(this.endpoint)
-
-                this.isLikedBy = false
-                this.countLikes = response.data.countLikes
+        authorized: {
+            type: Boolean,
+            default: false,
+        },
+        endpoint: {
+            type: String,
+        },
+    },
+    data() {
+        return {
+            isLikedBy: this.initialIsLikedBy,
+            countLikes: this.initialCountLikes,
+        };
+    },
+    methods: {
+        clickLike() {
+            if (!this.authorized) {
+                alert("いいね機能はログイン中のみ使用できます");
+                return;
             }
-        }
-    }
 
+            this.isLikedBy ? this.unlike() : this.like();
+        },
+
+        async like() {
+            const response = await axios.put(this.endpoint);
+
+            this.isLikedBy = true;
+            this.countLikes = response.data.countLikes;
+        },
+        async unlike() {
+            const response = await axios.delete(this.endpoint);
+
+            this.isLikedBy = false;
+            this.countLikes = response.data.countLikes;
+        },
+    },
+};
 </script>

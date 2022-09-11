@@ -2451,7 +2451,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     clickLike: function clickLike() {
       if (!this.authorized) {
-        alert('いいね機能はログイン中のみ使用できます');
+        alert("いいね機能はログイン中のみ使用できます");
         return;
       }
 
@@ -2582,7 +2582,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     clickLike: function clickLike() {
       if (!this.authorized) {
-        alert('いいね機能はログイン中のみ使用できます');
+        alert("いいね機能はログイン中のみ使用できます");
         return;
       }
 
@@ -3335,14 +3335,14 @@ var render = function render() {
   return _c("div", {
     staticClass: "show-card-like"
   }, [_c("button", {
-    staticClass: "btn m-0 p-1 shadow-none",
+    staticClass: "m-0 p-1 shadow-none",
     attrs: {
       type: "button"
     }
   }, [_c("i", {
-    staticClass: "fas fa-heart mr-1 fa-2x show-card-icon",
+    staticClass: "fas fa-heart mr-1 fa-2x text-gray-300",
     "class": {
-      "text-danger": this.isLikedBy
+      "text-red-500": this.isLikedBy
     },
     on: {
       click: _vm.clickLike
@@ -3442,14 +3442,14 @@ var render = function render() {
   return _c("div", {
     staticClass: "show-card-like"
   }, [_c("button", {
-    staticClass: "btn m-0 p-1 shadow-none",
+    staticClass: "m-0 p-1 shadow-none",
     attrs: {
       type: "button"
     }
   }, [_c("i", {
-    staticClass: "fas fa-heart mr-1 fa-2x show-card-icon",
+    staticClass: "fas fa-heart mr-1 fa-2x text-gray-300",
     "class": {
-      "text-danger": this.isLikedBy
+      "text-red-500": this.isLikedBy
     },
     on: {
       click: _vm.clickLike

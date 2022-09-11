@@ -1,6 +1,6 @@
 @extends('layouts.single')
 @section('header')
-    @include('components.header.app',  ['page' => 'post'])
+    @include('common.navbar.app',  ['page' => 'post'])
 @endsection
 @section('main')
     <div class="card">
