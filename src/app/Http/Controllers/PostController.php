@@ -218,8 +218,7 @@ class PostController extends Controller
             'procedure' => $request['procedure'],
         ]);
 
-        return redirect()->route('post.procedure.show', ['post' => $request->postId]);
-        // ->with('completion-of-registration-material', '登録が完了しました。');
+        return redirect()->route('post.procedure.show', ['post' => $request->postId])->with('completion-of-registration-procedure', '登録が完了しました。');
     }
 
     public function procedureUpdate(Request $request)
@@ -237,8 +236,7 @@ class PostController extends Controller
         $procedure->photo = $path;
         $procedure->procedure = $request->procedure;
         $procedure->save();
-        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
-        // ->with('completion-of-registration-material', '更新が完了しました。');
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-update-procedure', '更新が完了しました。');
 
     }
 
@@ -258,7 +256,7 @@ class PostController extends Controller
             $value->order = $procedure['order'];
             $value->save();
         }
-        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-sort-procedure', '更新が完了しました。');
     }
 
 
