@@ -50,7 +50,6 @@
             </div>
         @endforeach
     </div>
-
     {{-- ページネーション --}}
     <nav class="pagination justify-content-center">
         {{ $recipes->appends(request()->query())->links() }}
