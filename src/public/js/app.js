@@ -2401,7 +2401,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.$emit('file', this.url);
+    this.$emit("file", this.url);
   }
 });
 
@@ -3268,15 +3268,14 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row cols-2 procedure-form-group"
+    staticClass: "flex mb-16"
   }, [_c("div", {
-    staticClass: "col-4 image-input-block"
+    staticClass: "w-96 h-96"
   }, [_c("div", {
-    staticClass: "image-input-box main-image"
-  }, [_c("div", {
-    staticClass: "image-input-field"
+    staticClass: "relative flex w-full h-full justify-center items-center bg-gray-200"
   }, [_c("input", {
     ref: "preview",
+    staticClass: "absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer z-10",
     attrs: {
       type: "file",
       name: "file",
@@ -3286,28 +3285,30 @@ var render = function render() {
       change: _vm.onChange
     }
   }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.image ? _c("div", {
-    staticClass: "preview-box"
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image main-image",
+    staticClass: "w-96 h-96 object-cover bg-center",
     attrs: {
       src: "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" + _vm.image
     }
   })]) : _vm._e(), _vm._v(" "), _vm.url ? _c("div", {
-    staticClass: "preview-box"
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image main-image",
+    staticClass: "w-96 h-96 object-cover bg-center",
     attrs: {
       src: _vm.url
     }
-  })]) : _vm._e()])])])]);
+  })]) : _vm._e()])])]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("p", [_c("span", {
-    staticClass: "image-input-text"
+  return _c("p", {
+    staticClass: "text-gray-400 text-center mb-0"
+  }, [_c("span", {
+    staticClass: "block"
   }, [_vm._v("クリックして料理の写真を載せる")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("i", {
     staticClass: "fas fa-camera fa-2x"
   })]);

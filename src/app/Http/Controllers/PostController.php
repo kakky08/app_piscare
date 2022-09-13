@@ -10,6 +10,7 @@ use App\Http\Requests\PeopleRequest;
 use App\Http\Requests\PostNameRequest;
 use App\Http\Requests\SeasoningStoreRequest;
 use App\Http\Requests\SeasoningUpdateRequest;
+use App\Http\Requests\TitleRequest;
 use App\Material;
 use App\Post;
 use App\Procedure;
@@ -78,6 +79,14 @@ class PostController extends Controller
 
         $post->delete();
         return redirect()->route('post.index');
+    }
+
+    public function titleUpdate(TitleRequest $request, $post)
+    {
+        $post = Post::find($post);
+        $post->title = $request->title;
+        $post->save();
+        return redirect()->route('post.edit', ['post' => $post->id])->with('completion-of-registration-description', '登録が完了しました');
     }
 
     public function mainImageUpdate(MainImageRequest $request, $post)
