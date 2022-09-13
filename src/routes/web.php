@@ -138,6 +138,7 @@ Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::get('/{id}', 'PostController@show')->name('show');
     Route::delete('/{post}', 'PostController@destroy')->name('destroy');
     Route::get('edit/{post}', 'PostController@edit')->name('edit');
+    Route::put('/title/{post}/update', 'PostController@titleUpdate')->name('title.update');
     Route::put('/mainImage/{post}/update', 'PostController@mainImageUpdate')->name('mainImage.update');
     Route::put('/description/{post}/update', 'PostController@descriptionUpdate')->name('description.update');
     Route::get('/{post}/material/edit', 'PostController@materialShow')->name('material.show');

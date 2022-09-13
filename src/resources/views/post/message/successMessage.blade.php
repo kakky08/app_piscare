@@ -1,17 +1,9 @@
 @if (session('completion-of-registration-main-image'))
-    <div class="row cols-4 spacing-reset">
-        <div class="col-1"></div>
-        <div class="alert alert-message-success col" role="alert">
+        <div class="mb-12 mx-auto p-3 text-center bg-green-400 text-white w-full rounded-md" role="alert">
             {{ session('completion-of-registration-main-image') }}
         </div>
-        <div class="col-1"></div>
-    </div>
 @elseif (session('completion-of-registration-description'))
-    <div class="row cols-4 spacing-reset">
-        <div class="col-1"></div>
-        <div class="alert alert-message-success col" role="alert">
+        <div class="mb-12 mx-auto p-3 text-center bg-green-400 text-white w-full rounded-md" role="alert">
             {{ session('completion-of-registration-description') }}
         </div>
-        <div class="col-1"></div>
-    </div>
 @endif

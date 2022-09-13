@@ -1,3 +1,3 @@
 @if($errors->has('file'))
-    <p class="col alert-message-error">※{{ $errors->first('file') }}</p>
+    <p class="text-red-600 text-base mb-2">※{{ $errors->first('file') }}</p>
 @endif
