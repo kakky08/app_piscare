@@ -32,13 +32,9 @@
     <body>
         <div id="app">
             @yield('header')
-            <div class="container-fluid spacing-reset">
-                <div class="row spacing-reset justify-content-center">
-                    <main class="p-12">
-                        @yield('main')
-                    </main>
-                </div>
-            </div>
+            <main class="p-12 w-full">
+                @yield('main')
+            </main>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
         <!-- JQuery -->
