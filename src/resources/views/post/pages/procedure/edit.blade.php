@@ -16,7 +16,7 @@
             </a>
             <br />
             {{-- 登録完了メッセージ --}}
-            @include('post.pages.procedure.components.successMessage')
+            @include('post.pages.procedure.message.successMessage')
 
             {{-- 手順の新規登録フォーム --}}
             @include('post.pages.procedure.components.registerProcedure')

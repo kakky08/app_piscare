@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IconUpdateRequest;
 use App\Http\Requests\UpdateEmailRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\User;
@@ -38,7 +39,7 @@ $usre = Auth::user();
         return redirect()->route('setting.index')->with('conpletion-of-update-password', 'パスワードの更新が完了しました。');
     } */
 
-    public function updateIcon(Request $request, User $user)
+    public function updateIcon(IconUpdateRequest $request, User $user)
     {
 
         if(isset($user->icon))

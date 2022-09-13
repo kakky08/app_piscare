@@ -7,7 +7,17 @@
             class="mb-16"
             @end="onSort"
         >
-            <div v-for="text in texts" :key="text.id">
+            <div v-for="(text, index) in texts" :key="text.id">
+                <input
+                    type="hidden"
+                    :name="'procedures[' + index + '][id]'"
+                    :value="text.id"
+                />
+                <input
+                    type="hidden"
+                    :name="'procedures[' + index + '][order]'"
+                    :value="index"
+                />
                 <div class="flex md:flex-row justify-around mb-12 items-center">
                     <i
                         class="fas fa-bars fa-xs col-1 handler material-form-icon w-2/12"
@@ -21,7 +31,9 @@
                             "
                         />
                     </div>
-                    <p class="w-5/12 px-4 pt-4 pb-4 sm:pb-20 border border-solid border-gray-400">
+                    <p
+                        class="w-5/12 px-4 pt-4 pb-4 sm:pb-20 border border-solid border-gray-400"
+                    >
                         {{ text.procedure }}
                     </p>
                 </div>

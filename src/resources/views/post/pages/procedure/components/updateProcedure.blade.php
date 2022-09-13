@@ -1,4 +1,6 @@
 <p class="bg-yellow-200 p-2 mb-12 text-gray-700 text-center rounded-xl">手順の内容の更新</p>
+{{-- エラーメッセージ --}}
+@include('post.pages.procedure.message.procedureUpdateError')
 @foreach ($post->procedures as $key => $procedure)
     <div class="mb-12">
         <div class="flex justify-between items-center mb-8 px-4 pb-2 border-b border-solid border-gray-300">

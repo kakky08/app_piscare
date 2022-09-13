@@ -3504,10 +3504,26 @@ var render = function render() {
       },
       expression: "texts"
     }
-  }, _vm._l(_vm.texts, function (text) {
+  }, _vm._l(_vm.texts, function (text, index) {
     return _c("div", {
       key: text.id
-    }, [_c("div", {
+    }, [_c("input", {
+      attrs: {
+        type: "hidden",
+        name: "procedures[" + index + "][id]"
+      },
+      domProps: {
+        value: text.id
+      }
+    }), _vm._v(" "), _c("input", {
+      attrs: {
+        type: "hidden",
+        name: "procedures[" + index + "][order]"
+      },
+      domProps: {
+        value: index
+      }
+    }), _vm._v(" "), _c("div", {
       staticClass: "flex md:flex-row justify-around mb-12 items-center"
     }, [_c("i", {
       staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon w-2/12"
@@ -3616,7 +3632,7 @@ var render = function render() {
     staticClass: "absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer z-10",
     attrs: {
       type: "file",
-      name: "file",
+      name: "update_file",
       title: ""
     },
     on: {
@@ -3642,7 +3658,7 @@ var render = function render() {
     staticClass: "block p-2.5 w-full text-sm text-gray-900 bg-white rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500",
     attrs: {
       rows: "6",
-      name: "procedure",
+      name: "update_procedure",
       placeholder: "手順を入力してください。"
     },
     domProps: {
