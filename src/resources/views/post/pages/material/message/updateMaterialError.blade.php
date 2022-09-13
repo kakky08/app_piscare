@@ -1,21 +1,11 @@
 @if($errors->has('materials'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('materials') }}</p>
-        <div class="col-1"></div>
-    </div>
+    <p class="bg-red-400 text-white px-4 py-2 rounded-md text-base mb-4">※{{ $errors->first('materials') }}</p>
 @endif
+
 @if($errors->has('materials.*.materialName'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('materials.*.materialName') }}</p>
-        <div class="col-1"></div>
-    </div>
+    <p class="bg-red-400 text-white px-4 py-2 rounded-md text-base mb-4">※{{ $errors->first('materials.*.materialName') }}</p>
 @endif
+
 @if($errors->has('materials.*.quantity'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('materials.*.quantity') }}</p>
-        <div class="col-1"></div>
-    </div>
+    <p class="bg-red-400 text-white px-4 py-2 rounded-md text-base mb-4">※{{ $errors->first('materials.*.quantity') }}</p>
 @endif

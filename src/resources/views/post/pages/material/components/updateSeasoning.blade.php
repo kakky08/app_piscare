@@ -1,12 +1,16 @@
-<div class="row cols-4 material-register-form-tag">
-    <div class="col-1"></div>
-    <p class="col">調味料の名前</p>
-    <p class="col">調味料の分量</p>
-    <div class="col-1"></div>
+<div class="flex mb-12">
+    <div class="w-1/12"></div>
+    <p class="bg-yellow-200 w-5/12 mr-8 p-2 text-gray-700 text-center rounded-xl">調味料の名前</p>
+    <p class="bg-yellow-200 w-5/12 mr-8 p-2 text-gray-700 text-center rounded-xl">調味料の分量</p>
+    <div class="w-1/12"></div>
 </div>
 @include('post.pages.material.message.updateSeasoningError')
-
-<form method="POST" action="{{ route('post.seasoning.update')}}" id="edit-seasoning">
+<form
+    id="edit-seasoning"
+    method="POST"
+    action="{{ route('post.seasoning.update')}}"
+    class="md:space-y-0 mb-12"
+>
     @method('PUT')
     @csrf
     <input
@@ -19,7 +23,11 @@
         :seasonings="{{ json_encode($post->seasonings) }}"
     >
     </edit-seasoning>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn col-auto post-edit-button material-form-button-margin" form="edit-seasoning">調味料についての情報を更新する</button>
-    </div>
+    <button
+        type="submit"
+        form="edit-seasoning"
+        class="text-white flex-shrink-0 w-full px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+    >
+        調味料についての情報を更新
+    </button>
 </form>

@@ -15,9 +15,9 @@
                 @if (isset($post->image))
                 <a href="{{ route('post.show', ['id' => $post->id ])}}">
                     <img
-                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover"
+                        class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover hover:opacity-80"
                         src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $post->image }}"
-                        alt="{{ $post->title }}
+                        alt="{{ $post->title }}"
                     />
                 </a>
                 @else
@@ -25,7 +25,7 @@
                     <img
                         class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover hover:opacity-80"
                         src="{{ asset('images/noimage.jpeg') }}"
-                        alt="イメージが存在しません"
+                        alt="レシピの画像が存在しません。"
                     />
                 </a>
                 @endif

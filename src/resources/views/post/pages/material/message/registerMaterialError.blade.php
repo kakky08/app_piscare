@@ -1,14 +1,6 @@
 @if($errors->has('store_material'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('store_material') }}</p>
-        <div class="col-1"></div>
-    </div>
+    <p class="bg-red-400 text-white px-4 py-2 rounded-md text-base mb-4">※{{ $errors->first('store_material') }}</p>
 @endif
 @if($errors->has('store_material_quantity'))
-    <div class="row cols-3 spacing-reset">
-        <div class="col-1"></div>
-        <p class="col alert-message-error">※{{ $errors->first('store_material_quantity') }}</p>
-        <div class="col-1"></div>
-    </div>
+    <p class="bg-red-400 text-white px-4 py-2 rounded-md text-base mb-4">※{{ $errors->first('store_material_quantity') }}</p>
 @endif
