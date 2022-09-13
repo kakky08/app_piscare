@@ -8,6 +8,8 @@ use App\Http\Requests\MaterialStoreRequest;
 use App\Http\Requests\MaterialUpdateRequest;
 use App\Http\Requests\PeopleRequest;
 use App\Http\Requests\PostNameRequest;
+use App\Http\Requests\ProcedureStoreRequest;
+use App\Http\Requests\ProcedureUpdateRequest;
 use App\Http\Requests\SeasoningStoreRequest;
 use App\Http\Requests\SeasoningUpdateRequest;
 use App\Http\Requests\TitleRequest;
@@ -201,7 +203,7 @@ class PostController extends Controller
         return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */ 'post'));
     }
 
-    public function procedureStore(Request $request)
+    public function procedureStore(ProcedureStoreRequest $request)
     {
         // $path = $request->file->store('public');
 
@@ -221,7 +223,7 @@ class PostController extends Controller
         return redirect()->route('post.procedure.show', ['post' => $request->postId])->with('completion-of-registration-procedure', '登録が完了しました。');
     }
 
-    public function procedureUpdate(Request $request)
+    public function procedureUpdate(ProcedureUpdateRequest $request)
     {
         $procedure = Procedure::find($request->procedure);
         $path = $procedure->photo;
@@ -229,12 +231,12 @@ class PostController extends Controller
         if(isset($request->file))
         {
             Storage::disk('s3')->delete($procedure->photo);
-            $image = $request->file('file');
+            $image = $request->update_file('file');
             $path = Storage::disk('s3')->putFile('/', $image, 'public');
         }
 
         $procedure->photo = $path;
-        $procedure->procedure = $request->procedure;
+        $procedure->procedure = $request->update_procedure;
         $procedure->save();
         return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-update-procedure', '更新が完了しました。');
 
@@ -245,7 +247,7 @@ class PostController extends Controller
         $procedure = Procedure::find($request->procedure);
         Storage::disk('s3')->delete($procedure->photo);
         $procedure->delete();
-        return redirect()->route('post.procedure.show', ['post' => $request->post_id]);
+        return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-destroy-procedure', '削除が完了しました。');
     }
 
     public function procedureSort(Request $request)

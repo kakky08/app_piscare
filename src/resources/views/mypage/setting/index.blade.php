@@ -100,6 +100,7 @@
     >
     </icon-register> --}}
     <h2 class="mypage-subtitle">アイコンの変更</h2>
+    @include('mypage.setting.message.updateIconError')
     <form id="updateIcon" method="POST"  action="{{ route('setting.updateIcon', ['user' => $user->id ]) }}" enctype="multipart/form-data">
         @method("PATCH")
         @csrf

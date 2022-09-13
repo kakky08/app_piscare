@@ -7,7 +7,7 @@
                 >
                     <input
                         type="file"
-                        name="file"
+                        name="update_file"
                         title
                         ref="preview"
                         @change="onChange"
@@ -41,7 +41,7 @@
         <div class="w-3/4 sm:w-2/4">
             <textarea
                 rows="6"
-                name="procedure"
+                name="update_procedure"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="手順を入力してください。"
                 :value="procedure.procedure"
