@@ -2016,7 +2016,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       var url = this.endpoint;
       var formData = new f();
-      formData.appned('texts', this.texts);
+      formData.appned("texts", this.texts);
       var params = {
         texts: this.texts
       };
@@ -2198,7 +2198,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       var url = this.endpoint;
       var formData = new f();
-      formData.appned('texts', this.texts);
+      formData.appned("texts", this.texts);
       var params = {
         texts: this.texts
       };
@@ -2852,9 +2852,8 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "material"
-  }, [_c("draggable", {
+  return _c("div", [_c("draggable", {
+    staticClass: "mb-16",
     attrs: {
       options: _vm.options,
       hendle: ".handle"
@@ -2873,11 +2872,11 @@ var render = function render() {
     return _c("div", {
       key: text.id
     }, [_c("div", {
-      staticClass: "row cols-4 spacing-reset material-form"
+      staticClass: "flex md:flex-row mb-8"
     }, [_c("i", {
-      staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon"
+      staticClass: "fas fa-bars fa-xs handler material-form-icon w-1/12"
     }), _vm._v(" "), _c("input", {
-      staticClass: "form-control col",
+      staticClass: "rounded-lg border flex-1 w-5/12 appearance-none border border-gray-300 mr-8 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent",
       attrs: {
         type: "text",
         placeholder: "材料の名前を入力してください",
@@ -2887,7 +2886,7 @@ var render = function render() {
         value: text.name
       }
     }), _vm._v(" "), _c("input", {
-      staticClass: "form-control col",
+      staticClass: "rounded-lg border flex-1 w-5/12 appearance-none border border-gray-300 mr-8 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent",
       attrs: {
         type: "text",
         placeholder: "材料の分量を入力してください",
@@ -2897,7 +2896,7 @@ var render = function render() {
         value: text.quantity
       }
     }), _vm._v(" "), _c("button", {
-      staticClass: "btn col-1 material-form-button",
+      staticClass: "text-white flex-shrink-0 w-1/12 px-4 py-2 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center",
       attrs: {
         type: "button"
       },
@@ -2906,7 +2905,7 @@ var render = function render() {
           return _vm.del(index);
         }
       }
-    }, [_vm._v("×")])])]);
+    }, [_vm._v("\n                    ×\n                ")])])]);
   }), 0)], 1);
 };
 
@@ -3055,9 +3054,8 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "material"
-  }, [_c("draggable", {
+  return _c("div", [_c("draggable", {
+    staticClass: "mb-16",
     attrs: {
       options: _vm.options,
       hendle: ".handle"
@@ -3076,11 +3074,11 @@ var render = function render() {
     return _c("div", {
       key: text.id
     }, [_c("div", {
-      staticClass: "row cols-4 spacing-reset material-form"
+      staticClass: "flex md:flex-row mb-8"
     }, [_c("i", {
-      staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon"
+      staticClass: "fas fa-bars fa-xs handler material-form-icon w-1/12"
     }), _vm._v(" "), _c("input", {
-      staticClass: "form-control col",
+      staticClass: "rounded-lg border flex-1 w-5/12 appearance-none border border-gray-300 mr-8 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent",
       attrs: {
         type: "text",
         placeholder: "調味料の名前を入力してください",
@@ -3090,7 +3088,7 @@ var render = function render() {
         value: text.name
       }
     }), _vm._v(" "), _c("input", {
-      staticClass: "form-control col",
+      staticClass: "rounded-lg border flex-1 w-5/12 appearance-none border border-gray-300 mr-8 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent",
       attrs: {
         type: "text",
         placeholder: "調味料の分量を入力してください",
@@ -3100,7 +3098,7 @@ var render = function render() {
         value: text.quantity
       }
     }), _vm._v(" "), _c("button", {
-      staticClass: "btn col-1 material-form-button",
+      staticClass: "text-white flex-shrink-0 w-1/12 px-4 py-2 bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm text-center",
       attrs: {
         type: "button"
       },
@@ -3109,7 +3107,7 @@ var render = function render() {
           return _vm.del(index);
         }
       }
-    }, [_vm._v("×")])])]);
+    }, [_vm._v("\n                    ×\n                ")])])]);
   }), 0)], 1);
 };
 
