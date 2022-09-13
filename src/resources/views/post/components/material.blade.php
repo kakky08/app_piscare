@@ -35,8 +35,8 @@
         @if (count($post->seasonings) !== 0)
             <ul class="recipe-form-list">
                 @foreach ($post->seasonings as $seasoning)
-                    <li class="row row-cols-2 border-bottom recipe-form-list-item">
-                        <h4 class="text-base sm:text-lg list-none"><span>◇</span>{{ $seasoning->name }}</h4>
+                    <li class="flex justify-between pb-3 px-8 mb-4 border-b border-solid border-gray-300">
+                        <h4 class="text-base sm:text-lg list-none"><span class="mr-4">◇</span>{{ $seasoning->name }}</h4>
                         <p class="text-base sm:text-lg list-none">{{ $seasoning->quantity }}</p>
                     </li>
                 @endforeach
@@ -45,7 +45,7 @@
             <ul class="recipe-form-list">
                 @for ($j = 1; $j < 3; $j++)
                     <li class="flex justify-between pb-3 px-8 mb-4 border-b border-solid border-gray-300">
-                        <h4 class="text-base sm:text-lg list-none"><span>◇</span>調味料の名前{{ $j }}</h4>
+                        <h4 class="text-base sm:text-lg list-none"><span class="mr-4">◇</span>調味料の名前{{ $j }}</h4>
                         <p class="text-base sm:text-lg list-none">調味料の分量</p>
                     </li>
                 @endfor

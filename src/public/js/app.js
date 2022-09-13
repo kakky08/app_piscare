@@ -2706,7 +2706,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
       var url = this.endpoint;
       var formData = new f();
-      formData.appned('texts', this.texts);
+      formData.appned("texts", this.texts);
       var params = {
         texts: this.texts
       };
@@ -2782,7 +2782,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       procedure: this.procedure,
-      url: '',
+      url: "",
       maxTextCount: 30
     };
   },
@@ -3373,15 +3373,16 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row cols-2 procedure-form-group"
+    staticClass: "flex justify-around flex-wrap items-center mb-16"
   }, [_c("div", {
-    staticClass: "col-4 image-input-block"
+    staticClass: "flex"
   }, [_c("div", {
-    staticClass: "image-input-box"
+    staticClass: "w-72 h-72 mb-12 sm:mb-0"
   }, [_c("div", {
-    staticClass: "image-input-field"
+    staticClass: "relative flex w-full h-full justify-center items-center bg-gray-200"
   }, [_c("input", {
     ref: "preview",
+    staticClass: "absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer z-10",
     attrs: {
       type: "file",
       name: "file",
@@ -3391,31 +3392,39 @@ var render = function render() {
       change: _vm.onChange
     }
   }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.url ? _c("div", {
-    staticClass: "preview-box"
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image",
+    staticClass: "w-72 h-72 object-cover bg-center",
     attrs: {
       src: _vm.url
     }
-  })]) : _vm._e()])])]), _vm._v(" "), _c("textarea", {
-    staticClass: "col-8 procedure-texarea",
-    attrs: {
-      name: "procedure",
-      id: "",
-      cols: "30",
-      rows: "10"
-    }
-  })]);
+  })]) : _vm._e()])])]), _vm._v(" "), _vm._m(1)]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("p", [_c("span", {
-    staticClass: "image-input-text"
+  return _c("p", {
+    staticClass: "text-gray-400 text-center mb-0"
+  }, [_c("span", {
+    staticClass: "block"
   }, [_vm._v("クリックして料理の写真を載せる")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("i", {
     staticClass: "fas fa-camera fa-2x"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "w-3/4 sm:w-2/4"
+  }, [_c("textarea", {
+    staticClass: "block p-2.5 w-full text-sm text-gray-900 bg-white rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500",
+    attrs: {
+      rows: "6",
+      name: "procedure",
+      placeholder: "手順を入力してください。"
+    }
   })]);
 }];
 render._withStripped = true;
@@ -3479,9 +3488,8 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "material"
-  }, [_c("draggable", {
+  return _c("div", [_c("draggable", {
+    staticClass: "mb-16",
     attrs: {
       options: _vm.options,
       hendle: ".handle"
@@ -3496,36 +3504,22 @@ var render = function render() {
       },
       expression: "texts"
     }
-  }, _vm._l(_vm.texts, function (text, index) {
+  }, _vm._l(_vm.texts, function (text) {
     return _c("div", {
       key: text.id
     }, [_c("div", {
-      staticClass: "row cols-3 spacing-reset material-form sort-procedure-group"
+      staticClass: "flex md:flex-row justify-around mb-12 items-center"
     }, [_c("i", {
-      staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon"
-    }), _vm._v(" "), _c("input", {
-      attrs: {
-        type: "hidden",
-        name: "procedures[" + index + "][id]"
-      },
-      domProps: {
-        value: text.id
-      }
-    }), _vm._v(" "), _c("input", {
-      attrs: {
-        type: "hidden",
-        name: "procedures[" + index + "][order]"
-      },
-      domProps: {
-        value: index
-      }
-    }), _vm._v(" "), _c("img", {
-      staticClass: "preview-image sort-procedure-image",
+      staticClass: "fas fa-bars fa-xs col-1 handler material-form-icon w-2/12"
+    }), _vm._v(" "), _c("div", {
+      staticClass: "w-5/12"
+    }, [_c("img", {
+      staticClass: "w-40 sm:w-72 h-40 sm:h-72 mx-auto object-cover bg-center",
       attrs: {
         src: "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" + text.photo
       }
-    }), _vm._v(" "), _c("p", {
-      staticClass: "sort-procedure-text-area"
+    })]), _vm._v(" "), _c("p", {
+      staticClass: "w-5/12 px-4 pt-4 pb-4 sm:pb-20 border border-solid border-gray-400"
     }, [_vm._v("\n                    " + _vm._s(text.procedure) + "\n                ")])])]);
   }), 0)], 1);
 };
@@ -3609,16 +3603,17 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
-    staticClass: "row cols-2 procedure-form-group edit-procedure-form-group"
+  return _c("div", {
+    staticClass: "flex justify-around flex-wrap items-center mb-16"
   }, [_c("div", {
-    staticClass: "col-4 image-input-block"
+    staticClass: "flex"
   }, [_c("div", {
-    staticClass: "image-input-box"
+    staticClass: "w-72 h-72 mb-12 sm:mb-0"
   }, [_c("div", {
-    staticClass: "image-input-field"
+    staticClass: "relative flex w-full h-full justify-center items-center bg-gray-200"
   }, [_c("input", {
     ref: "preview",
+    staticClass: "absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer z-10",
     attrs: {
       type: "file",
       name: "file",
@@ -3627,28 +3622,28 @@ var render = function render() {
     on: {
       change: _vm.onChange
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.url ? _c("div", [_c("div", {
-    staticClass: "preview-box"
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.url ? _c("div", {
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image",
+    staticClass: "w-72 h-72 object-cover bg-center",
     attrs: {
       src: _vm.url
     }
-  })])]) : _c("div", [_c("div", {
-    staticClass: "preview-box"
+  })]) : _c("div", {
+    staticClass: "absolute w-full h-full top-0 left-0"
   }, [_c("img", {
-    staticClass: "preview-image",
+    staticClass: "w-72 h-72 object-cover bg-center",
     attrs: {
       src: "https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/" + _vm.procedure.photo
     }
-  })])])])])]), _vm._v(" "), _c("textarea", {
-    staticClass: "form-control col-8 edit-procedure-form-textarea",
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "w-3/4 sm:w-2/4"
+  }, [_c("textarea", {
+    staticClass: "block p-2.5 w-full text-sm text-gray-900 bg-white rounded-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500",
     attrs: {
-      type: "text",
-      cols: "30",
-      rows: "10",
-      placeholder: "材料の分量を入力してください",
-      name: "procedure"
+      rows: "6",
+      name: "procedure",
+      placeholder: "手順を入力してください。"
     },
     domProps: {
       value: _vm.procedure.procedure
@@ -3660,8 +3655,10 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("p", [_c("span", {
-    staticClass: "image-input-text"
+  return _c("p", {
+    staticClass: "text-gray-400 text-center mb-0"
+  }, [_c("span", {
+    staticClass: "block"
   }, [_vm._v("クリックして料理の写真を載せる")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("i", {
     staticClass: "fas fa-camera fa-2x"
   })]);

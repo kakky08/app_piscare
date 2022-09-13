@@ -14,7 +14,7 @@
         <p class="font-semibold text-2xl">{{ $procedure->order + 1 . '.'}}</p>
         {{-- 料理画像 --}}
         <div class="flex flex-wrap justify-around items-center mb-12 pb-12 border-b border-gray-200 border-solid">
-            <img class="w-72 h-72 mb-8 sm:mb-0" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像" >
+            <img class="w-72 h-72 mb-8 sm:mb-0 object-cover bg-center" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像" >
             {{-- 作り方の説明 --}}
             <p class="w-96 p-6 border border-gray-300 border-solid rounded-md">{{ $procedure->procedure }}</p>
         </div>
