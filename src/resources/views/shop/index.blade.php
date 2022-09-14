@@ -54,7 +54,12 @@
 </div>
 
 {{-- ページネーション --}}
-<nav class="pagination justify-content-center">
-    {{ $shops->appends(request()->query())->links() }}
+{{ $shops->appends(request()->query())->links() }}
+<nav aria-label="Page navigation example">
+
 </nav>
+
+{{-- <nav class="pagination justify-content-center">
+
+</nav> --}}
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateEmailRequest extends FormRequest
+class UpdateNameRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class UpdateEmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|unique:users|email:rfc,dns|max:255|',
+            'name' => 'required|unique:users|string|max:8|',
         ];
     }
 
     public function attributes()
     {
         return [
-            'email' => 'メールアドレス',
+            'name' => 'ニックネーム',
         ];
     }
 }
