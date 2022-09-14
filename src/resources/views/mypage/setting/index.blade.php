@@ -10,7 +10,7 @@
     <h1 class="text-5xl mb-16">Setting</h1>
     @include('mypage.setting.message.successMessage')
     <h2 class="mypage-subtitle">ニックネームの変更</h2>
-    @include('mypage.setting.message.updateEmailError')
+    @include('mypage.setting.message.updateNameError')
     <div class="setting-email">
         <div class="setting-block">
             <p class="setting-title">現在のニックネーム</p>
@@ -34,6 +34,7 @@
                             value="{{ $user->name }}"
                             class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="新しく登録するニックネームを8文字以内で入力してください"
+                            readonly
                         />
                     @else
                         <input
@@ -50,6 +51,7 @@
                             type="submit"
                             form="updateName"
                             class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+                            disabled
                         >
                             変更
                         </button>
@@ -89,6 +91,7 @@
                             name="email"
                             class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="新しく登録するメールアドレスを入力してください"
+                            readonly
                         />
                     @else
                         <input
@@ -104,6 +107,7 @@
                         type="submit"
                         form="updateEmail"
                         class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
+                        disabled
                     >
                         変更
                     </button>

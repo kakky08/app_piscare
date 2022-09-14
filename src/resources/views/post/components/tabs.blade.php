@@ -2,7 +2,7 @@
     <li class=" w-6/12">
         <a
             href="{{ route('post.index') }}"
-            class="{{  $isNew  ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isNew  ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             新着順
         </a>
@@ -10,7 +10,7 @@
     <li class=" w-6/12">
         <a
             href="{{ route('post.popular') }}"
-            class="{{  $isPopular ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isPopular ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             人気順
         </a>

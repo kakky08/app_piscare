@@ -1,5 +1,5 @@
-<nav class="px-4 my-auto bg-yellow-300">
-    <div class="container flex flex-wrap justify-between items-center mx-auto">
+<nav class="px-12 my-auto bg-yellow-300">
+    <div class="nav-var flex flex-wrap justify-between items-center mx-auto">
         <a href="#" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap">Piscare</span>
         </a>

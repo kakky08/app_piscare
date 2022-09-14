@@ -2,7 +2,7 @@
     <li class=" w-3/12">
         <a
             href="{{ route('profile.show', ['name' => $user->name]) }}"
-            class="{{  $isPosts  ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isPosts  ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             投稿レシピ
         </a>
@@ -10,7 +10,7 @@
     <li class=" w-3/12">
         <a
             href="{{ route('profile.likes', ['name' => $user->name]) }}"
-            class="{{  $isLikes ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isLikes ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             いいね
         </a>
@@ -18,7 +18,7 @@
     <li class=" w-3/12">
         <a
             href="{{ route('profile.followings', ['name' => $user->name]) }}"
-            class="{{  $isFollowings ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isFollowings ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             フォロー
         </a>
@@ -26,7 +26,7 @@
     <li class=" w-3/12">
         <a
             href="{{ route('profile.followers', ['name' => $user->name]) }}"
-            class="{{  $isFollowers ? 'active text-gray-800 bg-gray-100 ': 'hover:text-gray-600 hover:bg-gray-50' }} w-full inline-block p-3 rounded-t-lg"
+            class="{{  $isFollowers ? 'active text-gray-800 bg-yellow-300 ': 'hover:text-gray-600 hover:bg-yellow-50' }} w-full inline-block p-3 rounded-t-lg"
         >
             フォロワー
         </a>
