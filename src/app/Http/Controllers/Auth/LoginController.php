@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -65,5 +66,16 @@ class LoginController extends Controller
     public function loggedOut(Request $request)
     {
         return redirect()->route('login');
+    }
+
+    private const GEST_USER_ID = 1;
+
+    public function guestLogin()
+    {
+        if(Auth::loginUsingId(self::GEST_USER_ID))
+        {
+            return redirect('/home');
+        }
+        return redirect('/');
     }
 }

@@ -45,6 +45,11 @@ Route::prefix('login')->name('login.')->group(function () {
     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('{provider}.callback');
 });
 
+/* ====================
+    ゲストログイン
+==================== */
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
 Route::prefix('register')->name('register.')->group(function () {
     Route::get('/{provider}', 'Auth\RegisterController@showProviderUserRegistrationForm')->name('{provider}');
     Route::post('/{provider}', 'Auth\RegisterController@registerProviderUser')->name('{provider}');
@@ -97,6 +102,7 @@ Route::prefix('home')->name('home.')->group(function () {
 -------------------- */
 Route::prefix('setting')->name('setting.')->middleware('auth')->group(function () {
     Route::get('/', 'SettingController@index')->name('index');
+    Route::patch('/name/{user}', 'SettingController@updateName')->name('updateName');
     Route::patch('/password/{user}', 'SettingController@updatePassword')->name('updatePassword');
     Route::patch('/email/{user}', 'SettingController@updateEmail')->name('updateEmail');
     Route::patch('/icon/{user}', 'SettingController@updateIcon')->name('updateIcon');
