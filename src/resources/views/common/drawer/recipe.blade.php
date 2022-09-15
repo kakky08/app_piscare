@@ -1,6 +1,5 @@
-
 <!-- drawer init and show -->
-<div class="text-center block md:hidden mb-10">
+<div class="text-center block lg:hidden mb-10">
     @if($errors->has('keyword'))
         <p class="alert-message-error">※{{ $errors->first('keyword') }}</p>
     @endif

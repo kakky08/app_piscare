@@ -124,9 +124,9 @@
                                 <p class="font-semibold text-xl">{{ $procedure->order + 1 }}.</p>
                                 <div class="flex flex-wrap justify-around items-center">
                                     @if (isset($procedure->photo))
-                                        <img class="w-72 h-72 mb-8 sm:mb-0" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像">
+                                        <img class="w-72 h-72 mb-8 sm:mb-0 object-cover bg-center" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $procedure->photo }}" alt="手順{{ $procedure->order }}の画像">
                                     @else
-                                        <img class="w-72 h-72 mb-8 sm:mb-0" src="{{ asset('images/noimage.jpeg') }}" alt="手順の画像はありません">
+                                        <img class="w-72 h-72 mb-8 sm:mb-0 object-cover bg-center" src="{{ asset('images/noimage.jpeg') }}" alt="手順の画像はありません">
                                     @endif
                                     <p class="text-xl sm:p-4 w-11/12 sm:w-5/12">{{ $procedure->procedure }}</p>
                                 </div>
