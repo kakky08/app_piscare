@@ -1,4 +1,4 @@
-<aside class="hidden md:block relative bg-gray-50 dark:bg-gray-800">
+<aside class="hidden lg:block relative bg-gray-50 dark:bg-gray-800">
     <div class="flex flex-col sm:flex-row sm:justify-around">
         <div class="w-96 h-screen">
             <nav class="mt-20 px-6 ">

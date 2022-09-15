@@ -34,7 +34,7 @@
                 {{-- <aside class="col-md-3 aside-layout"> --}}
                     @yield('aside')
                 {{-- </aside> --}}
-                <main class="px-6 py-10 w-full">
+                <main class="px-12 py-10 w-full">
                     @yield('main')
                 </main>
             </div>
