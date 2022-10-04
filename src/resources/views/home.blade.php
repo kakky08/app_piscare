@@ -4,22 +4,20 @@
 @endsection
 @section('main')
 <div>
-    <section class="text-center mb-32">
-        <h1 class="text-8xl mb-12">Piscare</h1>
-        <p class="text-2xl mb-12">〜魚食習慣化アプリ〜</p>
+    <img  src="{{ asset('images/hero.jpg') }}" alt="" class="mb-20">
+    <section class="text-center mb-8">
         <p class="text-base tracking-widest pb-5 leading-10">魚を食べていますか？<br />
             活が変わり魚を食べることが減ってしまうと思います。<br />
-            手軽に食べれる肉や加工食品もいいですが、<br />
-            健康やメンタルを良い状態に保つには、魚が欠かせません。<br />
+            手軽に食べれる肉や加工食品もいいですが、健康やメンタルを良い状態に保つには、魚が欠かせません。<br />
             ぜひこのアプリで、魚を習慣的に食事に取り入れましょう！
         </p>
     </section>
-    <a href="{{ route('login')}}" class="block text-center w-96 px-6 py-3 mt-0 mb-48 mx-auto text-gray-600 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-md hover:opacity-80 hover:text-gray-600">
+    <a href="{{ route('login')}}" class="block text-center w-96 px-6 py-3 mt-0 mb-20 mx-auto text-gray-600 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-md hover:opacity-80 hover:text-gray-600">
         アプリを使ってみる
     </a>
     <section>
-        <h2 class="text-center text-gray-800 text-3xl md:text-4xl font-bold mb-20 md:mb-12">主な機能</h2>
-        <div class="p-8">
+        <h2 class="text-center text-gray-800 text-3xl md:text-4xl font-bold {{-- mb-16 md:mb-8 --}}">主な機能</h2>
+        <div class="mb-8">
             <div class="flex items-center flex-col lg:flex-row justify-evenly p-4">
                 {{-- 記録機能 --}}
                 <section class="p-4 sm:border-b lg:border-0">
@@ -62,7 +60,7 @@
         </div>
     </section>
 
-    <a href="{{ route('login')}}" class="block text-center w-96 px-6 py-3 mt-0 mb-48 mx-auto text-gray-600 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-md hover:opacity-80 hover:text-gray-600">
+    <a href="{{ route('login')}}" class="block text-center w-96 px-6 py-3 mt-0 mb-20 mx-auto text-gray-600 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-md hover:opacity-80 hover:text-gray-600">
         アプリを使ってみる
     </a>
 </div>
