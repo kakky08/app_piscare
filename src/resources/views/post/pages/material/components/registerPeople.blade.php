@@ -11,16 +11,16 @@
             type="hidden"
             name="post_id"
             value="{{ $post->id }}"
-        >
+    />
     <input
         type="hidden"
         name="user"
         value="{{ $user->id }}"
-    >
+    />
     <input
         type="text"
         name="people"
-        value={{ $post->people }}
+        value="{{ $post->people }}"
         class="rounded-lg border flex-1 appearance-none border border-gray-300 w-5/6 mr-8 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
         placeholder="何人分か入力してください"
     />

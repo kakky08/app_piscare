@@ -12,7 +12,7 @@
             type="submit"
             form="store-procedure"
             class="text-white flex-shrink-0 w-full px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
-            >
+        >
             手順を追加する
         </button>
     </form>
