@@ -206,7 +206,6 @@ class PostController extends Controller
     public function procedureStore(ProcedureStoreRequest $request)
     {
         // $path = $request->file->store('public');
-
         $image = $request->file('file');
         $path = Storage::disk('s3')->putFile('/', $image, 'public');
 
