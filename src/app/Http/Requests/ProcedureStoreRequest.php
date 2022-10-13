@@ -25,7 +25,7 @@ class ProcedureStoreRequest extends FormRequest
     {
         return [
             'post_id' => 'required',
-            'file' => 'image|max:1024|dimensions:max_width=1000',
+            'file' => 'required|image|max:1024|dimensions:max_width=2000',
             'procedure' => 'required|max:300'
         ];
     }

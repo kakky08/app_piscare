@@ -203,11 +203,19 @@ class PostController extends Controller
         return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */ 'post'));
     }
 
-    public function procedureStore(ProcedureStoreRequest $request)
+
+    /**
+     *
+     * 手順の登録
+     * @param ProcedureStoreRequest $request
+     */
+    public function procedureStore(Request $request)
     {
+        // dd($request);
         // $path = $request->file->store('public');
         $image = $request->file('file');
         $path = Storage::disk('s3')->putFile('/', $image, 'public');
+
 
         $order = Procedure::where('post_id', $request->postId)->select('order')->get();
         Procedure::create([
@@ -216,7 +224,7 @@ class PostController extends Controller
             /*  'photo' => basename($path), */
             'photo' => $path,
             /* 'photo' => asset('storage/' . basename($path)), */
-            'procedure' => $request['procedure'],
+            'procedure' => $request->procedure,
         ]);
 
         return redirect()->route('post.procedure.show', ['post' => $request->postId])->with('completion-of-registration-procedure', '登録が完了しました。');

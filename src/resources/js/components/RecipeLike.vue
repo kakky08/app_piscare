@@ -2,8 +2,8 @@
     <div class="show-card-like">
         <button type="button" class="m-0 p-1 shadow-none">
             <i
-                class="fas fa-heart mr-1 fa-2x text-gray-300"
-                :class="{ 'text-red-500': this.isLikedBy }"
+                class="fas fa-heart mr-1 fa-2x"
+                :class="this.isLikedBy ? 'text-red-500' : 'text-gray-300'"
                 @click="clickLike"
             />
         </button>

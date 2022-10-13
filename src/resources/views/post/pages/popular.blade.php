@@ -15,7 +15,7 @@
                     <img
                         class="rounded-t-lg w-80 2xl:w-96 h-64 object-cover"
                         src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recipe->image }}"
-                        alt="{{ $recipe->user->name }}が投稿したレシピの画像
+                        alt="{{ $recipe->user->name }}が投稿したレシピの画像"
                     />
                 </a>
                 @else
@@ -50,7 +50,6 @@
             </div>
         @endforeach
     </div>
-
     {{-- ページネーション --}}
     <nav class="pagination justify-content-center">
         {{ $recipes->appends(request()->query())->links() }}

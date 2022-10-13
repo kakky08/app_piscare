@@ -36,7 +36,7 @@
                     :initial-is-liked-by='@json($recipe->isLikedBy(Auth::user()))'
                     :initial-count-likes='@json($recipe->count_likes)'
                     :authorized='@json(Auth::check())'
-                    endpoint="{{ route('recipe.like', ['recipe' => $recipe->id]) }}"
+                    endpoint="{{ route('post.like', ['post' => $recipe->id]) }}"
                 >
                 </post-like>
                 @else

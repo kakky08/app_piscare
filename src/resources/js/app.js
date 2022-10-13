@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 import Vue from 'vue'
+import router from './router';
+
 import DatepickerComponent from './components/DatepickerComponent'
 import ProcedureComponent from './components/ProcedureComponent'
 import EditMaterial from './components/EditMaterial'
@@ -20,6 +22,8 @@ import UpdateImage from './components/UpdateImage'
 import UpdateProcedure from './components/UpdateProcedure'
 import SortProcedure from './components/SortProcedure'
 import MainImage from './components/MainImage'
+import App from './App.vue'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41,6 +45,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router,
     components: {
         DatepickerComponent,
         ProcedureComponent,
@@ -55,5 +60,8 @@ const app = new Vue({
         UpdateProcedure,
         SortProcedure,
         MainImage,
+        App,
     },
+    // SPA用
+    // template: '<App />'
 });

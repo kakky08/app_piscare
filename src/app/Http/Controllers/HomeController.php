@@ -125,8 +125,6 @@ class HomeController extends Controller
 
     public function moveMonth($move)
     {
-        // $user = Auth::user();
-
         $dateStr = sprintf('%s-01', $move);
 
 
@@ -154,14 +152,16 @@ class HomeController extends Controller
 
         // 表示されている月の記録を取得
 
-        // $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'flag_count')->get()->toArray();
-        // $array = array_column($records, 'flag_count', 'day');
+        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
+
+
+        $array = array_column($records, 'count', 'day');
 
         // その日の記録があるかを検索
-        // $today = new Carbon('today');
-        // $day = $today->day;
+        $today = new Carbon('today');
+        $day = $today->day;
 
-        // $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
+        $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
         /* $action = 'store';
         if ($record) {
@@ -169,7 +169,7 @@ class HomeController extends Controller
         }
     */
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month',));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month', 'records',));
     }
 
     public function selectDay($select)
