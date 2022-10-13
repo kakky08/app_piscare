@@ -33,6 +33,11 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 /* ====================
+    SPA用
+==================== */
+// Route::get('/{any?}', fn () => view('index'))->where('any', '.+');
+
+/* ====================
     トップページ
 ==================== */
 Route::get('/','TopController@index')->name('top');
