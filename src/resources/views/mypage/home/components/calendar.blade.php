@@ -1,17 +1,36 @@
 <div class="flex justify-around items-center mb-8">
-    <a
-        href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}"
+    @if ($month == 1)
+        <a
+        href="{{route('home.move', (sprintf('%s-%s', $year -1 , (sprintf('%02d', $month + 11 ))))) }}"
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
-    >
-        前の月へ
-    </a>
+        >
+            前の月へ
+        </a>
+    @else
+        <a
+            href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}"
+            class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
+        >
+            前の月へ
+        </a>
+    @endif
+
     <p class="text-lg text-center">{{ $year }}年 {{ $month }}月</p>
-    <a
+    @if ($month == 12)
+        <a
+        href="{{route('home.move', (sprintf('%s-%s', $year + 1, (sprintf('%02d', $month - 11 ))))) }}"
+        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
+        >
+            次の月へ
+        </a>
+    @else
+        <a
         href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}"
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
-    >
-        次の月へ
-    </a>
+        >
+            次の月へ
+        </a>
+    @endif
 </div>
 
 

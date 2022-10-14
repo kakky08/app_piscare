@@ -15,10 +15,10 @@
                 <div class="flex-row gap-4 flex justify-center items-center">
                     <div class="flex-shrink-0">
                         <a href="{{route('information.show', ['name' => $follower->name ])}}" class="block relative">
-                            @if (empty($following->icon))
-                                <img src="{{ asset('images/yellowtail.png') }}" class="mx-auto object-cover rounded-full h-16 w-16 border-1 rounded-bl-full border-yellow-300" alt="{{$following->name}}の初期アイコン" />
+                            @if (empty($follower->icon))
+                                <img src="{{ asset('images/yellowtail.png') }}" class="mx-auto object-cover rounded-full h-16 w-16 border-1 rounded-bl-full border-yellow-300" alt="{{$follower->name}}の初期アイコン" />
                             @else
-                                <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $following->icon }}" class="mx-auto object-cover rounded-full h-16 w-16 border-1 rounded-bl-full border-yellow-300" alt="{{$following->name}}のアイコン" />
+                                <img src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $follower->icon }}" class="mx-auto object-cover rounded-full h-16 w-16 border-1 rounded-bl-full border-yellow-300" alt="{{$follower->name}}のアイコン" />
                             @endif
                         </a>
                     </div>
