@@ -30,6 +30,7 @@ class HomeController extends Controller
     {
         $dateStr = Carbon::now()->format("Y-m-01");
         $date = new Carbon($dateStr);
+
         $year_month = substr($dateStr, 0, 7);
         $year = $date->year;
         $month = $date->month;
@@ -43,7 +44,9 @@ class HomeController extends Controller
 
         // 同上。右下の隙間のための計算。
         $count = 31 + $date->dayOfWeek;
-        $count = ceil($count / 7) * 7;
+        $count = ceil($count / 7) * 7 + 7;
+
+
         $dates = [];
 
         for ($i = 0; $i < $count; $i++, $date->addDay()) {
@@ -53,23 +56,13 @@ class HomeController extends Controller
 
         // 表示されている月の記録を取得
         $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
-
-        // $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'flag_count')->get()->toArray();
-        // dd($records);
-        // $array = array_column($records, 'flag_count', 'day');
+        // カレンダーに表示するため配列に格納
         $array = array_column($records, 'count', 'day');
 
         // その日の記録があるかを検索
         $today = new Carbon('today');
         $day = $today->day;
-
         $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
-
-        /* $action = 'store';
-        if ($record) {
-            $action =  'update';
-        } */
-
 
         return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day', 'array'));
 
@@ -123,13 +116,18 @@ class HomeController extends Controller
     }
 
 
+    /**
+     * 月の移動
+     * @param $move
+     */
     public function moveMonth($move)
     {
         $dateStr = sprintf('%s-01', $move);
 
-
         $date = new Carbon($dateStr);
+
         $year_month = substr($dateStr, 0, 7);
+
         $year = $date->year;
         $month = $date->month;
 
@@ -142,7 +140,9 @@ class HomeController extends Controller
 
         // 同上。右下の隙間のための計算。
         $count = 31 + $date->dayOfWeek;
-        $count = ceil($count / 7) * 7;
+
+        $count = ceil($count / 7) * 7 + 7;
+
         $dates = [];
 
         for ($i = 0; $i < $count; $i++, $date->addDay()) {
@@ -151,34 +151,37 @@ class HomeController extends Controller
         }
 
         // 表示されている月の記録を取得
+        $records = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->select('day', 'count')->get()->toArray();
 
-        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
-
-
+        // カレンダーに表示するため配列に格納
         $array = array_column($records, 'count', 'day');
+
 
         // その日の記録があるかを検索
         $today = new Carbon('today');
         $day = $today->day;
-
         $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
-        /* $action = 'store';
-        if ($record) {
-            $action =  'update';
-        }
-    */
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month', 'records',));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month', 'record','array'));
     }
 
+
+    /**
+     * 日付選択機能
+     * @param $select
+     */
     public function selectDay($select)
     {
+
         $user = Auth::user();
 
-        $dateStr = Carbon::now()->format("Y-m-01");
-        $date = new Carbon($dateStr);
         $year_month = substr($select, 0, 7);
+
+        $dateStr = sprintf('%s-01', $year_month);
+
+        $date = new Carbon($dateStr);
+
         $year = $date->year;
         $month = $date->month;
 
@@ -191,7 +194,7 @@ class HomeController extends Controller
 
         // 同上。右下の隙間のための計算。
         $count = 31 + $date->dayOfWeek;
-        $count = ceil($count / 7) * 7;
+        $count = ceil($count / 7) * 7 + 7;
         $dates = [];
 
         for ($i = 0; $i < $count; $i++, $date->addDay()) {
@@ -201,17 +204,17 @@ class HomeController extends Controller
 
         // 表示されている月の記録を取得
         $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'count')->get()->toArray();
-        // dd($records);
+        // カレンダーに表示するために配列に格納
         $array = array_column($records, 'count', 'day');
 
         // その日の記録があるかを検索
-
         $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
         $action = 'store';
         if ($record) {
             $action =  'update';
         }
+
 
 
         return view('mypage.home.index', compact('dates', 'user', 'date', 'year_month', 'year', 'month', 'record_year_month', 'record_day', 'action', 'array', 'select', 'record'));
