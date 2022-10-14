@@ -12,7 +12,7 @@
     <ul class="follow-list">
     @foreach($user->followers as $follower)
         <li class="ist-none shadow-sm rounded-2xl bg-white dark:bg-gray-800 px-16 py-4 mb-4">
-                <div class="flex-row gap-4 flex justify-center items-center">
+                <div class="flex-row gap-4 flex items-center {{ Auth::id() !== $follower->id ? 'justify-center' : ''}}">
                     <div class="flex-shrink-0">
                         <a href="{{route('information.show', ['name' => $follower->name ])}}" class="block relative">
                             @if (empty($follower->icon))
@@ -29,6 +29,15 @@
                             </span>
                         </a>
                     </div>
+                    @if (Auth::id() !== $follower->id)
+                        <follow-button
+                            class="ml-auto"
+                            :initial-is-followed-by='@json($follower->isFollowedBy(Auth::user()))'
+                            :authorized='@json(Auth::check())'
+                            endpoint='{{ route('user.follow', ['id' => $follower->id]) }}'
+                            >
+                        </follow-button>
+                    @endif
                 </div>
             </li>
     @endforeach
