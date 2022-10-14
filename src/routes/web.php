@@ -118,9 +118,9 @@ Route::prefix('setting')->name('setting.')->middleware('auth')->group(function (
 -------------------- */
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function () {
     Route::get('/{name}', 'ProfileController@show')->name('show');
-    Route::get('/{name}/likes', 'ProfileController@likes')->name('likes');
-    Route::get('/{name}/followings', 'ProfileController@followings')->name('followings');
-    Route::get('/{name}/followers', 'ProfileController@followers')->name('followers');
+    Route::get('likes/{name}', 'ProfileController@likes')->name('likes');
+    Route::get('followings/{name}', 'ProfileController@followings')->name('followings');
+    Route::get('followers/{name}', 'ProfileController@followers')->name('followers');
 });
 
 /* ====================
@@ -163,8 +163,8 @@ Route::prefix('post')->name('post.')->middleware('auth')->group(function () {
     Route::put('/procedure/update', 'PostController@procedureUpdate')->name('procedure.update');
     Route::delete('/procedure/destroy', 'PostController@procedureDestroy')->name('procedure.destroy');
     Route::put('/procedure/sort', 'PostController@procedureSort')->name('procedure.sort');
-    Route::put('/{post}/like', 'PostController@like')->name('like');
-    Route::delete('/{post}/like', 'PostController@unlike')->name('unlike');
+    Route::put('/like/{post}', 'PostController@like')->name('like');
+    Route::delete('/like/{post}', 'PostController@unlike')->name('unlike');
 });
 
 
