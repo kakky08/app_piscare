@@ -5,7 +5,7 @@
                 @if($errors->has('keyword'))
                     <p class="alert-message-error">※{{ $errors->first('keyword') }}</p>
                 @endif
-                <form method="GET" action="{{ route('recipe.search')}}"class="flex  items-center mb-10">
+                <form method="GET" id="search-recipes" action="{{ route('recipe.search')}}" class="flex items-center mb-10">
                     <div class="relative mr-3 w-full">
                         <input
                         type="text"
@@ -16,7 +16,7 @@
                     </div>
                     <button
                     type="submit"
-                    form="updateEmail"
+                    form="search-recipes"
                     class="text-white flex-shrink-0 px-4 py-2 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm text-center"
                     >
                         検索
