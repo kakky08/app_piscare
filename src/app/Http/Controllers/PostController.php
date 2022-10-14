@@ -66,7 +66,7 @@ class PostController extends Controller
     {
         $post = Post::find($post)->load('procedures');
 
-        if (isset($post->image))
+    /*  if (isset($post->image))
         {
             Storage::disk('s3')->delete($post->image);
         }
@@ -77,7 +77,7 @@ class PostController extends Controller
             {
                 Storage::disk('s3')->delete($procedure->photo);
             }
-        }
+        } */
 
         $post->delete();
         return redirect()->route('post.index');
@@ -252,7 +252,7 @@ class PostController extends Controller
     public function procedureDestroy(Request $request)
     {
         $procedure = Procedure::find($request->procedure);
-        Storage::disk('s3')->delete($procedure->photo);
+        // Storage::disk('s3')->delete($procedure->photo);
         $procedure->delete();
         return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-destroy-procedure', '削除が完了しました。');
     }
