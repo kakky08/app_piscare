@@ -20,6 +20,7 @@ import UpdateImage from './components/UpdateImage'
 import UpdateProcedure from './components/UpdateProcedure'
 import SortProcedure from './components/SortProcedure'
 import MainImage from './components/MainImage'
+import HeaderComponent from './components/HeaderComponent'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -55,5 +56,6 @@ const app = new Vue({
         UpdateProcedure,
         SortProcedure,
         MainImage,
+        HeaderComponent,
     },
 });

@@ -30,11 +30,11 @@
     <body>
         <div id="app">
             @yield('header')
-            <div class="md:flex">
+            <div class="md:flex main-height">
                 {{-- <aside class="col-md-3 aside-layout"> --}}
                     @yield('aside')
                 {{-- </aside> --}}
-                <main class="px-12 py-10 w-full">
+                <main class="px-12 py-10 w-full overflow-y-auto main-height ">
                     @yield('main')
                 </main>
             </div>

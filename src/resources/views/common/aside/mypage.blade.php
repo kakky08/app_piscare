@@ -1,6 +1,6 @@
-<aside class="hidden lg:block relative bg-gray-50 dark:bg-gray-800">
+<aside class="hidden lg:block relative bg-gray-50 dark:bg-gray-800 ">
     <div class="flex flex-col sm:flex-row sm:justify-around">
-        <div class="w-96 h-screen">
+        <div class="w-96 w-[calc(100vh - 60px)]">
             <nav class="mt-20 px-6 ">
                 <a class="{{  $page === 'home' ? 'border-r-2 border-yellow-300 bg-gray-100': '' }} hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
                     href="{{ route('home.index') }}"
