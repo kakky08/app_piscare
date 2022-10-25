@@ -1,6 +1,6 @@
 {{-- <nav class="px-4 my-auto bg-yellow-300">
     <div class="nav-var flex flex-wrap justify-between items-center mx-auto">
-        <a href="#" class="flex items-center">
+        <a href="/home" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap">Piscare</span>
         </a>
         <button
@@ -15,8 +15,8 @@
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             </svg>
         </button>
-        <div class="hidden sm:w-full lg:block lg:w-auto" id="navbar-multi-level">
-            <ul class="flex flex-col p-4 lg:flex-row lg:space-x-8 lg:mt-0 lg:text-sm lg:font-medium lg:border-0">
+        <div class="hidden w-11/12 lg:block lg:w-auto" id="navbar-multi-level">
+            <ul class="flex flex-col justify-end p-4 lg:flex-row lg:space-x-8 lg:mt-0 lg:text-sm lg:font-medium lg:border-0">
                 <li>
                     <a
                         href="{{ route('recipe.index') }}"

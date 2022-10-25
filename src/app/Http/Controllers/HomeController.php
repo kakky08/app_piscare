@@ -32,14 +32,12 @@ class HomeController extends Controller
         $carbon = new Carbon();
         // その月は何日間あるか取得
         $days = (int)$carbon->daysInMonth;
-
         // 目標、目標回数の取得
         $target = Target::where('user_id', Auth::id())->orderBy('created_at', 'desc')->select('time', 'target')->first();
 
         $time = $target->time;
 
         $title = $target->target;
-
         // 現在の年月の情報を取得
         $year_month = $carbon->year . '-' . $carbon->month;
 

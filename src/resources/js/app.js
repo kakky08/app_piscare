@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 import Vue from 'vue'
+import router from './router';
+
 import DatepickerComponent from './components/DatepickerComponent'
 import ProcedureComponent from './components/ProcedureComponent'
 import EditMaterial from './components/EditMaterial'
@@ -45,6 +47,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router,
     components: {
         DatepickerComponent,
         ProcedureComponent,
@@ -63,4 +66,6 @@ const app = new Vue({
         TitleComponent,
         RecordComponent
     },
+    // SPA用
+    // template: '<App />'
 });
