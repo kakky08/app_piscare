@@ -1448,6 +1448,16 @@ div .icon-input-box {
   height: calc(100vh - 60px);
 }
 
+.table-style {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+}
+
+.modal-back {
+  background-color: #333;
+}
+
 /* ============================
 * Shop
 ============================ */

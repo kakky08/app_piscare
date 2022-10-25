@@ -1,10 +1,16 @@
-@extends('layouts.single')
+@extends('layouts.app')
 @section('header')
     @include('common.navbar.app',  ['page' => 'post'])
 @endsection
+@section('aside')
+    @include('common.aside.mypage')
+@endsection
 @section('main')
     @include('post.components.title')
-    @include('post.components.tabs', ['isNew' => true, 'isPopular' => false,])
+    <title-component
+        sort-new="{{ route('post.index') }}"
+        sort-popular="{{ route('post.popular') }}"
+    ></title-component>
 
     {{-- カード --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">

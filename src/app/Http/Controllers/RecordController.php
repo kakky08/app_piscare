@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Record;
-use App\Target;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Storage;
 
-class HomeController extends Controller
+class RecordController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -29,56 +28,68 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $carbon = new Carbon();
-        // その月は何日間あるか取得
-        $days = (int)$carbon->daysInMonth;
+        $dateStr = Carbon::now()->format("Y-m-01");
+        $date = new Carbon($dateStr);
 
-        // 目標、目標回数の取得
-        $target = Target::where('user_id', Auth::id())->orderBy('created_at', 'desc')->select('time', 'target')->first();
+        $year_month = substr($dateStr, 0, 7);
+        $year = $date->year;
+        $month = $date->month;
 
-        $time = $target->time;
+        $record_year_month = substr($dateStr, 0, 7);
+        $today = new Carbon('today');
+        $record_day = (int)$today->day;
 
-        $title = $target->target;
+        // カレンダーを四角形にするため、前月となる左上の隙間用のデータを入れるためずらす
+        $date->subDay($date->dayOfWeek);
 
-        // 現在の年月の情報を取得
-        $year_month = $carbon->year . '-' . $carbon->month;
-
-        // 現在の年月の記録の数を検索
-        $count = Record::where('user_id', Auth::id())->where('year_month', $year_month)->count();
+        // 同上。右下の隙間のための計算。
+        $count = 31 + $date->dayOfWeek;
+        $count = ceil($count / 7) * 7 + 7;
 
 
-        // 目標回数が現在の月の日数より多ければ最大値に調整
-        if($time > $days)
-        {
-            $time = $days;
+        $dates = [];
+
+        for ($i = 0; $i < $count; $i++, $date->addDay()) {
+            // copyしないと全部同じオブジェクトを入れてしまうことになる
+            $dates[] = $date->copy();
         }
 
+        // 表示されている月の記録を取得
+        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'image', 'title', 'id')->get()->toArray();
+        // カレンダーに表示するため配列に格納
 
-        // 今月の目標の達成率のパーセンテージを計算
-        // 目標回数が登録されているか確認し分岐
-        if(isset($time))
-        {
-            $percent = ($count / $time) * 100;
-            $percent = round($percent, 1);
-        }
-        else
-        {
-            $time = 0;
-            $percent = 0;
-        }
+        $array = array_column($records, null, 'day');
+        // その日の記録があるかを検索
+        $today = new Carbon('today');
+        $day = $today->day;
+        $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
-        return view('home.pages.index', compact('time', 'percent', 'title', 'count'));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day', 'array'));
     }
 
 
     /**
      * 記録機能
      */
-    public function record(Request $request)
+    public function store(Request $request)
     {
-        $year_month = $request->year_month;
-        $day = $request->day;
-        $record = Record::where('user_id', Auth::id())->where('year_month', $year_month)->where('day', $day)->first();
+
+        // dd($request);
+        $image = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $image, 'public');
+
+        Record::create([
+            'user_id' => Auth::id(),
+            'year_month' => $request->year_month,
+            'day' => $request->day,
+            'title' => $request->title,
+            'image' => $path,
+            'url' => $request->url,
+        ]);
+
+        return redirect()->route('record.index');
+
+        /* $record = Record::where('user_id', Auth::id())->where('year_month', $year_month)->where('day', $day)->first();
         //更新処理
         if (isset($record)) {
             if (isset($request->breakfast)) {
@@ -113,10 +124,32 @@ class HomeController extends Controller
             }
             $record->count = 1;
             $record->save();
-        }
+        } */
         return redirect()->route('home.select', $request->year_month . '-' . $request->day);
     }
 
+    /**
+     * 記録機能
+     */
+    public function edit(Request $request, Record $record)
+    {
+        $image = $request->file('file');
+        $path = Storage::disk('s3')->putFile('/', $image, 'public');
+
+        return redirect()->route('record.index');
+    }
+
+    /**
+     * 削除
+     */
+    public function destory($record)
+    {
+        dd($record);
+        $record = Record::find($record);
+        $record->delete();
+
+        return redirect()->route('record.index');
+    }
 
     /**
      * 月の移動

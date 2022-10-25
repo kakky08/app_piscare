@@ -1,6 +1,9 @@
-@extends('layouts.single')
+@extends('layouts.app')
 @section('header')
     @include('common.navbar.app',  ['page' => 'post-create'])
+@endsection
+@section('aside')
+    @include('common.aside.mypage')
 @endsection
 @section('main')
     <div class="mx-auto w-3/4">

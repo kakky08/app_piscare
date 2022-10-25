@@ -66,7 +66,7 @@ class PostController extends Controller
     {
         $post = Post::find($post)->load('procedures');
 
-        if (isset($post->image))
+        /*  if (isset($post->image))
         {
             Storage::disk('s3')->delete($post->image);
         }
@@ -77,7 +77,7 @@ class PostController extends Controller
             {
                 Storage::disk('s3')->delete($procedure->photo);
             }
-        }
+        } */
 
         $post->delete();
         return redirect()->route('post.index');
@@ -95,8 +95,7 @@ class PostController extends Controller
     {
         $post = Post::find($post);
 
-        if(isset($post->image))
-        {
+        if (isset($post->image)) {
             Storage::disk('s3')->delete($post->image);
         }
 
@@ -107,7 +106,6 @@ class PostController extends Controller
         $post->image = $path;
         $post->save();
         return redirect()->route('post.edit', ['post' => $post->id])->with('completion-of-registration-main-image', '登録が完了しました');
-
     }
 
 
@@ -200,15 +198,22 @@ class PostController extends Controller
         /* $postId = $post;
         $procedures = Procedure::where('post_id', $post)->get();
         $path = asset('storage/'); */
-        return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */ 'post'));
+        return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */'post'));
     }
 
-    public function procedureStore(ProcedureStoreRequest $request)
-    {
-        // $path = $request->file->store('public');
 
+    /**
+     *
+     * 手順の登録
+     * @param ProcedureStoreRequest $request
+     */
+    public function procedureStore(Request $request)
+    {
+        // dd($request);
+        // $path = $request->file->store('public');
         $image = $request->file('file');
         $path = Storage::disk('s3')->putFile('/', $image, 'public');
+
 
         $order = Procedure::where('post_id', $request->postId)->select('order')->get();
         Procedure::create([
@@ -217,7 +222,7 @@ class PostController extends Controller
             /*  'photo' => basename($path), */
             'photo' => $path,
             /* 'photo' => asset('storage/' . basename($path)), */
-            'procedure' => $request['procedure'],
+            'procedure' => $request->procedure,
         ]);
 
         return redirect()->route('post.procedure.show', ['post' => $request->postId])->with('completion-of-registration-procedure', '登録が完了しました。');
@@ -228,8 +233,7 @@ class PostController extends Controller
         $procedure = Procedure::find($request->procedure);
         $path = $procedure->photo;
 
-        if(isset($request->file))
-        {
+        if (isset($request->file)) {
             Storage::disk('s3')->delete($procedure->photo);
             $image = $request->update_file('file');
             $path = Storage::disk('s3')->putFile('/', $image, 'public');
@@ -239,21 +243,19 @@ class PostController extends Controller
         $procedure->procedure = $request->update_procedure;
         $procedure->save();
         return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-update-procedure', '更新が完了しました。');
-
     }
 
     public function procedureDestroy(Request $request)
     {
         $procedure = Procedure::find($request->procedure);
-        Storage::disk('s3')->delete($procedure->photo);
+        // Storage::disk('s3')->delete($procedure->photo);
         $procedure->delete();
         return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-destroy-procedure', '削除が完了しました。');
     }
 
     public function procedureSort(Request $request)
     {
-        foreach ($request->procedures as $procedure)
-        {
+        foreach ($request->procedures as $procedure) {
             $value = Procedure::find($procedure['id']);
             $value->order = $procedure['order'];
             $value->save();

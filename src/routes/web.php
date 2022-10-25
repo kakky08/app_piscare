@@ -98,6 +98,25 @@ Route::prefix('home')->name('home.')->group(function () {
 });
 
 /* --------------------
+    Record
+-------------------- */
+Route::prefix('record')->name('record.')->middleware('auth')->group(function () {
+    Route::get('/', 'RecordController@index')->name('index');
+    // Route::get('/{move}', 'RecordController@moveMonth')->name('move');
+    Route::delete('/destroy/{record}', 'RecordController@destroy')->name('destroy');
+    Route::post('/store', 'RecordController@store')->name('store');
+    // Route::get('/select/{select}', 'RecordController@selectDay')->name('select');
+});
+
+/* --------------------
+    Record
+-------------------- */
+Route::prefix('target')->name('target.')->middleware('auth')->group(function () {
+    Route::get('/', 'TargetController@index')->name('index');
+    Route::post('/', 'TargetController@store')->name('store');
+});
+
+/* --------------------
     Setting
 -------------------- */
 Route::prefix('setting')->name('setting.')->middleware('auth')->group(function () {
