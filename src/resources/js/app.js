@@ -22,7 +22,9 @@ import UpdateImage from './components/UpdateImage'
 import UpdateProcedure from './components/UpdateProcedure'
 import SortProcedure from './components/SortProcedure'
 import MainImage from './components/MainImage'
-import App from './App.vue'
+import HeaderComponent from './components/HeaderComponent'
+import TitleComponent from './components/TitleComponent'
+import RecordComponent from './components/RecordComponent'
 
 /**
  * The following block of code may be used to automatically register your
@@ -60,7 +62,9 @@ const app = new Vue({
         UpdateProcedure,
         SortProcedure,
         MainImage,
-        App,
+        HeaderComponent,
+        TitleComponent,
+        RecordComponent
     },
     // SPA用
     // template: '<App />'
