@@ -66,7 +66,7 @@ class PostController extends Controller
     {
         $post = Post::find($post)->load('procedures');
 
-    /*  if (isset($post->image))
+        /*  if (isset($post->image))
         {
             Storage::disk('s3')->delete($post->image);
         }
@@ -95,8 +95,7 @@ class PostController extends Controller
     {
         $post = Post::find($post);
 
-        if(isset($post->image))
-        {
+        if (isset($post->image)) {
             Storage::disk('s3')->delete($post->image);
         }
 
@@ -107,7 +106,6 @@ class PostController extends Controller
         $post->image = $path;
         $post->save();
         return redirect()->route('post.edit', ['post' => $post->id])->with('completion-of-registration-main-image', '登録が完了しました');
-
     }
 
 
@@ -200,7 +198,7 @@ class PostController extends Controller
         /* $postId = $post;
         $procedures = Procedure::where('post_id', $post)->get();
         $path = asset('storage/'); */
-        return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */ 'post'));
+        return view('post.pages.procedure.edit', compact(/* 'postId', 'procedures', 'path' */'post'));
     }
 
 
@@ -235,8 +233,7 @@ class PostController extends Controller
         $procedure = Procedure::find($request->procedure);
         $path = $procedure->photo;
 
-        if(isset($request->file))
-        {
+        if (isset($request->file)) {
             Storage::disk('s3')->delete($procedure->photo);
             $image = $request->update_file('file');
             $path = Storage::disk('s3')->putFile('/', $image, 'public');
@@ -246,7 +243,6 @@ class PostController extends Controller
         $procedure->procedure = $request->update_procedure;
         $procedure->save();
         return redirect()->route('post.procedure.show', ['post' => $request->post_id])->with('completion-of-update-procedure', '更新が完了しました。');
-
     }
 
     public function procedureDestroy(Request $request)
@@ -259,8 +255,7 @@ class PostController extends Controller
 
     public function procedureSort(Request $request)
     {
-        foreach ($request->procedures as $procedure)
-        {
+        foreach ($request->procedures as $procedure) {
             $value = Procedure::find($procedure['id']);
             $value->order = $procedure['order'];
             $value->save();

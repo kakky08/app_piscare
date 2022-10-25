@@ -1,4 +1,4 @@
-<nav class="px-4 my-auto bg-yellow-300">
+{{-- <nav class="px-4 my-auto bg-yellow-300">
     <div class="nav-var flex flex-wrap justify-between items-center mx-auto">
         <a href="/home" class="flex items-center">
             <span class="self-center text-xl font-semibold whitespace-nowrap">Piscare</span>
@@ -84,4 +84,16 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> --}}
+<header-component
+    isーicon="{{ empty($user->icon) }}"
+    icon="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}"
+    icon-alt="{{ $user->name }}"
+    logout="{{ route('logout') }}"
+    profile-page="{{ route('profile.show', ['name' => $user->name]) }}"
+    recipe-page="{{ route('recipe.index') }}"
+    post-page="{{ route('post.index') }}"
+    shop-page="{{ route('shop.index') }}"
+    post-recipe-page="{{ route('post.create') }}"
+>
+</header-component>
