@@ -6,7 +6,7 @@
     @include('common.aside.mypage',  ['page' => 'setting'])
 @endsection
 @section('main')
-    @include('common.tab.mypage',  ['page' => 'setting'])
+    {{-- @include('common.tab.mypage',  ['page' => 'setting']) --}}
     <h1 class="text-5xl mb-16">Setting</h1>
     @include('mypage.setting.message.successMessage')
     <h2 class="mypage-subtitle">ニックネームの変更</h2>

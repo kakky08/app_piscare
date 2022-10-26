@@ -25,7 +25,9 @@ import MainImage from './components/MainImage'
 import HeaderComponent from './components/HeaderComponent'
 import TitleComponent from './components/TitleComponent'
 import RecordComponent from './components/RecordComponent'
-
+import RecordButton from './components/RecordButton'
+import DeleteButton from './components/DeleteButton'
+import AsideMenu from './components/AsideMenu'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -63,7 +65,10 @@ const app = new Vue({
         MainImage,
         HeaderComponent,
         TitleComponent,
-        RecordComponent
+        RecordComponent,
+        RecordButton,
+        DeleteButton,
+        AsideMenu
     },
     // SPA用
     // template: '<App />'

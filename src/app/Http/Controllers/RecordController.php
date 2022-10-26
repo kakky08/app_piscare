@@ -74,9 +74,20 @@ class RecordController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request);
-        $image = $request->file('file');
-        $path = Storage::disk('s3')->putFile('/', $image, 'public');
+        if (isset($request->file))
+        {
+            $image = $request->file('file');
+            $path = Storage::disk('s3')->putFile('/', $image, 'public');
+        }
+        else
+        {
+            $path = asset('images/noimage.jpeg');
+        }
+
+        if(isset($request->link))
+        {
+            $link = null;
+        }
 
         Record::create([
             'user_id' => Auth::id(),
@@ -84,7 +95,7 @@ class RecordController extends Controller
             'day' => $request->day,
             'title' => $request->title,
             'image' => $path,
-            'url' => $request->url,
+            'url' => $link,
         ]);
 
         return redirect()->route('record.index');
@@ -186,10 +197,10 @@ class RecordController extends Controller
         }
 
         // 表示されている月の記録を取得
-        $records = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->select('day', 'count')->get()->toArray();
+        $records = Record::where('user_id', Auth::id())->where('year_month', $year_month)->select('day', 'image', 'title', 'id')->get()->toArray();
 
         // カレンダーに表示するため配列に格納
-        $array = array_column($records, 'count', 'day');
+        $array = array_column($records, null, 'day');
 
 
         // その日の記録があるかを検索
@@ -198,7 +209,7 @@ class RecordController extends Controller
         $record = Record::where('user_id', Auth::id())->where('year_month', $record_year_month)->where('day', $record_day)->first();
 
 
-        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'record_year_month', 'record_day', 'year', 'month', 'record', 'array'));
+        return view('mypage.home.index', compact('dates',  'date', 'year_month', 'year', 'month', 'record', 'record_year_month', 'record_day', 'array'));
     }
 
 

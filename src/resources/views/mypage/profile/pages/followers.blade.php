@@ -6,7 +6,7 @@
     @include('common.aside.mypage',  ['page' => 'profile'])
 @endsection
 @section('main')
-    @include('common.tab.mypage',  ['page' => 'profile'])
+    {{-- @include('common.tab.mypage',  ['page' => 'profile']) --}}
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => false, 'isLikes' => false, 'isFollowings' => false, 'isFollowers' => true])
     <ul class="follow-list">

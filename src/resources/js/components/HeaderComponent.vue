@@ -40,22 +40,22 @@
                                             </path>
                                         </svg> -->
                                         <img v-if="isIcon" :src="icon" class="profile-icon w-12 h-12" :alt="iconAlt + 'のアイコン'">
-                                        <img v-else src="images/yellowtail.png" class="profile-icon w-12 h-12" :alt="iconAlt + 'のアイコン'">
+                                        <img v-else :src="defaultIcon" class="profile-icon w-12 h-12" :alt="iconAlt + 'のアイコン'">
                                     </button>
                                 </div>
                                 <div v-show="isUserMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
                                     <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                        <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                        <a :href="recordRoute" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                             <span class="flex flex-col">
                                                 <span>
                                                     記録
                                                 </span>
                                             </span>
                                         </a>
-                                        <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
+                                        <a :href="recipeRoute" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
                                             <span class="flex flex-col">
                                                 <span>
-                                                    投稿レシピ
+                                                    レシピ
                                                 </span>
                                             </span>
                                         </a>
@@ -89,9 +89,9 @@
                     Piscare
                 </a>
                 <a class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
-                    href=""
+                    :href="homeRoute"
                 >
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-home fa-lg w-5"></i>
                     <span class="mx-4 text-lg font-normal">
                         Home
                     </span>
@@ -99,9 +99,9 @@
                     </span>
                 </a>
                 <a class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
-                    href=""
+                    :href="recordRoute"
                 >
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-clipboard fa-lg w-5"></i>
                     <span class="mx-4 text-lg font-normal">
                         記録
                     </span>
@@ -109,19 +109,19 @@
                     </span>
                 </a>
                 <a class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
-                    href=""
+                    :href="recipeRoute"
                 >
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-utensils fa-lg w-5"></i>
                     <span class="mx-4 text-lg font-normal">
-                        レシピ検索
+                        レシピ
                     </span>
                     <span class="flex-grow text-right">
                     </span>
                 </a>
                 <a class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
-                    href=""
+                    :href="postRoute"
                 >
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-pen-square fa-lg w-5"></i>
                     <span class="mx-4 text-lg font-normal">
                         投稿
                     </span>
@@ -129,11 +129,11 @@
                     </span>
                 </a>
                 <a class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors text-gray-600"
-                    href=""
+                    :href="shopRoute"
                 >
-                    <i class="fas fa-home fa-lg"></i>
+                    <i class="fas fa-store-alt fa-lg w-5"></i>
                     <span class="mx-4 text-lg font-normal">
-                        お店検索
+                        お店
                     </span>
                     <span class="flex-grow text-right">
                     </span>
@@ -176,22 +176,17 @@
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full block text-lg font-normal" :href="profilePage">プロフィール</a>
+                    <a class="w-full block text-lg font-normal" :href="profileRoute">プロフィール</a>
                   </li>
                   <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full block text-lg font-normal" href="/home">目標設定</a>
+                    <a class="w-full block text-lg font-normal" :href="targetRoute">目標設定</a>
                   </li>
-                 <!--  <li
+                  <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                   >
-                    <a class="w-full block text-lg font-normal" href="pages/login.html">目標設定</a>
-                  </li> -->
-                 <li
-                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
-                    <a class="w-full block text-lg font-normal" href="/setting">その他設定</a>
+                    <a class="w-full block text-lg font-normal" :href="settingRoute">その他設定</a>
                   </li>
 
                 </ul>
@@ -212,27 +207,40 @@ export default {
         icon: {
             type: String
         },
+        defaultIcon:{
+            type: String
+        },
         iconAlt: {
             type: String
         },
         logout: {
             type: String
         },
-        profilePage: {
+        homeRoute: {
             type: String
         },
-        recipePage: {
+        recordRoute: {
             type: String
         },
-        postPage: {
+        recipeRoute: {
             type: String
         },
-        shopPage: {
+        postRoute: {
             type: String
         },
-        postRecipePage: {
+        shopRoute: {
             type: String
-        }
+        },
+        profileRoute: {
+            type: String
+        },
+        targetRoute: {
+            type: String
+        },
+        settingRoute: {
+            type: String
+        },
+
     },
     data () {
         return {
