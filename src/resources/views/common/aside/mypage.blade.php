@@ -76,6 +76,7 @@
                   ></path>
                 </svg>
               </button> --}}
+
               {{-- <template v-if="isPagesMenuOpen">
                 <ul
                   x-transition:enter="transition-all ease-in-out duration-300"
