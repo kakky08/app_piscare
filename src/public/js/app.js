@@ -86103,7 +86103,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webp
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  router: _router__WEBPACK_IMPORTED_MODULE_1__["default"],
   components: {
     DatepickerComponent: _components_DatepickerComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
     ProcedureComponent: _components_ProcedureComponent__WEBPACK_IMPORTED_MODULE_3__["default"],

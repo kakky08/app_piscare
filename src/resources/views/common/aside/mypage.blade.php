@@ -52,7 +52,7 @@
                     <span class="flex-grow text-right">
                     </span>
                 </a>
-                <button
+                {{-- <button
                     class="hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-8 transition-colors text-gray-600"
                     @click="togglePagesMenu"
                         aria-haspopup="true"
@@ -75,8 +75,8 @@
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-              </button>
-              <template v-if="isPagesMenuOpen">
+              </button> --}}
+              {{-- <template v-if="isPagesMenuOpen">
                 <ul
                   x-transition:enter="transition-all ease-in-out duration-300"
                   x-transition:enter-start="opacity-25 max-h-0"
@@ -109,7 +109,7 @@
                   </li>
 
                 </ul>
-              </template>
+              </template> --}}
             {{-- </nav> --}}
             </div>
         </aside>
