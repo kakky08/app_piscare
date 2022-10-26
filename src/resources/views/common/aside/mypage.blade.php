@@ -52,7 +52,6 @@
                     <span class="flex-grow text-right">
                     </span>
                 </a>
-
             </div>
         </aside>
     </div>
