@@ -102,6 +102,7 @@ Route::prefix('home')->name('home.')->group(function () {
     Route::get('/select/{select}', 'HomeController@selectDay')->name('select');
 });
 
+
 /* --------------------
     Record
 -------------------- */
