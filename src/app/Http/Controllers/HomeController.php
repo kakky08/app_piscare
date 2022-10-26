@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Record;
 use App\Target;
 use Carbon\Carbon;
@@ -75,7 +76,23 @@ class HomeController extends Controller
             $percent = 0;
         }
 
-        return view('home.pages.index', compact('time', 'percent', 'title', 'count'));
+        // レシピからランダムに１件取得
+        $recommendation = Post::inRandomOrder()->first();
+
+        // レシピの数を調べ最大5件取得できるように調整
+        $count = Post::count();
+        if($count < 5)
+        {
+            $latests = Post::orderBy('id', 'desc')->get();
+        }
+        else
+        {
+            // レシピから最新のものを５件取得
+            $latests = Post::orderBy('id', 'desc')->take(5)->get();
+        }
+
+
+        return view('home.pages.index', compact('time', 'percent', 'title', 'count', 'recommendation', 'latests'));
     }
 
 

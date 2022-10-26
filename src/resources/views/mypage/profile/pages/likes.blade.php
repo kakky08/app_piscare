@@ -6,7 +6,7 @@
     @include('common.aside.mypage', ['page' => 'profile'])
 @endsection
 @section('main')
-    @include('common.tab.mypage',  ['page' => 'profile'])
+    {{-- @include('common.tab.mypage',  ['page' => 'profile']) --}}
     @include('mypage.profile.components.profile')
     @include('mypage.profile.components.tabs', ['isPosts' => false, 'isLikes' => true, 'isFollowings' => false, 'isFollowers' => false])
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">

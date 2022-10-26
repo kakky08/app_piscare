@@ -1,14 +1,14 @@
 <div class="flex justify-around items-center mb-8">
     @if ($month == 1)
         <a
-        href="{{route('home.move', (sprintf('%s-%s', $year -1 , (sprintf('%02d', $month + 11 ))))) }}"
+        href="{{route('record.move', (sprintf('%s-%s', $year -1 , (sprintf('%02d', $month + 11 ))))) }}"
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
         >
             前の月へ
         </a>
     @else
         <a
-            href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}"
+            href="{{route('record.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month - 1 ))))) }}"
             class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
         >
             前の月へ
@@ -18,14 +18,14 @@
     <p class="text-lg text-center">{{ $year }}年 {{ $month }}月</p>
     @if ($month == 12)
         <a
-        href="{{route('home.move', (sprintf('%s-%s', $year + 1, (sprintf('%02d', $month - 11 ))))) }}"
+        href="{{route('record.move', (sprintf('%s-%s', $year + 1, (sprintf('%02d', $month - 11 ))))) }}"
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
         >
             次の月へ
         </a>
     @else
         <a
-        href="{{route('home.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}"
+        href="{{route('record.move', (sprintf('%s-%s', $year, (sprintf('%02d', $month + 1 ))))) }}"
         class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm sm:px-32 px-16 py-2.5 text-center"
         >
             次の月へ
@@ -38,9 +38,9 @@
     <div class="grid grid-cols-7">
         @foreach (['日', '月', '火', '水', '木', '金', '土'] as $index => $dayOfWeek)
             @if (($index + 1) % 7 !== 0)
-                <p class="col-span-1 text-center border-t border-l border-b">{{ $dayOfWeek }}</p>
+                <p class="col-span-1 text-center border-t border-l border-b py-2 border-gray-900">{{ $dayOfWeek }}</p>
             @else
-                <p class="col-span-1 text-center border">{{ $dayOfWeek }}</p>
+                <p class="col-span-1 text-center border-t border-r border-b border-l py-2 border-gray-900">{{ $dayOfWeek }}</p>
             @endif
         @endforeach
         @foreach ($dates as $index => $date)

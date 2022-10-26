@@ -86,14 +86,18 @@
     </div>
 </nav> --}}
 <header-component
-    isーicon="{{ empty($user->icon) }}"
+    isーicon="{{ isset($user->icon) }}"
     icon="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $user->icon }}"
+    default-icon="{{ asset('images/yellowtail.png') }}"
     icon-alt="{{ $user->name }}"
     logout="{{ route('logout') }}"
-    profile-page="{{ route('profile.show', ['name' => $user->name]) }}"
-    recipe-page="{{ route('recipe.index') }}"
-    post-page="{{ route('post.index') }}"
-    shop-page="{{ route('shop.index') }}"
-    post-recipe-page="{{ route('post.create') }}"
+    home-route="{{ route('home.index') }}"
+    record-route="{{ route('record.index') }}"
+    recipe-route="{{ route('post.index') }}"
+    post-route="{{ route('post.create') }}"
+    shop-route="{{ route('shop.index') }}"
+    profile-route="{{ route('profile.show', ['name' => $user->name]) }}"
+    target-route="{{ route('target.index') }}"
+    setting-route="{{ route('setting.index') }}"
 >
 </header-component>

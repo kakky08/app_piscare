@@ -17,6 +17,7 @@ use App\Material;
 use App\Post;
 use App\Procedure;
 use App\Seasoning;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Storage;
@@ -37,8 +38,14 @@ class PostController extends Controller
 
     public function show($id)
     {
+        $carbon = new Carbon();
+        // 現在の年月の情報を取得
+        $year_month = $carbon->year . '-' . $carbon->month;
+        $month = $carbon->month;
+        $day = $carbon->day;
+
         $recipe = Post::find($id)->load('materials', 'seasonings', 'procedures');
-        return view('post.pages.show', compact('recipe'));
+        return view('post.pages.show', compact('recipe', 'year_month', 'month', 'day'));
     }
 
     public function create()

@@ -97,7 +97,7 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
 Route::resource('home', 'HomeController', ['only' => ['index']]);
 
 Route::prefix('home')->name('home.')->group(function () {
-    Route::get('/{move}', 'HomeController@moveMonth')->name('move');
+    // Route::get('/{move}', 'HomeController@moveMonth')->name('move');
     Route::post('/record', 'HomeController@record')->name('record');
     Route::get('/select/{select}', 'HomeController@selectDay')->name('select');
 });
@@ -108,7 +108,7 @@ Route::prefix('home')->name('home.')->group(function () {
 -------------------- */
 Route::prefix('record')->name('record.')->middleware('auth')->group(function () {
     Route::get('/', 'RecordController@index')->name('index');
-    // Route::get('/{move}', 'RecordController@moveMonth')->name('move');
+    Route::get('/{move}', 'RecordController@moveMonth')->name('move');
     Route::delete('/destroy/{record}', 'RecordController@destroy')->name('destroy');
     Route::post('/store', 'RecordController@store')->name('store');
     // Route::get('/select/{select}', 'RecordController@selectDay')->name('select');

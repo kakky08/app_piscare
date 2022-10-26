@@ -53,7 +53,7 @@
                         編集
                     </button>
                 </form>
-                <form action="{{ route('post.destroy', ['post' => $recipe->id]) }}" method="POST">
+                {{-- <form action="{{ route('post.destroy', ['post' => $recipe->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button
@@ -62,7 +62,38 @@
                     >
                         削除
                     </button>
-                </form>
+                </form> --}}
+                <delete-button
+                    destroy-root="{{ route('post.destroy', ['post' => $recipe->id]) }}"
+                    redirect="{{ route('post.index') }}"
+                >
+                </delete-button>
+                @if (isset($recipe->image))
+                    <record-button
+                        url="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recipe->image }}"
+                        title="{{ $recipe->title }}"
+                        month="{{ $month }}"
+                        day="{{ $day }}"
+                        year_month="{{ $year_month }}"
+                        record-create-root="{{ route("record.store")}}"
+                        link="{{ route('post.show', ['id' => $recipe->id]) }}"
+                    >
+
+                    </record-button>
+                @else
+                    <record-button
+                        url="{{ asset('images/noimage.jpeg') }}"
+                        title="{{ $recipe->title }}"
+                        month="{{ $month }}"
+                        day="{{ $day }}"
+                        year_month="{{ $year_month }}"
+                        record-create-root="{{ route("record.store")}}"
+                        link="{{ route('post.show', ['id' => $recipe->id]) }}"
+                    >
+
+                    </record-button>
+                @endif
+
                 @endif
                 @if(Auth::id() !== $recipe->user_id)
                     <follow-button

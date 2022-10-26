@@ -52,6 +52,11 @@
                     <span class="flex-grow text-right">
                     </span>
                 </a>
+                <aside-menu
+                    profile-route="{{ route('profile.show', ['name' => $user->name]) }}"
+                    target-route="{{ route('target.index') }}"
+                    setting-route="{{ route('setting.index') }}"
+                ></aside-menu>
             </div>
         </aside>
     </div>
