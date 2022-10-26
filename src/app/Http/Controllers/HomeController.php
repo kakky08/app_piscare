@@ -35,9 +35,19 @@ class HomeController extends Controller
         // 目標、目標回数の取得
         $target = Target::where('user_id', Auth::id())->orderBy('created_at', 'desc')->select('time', 'target')->first();
 
-        $time = $target->time;
+        // 目標、目標回数が未設定な場合の分岐
+        if(isset($target))
+        {
+            $time = $target->time;
+            $title = $target->target;
+        }
+        else
+        {
+            $time = 0;
+            $title = "目標を設定してください";
+        }
 
-        $title = $target->target;
+
         // 現在の年月の情報を取得
         $year_month = $carbon->year . '-' . $carbon->month;
 
@@ -53,8 +63,8 @@ class HomeController extends Controller
 
 
         // 今月の目標の達成率のパーセンテージを計算
-        // 目標回数が登録されているか確認し分岐
-        if(isset($time))
+        // 目標日数が０日の場合計算を実行しない
+        if($time !== 0)
         {
             $percent = ($count / $time) * 100;
             $percent = round($percent, 1);
