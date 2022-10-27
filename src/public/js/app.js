@@ -5189,10 +5189,9 @@ var render = function render() {
     }
   }, _vm._l(_vm.latests, function (latest) {
     return _c("slide", {
-      key: latest.id,
-      staticClass: "space-x-1"
+      key: latest.id
     }, [_c("div", {
-      staticClass: "w-90 mx-auto max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+      staticClass: "w-full mx-auto max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
     }, [_c("a", {
       attrs: {
         href: ""

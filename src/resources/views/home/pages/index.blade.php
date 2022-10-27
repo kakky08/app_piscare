@@ -6,14 +6,15 @@
     @include('common.aside.mypage',  ['page' => 'home'])
 @endsection
 @section('main')
-<slider-component
-    :latests='{{ json_encode($latests) }}'
-    default-image="{{ asset('images/noimage.jpeg')}}"
-></slider-component>
+    <h1 class="text-center mb-8 text-2xl font-bold">新着レシピ</h1>
+    <slider-component
+        :latests='{{ json_encode($latests) }}'
+        default-image="{{ asset('images/noimage.jpeg')}}"
+    ></slider-component>
 <div class="grid grid-cols-1 lg:grid-cols-2">
     {{-- レシピのカード --}}
     <div class="mb-24 lg:mb-0">
-        <div class="w-full h-96 max-w-sm  mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+        <div class="w-full h-11/12 max-w-sm  mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <a href="{{ route("post.show", ['id' => $recommendation->id ])}}">
                 <h2 class="py-4 text-center bg-yellow-300 max-w-sm mx-auto text-gray-600 font-semibold">あなたにおすすめのレシピ</h2>
             @if (isset($recommendation->image))
@@ -33,7 +34,7 @@
 
     {{-- 目標のカード --}}
     <div>
-        <div class="w-full h-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+        <div class="w-full h-11/12 max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <a class="h-full block" href="{{ route("target.index")}}">
                 <h2 class="py-4 text-center bg-yellow-300 max-w-sm mx-auto text-gray-600 rounded-t-lg font-semibold">目標</h2>
                 <div class="  px-6 py-6 justify-around items-center h-full">
