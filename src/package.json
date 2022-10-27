@@ -31,6 +31,8 @@
     },
     "dependencies": {
         "moment": "^2.29.1",
+        "vue-carousel": "^0.18.0",
+        "vue-flickity-2": "^0.1.10",
         "vuedraggable": "^2.24.3",
         "vuejs-datepicker": "^1.6.2"
     }

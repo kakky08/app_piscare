@@ -87,8 +87,8 @@ class HomeController extends Controller
         }
         else
         {
-            // レシピから最新のものを５件取得
-            $latests = Post::orderBy('id', 'desc')->take(5)->get();
+            // レシピから最新のものを15件取得
+            $latests = Post::orderBy('id', 'desc')->take(15)->get();
         }
 
 
