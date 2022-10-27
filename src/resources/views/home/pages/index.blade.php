@@ -46,8 +46,8 @@
 
                     <small class="text-sm text-center">
                     今月は{{ $time }}日魚を食べることが目標です。
-                    <br />
-                    現在{{ $count }}日食べています。
+                    {{-- <br />
+                    現在{{ $count }}日食べています。 --}}
                 </small>
                 </div>
             </a>

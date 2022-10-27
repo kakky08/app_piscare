@@ -36,7 +36,7 @@
                                                     <i class="fas fa-camera fa-2x"></i>
                                                 </p>
                                                 <div class="preview-box" v-if="url">
-                                                    <img class="preview-image" :src="url">
+                                                    <img class="preview-image object-cover h-full" :src="url">
                                                 </div>
                                             </div>
                                         </div>
