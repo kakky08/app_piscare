@@ -109,7 +109,7 @@ Route::prefix('home')->name('home.')->group(function () {
 Route::prefix('record')->name('record.')->middleware('auth')->group(function () {
     Route::get('/', 'RecordController@index')->name('index');
     Route::get('/{move}', 'RecordController@moveMonth')->name('move');
-    Route::delete('/destroy/{record}', 'RecordController@destroy')->name('destroy');
+    Route::delete('/{id}', 'RecordController@destroy')->name('destroy');
     Route::post('/store', 'RecordController@store')->name('store');
     // Route::get('/select/{select}', 'RecordController@selectDay')->name('select');
 });
