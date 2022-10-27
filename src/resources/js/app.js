@@ -28,6 +28,7 @@ import RecordComponent from './components/RecordComponent'
 import RecordButton from './components/RecordButton'
 import DeleteButton from './components/DeleteButton'
 import AsideMenu from './components/AsideMenu'
+import SliderComponent from './components/SliderComponent'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -68,7 +69,8 @@ const app = new Vue({
         RecordComponent,
         RecordButton,
         DeleteButton,
-        AsideMenu
+        AsideMenu,
+        SliderComponent
     },
     // SPA用
     // template: '<App />'
