@@ -63,9 +63,9 @@
                             url="{{ asset('images/noimage.jpeg') }}"
                         @endif
                         title="{{ $array[$date->day]["title"] }}"
-                        record-create-root="{{ route("record.store")}}"
+                        record-edit-root="{{ route("record.store")}}"
                         id="{{$array[$date->day]["id"]}}"
-                        destroy-root="{{ route("record.destroy",  ["record" => $array[$date->day]["id"] ]) }}"
+                        destroy-root="{{ route("record.destroy",  ["id" => $array[$date->day]["id"] ]) }}"
                         redirect="{{ route("record.index")}}"
                     >
                     </record-edit>
@@ -90,9 +90,10 @@
                             url="{{ asset('images/noimage.jpeg') }}"
                         @endif
                         title="{{ $array[$date->day]["title"] }}"
-                        record-create-root="{{ route("record.store")}}"
+                        record-edit-root="{{ route("record.store")}}"
                         id="{{$array[$date->day]["id"]}}"
-                        destroy-root="{{ route("record.destroy",  ["record" => $array[$date->day]["id"] ]) }}"
+                        is-right-end=true
+                        destroy-root="{{ route("record.destroy",  ["id" => $array[$date->day]["id"] ]) }}"
                         redirect="{{ route("record.index")}}"
                     >
                     </record-edit>

@@ -63,7 +63,7 @@
             <!-- 記録の編集画面 -->
                 <div v-if="this.isOpenEdit" role="alert" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 container mx-auto w-11/12 md:w-5/6 max-w-2xl">
                     <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
-                        <form method="POST"  :action="recordEditRoot" id="record-create-form" enctype="multipart/form-data">
+                        <form method="POST"  :action="recordEditRoot" id="record-edit-form" enctype="multipart/form-data">
                             <input type="hidden" name="_token" :value="csrf">
                             <input type="hidden" name="year_month" :value="year_month">
                             <input type="hidden" name="day" :value="day">
@@ -89,11 +89,14 @@
                                 </div>
                             </div>
                             <label for="name" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">料理名</label>
-                            <input id="name" name="title" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="30文字以内で入力してください" />
+                            <input
+                                id="name"
+                                name="title"
+                                :value="this.title"
+                                class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="30文字以内で入力してください" />
                             <div class="flex items-center justify-end w-full">
-                                <button form="record-create-form" type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">登録</button>
-                                <button v-if="isData" class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" @click="closeEditForm">キャンセル</button>
-                                <button v-else class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" @click="closeShowRecord">キャンセル</button>
+                                <button form="record-edit-form" type="submit" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">登録</button>
+                                <button type="button" class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" @click="closeShowRecord">キャンセル</button>
                             </div>
                             <button class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" @click="closeShowRecord" aria-label="close modal" role="button">
                                 <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -122,7 +125,7 @@
                                     <button
                                         type="button"
                                         class="py-2 px-4  bg-red-600 hover:bg-red-500 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"
-                                        @click="deleteData"
+                                        @click="deleteData()"
                                     >
                                         Delete
                                     </button>
@@ -187,6 +190,7 @@ export default {
     },
     data() {
         return {
+            rote: this.destroyRoot,
             isOpenRecord: false,
             isOpenEdit: false,
             isOpenDelete: false,
@@ -226,10 +230,15 @@ export default {
             location.href= this.redirect
         },
         deleteData() {
-            this.redirectRoot();
-            axios.delete(this.destroyRoot).then(() => {
-                this.redirectRoot();
-            });
+            // this.redirectRoot();
+            axios.delete(this.destroyRoot).then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
         }
     },
     mounted () {

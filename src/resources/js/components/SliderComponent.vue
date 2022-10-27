@@ -16,7 +16,7 @@
                 <img v-else class="object-cover object-center w-full h-56" :src="defaultImage" :alt="latest.title + 'の画像'">
 
                 <div class="flex items-center px-6 py-3 bg-yellow-300">
-                    <h2 class="mx-3 text-lg font-semibold text-gray-700">{{ latest.title }}</h2>
+                    <h2 class="mx-3 text-lg font-semibold text-gray-600">{{ latest.title }}</h2>
                 </div>
             </a>
         </div>

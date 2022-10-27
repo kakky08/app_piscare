@@ -3001,6 +3001,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), _props),
   data: function data() {
     return {
+      rote: this.destroyRoot,
       isOpenRecord: false,
       isOpenEdit: false,
       isOpenDelete: false,
@@ -3040,11 +3041,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       location.href = this.redirect;
     },
     deleteData: function deleteData() {
-      var _this = this;
-
-      this.redirectRoot();
-      axios["delete"](this.destroyRoot).then(function () {
-        _this.redirectRoot();
+      // this.redirectRoot();
+      axios["delete"](this.destroyRoot).then(function (response) {
+        // handle success
+        console.log(response);
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
       });
     }
   },
@@ -4959,7 +4962,7 @@ var render = function render() {
     attrs: {
       method: "POST",
       action: _vm.recordEditRoot,
-      id: "record-create-form",
+      id: "record-edit-form",
       enctype: "multipart/form-data"
     }
   }, [_c("input", {
@@ -5032,22 +5035,23 @@ var render = function render() {
       id: "name",
       name: "title",
       placeholder: "30文字以内で入力してください"
+    },
+    domProps: {
+      value: this.title
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-end w-full"
   }, [_c("button", {
     staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm",
     attrs: {
-      form: "record-create-form",
+      form: "record-edit-form",
       type: "submit"
     }
-  }, [_vm._v("登録")]), _vm._v(" "), _vm.isData ? _c("button", {
+  }, [_vm._v("登録")]), _vm._v(" "), _c("button", {
     staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm",
-    on: {
-      click: _vm.closeEditForm
-    }
-  }, [_vm._v("キャンセル")]) : _c("button", {
-    staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm",
+    attrs: {
+      type: "button"
+    },
     on: {
       click: _vm.closeShowRecord
     }
@@ -5126,7 +5130,9 @@ var render = function render() {
       type: "button"
     },
     on: {
-      click: _vm.deleteData
+      click: function click($event) {
+        return _vm.deleteData();
+      }
     }
   }, [_vm._v("\n                                    Delete\n                                ")]), _vm._v(" "), _c("button", {
     staticClass: "py-2 px-4 bg-gray-400 hover:bg-gray-300 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-indigo-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg",
@@ -5206,7 +5212,7 @@ var render = function render() {
     }), _vm._v(" "), _c("div", {
       staticClass: "flex items-center px-6 py-3 bg-yellow-300"
     }, [_c("h2", {
-      staticClass: "mx-3 text-lg font-semibold text-gray-700"
+      staticClass: "mx-3 text-lg font-semibold text-gray-600"
     }, [_vm._v(_vm._s(latest.title))])])])])]);
   }), 1)], 1);
 };

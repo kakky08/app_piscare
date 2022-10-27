@@ -153,9 +153,9 @@ class RecordController extends Controller
     /**
      * 削除
      */
-    public function destory($record)
+    public function destory($id)
     {
-        $record = Record::find($record);
+        $record = Record::find($id);
         $record->delete();
 
         return redirect()->route('record.index');

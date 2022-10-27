@@ -13,9 +13,9 @@
 <div class="grid grid-cols-1 lg:grid-cols-2">
     {{-- レシピのカード --}}
     <div class="mb-24 lg:mb-0">
-        <h2 class="pb-2 border-b mb-4 max-w-sm mx-auto">あなたにおすすめのレシピ</h2>
         <div class="w-full h-96 max-w-sm  mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <a href="{{ route("post.show", ['id' => $recommendation->id ])}}">
+                <h2 class="py-4 text-center bg-yellow-300 max-w-sm mx-auto text-gray-600 font-semibold">あなたにおすすめのレシピ</h2>
             @if (isset($recommendation->image))
                 <img class="object-cover object-center w-full h-56" src="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $recommendation->image }}" alt="{{ $recommendation->title }}の画像">
             @else
@@ -33,22 +33,22 @@
 
     {{-- 目標のカード --}}
     <div>
-        <h2 class="pb-2 border-b mb-4 max-w-sm mx-auto">目標</h2>
-        <div class="w-full h-96 max-w-sm  px-6 py-6 mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+        <div class="w-full h-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <a class="h-full block" href="{{ route("target.index")}}">
-                <div class="flex flex-col justify-around items-center h-full">
-                    <h3 class="text-xl text-bold">{{ $title}}</h3>
-                    <div>
+                <h2 class="py-4 text-center bg-yellow-300 max-w-sm mx-auto text-gray-600 rounded-t-lg font-semibold">目標</h2>
+                <div class="  px-6 py-6 justify-around items-center h-full">
+                    <h3 class="text-xl text-bold text-center font-semibold mb-8">{{ $title}}</h3>
+                    <div >
                         <p class="mb-2 text-center">達成率</p>
-                        <p class="text-7xl text-bold">{{ $percent }}%</p>
+                        <p class="text-7xl text-bold text-center mb-8">{{ $percent }}%</p>
                     </div>
 
 
-                    <small class="text-sm text-center">
+                    <p class="text-sm text-center">
                     今月は{{ $time }}日魚を食べることが目標です。
                     {{-- <br />
                     現在{{ $count }}日食べています。 --}}
-                </small>
+                </p>
                 </div>
             </a>
         </div>
