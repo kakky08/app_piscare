@@ -5,7 +5,7 @@
             @click="togglePagesMenu"
             aria-haspopup="true"
         >
-            <i class="fas fa-home fa-lg"></i>
+            <i class="fas fa-user fa-lg w-5 text-yellow-400"></i>
             <span class="mx-4 text-lg font-normal">
                 マイページ
             </span>
