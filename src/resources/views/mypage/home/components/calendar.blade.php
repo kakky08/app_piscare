@@ -54,7 +54,7 @@
                 @endif
             @elseif(($index + 1 ) % 7 !== 0)
                 @if (isset($array[$date->day]))
-                    <record-component
+                    <record-edit
                         month="{{ $month }}"
                         day="{{ $date->day }}"
                         @if (isset($array[$date->day]["image"]))
@@ -64,34 +64,41 @@
                         @endif
                         title="{{ $array[$date->day]["title"] }}"
                         record-create-root="{{ route("record.store")}}"
-                        record-destroy-root="{{ route("record.destroy",  ["record" => $array[$date->day]["id"]]) }}"
-                        is-data="true"
+                        id="{{$array[$date->day]["id"]}}"
+                        destroy-root="{{ route("record.destroy",  ["record" => $array[$date->day]["id"] ]) }}"
+                        redirect="{{ route("record.index")}}"
                     >
-                    </record-component>
+                    </record-edit>
                 @else
-                    <record-component
+                    <record-create
                         month="{{ $month }}"
                         day="{{ $date->day }}"
                         bg-white=true
                         year_month="{{ $record_year_month }}"
                         record-create-root="{{ route("record.store")}}"
                     >
-                    </record-component>
+                    </record-create>
                 @endif
             @elseif(($index + 1 ) % 7 === 0)
                 @if (isset($array[$date->day]))
-                    <record-component
+                    <record-edit
                         month="{{ $month }}"
                         day="{{ $date->day }}"
                         url="{{ asset('images/topimage-record.png') }}"
                         is-right-end=true
                         is-data="true"
                     >
-                    </record-component>
+                    </record-edit>
                 @else
-                    <div class="flex flex-col bg-white-200 h-32 border-l border-b border-r border-gray-900 cursor-pointer">
-                        <p class="text-center">{{ $date->day }}</p>
-                    </div>
+                    <record-create
+                        month="{{ $month }}"
+                        day="{{ $date->day }}"
+                        bg-white=true
+                        year_month="{{ $record_year_month }}"
+                        is-right-end=true
+                        record-create-root="{{ route("record.store")}}"
+                    >
+                    </record-create>
                 @endif
             @endif
         @endforeach

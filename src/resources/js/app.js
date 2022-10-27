@@ -24,7 +24,8 @@ import SortProcedure from './components/SortProcedure'
 import MainImage from './components/MainImage'
 import HeaderComponent from './components/HeaderComponent'
 import TitleComponent from './components/TitleComponent'
-import RecordComponent from './components/RecordComponent'
+import RecordCreate from './components/RecordCreate'
+import RecordEdit from './components/RecordEdit'
 import RecordButton from './components/RecordButton'
 import DeleteButton from './components/DeleteButton'
 import AsideMenu from './components/AsideMenu'
@@ -66,7 +67,8 @@ const app = new Vue({
         MainImage,
         HeaderComponent,
         TitleComponent,
-        RecordComponent,
+        RecordCreate,
+        RecordEdit,
         RecordButton,
         DeleteButton,
         AsideMenu,

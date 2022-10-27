@@ -84,7 +84,7 @@ class RecordController extends Controller
             $path = asset('images/noimage.jpeg');
         }
 
-        if(isset($request->link))
+        if(!isset($request->link))
         {
             $link = null;
         }
@@ -155,7 +155,6 @@ class RecordController extends Controller
      */
     public function destory($record)
     {
-        dd($record);
         $record = Record::find($record);
         $record->delete();
 

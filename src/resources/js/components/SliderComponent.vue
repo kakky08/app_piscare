@@ -13,7 +13,7 @@
         <div class="w-90 mx-auto max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <a href="">
                 <img v-if="latest.image" class="object-cover object-center w-full h-56" :src="'https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/' + latest.image " :alt="latest.title + 'の画像'">
-                <img else class="object-cover object-center w-full h-56" :src="defaultImage" :alt="latest.title + 'の画像'">
+                <img v-else class="object-cover object-center w-full h-56" :src="defaultImage" :alt="latest.title + 'の画像'">
 
                 <div class="flex items-center px-6 py-3 bg-yellow-300">
                     <h2 class="mx-3 text-lg font-semibold text-gray-700">{{ latest.title }}</h2>
