@@ -3263,7 +3263,7 @@ var render = function render() {
       click: _vm.togglePagesMenu
     }
   }, [_c("i", {
-    staticClass: "fas fa-home fa-lg"
+    staticClass: "fas fa-user fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n            マイページ\n        ")]), _vm._v(" "), _c("span", {
@@ -3954,7 +3954,7 @@ var render = function render() {
       href: _vm.homeRoute
     }
   }, [_c("i", {
-    staticClass: "fas fa-home fa-lg w-5"
+    staticClass: "fas fa-home fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        Home\n                    ")]), _vm._v(" "), _c("span", {
@@ -3965,7 +3965,7 @@ var render = function render() {
       href: _vm.recordRoute
     }
   }, [_c("i", {
-    staticClass: "fas fa-clipboard fa-lg w-5"
+    staticClass: "fas fa-clipboard fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        記録\n                    ")]), _vm._v(" "), _c("span", {
@@ -3976,7 +3976,7 @@ var render = function render() {
       href: _vm.recipeRoute
     }
   }, [_c("i", {
-    staticClass: "fas fa-utensils fa-lg w-5"
+    staticClass: "fas fa-utensils fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        レシピ\n                    ")]), _vm._v(" "), _c("span", {
@@ -3987,7 +3987,7 @@ var render = function render() {
       href: _vm.postRoute
     }
   }, [_c("i", {
-    staticClass: "fas fa-pen-square fa-lg w-5"
+    staticClass: "fas fa-pen-square fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        投稿\n                    ")]), _vm._v(" "), _c("span", {
@@ -3998,7 +3998,7 @@ var render = function render() {
       href: _vm.shopRoute
     }
   }, [_c("i", {
-    staticClass: "fas fa-store-alt fa-lg w-5"
+    staticClass: "fas fa-store-alt fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        お店\n                    ")]), _vm._v(" "), _c("span", {
@@ -4012,7 +4012,7 @@ var render = function render() {
       click: _vm.togglePagesMenu
     }
   }, [_c("i", {
-    staticClass: "fas fa-home fa-lg"
+    staticClass: "fas fa-user fa-lg w-5 text-yellow-400"
   }), _vm._v(" "), _c("span", {
     staticClass: "mx-4 text-lg font-normal"
   }, [_vm._v("\n                        マイページ\n                    ")]), _vm._v(" "), _c("span", {
@@ -5097,9 +5097,9 @@ var render = function render() {
         alt: latest.title + "の画像"
       }
     }), _vm._v(" "), _c("div", {
-      staticClass: "flex items-center px-6 py-3 bg-gray-900"
+      staticClass: "flex items-center px-6 py-3 bg-yellow-300"
     }, [_c("h2", {
-      staticClass: "mx-3 text-lg font-semibold text-white"
+      staticClass: "mx-3 text-lg font-semibold text-gray-700"
     }, [_vm._v(_vm._s(latest.title))])])])])]);
   }), 1)], 1);
 };
