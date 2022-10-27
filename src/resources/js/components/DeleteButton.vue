@@ -17,7 +17,7 @@
             </div>
 
 
-            <!-- 記録の編集画面 -->
+            <!-- 記録の削除画面 -->
                 <div v-if="this.isDaleteModal" role="alert" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 container mx-auto w-11/12 md:w-5/6 max-w-2xl">
                     <div class="shadow-lg rounded-2xl p-4 bg-white w-80 m-auto">
                         <div class="w-full h-full text-center">

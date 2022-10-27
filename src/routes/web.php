@@ -115,7 +115,7 @@ Route::prefix('record')->name('record.')->middleware('auth')->group(function () 
 });
 
 /* --------------------
-    Record
+    Target
 -------------------- */
 Route::prefix('target')->name('target.')->middleware('auth')->group(function () {
     Route::get('/', 'TargetController@index')->name('index');

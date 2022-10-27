@@ -35,7 +35,7 @@
     <div>
         <h2 class="pb-2 border-b mb-4 max-w-sm mx-auto">目標</h2>
         <div class="w-full h-96 max-w-sm  px-6 py-6 mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-            <a class="h-full block" href="{{ route("post.show", ['id' => $recommendation->id ])}}">
+            <a class="h-full block" href="{{ route("target.index")}}">
                 <div class="flex flex-col justify-around items-center h-full">
                     <h3 class="text-xl text-bold">{{ $title}}</h3>
                     <div>
