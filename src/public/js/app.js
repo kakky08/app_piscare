@@ -4723,7 +4723,7 @@ var render = function render() {
   }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.url ? _c("div", {
     staticClass: "preview-box"
   }, [_c("img", {
-    staticClass: "preview-image",
+    staticClass: "preview-image object-cover h-full",
     attrs: {
       src: _vm.url
     }

@@ -84,9 +84,16 @@
                     <record-edit
                         month="{{ $month }}"
                         day="{{ $date->day }}"
-                        url="{{ asset('images/topimage-record.png') }}"
-                        is-right-end=true
-                        is-data="true"
+                        @if (isset($array[$date->day]["image"]))
+                            url="https://piscare-s3-image.s3.ap-northeast-1.amazonaws.com/{{ $array[$date->day]["image"] }}"
+                        @else
+                            url="{{ asset('images/noimage.jpeg') }}"
+                        @endif
+                        title="{{ $array[$date->day]["title"] }}"
+                        record-create-root="{{ route("record.store")}}"
+                        id="{{$array[$date->day]["id"]}}"
+                        destroy-root="{{ route("record.destroy",  ["record" => $array[$date->day]["id"] ]) }}"
+                        redirect="{{ route("record.index")}}"
                     >
                     </record-edit>
                 @else
