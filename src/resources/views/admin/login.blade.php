@@ -1,7 +1,7 @@
 @extends('layouts.auth.app')
 
 @section('header')
-    @include('components.header.auth.app', ['page' => 'admin'])
+    @include('common.navbar.auth', ['page' => 'admin'])
 @endsection
 
 @section('main')
