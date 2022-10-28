@@ -4892,25 +4892,7 @@ var render = function render() {
     staticClass: "mb-5 mt-2 text-gray-600 font-normal"
   }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("div", {
     staticClass: "flex items-center justify-end w-full"
-  }, [_c("button", {
-    staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-green-700 rounded text-white px-8 py-2 text-sm",
-    on: {
-      click: _vm.openEditForm
-    }
-  }, [_vm._v("編集")]), _vm._v(" "), _c("button", {
-    staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 ml-3 transition duration-150 ease-in-out hover:bg-indigo-600 bg-red-700 rounded text-white px-8 py-2 text-sm",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: _vm.openDeleteForm
-    }
-  }, [_vm._v("削除")]), _vm._v(" "), _c("button", {
-    staticClass: "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm",
-    on: {
-      click: _vm.closeShowRecord
-    }
-  }, [_vm._v("キャンセル")])]), _vm._v(" "), _c("button", {
+  }), _vm._v(" "), _c("button", {
     staticClass: "cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
     attrs: {
       "aria-label": "close modal",
