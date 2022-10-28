@@ -42,12 +42,12 @@
                         <label for="name" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">料理名</label>
                         <p class="mb-5 mt-2 text-gray-600 font-normal">{{ title }}</p>
                         <div class="flex items-center justify-end w-full">
-                            <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-green-700 rounded text-white px-8 py-2 text-sm" @click="openEditForm">編集</button>
+                            <!-- <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-green-700 rounded text-white px-8 py-2 text-sm" @click="openEditForm">編集</button> -->
                             <!-- <form method="DELETE" :action="recordDestroyRoot" id="record-destroy-form"> -->
                                 <!-- <input type="hidden" name="_token" :value="csrf"> -->
-                                <button type="button" @click="openDeleteForm" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 ml-3 transition duration-150 ease-in-out hover:bg-indigo-600 bg-red-700 rounded text-white px-8 py-2 text-sm">削除</button>
+                                <!-- <button type="button" @click="openDeleteForm" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 ml-3 transition duration-150 ease-in-out hover:bg-indigo-600 bg-red-700 rounded text-white px-8 py-2 text-sm">削除</button> -->
                             <!-- </form> -->
-                            <button  class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" @click="closeShowRecord">キャンセル</button>
+                            <!-- <button  class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" @click="closeShowRecord">キャンセル</button> -->
                         </div>
                         <button class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" @click="closeShowRecord" aria-label="close modal" role="button">
                             <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
